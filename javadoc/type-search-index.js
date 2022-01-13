@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.tquadrat.foundation.fx","l":"FXStringConverter"},{"p":"org.tquadrat.foundation.fx.internal","l":"FXUserDataBean"},{"p":"org.tquadrat.foundation.fx","l":"SceneUserData"}];updateSearchResults();
