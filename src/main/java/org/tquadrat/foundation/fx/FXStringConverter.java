@@ -30,11 +30,12 @@ import org.tquadrat.foundation.lang.Stringer;
 
 /**
  *  <p>{@summary An implementation of
- *  {@link org.tquadrat.foundation.lang.StringConverter}
- *  that extends
- *  {@link javafx.util.StringConverter}.}
- *  It delegates the transformation work to the <i>Foundation</i>
- *  {@code StringConverter} instance that is provided to the
+ *  {@link org.tquadrat.foundation.lang.StringConverter org.tquadrat.foundation.lang.StringConverter}
+ *  (the <i>Foundation</i> {@code StringConverter}) that extends
+ *  {@link javafx.util.StringConverter javafx.util.StringConverter}
+ *  (the JavaFX {@code StringConverter}).} It delegates the transformation work
+ *  to the <i>Foundation</i> {@code StringConverter} instance that is provided
+ *  to the
  *  {@link #FXStringConverter(org.tquadrat.foundation.lang.StringConverter) constructor}.</p>
  *  <p>To reuse an existing JavaFX {@code StringConverter}, you can use the
  *  method
@@ -47,11 +48,11 @@ import org.tquadrat.foundation.lang.Stringer;
  *  </code></pre>
  *  <p>If you need to build a String converter from scratch that should serve
  *  both purposes, write your own class that extends
- *  {@link javafx.util.StringConverter}
+ *  {@link javafx.util.StringConverter javafx.util.StringConverter}
  *  and implements
- *  {@link org.tquadrat.foundation.lang.StringConverter},
+ *  {@link org.tquadrat.foundation.lang.StringConverter org.tquadrat.foundation.lang.StringConverter},
  *  and then implement the methods accordingly. Keep in mind that the method
- *  signature for {@code fromString()} differs for both the abstract method and
+ *  signature for {@code fromString()} differs for both the abstract class and
  *  the interface because of the different argument type (String vs.
  *  CharSequence).</p>
  *
