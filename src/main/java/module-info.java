@@ -26,11 +26,10 @@
 module org.tquadrat.foundation.fx
 {
     requires java.base;
-    requires transitive org.tquadrat.foundation.base;
     requires org.tquadrat.foundation.util;
 
-    requires javafx.base;
-    requires javafx.graphics;
+    requires transitive javafx.base;
+    requires transitive javafx.graphics;
 
     //---* Common Use *--------------------------------------------------------
     exports org.tquadrat.foundation.fx;

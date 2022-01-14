@@ -58,14 +58,14 @@ import org.tquadrat.foundation.lang.Stringer;
  *
  *  @param <T>  The target type for the conversion.
  *
- *  @version $Id: FXStringConverter.java 984 2022-01-13 00:46:27Z tquadrat $
+ *  @version $Id: FXStringConverter.java 989 2022-01-13 19:09:58Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.1.0
  *
  *  @see GenericStringConverter
  */
-@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 984 2022-01-13 00:46:27Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 989 2022-01-13 19:09:58Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public final class FXStringConverter<T> extends javafx.util.StringConverter<T> implements org.tquadrat.foundation.lang.StringConverter<T>
 {

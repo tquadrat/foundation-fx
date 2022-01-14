@@ -77,12 +77,12 @@ import javafx.stage.Stage;
  *
  *  @param  <A> The class of the JavaFX application.
  *
- *  @version $Id: SceneUserData.java 984 2022-01-13 00:46:27Z tquadrat $
+ *  @version $Id: SceneUserData.java 989 2022-01-13 19:09:58Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.1.0
  */
-@ClassVersion( sourceVersion = "$Id: SceneUserData.java 984 2022-01-13 00:46:27Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: SceneUserData.java 989 2022-01-13 19:09:58Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public non-sealed class SceneUserData<A extends Application> extends FXUserDataBean<A>
 {

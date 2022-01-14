@@ -37,13 +37,13 @@ import javafx.stage.Stage;
  *
  *  @param  <A> The class of the JavaFX application.
  *
- *  @version $Id: FXUserDataBean.java 984 2022-01-13 00:46:27Z tquadrat $
+ *  @version $Id: FXUserDataBean.java 989 2022-01-13 19:09:58Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.1.0
  */
 @SuppressWarnings( "AbstractClassWithoutAbstractMethods" )
-@ClassVersion( sourceVersion = "$Id: FXUserDataBean.java 984 2022-01-13 00:46:27Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: FXUserDataBean.java 989 2022-01-13 19:09:58Z tquadrat $" )
 @API( status = INTERNAL, since = "0.1.0" )
 public abstract sealed class FXUserDataBean<A extends Application>
     permits org.tquadrat.foundation.fx.SceneUserData
