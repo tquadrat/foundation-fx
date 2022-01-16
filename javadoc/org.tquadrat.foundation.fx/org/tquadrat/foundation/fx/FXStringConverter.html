@@ -93,10 +93,10 @@ loadScripts(document, 'script');</script>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></code>, <code><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/lang/StringConverter.html" title="class or interface in org.tquadrat.foundation.lang" class="external-link">StringConverter</a>&lt;T&gt;</code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="annotations"><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/annotation/ClassVersion.html" title="class or interface in org.tquadrat.foundation.annotation" class="external-link">@ClassVersion</a>(<a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/annotation/ClassVersion.html#sourceVersion()" title="class or interface in org.tquadrat.foundation.annotation" class="external-link">sourceVersion</a>="$Id: FXStringConverter.java 989 2022-01-13 19:09:58Z tquadrat $")
+<div class="type-signature"><span class="annotations"><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/annotation/ClassVersion.html" title="class or interface in org.tquadrat.foundation.annotation" class="external-link">@ClassVersion</a>(<a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/annotation/ClassVersion.html#sourceVersion()" title="class or interface in org.tquadrat.foundation.annotation" class="external-link">sourceVersion</a>="$Id: FXStringConverter.java 990 2022-01-14 23:34:24Z tquadrat $")
 <a href="https://apiguardian-team.github.io/apiguardian/docs/current/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/current/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/current/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/current/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="0.1.0")
-</span><span class="modifiers">public final class </span><span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-68">FXStringConverter</a>&lt;T&gt;</span>
+</span><span class="modifiers">public final class </span><span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-74">FXStringConverter</a>&lt;T&gt;</span>
 <span class="extends-implements">extends <a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/StringConverter.html" title="class or interface in javafx.util" class="external-link">StringConverter</a>&lt;T&gt;
 implements <a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/lang/StringConverter.html" title="class or interface in org.tquadrat.foundation.lang" class="external-link">StringConverter</a>&lt;T&gt;</span></div>
 <div class="block"><p>An implementation of
@@ -126,10 +126,20 @@ implements <a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquad
   the interface because of the different argument type (String vs.
   CharSequence).</p></div>
 <dl class="notes">
+<dt><span class="simpleTagLabel">Note:</span></dt>
+<dd>
+<ul>
+<li>The method <code>fromString()</code> of a JavaFX <code>StringConverter</code>
+      may always return <code>null</code>, for each and every argument, but this
+      is not allowed for an implementation of the method with the same name
+      for a <i>Foundation</i> <code>StringConverter</code>.</li>
+</ul>
+</dd>
+
 <dt><span class="simpleTagLabel">Author:</span></dt>
   <dd>Thomas Thrien (<a href="mailto:thomas.thrien@tquadrat.org">thomas.thrien@tquadrat.org</a>)</dd>
 <dt>Version:</dt>
-<dd>$Id: FXStringConverter.java 989 2022-01-13 19:09:58Z tquadrat $</dd>
+<dd>$Id: FXStringConverter.java 990 2022-01-14 23:34:24Z tquadrat $</dd>
 <dt>Since:</dt>
 <dd>0.1.0</dd>
 <dt>See Also:</dt>
@@ -221,8 +231,8 @@ implements <a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquad
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static final &lt;C&gt;&nbsp;<a href="FXStringConverter.html" title="class in org.tquadrat.foundation.fx">FXStringConverter</a>&lt;C&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#wrap(javafx.util.StringConverter)" class="member-name-link">wrap</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/StringConverter.html" title="class or interface in javafx.util" class="external-link">StringConverter</a>&lt;C&gt;&nbsp;stringConverter)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Creates an instance of <code>FXStringConverter</code> from an instance of
-  <a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/StringConverter.html" title="class or interface in javafx.util" class="external-link"><code>StringConverter</code></a>.</div>
+<div class="block">Creates an instance of <code>FXStringConverter</code> from an
+  instance of <a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/StringConverter.html" title="class or interface in javafx.util" class="external-link"><code>javafx.util.StringConverter</code></a>.</div>
 </div>
 </div>
 </div>
@@ -244,7 +254,7 @@ implements <a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquad
 <li>
 <section class="detail" id="m_StringConverter">
 <h3>m_StringConverter</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/lang/StringConverter.html" title="class or interface in org.tquadrat.foundation.lang" class="external-link">StringConverter</a>&lt;<a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-80">m_StringConverter</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/lang/StringConverter.html" title="class or interface in org.tquadrat.foundation.lang" class="external-link">StringConverter</a>&lt;<a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-86">m_StringConverter</a></span></div>
 <div class="block">The <i>Foundation</i>
   <a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/lang/StringConverter.html" title="class or interface in org.tquadrat.foundation.lang" class="external-link"><code>StringConverter</code></a>
   instance.</div>
@@ -261,7 +271,7 @@ implements <a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquad
 <li>
 <section class="detail" id="&lt;init&gt;(org.tquadrat.foundation.lang.StringConverter)">
 <h3>FXStringConverter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-92">FXStringConverter</a></span><wbr><span class="parameters">(<a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/lang/StringConverter.html" title="class or interface in org.tquadrat.foundation.lang" class="external-link">StringConverter</a>&lt;<a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a>&gt;&nbsp;stringConverter)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-98">FXStringConverter</a></span><wbr><span class="parameters">(<a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/lang/StringConverter.html" title="class or interface in org.tquadrat.foundation.lang" class="external-link">StringConverter</a>&lt;<a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a>&gt;&nbsp;stringConverter)</span></div>
 <div class="block">Creates a new instance of <code>FXStringConverter</code>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -282,7 +292,7 @@ implements <a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquad
 <li>
 <section class="detail" id="fromString(java.lang.String)">
 <h3>fromString</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-105">fromString</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;source)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-111">fromString</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;source)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/StringConverter.html#fromString(java.lang.String)" title="class or interface in javafx.util" class="external-link">fromString</a></code>&nbsp;in class&nbsp;<code><a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/StringConverter.html" title="class or interface in javafx.util" class="external-link">StringConverter</a>&lt;<a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a>&gt;</code></dd>
@@ -292,7 +302,7 @@ implements <a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquad
 <li>
 <section class="detail" id="fromString(java.lang.CharSequence)">
 <h3>fromString</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-118">fromString</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/CharSequence.html" title="class or interface in java.lang" class="external-link">CharSequence</a>&nbsp;source)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-124">fromString</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/CharSequence.html" title="class or interface in java.lang" class="external-link">CharSequence</a>&nbsp;source)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/lang/StringConverter.html#fromString(java.lang.CharSequence)" title="class or interface in org.tquadrat.foundation.lang" class="external-link">fromString</a></code>&nbsp;in interface&nbsp;<code><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/lang/StringConverter.html" title="class or interface in org.tquadrat.foundation.lang" class="external-link">StringConverter</a>&lt;<a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a>&gt;</code></dd>
@@ -302,7 +312,7 @@ implements <a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquad
 <li>
 <section class="detail" id="toString(T)">
 <h3 id="toString(java.lang.Object)">toString</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-130">toString</a></span><wbr><span class="parameters">(<a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a>&nbsp;source)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-136">toString</a></span><wbr><span class="parameters">(<a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a>&nbsp;source)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/lang/StringConverter.html#toString(T)" title="class or interface in org.tquadrat.foundation.lang" class="external-link">toString</a></code>&nbsp;in interface&nbsp;<code><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/lang/StringConverter.html" title="class or interface in org.tquadrat.foundation.lang" class="external-link">StringConverter</a>&lt;<a href="FXStringConverter.html" title="type parameter in FXStringConverter">T</a>&gt;</code></dd>
@@ -314,9 +324,14 @@ implements <a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquad
 <li>
 <section class="detail" id="wrap(javafx.util.StringConverter)">
 <h3>wrap</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="type-parameters">&lt;C&gt;</span>&nbsp;<span class="return-type"><a href="FXStringConverter.html" title="class in org.tquadrat.foundation.fx">FXStringConverter</a>&lt;C&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-148">wrap</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/StringConverter.html" title="class or interface in javafx.util" class="external-link">StringConverter</a>&lt;C&gt;&nbsp;stringConverter)</span></div>
-<div class="block">Creates an instance of <code>FXStringConverter</code> from an instance of
-  <a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/StringConverter.html" title="class or interface in javafx.util" class="external-link"><code>StringConverter</code></a>.</div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="type-parameters">&lt;C&gt;</span>&nbsp;<span class="return-type"><a href="FXStringConverter.html" title="class in org.tquadrat.foundation.fx">FXStringConverter</a>&lt;C&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/FXStringConverter.html#line-159">wrap</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/StringConverter.html" title="class or interface in javafx.util" class="external-link">StringConverter</a>&lt;C&gt;&nbsp;stringConverter)</span></div>
+<div class="block"><p>Creates an instance of <code>FXStringConverter</code> from an
+  instance of <a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/StringConverter.html" title="class or interface in javafx.util" class="external-link"><code>javafx.util.StringConverter</code></a>.</p>
+  <p>Keep in mind that the implementation of the method
+  <a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/StringConverter.html#fromString(java.lang.String)" title="class or interface in javafx.util" class="external-link"><code>javafx.util.StringConverter.fromString()</code></a>
+  may return <code>null</code> for all input arguments, but that this
+  behaviour is not valid for an implementation of the method
+  <a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/lang/StringConverter.html#fromString(java.lang.CharSequence)" title="class or interface in org.tquadrat.foundation.lang" class="external-link"><code>org.tquadrat.foundation.lang.StringConverter.fromString()</code></a>.</p></div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
 <dd><code>C</code> - The subject class.</dd>

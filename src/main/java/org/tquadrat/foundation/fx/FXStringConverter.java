@@ -27,6 +27,7 @@ import org.apiguardian.api.API;
 import org.tquadrat.foundation.annotation.ClassVersion;
 import org.tquadrat.foundation.lang.GenericStringConverter;
 import org.tquadrat.foundation.lang.Stringer;
+import javafx.util.StringConverter;
 
 /**
  *  <p>{@summary An implementation of
@@ -56,16 +57,21 @@ import org.tquadrat.foundation.lang.Stringer;
  *  the interface because of the different argument type (String vs.
  *  CharSequence).</p>
  *
+ *  @note The method {@code fromString()} of a JavaFX {@code StringConverter}
+ *      may always return {@code null}, for each and every argument, but this
+ *      is not allowed for an implementation of the method with the same name
+ *      for a <i>Foundation</i> {@code StringConverter}.
+ *
  *  @param <T>  The target type for the conversion.
  *
- *  @version $Id: FXStringConverter.java 989 2022-01-13 19:09:58Z tquadrat $
+ *  @version $Id: FXStringConverter.java 990 2022-01-14 23:34:24Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.1.0
  *
  *  @see GenericStringConverter
  */
-@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 989 2022-01-13 19:09:58Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 990 2022-01-14 23:34:24Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public final class FXStringConverter<T> extends javafx.util.StringConverter<T> implements org.tquadrat.foundation.lang.StringConverter<T>
 {
@@ -137,8 +143,13 @@ public final class FXStringConverter<T> extends javafx.util.StringConverter<T> i
     }   //  toString()
 
     /**
-     *  Creates an instance of {@code FXStringConverter} from an instance of
-     *  {@link javafx.util.StringConverter}.
+     *  <p>{@summary Creates an instance of {@code FXStringConverter} from an
+     *  instance of {@link StringConverter javafx.util.StringConverter}.}</p>
+     *  <p>Keep in mind that the implementation of the method
+     *  {@link javafx.util.StringConverter#fromString(String) javafx.util.StringConverter.fromString()}
+     *  may return {@code null} for all input arguments, but that this
+     *  behaviour is not valid for an implementation of the method
+     *  {@link org.tquadrat.foundation.lang.StringConverter#fromString(CharSequence) org.tquadrat.foundation.lang.StringConverter.fromString()}.</p>
      *
      *  @param  <C> The subject class.
      *  @param  stringConverter The instance of
