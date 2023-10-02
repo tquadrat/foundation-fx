@@ -13,7 +13,7 @@
 <div class="source-container">
 <pre><span class="source-line-no">001</span><span id="line-1">/*</span>
 <span class="source-line-no">002</span><span id="line-2"> * ============================================================================</span>
-<span class="source-line-no">003</span><span id="line-3"> * Copyright © 2002-2022 by Thomas Thrien.</span>
+<span class="source-line-no">003</span><span id="line-3"> * Copyright © 2002-2023 by Thomas Thrien.</span>
 <span class="source-line-no">004</span><span id="line-4"> * All Rights Reserved.</span>
 <span class="source-line-no">005</span><span id="line-5"> * ============================================================================</span>
 <span class="source-line-no">006</span><span id="line-6"> * Licensed to the public under the agreements of the GNU Lesser General Public</span>
@@ -90,12 +90,12 @@
 <span class="source-line-no">077</span><span id="line-77"> *</span>
 <span class="source-line-no">078</span><span id="line-78"> *  @param  &lt;A&gt; The class of the JavaFX application.</span>
 <span class="source-line-no">079</span><span id="line-79"> *</span>
-<span class="source-line-no">080</span><span id="line-80"> *  @version $Id: SceneUserData.java 989 2022-01-13 19:09:58Z tquadrat $</span>
+<span class="source-line-no">080</span><span id="line-80"> *  @version $Id: SceneUserData.java 1062 2023-09-25 23:11:41Z tquadrat $</span>
 <span class="source-line-no">081</span><span id="line-81"> *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org</span>
 <span class="source-line-no">082</span><span id="line-82"> *  @UMLGraph.link</span>
 <span class="source-line-no">083</span><span id="line-83"> *  @since 0.1.0</span>
 <span class="source-line-no">084</span><span id="line-84"> */</span>
-<span class="source-line-no">085</span><span id="line-85">@ClassVersion( sourceVersion = "$Id: SceneUserData.java 989 2022-01-13 19:09:58Z tquadrat $" )</span>
+<span class="source-line-no">085</span><span id="line-85">@ClassVersion( sourceVersion = "$Id: SceneUserData.java 1062 2023-09-25 23:11:41Z tquadrat $" )</span>
 <span class="source-line-no">086</span><span id="line-86">@API( status = STABLE, since = "0.1.0" )</span>
 <span class="source-line-no">087</span><span id="line-87">public non-sealed class SceneUserData&lt;A extends Application&gt; extends FXUserDataBean&lt;A&gt;</span>
 <span class="source-line-no">088</span><span id="line-88">{</span>
@@ -118,7 +118,7 @@
 <span class="source-line-no">105</span><span id="line-105">     *  @param  primaryStage    The reference for the application's primary</span>
 <span class="source-line-no">106</span><span id="line-106">     *      stage.</span>
 <span class="source-line-no">107</span><span id="line-107">     */</span>
-<span class="source-line-no">108</span><span id="line-108">    public SceneUserData( final A application, final Stage primaryStage )</span>
+<span class="source-line-no">108</span><span id="line-108">    public SceneUserData( final A application, @SuppressWarnings( "ParameterNameDiffersFromOverriddenParameter" ) final Stage primaryStage )</span>
 <span class="source-line-no">109</span><span id="line-109">    {</span>
 <span class="source-line-no">110</span><span id="line-110">        this( application, primaryStage, primaryStage );</span>
 <span class="source-line-no">111</span><span id="line-111">    }   //  SceneUserData()</span>
@@ -248,290 +248,293 @@
 <span class="source-line-no">235</span><span id="line-235">     *  @param  height  The height of the scene.</span>
 <span class="source-line-no">236</span><span id="line-236">     *  @return The new scene instance.</span>
 <span class="source-line-no">237</span><span id="line-237">     */</span>
-<span class="source-line-no">238</span><span id="line-238">    @API( status = STABLE, since = "0.1.0" )</span>
-<span class="source-line-no">239</span><span id="line-239">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( "supplier") final BiFunction&lt;T, ? super Stage, ? extends SceneUserData&lt;T&gt;&gt; supplier, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height )</span>
-<span class="source-line-no">240</span><span id="line-240">    {</span>
-<span class="source-line-no">241</span><span id="line-241">        final var userData = requireNonNullArgument( supplier, "supplier" ).apply( requireNonNullArgument( application, "application" ), requireNonNullArgument( primaryStage, "primaryStage" ) );</span>
-<span class="source-line-no">242</span><span id="line-242">        final var retValue = new Scene( requireNonNullArgument( root, "root" ), width, height );</span>
-<span class="source-line-no">243</span><span id="line-243">        primaryStage.setScene( retValue );</span>
-<span class="source-line-no">244</span><span id="line-244">        retValue.setUserData( userData );</span>
-<span class="source-line-no">245</span><span id="line-245"></span>
-<span class="source-line-no">246</span><span id="line-246">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">247</span><span id="line-247">        return retValue;</span>
-<span class="source-line-no">248</span><span id="line-248">    }   //  createScene()</span>
-<span class="source-line-no">249</span><span id="line-249"></span>
-<span class="source-line-no">250</span><span id="line-250">    /**</span>
-<span class="source-line-no">251</span><span id="line-251">     *  Creates a</span>
-<span class="source-line-no">252</span><span id="line-252">     *  {@link Scene}</span>
-<span class="source-line-no">253</span><span id="line-253">     *  for a specific root</span>
-<span class="source-line-no">254</span><span id="line-254">     *  {@link Node}</span>
-<span class="source-line-no">255</span><span id="line-255">     *  with a fill.</span>
-<span class="source-line-no">256</span><span id="line-256">     *</span>
-<span class="source-line-no">257</span><span id="line-257">     *  @param  &lt;T&gt; The type of the application's main class.</span>
-<span class="source-line-no">258</span><span id="line-258">     *  @param  application The reference for the application's main class.</span>
-<span class="source-line-no">259</span><span id="line-259">     *  @param  primaryStage    The reference for the application's primary</span>
-<span class="source-line-no">260</span><span id="line-260">     *      stage.</span>
-<span class="source-line-no">261</span><span id="line-261">     *  @param  root    The root node of the scene graph.</span>
-<span class="source-line-no">262</span><span id="line-262">     *  @param  fill    The fill.</span>
-<span class="source-line-no">263</span><span id="line-263">     *  @return The new scene instance.</span>
-<span class="source-line-no">264</span><span id="line-264">     */</span>
-<span class="source-line-no">265</span><span id="line-265">    @API( status = STABLE, since = "0.1.0" )</span>
-<span class="source-line-no">266</span><span id="line-266">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )</span>
-<span class="source-line-no">267</span><span id="line-267">    {</span>
-<span class="source-line-no">268</span><span id="line-268">        final var retValue = createScene( application, primaryStage, root, SceneUserData::new, fill );</span>
-<span class="source-line-no">269</span><span id="line-269"></span>
-<span class="source-line-no">270</span><span id="line-270">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">271</span><span id="line-271">        return retValue;</span>
-<span class="source-line-no">272</span><span id="line-272">    }   //  createScene()</span>
-<span class="source-line-no">273</span><span id="line-273"></span>
-<span class="source-line-no">274</span><span id="line-274">    /**</span>
-<span class="source-line-no">275</span><span id="line-275">     *  Creates a</span>
-<span class="source-line-no">276</span><span id="line-276">     *  {@link Scene}</span>
-<span class="source-line-no">277</span><span id="line-277">     *  for a specific root</span>
-<span class="source-line-no">278</span><span id="line-278">     *  {@link Node}</span>
-<span class="source-line-no">279</span><span id="line-279">     *  with a fill.</span>
-<span class="source-line-no">280</span><span id="line-280">     *</span>
-<span class="source-line-no">281</span><span id="line-281">     *  @param  &lt;T&gt; The type of the application's main class.</span>
-<span class="source-line-no">282</span><span id="line-282">     *  @param  application The reference for the application's main class.</span>
-<span class="source-line-no">283</span><span id="line-283">     *  @param  primaryStage    The reference for the application's primary</span>
-<span class="source-line-no">284</span><span id="line-284">     *      stage.</span>
-<span class="source-line-no">285</span><span id="line-285">     *  @param  root    The root node of the scene graph.</span>
-<span class="source-line-no">286</span><span id="line-286">     *  @param  supplier    The supplier for the {@code SceneUserData}</span>
-<span class="source-line-no">287</span><span id="line-287">     *      instance.</span>
-<span class="source-line-no">288</span><span id="line-288">     *  @param  fill    The fill.</span>
-<span class="source-line-no">289</span><span id="line-289">     *  @return The new scene instance.</span>
-<span class="source-line-no">290</span><span id="line-290">     */</span>
-<span class="source-line-no">291</span><span id="line-291">    @API( status = STABLE, since = "0.1.0" )</span>
-<span class="source-line-no">292</span><span id="line-292">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( "supplier") final BiFunction&lt;T, ? super Stage, ? extends SceneUserData&lt;T&gt;&gt; supplier, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )</span>
-<span class="source-line-no">293</span><span id="line-293">    {</span>
-<span class="source-line-no">294</span><span id="line-294">        final var userData = requireNonNullArgument( supplier, "supplier" ).apply( requireNonNullArgument( application, "application" ), requireNonNullArgument( primaryStage, "primaryStage" ) );</span>
-<span class="source-line-no">295</span><span id="line-295">        final var retValue = new Scene( requireNonNullArgument( root, "root" ), requireNonNullArgument( fill, "fill" ) );</span>
-<span class="source-line-no">296</span><span id="line-296">        primaryStage.setScene( retValue );</span>
-<span class="source-line-no">297</span><span id="line-297">        retValue.setUserData( userData );</span>
-<span class="source-line-no">298</span><span id="line-298"></span>
-<span class="source-line-no">299</span><span id="line-299">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">300</span><span id="line-300">        return retValue;</span>
-<span class="source-line-no">301</span><span id="line-301">    }   //  createScene()</span>
-<span class="source-line-no">302</span><span id="line-302"></span>
-<span class="source-line-no">303</span><span id="line-303">    /**</span>
-<span class="source-line-no">304</span><span id="line-304">     *  Creates a</span>
-<span class="source-line-no">305</span><span id="line-305">     *  {@link Scene}</span>
-<span class="source-line-no">306</span><span id="line-306">     *  for a specific root</span>
-<span class="source-line-no">307</span><span id="line-307">     *  {@link Node}</span>
-<span class="source-line-no">308</span><span id="line-308">     *  with a specific size and fill.</span>
-<span class="source-line-no">309</span><span id="line-309">     *</span>
-<span class="source-line-no">310</span><span id="line-310">     *  @param  &lt;T&gt; The type of the application's main class.</span>
-<span class="source-line-no">311</span><span id="line-311">     *  @param  application The reference for the application's main class.</span>
-<span class="source-line-no">312</span><span id="line-312">     *  @param  primaryStage    The reference for the application's primary</span>
-<span class="source-line-no">313</span><span id="line-313">     *      stage.</span>
-<span class="source-line-no">314</span><span id="line-314">     *  @param  root    The root node of the scene graph.</span>
-<span class="source-line-no">315</span><span id="line-315">     *  @param  width   The width of the scene.</span>
-<span class="source-line-no">316</span><span id="line-316">     *  @param  height  The height of the scene.</span>
-<span class="source-line-no">317</span><span id="line-317">     *  @param  fill    The fill.</span>
-<span class="source-line-no">318</span><span id="line-318">     *  @return The new scene instance.</span>
-<span class="source-line-no">319</span><span id="line-319">     */</span>
-<span class="source-line-no">320</span><span id="line-320">    @API( status = STABLE, since = "0.1.0" )</span>
-<span class="source-line-no">321</span><span id="line-321">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )</span>
-<span class="source-line-no">322</span><span id="line-322">    {</span>
-<span class="source-line-no">323</span><span id="line-323">        final var retValue = createScene( application, primaryStage, root, SceneUserData::new, width, height, fill );</span>
-<span class="source-line-no">324</span><span id="line-324"></span>
-<span class="source-line-no">325</span><span id="line-325">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">326</span><span id="line-326">        return retValue;</span>
-<span class="source-line-no">327</span><span id="line-327">    }   //  createScene()</span>
-<span class="source-line-no">328</span><span id="line-328"></span>
-<span class="source-line-no">329</span><span id="line-329">    /**</span>
-<span class="source-line-no">330</span><span id="line-330">     *  Creates a</span>
-<span class="source-line-no">331</span><span id="line-331">     *  {@link Scene}</span>
-<span class="source-line-no">332</span><span id="line-332">     *  for a specific root</span>
-<span class="source-line-no">333</span><span id="line-333">     *  {@link Node}</span>
-<span class="source-line-no">334</span><span id="line-334">     *  with a specific size and fill.</span>
-<span class="source-line-no">335</span><span id="line-335">     *</span>
-<span class="source-line-no">336</span><span id="line-336">     *  @param  &lt;T&gt; The type of the application's main class.</span>
-<span class="source-line-no">337</span><span id="line-337">     *  @param  application The reference for the application's main class.</span>
-<span class="source-line-no">338</span><span id="line-338">     *  @param  primaryStage    The reference for the application's primary</span>
-<span class="source-line-no">339</span><span id="line-339">     *      stage.</span>
-<span class="source-line-no">340</span><span id="line-340">     *  @param  root    The root node of the scene graph.</span>
-<span class="source-line-no">341</span><span id="line-341">     *  @param  supplier    The supplier for the {@code SceneUserData}</span>
-<span class="source-line-no">342</span><span id="line-342">     *      instance.</span>
-<span class="source-line-no">343</span><span id="line-343">     *  @param  width   The width of the scene.</span>
-<span class="source-line-no">344</span><span id="line-344">     *  @param  height  The height of the scene.</span>
-<span class="source-line-no">345</span><span id="line-345">     *  @param  fill    The fill.</span>
-<span class="source-line-no">346</span><span id="line-346">     *  @return The new scene instance.</span>
-<span class="source-line-no">347</span><span id="line-347">     */</span>
-<span class="source-line-no">348</span><span id="line-348">    @API( status = STABLE, since = "0.1.0" )</span>
-<span class="source-line-no">349</span><span id="line-349">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( "supplier") final BiFunction&lt;T, ? super Stage, ? extends SceneUserData&lt;T&gt;&gt; supplier, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )</span>
-<span class="source-line-no">350</span><span id="line-350">    {</span>
-<span class="source-line-no">351</span><span id="line-351">        final var userData = requireNonNullArgument( supplier, "supplier" ).apply( requireNonNullArgument( application, "application" ), requireNonNullArgument( primaryStage, "primaryStage" ) );</span>
-<span class="source-line-no">352</span><span id="line-352">        final var retValue = new Scene( requireNonNullArgument( root, "root" ), width, height, requireNonNullArgument( fill, "fill" ) );</span>
-<span class="source-line-no">353</span><span id="line-353">        primaryStage.setScene( retValue );</span>
-<span class="source-line-no">354</span><span id="line-354">        retValue.setUserData( userData );</span>
-<span class="source-line-no">355</span><span id="line-355"></span>
-<span class="source-line-no">356</span><span id="line-356">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">357</span><span id="line-357">        return retValue;</span>
-<span class="source-line-no">358</span><span id="line-358">    }   //  createScene()</span>
-<span class="source-line-no">359</span><span id="line-359"></span>
-<span class="source-line-no">360</span><span id="line-360">    /**</span>
-<span class="source-line-no">361</span><span id="line-361">     *  Creates a</span>
-<span class="source-line-no">362</span><span id="line-362">     *  {@link Scene}</span>
-<span class="source-line-no">363</span><span id="line-363">     *  for a specific root</span>
-<span class="source-line-no">364</span><span id="line-364">     *  {@link Node}.</span>
-<span class="source-line-no">365</span><span id="line-365">     *</span>
-<span class="source-line-no">366</span><span id="line-366">     *  @param  &lt;T&gt; The type of the application's main class.</span>
-<span class="source-line-no">367</span><span id="line-367">     *  @param  templateDataBean    The user data from the application's main</span>
-<span class="source-line-no">368</span><span id="line-368">     *      scene.</span>
-<span class="source-line-no">369</span><span id="line-369">     *  @param  currentStage    The stage for the current scene.</span>
-<span class="source-line-no">370</span><span id="line-370">     *  @param  root    The root node of the scene graph.</span>
-<span class="source-line-no">371</span><span id="line-371">     *  @return The new scene instance.</span>
-<span class="source-line-no">372</span><span id="line-372">     */</span>
-<span class="source-line-no">373</span><span id="line-373">    @SuppressWarnings( "UseOfConcreteClass" )</span>
-<span class="source-line-no">374</span><span id="line-374">    @API( status = STABLE, since = "0.1.0" )</span>
-<span class="source-line-no">375</span><span id="line-375">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "templateDataBean" ) final SceneUserData&lt;T&gt; templateDataBean, @NamedArg( "currentStage" ) final Stage currentStage, @NamedArg( "root" ) final Parent root )</span>
-<span class="source-line-no">376</span><span id="line-376">    {</span>
-<span class="source-line-no">377</span><span id="line-377">        final var newUserDataBean = new SceneUserData&lt;&gt;( templateDataBean, currentStage );</span>
-<span class="source-line-no">378</span><span id="line-378">        final var retValue = new Scene( requireNonNullArgument( root, "root" ) );</span>
-<span class="source-line-no">379</span><span id="line-379">        currentStage.setScene( retValue );</span>
-<span class="source-line-no">380</span><span id="line-380">        retValue.setUserData( newUserDataBean );</span>
-<span class="source-line-no">381</span><span id="line-381">        newUserDataBean.getApplicationCSS().ifPresent( u -&gt; retValue.getStylesheets().add( u.toExternalForm() ) );</span>
-<span class="source-line-no">382</span><span id="line-382"></span>
-<span class="source-line-no">383</span><span id="line-383">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">384</span><span id="line-384">        return retValue;</span>
-<span class="source-line-no">385</span><span id="line-385">    }   //  createScene()</span>
-<span class="source-line-no">386</span><span id="line-386"></span>
-<span class="source-line-no">387</span><span id="line-387">    /**</span>
-<span class="source-line-no">388</span><span id="line-388">     *  Creates a</span>
-<span class="source-line-no">389</span><span id="line-389">     *  {@link Scene}</span>
-<span class="source-line-no">390</span><span id="line-390">     *  for a specific root</span>
-<span class="source-line-no">391</span><span id="line-391">     *  {@link Node}</span>
-<span class="source-line-no">392</span><span id="line-392">     *  with a specific size.</span>
-<span class="source-line-no">393</span><span id="line-393">     *</span>
-<span class="source-line-no">394</span><span id="line-394">     *  @param  &lt;T&gt; The type of the application's main class.</span>
-<span class="source-line-no">395</span><span id="line-395">     *  @param  templateDataBean    The user data from the application's main</span>
-<span class="source-line-no">396</span><span id="line-396">     *      scene.</span>
-<span class="source-line-no">397</span><span id="line-397">     *  @param  currentStage    The stage for the current scene.</span>
-<span class="source-line-no">398</span><span id="line-398">     *  @param  root    The root node of the scene graph.</span>
-<span class="source-line-no">399</span><span id="line-399">     *  @param  width   The width of the scene.</span>
-<span class="source-line-no">400</span><span id="line-400">     *  @param  height  The height of the scene.</span>
-<span class="source-line-no">401</span><span id="line-401">     *  @return The new scene instance.</span>
-<span class="source-line-no">402</span><span id="line-402">     */</span>
-<span class="source-line-no">403</span><span id="line-403">    @SuppressWarnings( "UseOfConcreteClass" )</span>
-<span class="source-line-no">404</span><span id="line-404">    @API( status = STABLE, since = "0.1.0" )</span>
-<span class="source-line-no">405</span><span id="line-405">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "templateDataBean" ) final SceneUserData&lt;T&gt; templateDataBean, @NamedArg( "currentStage" ) final Stage currentStage, @NamedArg( "root" ) final Parent root, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height )</span>
-<span class="source-line-no">406</span><span id="line-406">    {</span>
-<span class="source-line-no">407</span><span id="line-407">        final var newUserDataBean = new SceneUserData&lt;&gt;( templateDataBean, currentStage );</span>
-<span class="source-line-no">408</span><span id="line-408">        final var retValue = new Scene( requireNonNullArgument( root, "root" ), width, height );</span>
-<span class="source-line-no">409</span><span id="line-409">        currentStage.setScene( retValue );</span>
-<span class="source-line-no">410</span><span id="line-410">        retValue.setUserData( newUserDataBean );</span>
-<span class="source-line-no">411</span><span id="line-411">        newUserDataBean.getApplicationCSS().ifPresent( u -&gt; retValue.getStylesheets().add( u.toExternalForm() ) );</span>
-<span class="source-line-no">412</span><span id="line-412"></span>
-<span class="source-line-no">413</span><span id="line-413">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">414</span><span id="line-414">        return retValue;</span>
-<span class="source-line-no">415</span><span id="line-415">    }   //  createScene()</span>
-<span class="source-line-no">416</span><span id="line-416"></span>
-<span class="source-line-no">417</span><span id="line-417">    /**</span>
-<span class="source-line-no">418</span><span id="line-418">     *  Creates a</span>
-<span class="source-line-no">419</span><span id="line-419">     *  {@link Scene}</span>
-<span class="source-line-no">420</span><span id="line-420">     *  for a specific root</span>
-<span class="source-line-no">421</span><span id="line-421">     *  {@link Node}</span>
-<span class="source-line-no">422</span><span id="line-422">     *  with a fill.</span>
-<span class="source-line-no">423</span><span id="line-423">     *</span>
-<span class="source-line-no">424</span><span id="line-424">     *  @param  &lt;T&gt; The type of the application's main class.</span>
-<span class="source-line-no">425</span><span id="line-425">     *  @param  templateDataBean    The user data from the application's main scene.</span>
-<span class="source-line-no">426</span><span id="line-426">     *  @param  currentStage    The stage for the current scene.</span>
-<span class="source-line-no">427</span><span id="line-427">     *  @param  root    The root node of the scene graph.</span>
-<span class="source-line-no">428</span><span id="line-428">     *  @param  fill    The fill.</span>
-<span class="source-line-no">429</span><span id="line-429">     *  @return The new scene instance.</span>
-<span class="source-line-no">430</span><span id="line-430">     */</span>
-<span class="source-line-no">431</span><span id="line-431">    @SuppressWarnings( "UseOfConcreteClass" )</span>
-<span class="source-line-no">432</span><span id="line-432">    @API( status = STABLE, since = "0.1.0" )</span>
-<span class="source-line-no">433</span><span id="line-433">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "templateDataBean" ) final SceneUserData&lt;T&gt; templateDataBean, @NamedArg( "currentStage" ) final Stage currentStage, @NamedArg( "root" ) final Parent root, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )</span>
-<span class="source-line-no">434</span><span id="line-434">    {</span>
-<span class="source-line-no">435</span><span id="line-435">        final var newUserDataBean = new SceneUserData&lt;&gt;( templateDataBean, currentStage );</span>
-<span class="source-line-no">436</span><span id="line-436">        final var retValue = new Scene( requireNonNullArgument( root, "root" ), requireNonNullArgument( fill, "fill" ) );</span>
-<span class="source-line-no">437</span><span id="line-437">        currentStage.setScene( retValue );</span>
-<span class="source-line-no">438</span><span id="line-438">        retValue.setUserData( newUserDataBean );</span>
-<span class="source-line-no">439</span><span id="line-439">        newUserDataBean.getApplicationCSS().ifPresent( u -&gt; retValue.getStylesheets().add( u.toExternalForm() ) );</span>
-<span class="source-line-no">440</span><span id="line-440"></span>
-<span class="source-line-no">441</span><span id="line-441">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">442</span><span id="line-442">        return retValue;</span>
-<span class="source-line-no">443</span><span id="line-443">    }   //  createScene()</span>
-<span class="source-line-no">444</span><span id="line-444"></span>
-<span class="source-line-no">445</span><span id="line-445">    /**</span>
-<span class="source-line-no">446</span><span id="line-446">     *  Creates a</span>
-<span class="source-line-no">447</span><span id="line-447">     *  {@link Scene}</span>
-<span class="source-line-no">448</span><span id="line-448">     *  for a specific root</span>
-<span class="source-line-no">449</span><span id="line-449">     *  {@link Node}</span>
-<span class="source-line-no">450</span><span id="line-450">     *  with a specific size and fill.</span>
-<span class="source-line-no">451</span><span id="line-451">     *</span>
-<span class="source-line-no">452</span><span id="line-452">     *  @param  &lt;T&gt; The type of the application's main class.</span>
-<span class="source-line-no">453</span><span id="line-453">     *  @param  templateDataBean    The user data from the application's main scene.</span>
-<span class="source-line-no">454</span><span id="line-454">     *  @param  currentStage    The stage for the current scene.</span>
-<span class="source-line-no">455</span><span id="line-455">     *  @param  root    The root node of the scene graph.</span>
-<span class="source-line-no">456</span><span id="line-456">     *  @param  width   The width of the scene.</span>
-<span class="source-line-no">457</span><span id="line-457">     *  @param  height  The height of the scene.</span>
-<span class="source-line-no">458</span><span id="line-458">     *  @param  fill    The fill.</span>
-<span class="source-line-no">459</span><span id="line-459">     *  @return The new scene instance.</span>
-<span class="source-line-no">460</span><span id="line-460">     */</span>
-<span class="source-line-no">461</span><span id="line-461">    @SuppressWarnings( "UseOfConcreteClass" )</span>
-<span class="source-line-no">462</span><span id="line-462">    @API( status = STABLE, since = "0.1.0" )</span>
-<span class="source-line-no">463</span><span id="line-463">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "templateDataBean" ) final SceneUserData&lt;T&gt; templateDataBean, @NamedArg( "currentStage" ) final Stage currentStage, @NamedArg( "root" ) final Parent root, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )</span>
-<span class="source-line-no">464</span><span id="line-464">    {</span>
-<span class="source-line-no">465</span><span id="line-465">        final var newUserDataBean = new SceneUserData&lt;&gt;( templateDataBean, currentStage );</span>
-<span class="source-line-no">466</span><span id="line-466">        final var retValue = new Scene( requireNonNullArgument( root, "root" ), width, height, requireNonNullArgument( fill, "fill" ) );</span>
-<span class="source-line-no">467</span><span id="line-467">        currentStage.setScene( retValue );</span>
-<span class="source-line-no">468</span><span id="line-468">        retValue.setUserData( newUserDataBean );</span>
-<span class="source-line-no">469</span><span id="line-469">        newUserDataBean.getApplicationCSS().ifPresent( u -&gt; retValue.getStylesheets().add( u.toExternalForm() ) );</span>
-<span class="source-line-no">470</span><span id="line-470"></span>
-<span class="source-line-no">471</span><span id="line-471">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">472</span><span id="line-472">        return retValue;</span>
-<span class="source-line-no">473</span><span id="line-473">    }   //  createScene()</span>
-<span class="source-line-no">474</span><span id="line-474"></span>
-<span class="source-line-no">475</span><span id="line-475">    /**</span>
-<span class="source-line-no">476</span><span id="line-476">     *  Returns the stage for the current scene. If the current scene is the</span>
-<span class="source-line-no">477</span><span id="line-477">     *  application's main scene, the returned stage is the primary stage, so</span>
-<span class="source-line-no">478</span><span id="line-478">     *  that in this case</span>
-<span class="source-line-no">479</span><span id="line-479">     *  {@link #getPrimaryStage()}</span>
-<span class="source-line-no">480</span><span id="line-480">     *  will return the same value as this method.</span>
-<span class="source-line-no">481</span><span id="line-481">     *</span>
-<span class="source-line-no">482</span><span id="line-482">     *  @return The stage for the current scene.</span>
-<span class="source-line-no">483</span><span id="line-483">     */</span>
-<span class="source-line-no">484</span><span id="line-484">    public final Stage getStage() { return m_Stage; }</span>
-<span class="source-line-no">485</span><span id="line-485"></span>
-<span class="source-line-no">486</span><span id="line-486">    /**</span>
-<span class="source-line-no">487</span><span id="line-487">     *  Retrieves the user data from the given instance of</span>
-<span class="source-line-no">488</span><span id="line-488">     *  {@link Scene}.</span>
-<span class="source-line-no">489</span><span id="line-489">     *</span>
-<span class="source-line-no">490</span><span id="line-490">     *  @param  &lt;T&gt; The type of the application's main class.</span>
-<span class="source-line-no">491</span><span id="line-491">     *  @param  scene   The scene.</span>
-<span class="source-line-no">492</span><span id="line-492">     *  @param  applicationClass    The type of the application's main class.</span>
-<span class="source-line-no">493</span><span id="line-493">     *  @return An instance of</span>
-<span class="source-line-no">494</span><span id="line-494">     *      {@link Optional}</span>
-<span class="source-line-no">495</span><span id="line-495">     *      that holds the user data instance.</span>
-<span class="source-line-no">496</span><span id="line-496">     */</span>
-<span class="source-line-no">497</span><span id="line-497">    @SuppressWarnings( "UseOfConcreteClass" )</span>
-<span class="source-line-no">498</span><span id="line-498">    public static final &lt;T extends Application&gt; Optional&lt;SceneUserData&lt;T&gt;&gt; retrieveUserData( final Scene scene, final Class&lt;T&gt; applicationClass )</span>
-<span class="source-line-no">499</span><span id="line-499">    {</span>
-<span class="source-line-no">500</span><span id="line-500">        Optional&lt;SceneUserData&lt;T&gt;&gt; retValue = Optional.empty();</span>
-<span class="source-line-no">501</span><span id="line-501">        final var u = requireNonNullArgument( scene, "scene" ).getUserData();</span>
-<span class="source-line-no">502</span><span id="line-502">        if( u instanceof SceneUserData userDataBean )</span>
-<span class="source-line-no">503</span><span id="line-503">        {</span>
-<span class="source-line-no">504</span><span id="line-504">            final var app = userDataBean.getApplication();</span>
-<span class="source-line-no">505</span><span id="line-505">            if( applicationClass.isInstance( app ) )</span>
-<span class="source-line-no">506</span><span id="line-506">            {</span>
-<span class="source-line-no">507</span><span id="line-507">                @SuppressWarnings( "unchecked" )</span>
-<span class="source-line-no">508</span><span id="line-508">                final var data = (SceneUserData&lt;T&gt;) u;</span>
-<span class="source-line-no">509</span><span id="line-509">                retValue = Optional.of( data );</span>
-<span class="source-line-no">510</span><span id="line-510">            }</span>
-<span class="source-line-no">511</span><span id="line-511">        }</span>
-<span class="source-line-no">512</span><span id="line-512"></span>
-<span class="source-line-no">513</span><span id="line-513">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">514</span><span id="line-514">        return retValue;</span>
-<span class="source-line-no">515</span><span id="line-515">    }   //  retrieveUserData()</span>
-<span class="source-line-no">516</span><span id="line-516">}</span>
-<span class="source-line-no">517</span><span id="line-517">//  class SceneUserData</span>
-<span class="source-line-no">518</span><span id="line-518"></span>
-<span class="source-line-no">519</span><span id="line-519">/*</span>
-<span class="source-line-no">520</span><span id="line-520"> *  End of File</span>
-<span class="source-line-no">521</span><span id="line-521"> */</span>
+<span class="source-line-no">238</span><span id="line-238">    @SuppressWarnings( "MethodWithTooManyParameters" )</span>
+<span class="source-line-no">239</span><span id="line-239">    @API( status = STABLE, since = "0.1.0" )</span>
+<span class="source-line-no">240</span><span id="line-240">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( "supplier") final BiFunction&lt;T, ? super Stage, ? extends SceneUserData&lt;T&gt;&gt; supplier, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height )</span>
+<span class="source-line-no">241</span><span id="line-241">    {</span>
+<span class="source-line-no">242</span><span id="line-242">        final var userData = requireNonNullArgument( supplier, "supplier" ).apply( requireNonNullArgument( application, "application" ), requireNonNullArgument( primaryStage, "primaryStage" ) );</span>
+<span class="source-line-no">243</span><span id="line-243">        final var retValue = new Scene( requireNonNullArgument( root, "root" ), width, height );</span>
+<span class="source-line-no">244</span><span id="line-244">        primaryStage.setScene( retValue );</span>
+<span class="source-line-no">245</span><span id="line-245">        retValue.setUserData( userData );</span>
+<span class="source-line-no">246</span><span id="line-246"></span>
+<span class="source-line-no">247</span><span id="line-247">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">248</span><span id="line-248">        return retValue;</span>
+<span class="source-line-no">249</span><span id="line-249">    }   //  createScene()</span>
+<span class="source-line-no">250</span><span id="line-250"></span>
+<span class="source-line-no">251</span><span id="line-251">    /**</span>
+<span class="source-line-no">252</span><span id="line-252">     *  Creates a</span>
+<span class="source-line-no">253</span><span id="line-253">     *  {@link Scene}</span>
+<span class="source-line-no">254</span><span id="line-254">     *  for a specific root</span>
+<span class="source-line-no">255</span><span id="line-255">     *  {@link Node}</span>
+<span class="source-line-no">256</span><span id="line-256">     *  with a fill.</span>
+<span class="source-line-no">257</span><span id="line-257">     *</span>
+<span class="source-line-no">258</span><span id="line-258">     *  @param  &lt;T&gt; The type of the application's main class.</span>
+<span class="source-line-no">259</span><span id="line-259">     *  @param  application The reference for the application's main class.</span>
+<span class="source-line-no">260</span><span id="line-260">     *  @param  primaryStage    The reference for the application's primary</span>
+<span class="source-line-no">261</span><span id="line-261">     *      stage.</span>
+<span class="source-line-no">262</span><span id="line-262">     *  @param  root    The root node of the scene graph.</span>
+<span class="source-line-no">263</span><span id="line-263">     *  @param  fill    The fill.</span>
+<span class="source-line-no">264</span><span id="line-264">     *  @return The new scene instance.</span>
+<span class="source-line-no">265</span><span id="line-265">     */</span>
+<span class="source-line-no">266</span><span id="line-266">    @API( status = STABLE, since = "0.1.0" )</span>
+<span class="source-line-no">267</span><span id="line-267">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )</span>
+<span class="source-line-no">268</span><span id="line-268">    {</span>
+<span class="source-line-no">269</span><span id="line-269">        final var retValue = createScene( application, primaryStage, root, SceneUserData::new, fill );</span>
+<span class="source-line-no">270</span><span id="line-270"></span>
+<span class="source-line-no">271</span><span id="line-271">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">272</span><span id="line-272">        return retValue;</span>
+<span class="source-line-no">273</span><span id="line-273">    }   //  createScene()</span>
+<span class="source-line-no">274</span><span id="line-274"></span>
+<span class="source-line-no">275</span><span id="line-275">    /**</span>
+<span class="source-line-no">276</span><span id="line-276">     *  Creates a</span>
+<span class="source-line-no">277</span><span id="line-277">     *  {@link Scene}</span>
+<span class="source-line-no">278</span><span id="line-278">     *  for a specific root</span>
+<span class="source-line-no">279</span><span id="line-279">     *  {@link Node}</span>
+<span class="source-line-no">280</span><span id="line-280">     *  with a fill.</span>
+<span class="source-line-no">281</span><span id="line-281">     *</span>
+<span class="source-line-no">282</span><span id="line-282">     *  @param  &lt;T&gt; The type of the application's main class.</span>
+<span class="source-line-no">283</span><span id="line-283">     *  @param  application The reference for the application's main class.</span>
+<span class="source-line-no">284</span><span id="line-284">     *  @param  primaryStage    The reference for the application's primary</span>
+<span class="source-line-no">285</span><span id="line-285">     *      stage.</span>
+<span class="source-line-no">286</span><span id="line-286">     *  @param  root    The root node of the scene graph.</span>
+<span class="source-line-no">287</span><span id="line-287">     *  @param  supplier    The supplier for the {@code SceneUserData}</span>
+<span class="source-line-no">288</span><span id="line-288">     *      instance.</span>
+<span class="source-line-no">289</span><span id="line-289">     *  @param  fill    The fill.</span>
+<span class="source-line-no">290</span><span id="line-290">     *  @return The new scene instance.</span>
+<span class="source-line-no">291</span><span id="line-291">     */</span>
+<span class="source-line-no">292</span><span id="line-292">    @API( status = STABLE, since = "0.1.0" )</span>
+<span class="source-line-no">293</span><span id="line-293">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( "supplier") final BiFunction&lt;T, ? super Stage, ? extends SceneUserData&lt;T&gt;&gt; supplier, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )</span>
+<span class="source-line-no">294</span><span id="line-294">    {</span>
+<span class="source-line-no">295</span><span id="line-295">        final var userData = requireNonNullArgument( supplier, "supplier" ).apply( requireNonNullArgument( application, "application" ), requireNonNullArgument( primaryStage, "primaryStage" ) );</span>
+<span class="source-line-no">296</span><span id="line-296">        final var retValue = new Scene( requireNonNullArgument( root, "root" ), requireNonNullArgument( fill, "fill" ) );</span>
+<span class="source-line-no">297</span><span id="line-297">        primaryStage.setScene( retValue );</span>
+<span class="source-line-no">298</span><span id="line-298">        retValue.setUserData( userData );</span>
+<span class="source-line-no">299</span><span id="line-299"></span>
+<span class="source-line-no">300</span><span id="line-300">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">301</span><span id="line-301">        return retValue;</span>
+<span class="source-line-no">302</span><span id="line-302">    }   //  createScene()</span>
+<span class="source-line-no">303</span><span id="line-303"></span>
+<span class="source-line-no">304</span><span id="line-304">    /**</span>
+<span class="source-line-no">305</span><span id="line-305">     *  Creates a</span>
+<span class="source-line-no">306</span><span id="line-306">     *  {@link Scene}</span>
+<span class="source-line-no">307</span><span id="line-307">     *  for a specific root</span>
+<span class="source-line-no">308</span><span id="line-308">     *  {@link Node}</span>
+<span class="source-line-no">309</span><span id="line-309">     *  with a specific size and fill.</span>
+<span class="source-line-no">310</span><span id="line-310">     *</span>
+<span class="source-line-no">311</span><span id="line-311">     *  @param  &lt;T&gt; The type of the application's main class.</span>
+<span class="source-line-no">312</span><span id="line-312">     *  @param  application The reference for the application's main class.</span>
+<span class="source-line-no">313</span><span id="line-313">     *  @param  primaryStage    The reference for the application's primary</span>
+<span class="source-line-no">314</span><span id="line-314">     *      stage.</span>
+<span class="source-line-no">315</span><span id="line-315">     *  @param  root    The root node of the scene graph.</span>
+<span class="source-line-no">316</span><span id="line-316">     *  @param  width   The width of the scene.</span>
+<span class="source-line-no">317</span><span id="line-317">     *  @param  height  The height of the scene.</span>
+<span class="source-line-no">318</span><span id="line-318">     *  @param  fill    The fill.</span>
+<span class="source-line-no">319</span><span id="line-319">     *  @return The new scene instance.</span>
+<span class="source-line-no">320</span><span id="line-320">     */</span>
+<span class="source-line-no">321</span><span id="line-321">    @SuppressWarnings( "MethodWithTooManyParameters" )</span>
+<span class="source-line-no">322</span><span id="line-322">    @API( status = STABLE, since = "0.1.0" )</span>
+<span class="source-line-no">323</span><span id="line-323">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )</span>
+<span class="source-line-no">324</span><span id="line-324">    {</span>
+<span class="source-line-no">325</span><span id="line-325">        final var retValue = createScene( application, primaryStage, root, SceneUserData::new, width, height, fill );</span>
+<span class="source-line-no">326</span><span id="line-326"></span>
+<span class="source-line-no">327</span><span id="line-327">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">328</span><span id="line-328">        return retValue;</span>
+<span class="source-line-no">329</span><span id="line-329">    }   //  createScene()</span>
+<span class="source-line-no">330</span><span id="line-330"></span>
+<span class="source-line-no">331</span><span id="line-331">    /**</span>
+<span class="source-line-no">332</span><span id="line-332">     *  Creates a</span>
+<span class="source-line-no">333</span><span id="line-333">     *  {@link Scene}</span>
+<span class="source-line-no">334</span><span id="line-334">     *  for a specific root</span>
+<span class="source-line-no">335</span><span id="line-335">     *  {@link Node}</span>
+<span class="source-line-no">336</span><span id="line-336">     *  with a specific size and fill.</span>
+<span class="source-line-no">337</span><span id="line-337">     *</span>
+<span class="source-line-no">338</span><span id="line-338">     *  @param  &lt;T&gt; The type of the application's main class.</span>
+<span class="source-line-no">339</span><span id="line-339">     *  @param  application The reference for the application's main class.</span>
+<span class="source-line-no">340</span><span id="line-340">     *  @param  primaryStage    The reference for the application's primary</span>
+<span class="source-line-no">341</span><span id="line-341">     *      stage.</span>
+<span class="source-line-no">342</span><span id="line-342">     *  @param  root    The root node of the scene graph.</span>
+<span class="source-line-no">343</span><span id="line-343">     *  @param  supplier    The supplier for the {@code SceneUserData}</span>
+<span class="source-line-no">344</span><span id="line-344">     *      instance.</span>
+<span class="source-line-no">345</span><span id="line-345">     *  @param  width   The width of the scene.</span>
+<span class="source-line-no">346</span><span id="line-346">     *  @param  height  The height of the scene.</span>
+<span class="source-line-no">347</span><span id="line-347">     *  @param  fill    The fill.</span>
+<span class="source-line-no">348</span><span id="line-348">     *  @return The new scene instance.</span>
+<span class="source-line-no">349</span><span id="line-349">     */</span>
+<span class="source-line-no">350</span><span id="line-350">    @SuppressWarnings( "MethodWithTooManyParameters" )</span>
+<span class="source-line-no">351</span><span id="line-351">    @API( status = STABLE, since = "0.1.0" )</span>
+<span class="source-line-no">352</span><span id="line-352">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( "supplier") final BiFunction&lt;T, ? super Stage, ? extends SceneUserData&lt;T&gt;&gt; supplier, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )</span>
+<span class="source-line-no">353</span><span id="line-353">    {</span>
+<span class="source-line-no">354</span><span id="line-354">        final var userData = requireNonNullArgument( supplier, "supplier" ).apply( requireNonNullArgument( application, "application" ), requireNonNullArgument( primaryStage, "primaryStage" ) );</span>
+<span class="source-line-no">355</span><span id="line-355">        final var retValue = new Scene( requireNonNullArgument( root, "root" ), width, height, requireNonNullArgument( fill, "fill" ) );</span>
+<span class="source-line-no">356</span><span id="line-356">        primaryStage.setScene( retValue );</span>
+<span class="source-line-no">357</span><span id="line-357">        retValue.setUserData( userData );</span>
+<span class="source-line-no">358</span><span id="line-358"></span>
+<span class="source-line-no">359</span><span id="line-359">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">360</span><span id="line-360">        return retValue;</span>
+<span class="source-line-no">361</span><span id="line-361">    }   //  createScene()</span>
+<span class="source-line-no">362</span><span id="line-362"></span>
+<span class="source-line-no">363</span><span id="line-363">    /**</span>
+<span class="source-line-no">364</span><span id="line-364">     *  Creates a</span>
+<span class="source-line-no">365</span><span id="line-365">     *  {@link Scene}</span>
+<span class="source-line-no">366</span><span id="line-366">     *  for a specific root</span>
+<span class="source-line-no">367</span><span id="line-367">     *  {@link Node}.</span>
+<span class="source-line-no">368</span><span id="line-368">     *</span>
+<span class="source-line-no">369</span><span id="line-369">     *  @param  &lt;T&gt; The type of the application's main class.</span>
+<span class="source-line-no">370</span><span id="line-370">     *  @param  templateDataBean    The user data from the application's main</span>
+<span class="source-line-no">371</span><span id="line-371">     *      scene.</span>
+<span class="source-line-no">372</span><span id="line-372">     *  @param  currentStage    The stage for the current scene.</span>
+<span class="source-line-no">373</span><span id="line-373">     *  @param  root    The root node of the scene graph.</span>
+<span class="source-line-no">374</span><span id="line-374">     *  @return The new scene instance.</span>
+<span class="source-line-no">375</span><span id="line-375">     */</span>
+<span class="source-line-no">376</span><span id="line-376">    @SuppressWarnings( "UseOfConcreteClass" )</span>
+<span class="source-line-no">377</span><span id="line-377">    @API( status = STABLE, since = "0.1.0" )</span>
+<span class="source-line-no">378</span><span id="line-378">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "templateDataBean" ) final SceneUserData&lt;T&gt; templateDataBean, @NamedArg( "currentStage" ) final Stage currentStage, @NamedArg( "root" ) final Parent root )</span>
+<span class="source-line-no">379</span><span id="line-379">    {</span>
+<span class="source-line-no">380</span><span id="line-380">        final var newUserDataBean = new SceneUserData&lt;&gt;( templateDataBean, currentStage );</span>
+<span class="source-line-no">381</span><span id="line-381">        final var retValue = new Scene( requireNonNullArgument( root, "root" ) );</span>
+<span class="source-line-no">382</span><span id="line-382">        currentStage.setScene( retValue );</span>
+<span class="source-line-no">383</span><span id="line-383">        retValue.setUserData( newUserDataBean );</span>
+<span class="source-line-no">384</span><span id="line-384">        newUserDataBean.getApplicationCSS().ifPresent( u -&gt; retValue.getStylesheets().add( u.toExternalForm() ) );</span>
+<span class="source-line-no">385</span><span id="line-385"></span>
+<span class="source-line-no">386</span><span id="line-386">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">387</span><span id="line-387">        return retValue;</span>
+<span class="source-line-no">388</span><span id="line-388">    }   //  createScene()</span>
+<span class="source-line-no">389</span><span id="line-389"></span>
+<span class="source-line-no">390</span><span id="line-390">    /**</span>
+<span class="source-line-no">391</span><span id="line-391">     *  Creates a</span>
+<span class="source-line-no">392</span><span id="line-392">     *  {@link Scene}</span>
+<span class="source-line-no">393</span><span id="line-393">     *  for a specific root</span>
+<span class="source-line-no">394</span><span id="line-394">     *  {@link Node}</span>
+<span class="source-line-no">395</span><span id="line-395">     *  with a specific size.</span>
+<span class="source-line-no">396</span><span id="line-396">     *</span>
+<span class="source-line-no">397</span><span id="line-397">     *  @param  &lt;T&gt; The type of the application's main class.</span>
+<span class="source-line-no">398</span><span id="line-398">     *  @param  templateDataBean    The user data from the application's main</span>
+<span class="source-line-no">399</span><span id="line-399">     *      scene.</span>
+<span class="source-line-no">400</span><span id="line-400">     *  @param  currentStage    The stage for the current scene.</span>
+<span class="source-line-no">401</span><span id="line-401">     *  @param  root    The root node of the scene graph.</span>
+<span class="source-line-no">402</span><span id="line-402">     *  @param  width   The width of the scene.</span>
+<span class="source-line-no">403</span><span id="line-403">     *  @param  height  The height of the scene.</span>
+<span class="source-line-no">404</span><span id="line-404">     *  @return The new scene instance.</span>
+<span class="source-line-no">405</span><span id="line-405">     */</span>
+<span class="source-line-no">406</span><span id="line-406">    @SuppressWarnings( "UseOfConcreteClass" )</span>
+<span class="source-line-no">407</span><span id="line-407">    @API( status = STABLE, since = "0.1.0" )</span>
+<span class="source-line-no">408</span><span id="line-408">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "templateDataBean" ) final SceneUserData&lt;T&gt; templateDataBean, @NamedArg( "currentStage" ) final Stage currentStage, @NamedArg( "root" ) final Parent root, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height )</span>
+<span class="source-line-no">409</span><span id="line-409">    {</span>
+<span class="source-line-no">410</span><span id="line-410">        final var newUserDataBean = new SceneUserData&lt;&gt;( templateDataBean, currentStage );</span>
+<span class="source-line-no">411</span><span id="line-411">        final var retValue = new Scene( requireNonNullArgument( root, "root" ), width, height );</span>
+<span class="source-line-no">412</span><span id="line-412">        currentStage.setScene( retValue );</span>
+<span class="source-line-no">413</span><span id="line-413">        retValue.setUserData( newUserDataBean );</span>
+<span class="source-line-no">414</span><span id="line-414">        newUserDataBean.getApplicationCSS().ifPresent( u -&gt; retValue.getStylesheets().add( u.toExternalForm() ) );</span>
+<span class="source-line-no">415</span><span id="line-415"></span>
+<span class="source-line-no">416</span><span id="line-416">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">417</span><span id="line-417">        return retValue;</span>
+<span class="source-line-no">418</span><span id="line-418">    }   //  createScene()</span>
+<span class="source-line-no">419</span><span id="line-419"></span>
+<span class="source-line-no">420</span><span id="line-420">    /**</span>
+<span class="source-line-no">421</span><span id="line-421">     *  Creates a</span>
+<span class="source-line-no">422</span><span id="line-422">     *  {@link Scene}</span>
+<span class="source-line-no">423</span><span id="line-423">     *  for a specific root</span>
+<span class="source-line-no">424</span><span id="line-424">     *  {@link Node}</span>
+<span class="source-line-no">425</span><span id="line-425">     *  with a fill.</span>
+<span class="source-line-no">426</span><span id="line-426">     *</span>
+<span class="source-line-no">427</span><span id="line-427">     *  @param  &lt;T&gt; The type of the application's main class.</span>
+<span class="source-line-no">428</span><span id="line-428">     *  @param  templateDataBean    The user data from the application's main scene.</span>
+<span class="source-line-no">429</span><span id="line-429">     *  @param  currentStage    The stage for the current scene.</span>
+<span class="source-line-no">430</span><span id="line-430">     *  @param  root    The root node of the scene graph.</span>
+<span class="source-line-no">431</span><span id="line-431">     *  @param  fill    The fill.</span>
+<span class="source-line-no">432</span><span id="line-432">     *  @return The new scene instance.</span>
+<span class="source-line-no">433</span><span id="line-433">     */</span>
+<span class="source-line-no">434</span><span id="line-434">    @SuppressWarnings( "UseOfConcreteClass" )</span>
+<span class="source-line-no">435</span><span id="line-435">    @API( status = STABLE, since = "0.1.0" )</span>
+<span class="source-line-no">436</span><span id="line-436">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "templateDataBean" ) final SceneUserData&lt;T&gt; templateDataBean, @NamedArg( "currentStage" ) final Stage currentStage, @NamedArg( "root" ) final Parent root, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )</span>
+<span class="source-line-no">437</span><span id="line-437">    {</span>
+<span class="source-line-no">438</span><span id="line-438">        final var newUserDataBean = new SceneUserData&lt;&gt;( templateDataBean, currentStage );</span>
+<span class="source-line-no">439</span><span id="line-439">        final var retValue = new Scene( requireNonNullArgument( root, "root" ), requireNonNullArgument( fill, "fill" ) );</span>
+<span class="source-line-no">440</span><span id="line-440">        currentStage.setScene( retValue );</span>
+<span class="source-line-no">441</span><span id="line-441">        retValue.setUserData( newUserDataBean );</span>
+<span class="source-line-no">442</span><span id="line-442">        newUserDataBean.getApplicationCSS().ifPresent( u -&gt; retValue.getStylesheets().add( u.toExternalForm() ) );</span>
+<span class="source-line-no">443</span><span id="line-443"></span>
+<span class="source-line-no">444</span><span id="line-444">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">445</span><span id="line-445">        return retValue;</span>
+<span class="source-line-no">446</span><span id="line-446">    }   //  createScene()</span>
+<span class="source-line-no">447</span><span id="line-447"></span>
+<span class="source-line-no">448</span><span id="line-448">    /**</span>
+<span class="source-line-no">449</span><span id="line-449">     *  Creates a</span>
+<span class="source-line-no">450</span><span id="line-450">     *  {@link Scene}</span>
+<span class="source-line-no">451</span><span id="line-451">     *  for a specific root</span>
+<span class="source-line-no">452</span><span id="line-452">     *  {@link Node}</span>
+<span class="source-line-no">453</span><span id="line-453">     *  with a specific size and fill.</span>
+<span class="source-line-no">454</span><span id="line-454">     *</span>
+<span class="source-line-no">455</span><span id="line-455">     *  @param  &lt;T&gt; The type of the application's main class.</span>
+<span class="source-line-no">456</span><span id="line-456">     *  @param  templateDataBean    The user data from the application's main scene.</span>
+<span class="source-line-no">457</span><span id="line-457">     *  @param  currentStage    The stage for the current scene.</span>
+<span class="source-line-no">458</span><span id="line-458">     *  @param  root    The root node of the scene graph.</span>
+<span class="source-line-no">459</span><span id="line-459">     *  @param  width   The width of the scene.</span>
+<span class="source-line-no">460</span><span id="line-460">     *  @param  height  The height of the scene.</span>
+<span class="source-line-no">461</span><span id="line-461">     *  @param  fill    The fill.</span>
+<span class="source-line-no">462</span><span id="line-462">     *  @return The new scene instance.</span>
+<span class="source-line-no">463</span><span id="line-463">     */</span>
+<span class="source-line-no">464</span><span id="line-464">    @SuppressWarnings( {"UseOfConcreteClass", "MethodWithTooManyParameters"} )</span>
+<span class="source-line-no">465</span><span id="line-465">    @API( status = STABLE, since = "0.1.0" )</span>
+<span class="source-line-no">466</span><span id="line-466">    public static final &lt;T extends Application&gt; Scene createScene( @NamedArg( "templateDataBean" ) final SceneUserData&lt;T&gt; templateDataBean, @NamedArg( "currentStage" ) final Stage currentStage, @NamedArg( "root" ) final Parent root, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )</span>
+<span class="source-line-no">467</span><span id="line-467">    {</span>
+<span class="source-line-no">468</span><span id="line-468">        final var newUserDataBean = new SceneUserData&lt;&gt;( templateDataBean, currentStage );</span>
+<span class="source-line-no">469</span><span id="line-469">        final var retValue = new Scene( requireNonNullArgument( root, "root" ), width, height, requireNonNullArgument( fill, "fill" ) );</span>
+<span class="source-line-no">470</span><span id="line-470">        currentStage.setScene( retValue );</span>
+<span class="source-line-no">471</span><span id="line-471">        retValue.setUserData( newUserDataBean );</span>
+<span class="source-line-no">472</span><span id="line-472">        newUserDataBean.getApplicationCSS().ifPresent( u -&gt; retValue.getStylesheets().add( u.toExternalForm() ) );</span>
+<span class="source-line-no">473</span><span id="line-473"></span>
+<span class="source-line-no">474</span><span id="line-474">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">475</span><span id="line-475">        return retValue;</span>
+<span class="source-line-no">476</span><span id="line-476">    }   //  createScene()</span>
+<span class="source-line-no">477</span><span id="line-477"></span>
+<span class="source-line-no">478</span><span id="line-478">    /**</span>
+<span class="source-line-no">479</span><span id="line-479">     *  Returns the stage for the current scene. If the current scene is the</span>
+<span class="source-line-no">480</span><span id="line-480">     *  application's main scene, the returned stage is the primary stage, so</span>
+<span class="source-line-no">481</span><span id="line-481">     *  that in this case</span>
+<span class="source-line-no">482</span><span id="line-482">     *  {@link #getPrimaryStage()}</span>
+<span class="source-line-no">483</span><span id="line-483">     *  will return the same value as this method.</span>
+<span class="source-line-no">484</span><span id="line-484">     *</span>
+<span class="source-line-no">485</span><span id="line-485">     *  @return The stage for the current scene.</span>
+<span class="source-line-no">486</span><span id="line-486">     */</span>
+<span class="source-line-no">487</span><span id="line-487">    public final Stage getStage() { return m_Stage; }</span>
+<span class="source-line-no">488</span><span id="line-488"></span>
+<span class="source-line-no">489</span><span id="line-489">    /**</span>
+<span class="source-line-no">490</span><span id="line-490">     *  Retrieves the user data from the given instance of</span>
+<span class="source-line-no">491</span><span id="line-491">     *  {@link Scene}.</span>
+<span class="source-line-no">492</span><span id="line-492">     *</span>
+<span class="source-line-no">493</span><span id="line-493">     *  @param  &lt;T&gt; The type of the application's main class.</span>
+<span class="source-line-no">494</span><span id="line-494">     *  @param  scene   The scene.</span>
+<span class="source-line-no">495</span><span id="line-495">     *  @param  applicationClass    The type of the application's main class.</span>
+<span class="source-line-no">496</span><span id="line-496">     *  @return An instance of</span>
+<span class="source-line-no">497</span><span id="line-497">     *      {@link Optional}</span>
+<span class="source-line-no">498</span><span id="line-498">     *      that holds the user data instance.</span>
+<span class="source-line-no">499</span><span id="line-499">     */</span>
+<span class="source-line-no">500</span><span id="line-500">    public static final &lt;T extends Application&gt; Optional&lt;SceneUserData&lt;T&gt;&gt; retrieveUserData( final Scene scene, final Class&lt;T&gt; applicationClass )</span>
+<span class="source-line-no">501</span><span id="line-501">    {</span>
+<span class="source-line-no">502</span><span id="line-502">        Optional&lt;SceneUserData&lt;T&gt;&gt; retValue = Optional.empty();</span>
+<span class="source-line-no">503</span><span id="line-503">        final var userData = requireNonNullArgument( scene, "scene" ).getUserData();</span>
+<span class="source-line-no">504</span><span id="line-504">        //noinspection rawtypes</span>
+<span class="source-line-no">505</span><span id="line-505">        if( userData instanceof final SceneUserData userDataBean )</span>
+<span class="source-line-no">506</span><span id="line-506">        {</span>
+<span class="source-line-no">507</span><span id="line-507">            final var app = userDataBean.getApplication();</span>
+<span class="source-line-no">508</span><span id="line-508">            if( applicationClass.isInstance( app ) )</span>
+<span class="source-line-no">509</span><span id="line-509">            {</span>
+<span class="source-line-no">510</span><span id="line-510">                @SuppressWarnings( "unchecked" )</span>
+<span class="source-line-no">511</span><span id="line-511">                final var data = (SceneUserData&lt;T&gt;) userData;</span>
+<span class="source-line-no">512</span><span id="line-512">                retValue = Optional.of( data );</span>
+<span class="source-line-no">513</span><span id="line-513">            }</span>
+<span class="source-line-no">514</span><span id="line-514">        }</span>
+<span class="source-line-no">515</span><span id="line-515"></span>
+<span class="source-line-no">516</span><span id="line-516">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">517</span><span id="line-517">        return retValue;</span>
+<span class="source-line-no">518</span><span id="line-518">    }   //  retrieveUserData()</span>
+<span class="source-line-no">519</span><span id="line-519">}</span>
+<span class="source-line-no">520</span><span id="line-520">//  class SceneUserData</span>
+<span class="source-line-no">521</span><span id="line-521"></span>
+<span class="source-line-no">522</span><span id="line-522">/*</span>
+<span class="source-line-no">523</span><span id="line-523"> *  End of File</span>
+<span class="source-line-no">524</span><span id="line-524"> */</span>
 
 
 

@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- *  Copyright © 2002-2022 by Thomas Thrien.
+ *  Copyright © 2002-2023 by Thomas Thrien.
  *  All Rights Reserved.
  * ============================================================================
  *  Licensed to the public under the agreements of the GNU Lesser General Public
@@ -64,14 +64,14 @@ import javafx.util.StringConverter;
  *
  *  @param <T>  The target type for the conversion.
  *
- *  @version $Id: FXStringConverter.java 992 2022-01-16 19:51:31Z tquadrat $
+ *  @version $Id: FXStringConverter.java 1062 2023-09-25 23:11:41Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.1.0
  *
  *  @see GenericStringConverter
  */
-@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 992 2022-01-16 19:51:31Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 1062 2023-09-25 23:11:41Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public final class FXStringConverter<T> extends javafx.util.StringConverter<T> implements org.tquadrat.foundation.lang.StringConverter<T>
 {
@@ -156,11 +156,10 @@ public final class FXStringConverter<T> extends javafx.util.StringConverter<T> i
      *      {@link javafx.util.StringConverter}.
      *  @return The new instance.
      */
-    @SuppressWarnings( "UseOfConcreteClass" )
     public static final <C> FXStringConverter<C> wrap( final javafx.util.StringConverter<C> stringConverter )
     {
-        final var stringer = (Stringer<C>) s -> isNull( s ) ? null : stringConverter.toString( s );
-        final var parser = (Function<CharSequence, C>) s -> isNull( s ) ? null : stringConverter.fromString( s.toString() );
+        final var stringer = (Stringer<C>) (value -> isNull( value ) ? null : stringConverter.toString( value ));
+        final var parser = (Function<CharSequence, C>) (charSequence -> isNull( charSequence ) ? null : stringConverter.fromString( charSequence.toString() ));
 
         final var converter = new GenericStringConverter<>( parser, stringer );
 

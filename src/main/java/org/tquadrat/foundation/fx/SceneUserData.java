@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- * Copyright © 2002-2022 by Thomas Thrien.
+ * Copyright © 2002-2023 by Thomas Thrien.
  * All Rights Reserved.
  * ============================================================================
  * Licensed to the public under the agreements of the GNU Lesser General Public
@@ -77,12 +77,12 @@ import javafx.stage.Stage;
  *
  *  @param  <A> The class of the JavaFX application.
  *
- *  @version $Id: SceneUserData.java 989 2022-01-13 19:09:58Z tquadrat $
+ *  @version $Id: SceneUserData.java 1062 2023-09-25 23:11:41Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.1.0
  */
-@ClassVersion( sourceVersion = "$Id: SceneUserData.java 989 2022-01-13 19:09:58Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: SceneUserData.java 1062 2023-09-25 23:11:41Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public non-sealed class SceneUserData<A extends Application> extends FXUserDataBean<A>
 {
@@ -105,7 +105,7 @@ public non-sealed class SceneUserData<A extends Application> extends FXUserDataB
      *  @param  primaryStage    The reference for the application's primary
      *      stage.
      */
-    public SceneUserData( final A application, final Stage primaryStage )
+    public SceneUserData( final A application, @SuppressWarnings( "ParameterNameDiffersFromOverriddenParameter" ) final Stage primaryStage )
     {
         this( application, primaryStage, primaryStage );
     }   //  SceneUserData()
@@ -235,6 +235,7 @@ public non-sealed class SceneUserData<A extends Application> extends FXUserDataB
      *  @param  height  The height of the scene.
      *  @return The new scene instance.
      */
+    @SuppressWarnings( "MethodWithTooManyParameters" )
     @API( status = STABLE, since = "0.1.0" )
     public static final <T extends Application> Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( "supplier") final BiFunction<T, ? super Stage, ? extends SceneUserData<T>> supplier, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height )
     {
@@ -317,6 +318,7 @@ public non-sealed class SceneUserData<A extends Application> extends FXUserDataB
      *  @param  fill    The fill.
      *  @return The new scene instance.
      */
+    @SuppressWarnings( "MethodWithTooManyParameters" )
     @API( status = STABLE, since = "0.1.0" )
     public static final <T extends Application> Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )
     {
@@ -345,6 +347,7 @@ public non-sealed class SceneUserData<A extends Application> extends FXUserDataB
      *  @param  fill    The fill.
      *  @return The new scene instance.
      */
+    @SuppressWarnings( "MethodWithTooManyParameters" )
     @API( status = STABLE, since = "0.1.0" )
     public static final <T extends Application> Scene createScene( @NamedArg( "application" ) final T application, @NamedArg( "primaryStage" ) final Stage primaryStage, @NamedArg( "root" ) final Parent root, @NamedArg( "supplier") final BiFunction<T, ? super Stage, ? extends SceneUserData<T>> supplier, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )
     {
@@ -458,7 +461,7 @@ public non-sealed class SceneUserData<A extends Application> extends FXUserDataB
      *  @param  fill    The fill.
      *  @return The new scene instance.
      */
-    @SuppressWarnings( "UseOfConcreteClass" )
+    @SuppressWarnings( {"UseOfConcreteClass", "MethodWithTooManyParameters"} )
     @API( status = STABLE, since = "0.1.0" )
     public static final <T extends Application> Scene createScene( @NamedArg( "templateDataBean" ) final SceneUserData<T> templateDataBean, @NamedArg( "currentStage" ) final Stage currentStage, @NamedArg( "root" ) final Parent root, @NamedArg( "width" ) final double width, @NamedArg( "height" ) final double height, @NamedArg( value = "fill", defaultValue = "WHITE" ) final Paint fill )
     {
@@ -494,18 +497,18 @@ public non-sealed class SceneUserData<A extends Application> extends FXUserDataB
      *      {@link Optional}
      *      that holds the user data instance.
      */
-    @SuppressWarnings( "UseOfConcreteClass" )
     public static final <T extends Application> Optional<SceneUserData<T>> retrieveUserData( final Scene scene, final Class<T> applicationClass )
     {
         Optional<SceneUserData<T>> retValue = Optional.empty();
-        final var u = requireNonNullArgument( scene, "scene" ).getUserData();
-        if( u instanceof SceneUserData userDataBean )
+        final var userData = requireNonNullArgument( scene, "scene" ).getUserData();
+        //noinspection rawtypes
+        if( userData instanceof final SceneUserData userDataBean )
         {
             final var app = userDataBean.getApplication();
             if( applicationClass.isInstance( app ) )
             {
                 @SuppressWarnings( "unchecked" )
-                final var data = (SceneUserData<T>) u;
+                final var data = (SceneUserData<T>) userData;
                 retValue = Optional.of( data );
             }
         }
