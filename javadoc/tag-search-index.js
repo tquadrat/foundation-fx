@@ -1,1 +1,1 @@
-tagSearchIndex = [{"l":"Serialized Form","h":"","u":"serialized-form.html"}];updateSearchResults();
+tagSearchIndex = [{"l":"createScene() Factory Methods","h":"class org.tquadrat.foundation.fx.SceneUserData","d":"Section","u":"org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/SceneUserData.html#createscene-factory-methods-heading"},{"l":"Serialized Form","h":"","u":"serialized-form.html"}];updateSearchResults();
