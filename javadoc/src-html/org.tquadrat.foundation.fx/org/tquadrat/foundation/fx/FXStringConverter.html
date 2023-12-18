@@ -95,98 +95,100 @@
 <span class="source-line-no">082</span><span id="line-82">     *  The &lt;i&gt;Foundation&lt;/i&gt;</span>
 <span class="source-line-no">083</span><span id="line-83">     *  {@link org.tquadrat.foundation.lang.StringConverter StringConverter}</span>
 <span class="source-line-no">084</span><span id="line-84">     *  instance.</span>
-<span class="source-line-no">085</span><span id="line-85">     */</span>
-<span class="source-line-no">086</span><span id="line-86">    private final org.tquadrat.foundation.lang.StringConverter&lt;T&gt; m_StringConverter;</span>
-<span class="source-line-no">087</span><span id="line-87"></span>
-<span class="source-line-no">088</span><span id="line-88">        /*--------------*\</span>
-<span class="source-line-no">089</span><span id="line-89">    ====** Constructors **=====================================================</span>
-<span class="source-line-no">090</span><span id="line-90">        \*--------------*/</span>
-<span class="source-line-no">091</span><span id="line-91">    /**</span>
-<span class="source-line-no">092</span><span id="line-92">     *  Creates a new instance of {@code FXStringConverter}.</span>
-<span class="source-line-no">093</span><span id="line-93">     *</span>
-<span class="source-line-no">094</span><span id="line-94">     *  @param  stringConverter The &lt;i&gt;Foundation&lt;/i&gt;</span>
-<span class="source-line-no">095</span><span id="line-95">     *      {@link org.tquadrat.foundation.lang.StringConverter StringConverter}</span>
-<span class="source-line-no">096</span><span id="line-96">     *      instance that does the work.</span>
-<span class="source-line-no">097</span><span id="line-97">     */</span>
-<span class="source-line-no">098</span><span id="line-98">    public FXStringConverter( final org.tquadrat.foundation.lang.StringConverter&lt;T&gt; stringConverter )</span>
-<span class="source-line-no">099</span><span id="line-99">    {</span>
-<span class="source-line-no">100</span><span id="line-100">        super();</span>
-<span class="source-line-no">101</span><span id="line-101"></span>
-<span class="source-line-no">102</span><span id="line-102">        m_StringConverter = requireNonNullArgument( stringConverter, "stringConverter" );</span>
-<span class="source-line-no">103</span><span id="line-103">    }   //  FXStringConverter()</span>
-<span class="source-line-no">104</span><span id="line-104"></span>
-<span class="source-line-no">105</span><span id="line-105">        /*---------*\</span>
-<span class="source-line-no">106</span><span id="line-106">    ====** Methods **==========================================================</span>
-<span class="source-line-no">107</span><span id="line-107">        \*---------*/</span>
-<span class="source-line-no">108</span><span id="line-108">    /**</span>
-<span class="source-line-no">109</span><span id="line-109">     *  {@inheritDoc}</span>
-<span class="source-line-no">110</span><span id="line-110">     */</span>
-<span class="source-line-no">111</span><span id="line-111">    @SuppressWarnings( "PublicMethodNotExposedInInterface" )</span>
-<span class="source-line-no">112</span><span id="line-112">    @Override</span>
-<span class="source-line-no">113</span><span id="line-113">    public final T fromString( final String source )</span>
-<span class="source-line-no">114</span><span id="line-114">    {</span>
-<span class="source-line-no">115</span><span id="line-115">        final var retValue = isNull( source ) ? null : fromString( (CharSequence) source );</span>
-<span class="source-line-no">116</span><span id="line-116"></span>
-<span class="source-line-no">117</span><span id="line-117">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">118</span><span id="line-118">        return retValue;</span>
-<span class="source-line-no">119</span><span id="line-119">    }   //  fromString()</span>
-<span class="source-line-no">120</span><span id="line-120"></span>
-<span class="source-line-no">121</span><span id="line-121">    /**</span>
-<span class="source-line-no">122</span><span id="line-122">     *  {@inheritDoc}</span>
-<span class="source-line-no">123</span><span id="line-123">     */</span>
-<span class="source-line-no">124</span><span id="line-124">    @Override</span>
-<span class="source-line-no">125</span><span id="line-125">    public final T fromString( final CharSequence source )</span>
-<span class="source-line-no">126</span><span id="line-126">    {</span>
-<span class="source-line-no">127</span><span id="line-127">        final var retValue = isNull( source ) ? null : m_StringConverter.fromString( source );</span>
-<span class="source-line-no">128</span><span id="line-128"></span>
-<span class="source-line-no">129</span><span id="line-129">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">130</span><span id="line-130">        return retValue;</span>
-<span class="source-line-no">131</span><span id="line-131">    }   //  fromString()</span>
-<span class="source-line-no">132</span><span id="line-132"></span>
-<span class="source-line-no">133</span><span id="line-133">    /**</span>
-<span class="source-line-no">134</span><span id="line-134">     *  {@inheritDoc}</span>
-<span class="source-line-no">135</span><span id="line-135">     */</span>
-<span class="source-line-no">136</span><span id="line-136">    @Override</span>
-<span class="source-line-no">137</span><span id="line-137">    public final String toString( final T source )</span>
-<span class="source-line-no">138</span><span id="line-138">    {</span>
-<span class="source-line-no">139</span><span id="line-139">        final var retValue = isNull( source ) ? null : m_StringConverter.toString( source );</span>
-<span class="source-line-no">140</span><span id="line-140"></span>
-<span class="source-line-no">141</span><span id="line-141">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">142</span><span id="line-142">        return retValue;</span>
-<span class="source-line-no">143</span><span id="line-143">    }   //  toString()</span>
-<span class="source-line-no">144</span><span id="line-144"></span>
-<span class="source-line-no">145</span><span id="line-145">    /**</span>
-<span class="source-line-no">146</span><span id="line-146">     *  &lt;p&gt;{@summary Creates an instance of {@code FXStringConverter} from an</span>
-<span class="source-line-no">147</span><span id="line-147">     *  instance of {@link StringConverter javafx.util.StringConverter}.}&lt;/p&gt;</span>
-<span class="source-line-no">148</span><span id="line-148">     *  &lt;p&gt;Keep in mind that the implementation of the method</span>
-<span class="source-line-no">149</span><span id="line-149">     *  {@link javafx.util.StringConverter#fromString(String) javafx.util.StringConverter.fromString()}</span>
-<span class="source-line-no">150</span><span id="line-150">     *  may return {@code null} for all input arguments, but that this</span>
-<span class="source-line-no">151</span><span id="line-151">     *  behaviour is not valid for an implementation of the method</span>
-<span class="source-line-no">152</span><span id="line-152">     *  {@link org.tquadrat.foundation.lang.StringConverter#fromString(CharSequence) org.tquadrat.foundation.lang.StringConverter.fromString()}.&lt;/p&gt;</span>
-<span class="source-line-no">153</span><span id="line-153">     *</span>
-<span class="source-line-no">154</span><span id="line-154">     *  @param  &lt;C&gt; The subject class.</span>
-<span class="source-line-no">155</span><span id="line-155">     *  @param  stringConverter The instance of</span>
-<span class="source-line-no">156</span><span id="line-156">     *      {@link javafx.util.StringConverter}.</span>
-<span class="source-line-no">157</span><span id="line-157">     *  @return The new instance.</span>
-<span class="source-line-no">158</span><span id="line-158">     */</span>
-<span class="source-line-no">159</span><span id="line-159">    public static final &lt;C&gt; FXStringConverter&lt;C&gt; wrap( final javafx.util.StringConverter&lt;C&gt; stringConverter )</span>
-<span class="source-line-no">160</span><span id="line-160">    {</span>
-<span class="source-line-no">161</span><span id="line-161">        final var stringer = (Stringer&lt;C&gt;) (value -&gt; isNull( value ) ? null : stringConverter.toString( value ));</span>
-<span class="source-line-no">162</span><span id="line-162">        final var parser = (Function&lt;CharSequence, C&gt;) (charSequence -&gt; isNull( charSequence ) ? null : stringConverter.fromString( charSequence.toString() ));</span>
-<span class="source-line-no">163</span><span id="line-163"></span>
-<span class="source-line-no">164</span><span id="line-164">        final var converter = new GenericStringConverter&lt;&gt;( parser, stringer );</span>
+<span class="source-line-no">085</span><span id="line-85">     *</span>
+<span class="source-line-no">086</span><span id="line-86">     *  @serial</span>
+<span class="source-line-no">087</span><span id="line-87">     */</span>
+<span class="source-line-no">088</span><span id="line-88">    private final org.tquadrat.foundation.lang.StringConverter&lt;T&gt; m_StringConverter;</span>
+<span class="source-line-no">089</span><span id="line-89"></span>
+<span class="source-line-no">090</span><span id="line-90">        /*--------------*\</span>
+<span class="source-line-no">091</span><span id="line-91">    ====** Constructors **=====================================================</span>
+<span class="source-line-no">092</span><span id="line-92">        \*--------------*/</span>
+<span class="source-line-no">093</span><span id="line-93">    /**</span>
+<span class="source-line-no">094</span><span id="line-94">     *  Creates a new instance of {@code FXStringConverter}.</span>
+<span class="source-line-no">095</span><span id="line-95">     *</span>
+<span class="source-line-no">096</span><span id="line-96">     *  @param  stringConverter The &lt;i&gt;Foundation&lt;/i&gt;</span>
+<span class="source-line-no">097</span><span id="line-97">     *      {@link org.tquadrat.foundation.lang.StringConverter StringConverter}</span>
+<span class="source-line-no">098</span><span id="line-98">     *      instance that does the work.</span>
+<span class="source-line-no">099</span><span id="line-99">     */</span>
+<span class="source-line-no">100</span><span id="line-100">    public FXStringConverter( final org.tquadrat.foundation.lang.StringConverter&lt;T&gt; stringConverter )</span>
+<span class="source-line-no">101</span><span id="line-101">    {</span>
+<span class="source-line-no">102</span><span id="line-102">        super();</span>
+<span class="source-line-no">103</span><span id="line-103"></span>
+<span class="source-line-no">104</span><span id="line-104">        m_StringConverter = requireNonNullArgument( stringConverter, "stringConverter" );</span>
+<span class="source-line-no">105</span><span id="line-105">    }   //  FXStringConverter()</span>
+<span class="source-line-no">106</span><span id="line-106"></span>
+<span class="source-line-no">107</span><span id="line-107">        /*---------*\</span>
+<span class="source-line-no">108</span><span id="line-108">    ====** Methods **==========================================================</span>
+<span class="source-line-no">109</span><span id="line-109">        \*---------*/</span>
+<span class="source-line-no">110</span><span id="line-110">    /**</span>
+<span class="source-line-no">111</span><span id="line-111">     *  {@inheritDoc}</span>
+<span class="source-line-no">112</span><span id="line-112">     */</span>
+<span class="source-line-no">113</span><span id="line-113">    @SuppressWarnings( "PublicMethodNotExposedInInterface" )</span>
+<span class="source-line-no">114</span><span id="line-114">    @Override</span>
+<span class="source-line-no">115</span><span id="line-115">    public final T fromString( final String source )</span>
+<span class="source-line-no">116</span><span id="line-116">    {</span>
+<span class="source-line-no">117</span><span id="line-117">        final var retValue = isNull( source ) ? null : fromString( (CharSequence) source );</span>
+<span class="source-line-no">118</span><span id="line-118"></span>
+<span class="source-line-no">119</span><span id="line-119">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">120</span><span id="line-120">        return retValue;</span>
+<span class="source-line-no">121</span><span id="line-121">    }   //  fromString()</span>
+<span class="source-line-no">122</span><span id="line-122"></span>
+<span class="source-line-no">123</span><span id="line-123">    /**</span>
+<span class="source-line-no">124</span><span id="line-124">     *  {@inheritDoc}</span>
+<span class="source-line-no">125</span><span id="line-125">     */</span>
+<span class="source-line-no">126</span><span id="line-126">    @Override</span>
+<span class="source-line-no">127</span><span id="line-127">    public final T fromString( final CharSequence source )</span>
+<span class="source-line-no">128</span><span id="line-128">    {</span>
+<span class="source-line-no">129</span><span id="line-129">        final var retValue = isNull( source ) ? null : m_StringConverter.fromString( source );</span>
+<span class="source-line-no">130</span><span id="line-130"></span>
+<span class="source-line-no">131</span><span id="line-131">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">132</span><span id="line-132">        return retValue;</span>
+<span class="source-line-no">133</span><span id="line-133">    }   //  fromString()</span>
+<span class="source-line-no">134</span><span id="line-134"></span>
+<span class="source-line-no">135</span><span id="line-135">    /**</span>
+<span class="source-line-no">136</span><span id="line-136">     *  {@inheritDoc}</span>
+<span class="source-line-no">137</span><span id="line-137">     */</span>
+<span class="source-line-no">138</span><span id="line-138">    @Override</span>
+<span class="source-line-no">139</span><span id="line-139">    public final String toString( final T source )</span>
+<span class="source-line-no">140</span><span id="line-140">    {</span>
+<span class="source-line-no">141</span><span id="line-141">        final var retValue = isNull( source ) ? null : m_StringConverter.toString( source );</span>
+<span class="source-line-no">142</span><span id="line-142"></span>
+<span class="source-line-no">143</span><span id="line-143">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">144</span><span id="line-144">        return retValue;</span>
+<span class="source-line-no">145</span><span id="line-145">    }   //  toString()</span>
+<span class="source-line-no">146</span><span id="line-146"></span>
+<span class="source-line-no">147</span><span id="line-147">    /**</span>
+<span class="source-line-no">148</span><span id="line-148">     *  &lt;p&gt;{@summary Creates an instance of {@code FXStringConverter} from an</span>
+<span class="source-line-no">149</span><span id="line-149">     *  instance of {@link StringConverter javafx.util.StringConverter}.}&lt;/p&gt;</span>
+<span class="source-line-no">150</span><span id="line-150">     *  &lt;p&gt;Keep in mind that the implementation of the method</span>
+<span class="source-line-no">151</span><span id="line-151">     *  {@link javafx.util.StringConverter#fromString(String) javafx.util.StringConverter.fromString()}</span>
+<span class="source-line-no">152</span><span id="line-152">     *  may return {@code null} for all input arguments, but that this</span>
+<span class="source-line-no">153</span><span id="line-153">     *  behaviour is not valid for an implementation of the method</span>
+<span class="source-line-no">154</span><span id="line-154">     *  {@link org.tquadrat.foundation.lang.StringConverter#fromString(CharSequence) org.tquadrat.foundation.lang.StringConverter.fromString()}.&lt;/p&gt;</span>
+<span class="source-line-no">155</span><span id="line-155">     *</span>
+<span class="source-line-no">156</span><span id="line-156">     *  @param  &lt;C&gt; The subject class.</span>
+<span class="source-line-no">157</span><span id="line-157">     *  @param  stringConverter The instance of</span>
+<span class="source-line-no">158</span><span id="line-158">     *      {@link javafx.util.StringConverter}.</span>
+<span class="source-line-no">159</span><span id="line-159">     *  @return The new instance.</span>
+<span class="source-line-no">160</span><span id="line-160">     */</span>
+<span class="source-line-no">161</span><span id="line-161">    public static final &lt;C&gt; FXStringConverter&lt;C&gt; wrap( final javafx.util.StringConverter&lt;C&gt; stringConverter )</span>
+<span class="source-line-no">162</span><span id="line-162">    {</span>
+<span class="source-line-no">163</span><span id="line-163">        final var stringer = (Stringer&lt;C&gt;) (value -&gt; isNull( value ) ? null : stringConverter.toString( value ));</span>
+<span class="source-line-no">164</span><span id="line-164">        final var parser = (Function&lt;CharSequence, C&gt;) (charSequence -&gt; isNull( charSequence ) ? null : stringConverter.fromString( charSequence.toString() ));</span>
 <span class="source-line-no">165</span><span id="line-165"></span>
-<span class="source-line-no">166</span><span id="line-166">        final var retValue = new FXStringConverter&lt;&gt;( converter );</span>
+<span class="source-line-no">166</span><span id="line-166">        final var converter = new GenericStringConverter&lt;&gt;( parser, stringer );</span>
 <span class="source-line-no">167</span><span id="line-167"></span>
-<span class="source-line-no">168</span><span id="line-168">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">169</span><span id="line-169">        return retValue;</span>
-<span class="source-line-no">170</span><span id="line-170">    }   //  wrap()</span>
-<span class="source-line-no">171</span><span id="line-171">}</span>
-<span class="source-line-no">172</span><span id="line-172">//  class FXStringConverter</span>
-<span class="source-line-no">173</span><span id="line-173"></span>
-<span class="source-line-no">174</span><span id="line-174">/*</span>
-<span class="source-line-no">175</span><span id="line-175"> *  End of File</span>
-<span class="source-line-no">176</span><span id="line-176"> */</span>
+<span class="source-line-no">168</span><span id="line-168">        final var retValue = new FXStringConverter&lt;&gt;( converter );</span>
+<span class="source-line-no">169</span><span id="line-169"></span>
+<span class="source-line-no">170</span><span id="line-170">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">171</span><span id="line-171">        return retValue;</span>
+<span class="source-line-no">172</span><span id="line-172">    }   //  wrap()</span>
+<span class="source-line-no">173</span><span id="line-173">}</span>
+<span class="source-line-no">174</span><span id="line-174">//  class FXStringConverter</span>
+<span class="source-line-no">175</span><span id="line-175"></span>
+<span class="source-line-no">176</span><span id="line-176">/*</span>
+<span class="source-line-no">177</span><span id="line-177"> *  End of File</span>
+<span class="source-line-no">178</span><span id="line-178"> */</span>
 
 
 

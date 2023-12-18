@@ -82,6 +82,8 @@ public final class FXStringConverter<T> extends javafx.util.StringConverter<T> i
      *  The <i>Foundation</i>
      *  {@link org.tquadrat.foundation.lang.StringConverter StringConverter}
      *  instance.
+     *
+     *  @serial
      */
     private final org.tquadrat.foundation.lang.StringConverter<T> m_StringConverter;
 
