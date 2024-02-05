@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- * Copyright © 2002-2023 by Thomas Thrien.
+ * Copyright © 2002-2024 by Thomas Thrien.
  * All Rights Reserved.
  * ============================================================================
  * Licensed to the public under the agreements of the GNU Lesser General Public
@@ -69,20 +69,20 @@ import javafx.stage.Stage;
  *  </ul>
  *  <p>can be used to create a
  *  {@link Scene}
- *  instance together with the user data. Those methods that do <i>not</i> have
- *  a {@code supplier} argument will use an instance of {@code SceneUserData}
- *  (this class); if yu want to use an instance of a derived class, you have to
- *  implement the respective supplier and use one of the methods that take
- *  it.</p>
+ *  instance together with the user data. Those of the factory methods that do
+ *  <i>not</i> have a {@code supplier} argument will use an instance of
+ *  {@code SceneUserData} (this class); if you want to use an instance of a
+ *  derived class, you have to implement the respective supplier and use one of
+ *  the methods that take it.</p>
  *
  *  @param  <A> The class of the JavaFX application.
  *
- *  @version $Id: SceneUserData.java 1062 2023-09-25 23:11:41Z tquadrat $
+ *  @version $Id: SceneUserData.java 1092 2024-02-01 22:49:38Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.1.0
  */
-@ClassVersion( sourceVersion = "$Id: SceneUserData.java 1062 2023-09-25 23:11:41Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: SceneUserData.java 1092 2024-02-01 22:49:38Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public non-sealed class SceneUserData<A extends Application> extends FXUserDataBean<A>
 {
