@@ -29,6 +29,7 @@ module org.tquadrat.foundation.fx
     requires org.tquadrat.foundation.util;
 
     requires transitive javafx.base;
+    requires transitive javafx.controls;
     requires transitive javafx.graphics;
 
     //---* Common Use *--------------------------------------------------------
