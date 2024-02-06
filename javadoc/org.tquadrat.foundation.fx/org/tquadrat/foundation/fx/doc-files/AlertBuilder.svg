@@ -7,7 +7,7 @@
      version='1.1'
      baseProfile='full'
      width='996.000'
-     height='726.000'>
+     height='748.000'>
     <defs>
         <style><![CDATA[
             line
@@ -118,7 +118,7 @@
         </marker>
         <clipPath id='ID000001'>
             <rect class='focusClass'
-                  height='304.000'
+                  height='326.000'
                   width='946.000'
                   x='0.000'
                   y='0.000'/>
@@ -130,7 +130,7 @@
                     <rect x='0.000'
                           y='0.000'
                           width='946.000'
-                          height='304.000'
+                          height='326.000'
                           class='focusClass'/>
                     <line x1='0.000'
                           y1='17.000'
@@ -170,29 +170,33 @@
                     <text x='5.000'
                           y='168.000'>+ setHeight(height:double):org.tquadrat.foundation.fx.AlertBuilder</text>
                     <text x='5.000'
-                          y='179.000'>+ setOnCloseRequest(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='179.000'>+ setModality(modality:javafx.stage.Modality):org.tquadrat.foundation.fx.AlertBuilder</text>
                     <text x='5.000'
-                          y='190.000'>+ setOnHidden(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='190.000'>+ setOnCloseRequest(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
                     <text x='5.000'
-                          y='201.000'>+ setOnHiding(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='201.000'>+ setOnHidden(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
                     <text x='5.000'
-                          y='212.000'>+ setOnShowing(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='212.000'>+ setOnHiding(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
                     <text x='5.000'
-                          y='223.000'>+ setOnShown(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='223.000'>+ setOnShowing(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
                     <text x='5.000'
-                          y='234.000'>+ setPos(x:double,y:double):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='234.000'>+ setOnShown(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
                     <text x='5.000'
-                          y='245.000'>+ setResizable(flag:boolean):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='245.000'>+ setPos(x:double,y:double):org.tquadrat.foundation.fx.AlertBuilder</text>
                     <text x='5.000'
-                          y='256.000'>+ setResultConverter(callback:javafx.util.Callback&lt;javafx.scene.control.ButtonType,javafx.scene.control.ButtonType&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='256.000'>+ setResizable(flag:boolean):org.tquadrat.foundation.fx.AlertBuilder</text>
                     <text x='5.000'
-                          y='267.000'>+ setTitle(s:java.lang.String):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='267.000'>+ setResultConverter(callback:javafx.util.Callback&lt;javafx.scene.control.ButtonType,javafx.scene.control.ButtonType&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
                     <text x='5.000'
-                          y='278.000'>+ setWidth(width:double):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='278.000'>+ setStyle(style:javafx.stage.StageStyle):org.tquadrat.foundation.fx.AlertBuilder</text>
                     <text x='5.000'
-                          y='289.000'>+ setX(x:double):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='289.000'>+ setTitle(s:java.lang.String):org.tquadrat.foundation.fx.AlertBuilder</text>
                     <text x='5.000'
-                          y='300.000'>+ setY(y:double):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='300.000'>+ setWidth(width:double):org.tquadrat.foundation.fx.AlertBuilder</text>
+                    <text x='5.000'
+                          y='311.000'>+ setX(x:double):org.tquadrat.foundation.fx.AlertBuilder</text>
+                    <text x='5.000'
+                          y='322.000'>+ setY(y:double):org.tquadrat.foundation.fx.AlertBuilder</text>
                 </g>
             </g>
         </symbol>

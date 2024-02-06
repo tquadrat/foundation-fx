@@ -20,6 +20,7 @@
 <meta name="keywords" content="setGraphic()">
 <meta name="keywords" content="setHeaderText()">
 <meta name="keywords" content="setHeight()">
+<meta name="keywords" content="setModality()">
 <meta name="keywords" content="setOnCloseRequest()">
 <meta name="keywords" content="setOnHidden()">
 <meta name="keywords" content="setOnHiding()">
@@ -28,6 +29,7 @@
 <meta name="keywords" content="setPos()">
 <meta name="keywords" content="setResizable()">
 <meta name="keywords" content="setResultConverter()">
+<meta name="keywords" content="setStyle()">
 <meta name="keywords" content="setTitle()">
 <meta name="keywords" content="setWidth()">
 <meta name="keywords" content="setX()">
@@ -117,10 +119,10 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="annotations"><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/annotation/ClassVersion.html" title="class or interface in org.tquadrat.foundation.annotation" class="external-link">@ClassVersion</a>(<a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/annotation/ClassVersion.html#sourceVersion()" title="class or interface in org.tquadrat.foundation.annotation" class="external-link">sourceVersion</a>="$Id: HexUtils.java 747 2020-12-01 12:40:38Z tquadrat $")
+<div class="type-signature"><span class="annotations"><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/annotation/ClassVersion.html" title="class or interface in org.tquadrat.foundation.annotation" class="external-link">@ClassVersion</a>(<a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/annotation/ClassVersion.html#sourceVersion()" title="class or interface in org.tquadrat.foundation.annotation" class="external-link">sourceVersion</a>="$Id: AlertBuilder.java 1094 2024-02-06 16:43:11Z tquadrat $")
 <a href="https://apiguardian-team.github.io/apiguardian/docs/current/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/current/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/current/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/current/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="0.4.1")
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-46">AlertBuilder</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-48">AlertBuilder</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">This class provides a fluent API to build an
   <a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/Alert.html" title="class or interface in javafx.scene.control" class="external-link"><code>Alert</code></a>.</div>
@@ -128,7 +130,7 @@ loadScripts(document, 'script');</script>
 <dt><span class="simpleTagLabel">Author:</span></dt>
   <dd>Thomas Thrien (<a href="mailto:thomas.thrien@tquadrat.org">thomas.thrien@tquadrat.org</a>)</dd>
 <dt>Version:</dt>
-<dd>$Id: HexUtils.java 747 2020-12-01 12:40:38Z tquadrat $</dd>
+<dd>$Id: AlertBuilder.java 1094 2024-02-06 16:43:11Z tquadrat $</dd>
 <dt>Since:</dt>
 <dd>0.4.1</dd>
 
@@ -261,47 +263,61 @@ loadScripts(document, 'script');</script>
 <div class="block">Sets the window height for the new alert.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnCloseRequest(javafx.event.EventHandler)" class="member-name-link">setOnCloseRequest</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setModality(javafx.stage.Modality)" class="member-name-link">setModality</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.graphics/javafx/stage/Modality.html" title="class or interface in javafx.stage" class="external-link">Modality</a>&nbsp;modality)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the
+  <a href="https://openjfx.io/javadoc/17/javafx.graphics/javafx/stage/Modality.html" title="class or interface in javafx.stage" class="external-link"><code>Modality</code></a>
+  for the new alert.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnCloseRequest(javafx.event.EventHandler)" class="member-name-link">setOnCloseRequest</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the 'OnCloseRequest' event handler for the new
   alert.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnHidden(javafx.event.EventHandler)" class="member-name-link">setOnHidden</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnHidden(javafx.event.EventHandler)" class="member-name-link">setOnHidden</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the 'OnHidden' event handler for the new alert.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnHiding(javafx.event.EventHandler)" class="member-name-link">setOnHiding</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnHiding(javafx.event.EventHandler)" class="member-name-link">setOnHiding</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the 'OnHiding' event handler for the new alert.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnShowing(javafx.event.EventHandler)" class="member-name-link">setOnShowing</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnShowing(javafx.event.EventHandler)" class="member-name-link">setOnShowing</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the 'OnShowing' event handler for the new alert.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnShown(javafx.event.EventHandler)" class="member-name-link">setOnShown</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnShown(javafx.event.EventHandler)" class="member-name-link">setOnShown</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the 'OnShown' event handler for the new alert.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPos(double,double)" class="member-name-link">setPos</a><wbr>(double&nbsp;x,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPos(double,double)" class="member-name-link">setPos</a><wbr>(double&nbsp;x,
  double&nbsp;y)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the position for the new alert.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setResizable(boolean)" class="member-name-link">setResizable</a><wbr>(boolean&nbsp;flag)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setResizable(boolean)" class="member-name-link">setResizable</a><wbr>(boolean&nbsp;flag)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the flag that indicates whether the window for the
   new alert can be resized.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setResultConverter(javafx.util.Callback)" class="member-name-link">setResultConverter</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/Callback.html" title="class or interface in javafx.util" class="external-link">Callback</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/ButtonType.html" title="class or interface in javafx.scene.control" class="external-link">ButtonType</a>,<wbr><a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/ButtonType.html" title="class or interface in javafx.scene.control" class="external-link">ButtonType</a>&gt;&nbsp;callback)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setResultConverter(javafx.util.Callback)" class="member-name-link">setResultConverter</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/Callback.html" title="class or interface in javafx.util" class="external-link">Callback</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/ButtonType.html" title="class or interface in javafx.scene.control" class="external-link">ButtonType</a>,<wbr><a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/ButtonType.html" title="class or interface in javafx.scene.control" class="external-link">ButtonType</a>&gt;&nbsp;callback)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the result converter for the new alert.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setStyle(javafx.stage.StageStyle)" class="member-name-link">setStyle</a><wbr>(<a href="https://openjfx.io/javadoc/17/javafx.graphics/javafx/stage/StageStyle.html" title="class or interface in javafx.stage" class="external-link">StageStyle</a>&nbsp;style)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the
+  <a href="https://openjfx.io/javadoc/17/javafx.graphics/javafx/stage/StageStyle.html" title="class or interface in javafx.stage" class="external-link">style</a>
+  for the new alert.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTitle(java.lang.String)" class="member-name-link">setTitle</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;s)</code></div>
@@ -343,14 +359,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="m_Alert">
 <h3>m_Alert</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/Alert.html" title="class or interface in javafx.scene.control" class="external-link">Alert</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-57">m_Alert</a></span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/Alert.html" title="class or interface in javafx.scene.control" class="external-link">Alert</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-59">m_Alert</a></span></div>
 <div class="block">The alert instance to build.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="m_IsBuilt">
 <h3>m_IsBuilt</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-62">m_IsBuilt</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-64">m_IsBuilt</a></span></div>
 <div class="block">Flag that prevents the re-use of the builder.</div>
 </section>
 </li>
@@ -365,7 +381,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(javafx.scene.control.Alert.AlertType)">
 <h3>AlertBuilder</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-72">AlertBuilder</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/Alert.AlertType.html" title="class or interface in javafx.scene.control" class="external-link">Alert.AlertType</a>&nbsp;type)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-74">AlertBuilder</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/Alert.AlertType.html" title="class or interface in javafx.scene.control" class="external-link">Alert.AlertType</a>&nbsp;type)</span></div>
 <div class="block">Creates a new instance of <code>AlertBuilder</code>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -384,7 +400,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addEventFilter(javafx.event.EventType,javafx.event.EventHandler)">
 <h3>addEventFilter</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="type-parameters">&lt;E extends <a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/Event.html" title="class or interface in javafx.event" class="external-link">Event</a>&gt;</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-91">addEventFilter</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventType.html" title="class or interface in javafx.event" class="external-link">EventType</a>&lt;E&gt;&nbsp;eventType,
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="type-parameters">&lt;E extends <a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/Event.html" title="class or interface in javafx.event" class="external-link">Event</a>&gt;</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-93">addEventFilter</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventType.html" title="class or interface in javafx.event" class="external-link">EventType</a>&lt;E&gt;&nbsp;eventType,
  <a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;? super E&gt;&nbsp;eventFilter)</span></div>
 <div class="block"><p>Registers an event filter for the new alert.</p></div>
 <dl class="notes">
@@ -407,7 +423,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addEventHandler(javafx.event.EventType,javafx.event.EventHandler)">
 <h3>addEventHandler</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="type-parameters">&lt;E extends <a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/Event.html" title="class or interface in javafx.event" class="external-link">Event</a>&gt;</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-110">addEventHandler</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventType.html" title="class or interface in javafx.event" class="external-link">EventType</a>&lt;E&gt;&nbsp;eventType,
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="type-parameters">&lt;E extends <a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/Event.html" title="class or interface in javafx.event" class="external-link">Event</a>&gt;</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-112">addEventHandler</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventType.html" title="class or interface in javafx.event" class="external-link">EventType</a>&lt;E&gt;&nbsp;eventType,
  <a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;? super E&gt;&nbsp;eventHandler)</span></div>
 <div class="block"><p>Registers an even filter for the new alert.</p></div>
 <dl class="notes">
@@ -430,7 +446,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="build()">
 <h3>build</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/Alert.html" title="class or interface in javafx.scene.control" class="external-link">Alert</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-124">build</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/Alert.html" title="class or interface in javafx.scene.control" class="external-link">Alert</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-126">build</a></span>()</div>
 <div class="block">Returns the alert instance.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -441,7 +457,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="checkIsBuilt()">
 <h3>checkIsBuilt</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-144">checkIsBuilt</a></span>()
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-146">checkIsBuilt</a></span>()
                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></span></div>
 <div class="block">Throws an
   <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link"><code>IllegalStateException</code></a>
@@ -458,7 +474,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setContentText(java.lang.String)">
 <h3>setContentText</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-159">setContentText</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;s)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-161">setContentText</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;s)</span></div>
 <div class="block"><p>Sets the content text for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>
@@ -479,7 +495,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setDialogPane(javafx.scene.control.DialogPane)">
 <h3>setDialogPane</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-180">setDialogPane</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogPane.html" title="class or interface in javafx.scene.control" class="external-link">DialogPane</a>&nbsp;dialogPane)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-182">setDialogPane</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogPane.html" title="class or interface in javafx.scene.control" class="external-link">DialogPane</a>&nbsp;dialogPane)</span></div>
 <div class="block"><p>Sets the
   <a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogPane.html" title="class or interface in javafx.scene.control" class="external-link"><code>DialogPane</code></a>
   for the new alert.</p>
@@ -502,7 +518,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setDimensions(double,double)">
 <h3>setDimensions</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-201">setDimensions</a></span><wbr><span class="parameters">(double&nbsp;width,
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-203">setDimensions</a></span><wbr><span class="parameters">(double&nbsp;width,
  double&nbsp;height)</span></div>
 <div class="block"><p>Sets the window dimensions for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
@@ -526,7 +542,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setGraphic(javafx.scene.Node)">
 <h3>setGraphic</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-220">setGraphic</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.graphics/javafx/scene/Node.html" title="class or interface in javafx.scene" class="external-link">Node</a>&nbsp;node)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-222">setGraphic</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.graphics/javafx/scene/Node.html" title="class or interface in javafx.scene" class="external-link">Node</a>&nbsp;node)</span></div>
 <div class="block"><p>Sets the graphics for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>
@@ -547,7 +563,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setHeaderText(java.lang.String)">
 <h3>setHeaderText</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-239">setHeaderText</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;s)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-241">setHeaderText</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;s)</span></div>
 <div class="block"><p>Sets the header text for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>
@@ -568,7 +584,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setHeight(double)">
 <h3>setHeight</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-258">setHeight</a></span><wbr><span class="parameters">(double&nbsp;height)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-260">setHeight</a></span><wbr><span class="parameters">(double&nbsp;height)</span></div>
 <div class="block"><p>Sets the window height for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>
@@ -587,9 +603,30 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="setModality(javafx.stage.Modality)">
+<h3>setModality</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-279">setModality</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.graphics/javafx/stage/Modality.html" title="class or interface in javafx.stage" class="external-link">Modality</a>&nbsp;modality)</span></div>
+<div class="block"><p>Sets the
+  <a href="https://openjfx.io/javadoc/17/javafx.graphics/javafx/stage/Modality.html" title="class or interface in javafx.stage" class="external-link"><code>Modality</code></a>
+  for the new alert.</p></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>modality</code> - The modality.</dd>
+<dt>Returns:</dt>
+<dd>The builder reference.</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/Dialog.html#initModality(javafx.stage.Modality)" title="class or interface in javafx.scene.control" class="external-link"><code>Dialog.initModality(Modality)</code></a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="setOnCloseRequest(javafx.event.EventHandler)">
 <h3>setOnCloseRequest</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-278">setOnCloseRequest</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-299">setOnCloseRequest</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</span></div>
 <div class="block"><p>Sets the 'OnCloseRequest' event handler for the new
   alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
@@ -611,7 +648,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setOnHidden(javafx.event.EventHandler)">
 <h3>setOnHidden</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-297">setOnHidden</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-318">setOnHidden</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</span></div>
 <div class="block"><p>Sets the 'OnHidden' event handler for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>
@@ -632,7 +669,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setOnHiding(javafx.event.EventHandler)">
 <h3>setOnHiding</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-316">setOnHiding</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-337">setOnHiding</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</span></div>
 <div class="block"><p>Sets the 'OnHiding' event handler for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>
@@ -653,7 +690,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setOnShowing(javafx.event.EventHandler)">
 <h3>setOnShowing</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-335">setOnShowing</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-356">setOnShowing</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</span></div>
 <div class="block"><p>Sets the 'OnShowing' event handler for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>
@@ -674,7 +711,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setOnShown(javafx.event.EventHandler)">
 <h3>setOnShown</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-354">setOnShown</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-375">setOnShown</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html" title="class or interface in javafx.event" class="external-link">EventHandler</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/DialogEvent.html" title="class or interface in javafx.scene.control" class="external-link">DialogEvent</a>&gt;&nbsp;eventHandler)</span></div>
 <div class="block"><p>Sets the 'OnShown' event handler for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>
@@ -695,7 +732,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setPos(double,double)">
 <h3>setPos</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-375">setPos</a></span><wbr><span class="parameters">(double&nbsp;x,
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-396">setPos</a></span><wbr><span class="parameters">(double&nbsp;x,
  double&nbsp;y)</span></div>
 <div class="block"><p>Sets the position for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
@@ -719,7 +756,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setResizable(boolean)">
 <h3>setResizable</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-396">setResizable</a></span><wbr><span class="parameters">(boolean&nbsp;flag)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-417">setResizable</a></span><wbr><span class="parameters">(boolean&nbsp;flag)</span></div>
 <div class="block"><p>Sets the flag that indicates whether the window for the
   new alert can be resized.</p>
   <p>This operation can be called repeatedly; each consecutive call will
@@ -742,7 +779,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setResultConverter(javafx.util.Callback)">
 <h3>setResultConverter</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-415">setResultConverter</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/Callback.html" title="class or interface in javafx.util" class="external-link">Callback</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/ButtonType.html" title="class or interface in javafx.scene.control" class="external-link">ButtonType</a>,<wbr><a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/ButtonType.html" title="class or interface in javafx.scene.control" class="external-link">ButtonType</a>&gt;&nbsp;callback)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-436">setResultConverter</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.base/javafx/util/Callback.html" title="class or interface in javafx.util" class="external-link">Callback</a>&lt;<a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/ButtonType.html" title="class or interface in javafx.scene.control" class="external-link">ButtonType</a>,<wbr><a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/ButtonType.html" title="class or interface in javafx.scene.control" class="external-link">ButtonType</a>&gt;&nbsp;callback)</span></div>
 <div class="block"><p>Sets the result converter for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>
@@ -761,9 +798,30 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="setStyle(javafx.stage.StageStyle)">
+<h3>setStyle</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-455">setStyle</a></span><wbr><span class="parameters">(<a href="https://openjfx.io/javadoc/17/javafx.graphics/javafx/stage/StageStyle.html" title="class or interface in javafx.stage" class="external-link">StageStyle</a>&nbsp;style)</span></div>
+<div class="block"><p>Sets the
+  <a href="https://openjfx.io/javadoc/17/javafx.graphics/javafx/stage/StageStyle.html" title="class or interface in javafx.stage" class="external-link">style</a>
+  for the new alert.</p></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>style</code> - The style.</dd>
+<dt>Returns:</dt>
+<dd>The builder reference.</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="https://openjfx.io/javadoc/17/javafx.controls/javafx/scene/control/Dialog.html#initStyle(javafx.stage.StageStyle)" title="class or interface in javafx.scene.control" class="external-link"><code>Dialog.initStyle(StageStyle)</code></a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="setTitle(java.lang.String)">
 <h3>setTitle</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-434">setTitle</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;s)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-474">setTitle</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;s)</span></div>
 <div class="block"><p>Sets the window title for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>
@@ -784,7 +842,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setWidth(double)">
 <h3>setWidth</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-453">setWidth</a></span><wbr><span class="parameters">(double&nbsp;width)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-493">setWidth</a></span><wbr><span class="parameters">(double&nbsp;width)</span></div>
 <div class="block"><p>Sets the window width for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>
@@ -805,7 +863,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setX(double)">
 <h3>setX</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-472">setX</a></span><wbr><span class="parameters">(double&nbsp;x)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-512">setX</a></span><wbr><span class="parameters">(double&nbsp;x)</span></div>
 <div class="block"><p>Sets the x position for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>
@@ -826,7 +884,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setY(double)">
 <h3>setY</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-491">setY</a></span><wbr><span class="parameters">(double&nbsp;y)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="AlertBuilder.html" title="class in org.tquadrat.foundation.fx">AlertBuilder</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/AlertBuilder.html#line-531">setY</a></span><wbr><span class="parameters">(double&nbsp;y)</span></div>
 <div class="block"><p>Sets the y position for the new alert.</p>
   <p>This operation can be called repeatedly; each consecutive call will
   overwrite the value set by the previous one.</p></div>

@@ -31,6 +31,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogEvent;
 import javafx.scene.control.DialogPane;
+import javafx.stage.Modality;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
 /**
@@ -38,13 +40,13 @@ import javafx.util.Callback;
  *  {@link Alert}.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: HexUtils.java 747 2020-12-01 12:40:38Z tquadrat $
+ *  @version $Id: AlertBuilder.java 1094 2024-02-06 16:43:11Z tquadrat $
  *  @since 0.4.1
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "ClassWithTooManyMethods" )
-@ClassVersion( sourceVersion = "$Id: HexUtils.java 747 2020-12-01 12:40:38Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: AlertBuilder.java 1094 2024-02-06 16:43:11Z tquadrat $" )
 @API( status = STABLE, since = "0.4.1" )
 public class AlertBuilder
 {
@@ -265,6 +267,25 @@ public class AlertBuilder
     }   //  setHeight()
 
     /**
+     *  <p>{@summary Sets the
+     *  {@link Modality }
+     *  for the new alert.}</p>
+     *
+     *  @param  modality    The modality.
+     *  @return The builder reference.
+     *
+     *  @see Alert#initModality(Modality)
+     */
+    public final AlertBuilder setModality( final Modality modality )
+    {
+        checkIsBuilt();
+        m_Alert.initModality( requireNonNullArgument( modality, "modality" ) );
+
+        //---* Done *----------------------------------------------------------
+        return this;
+    }   //  setModality()
+
+    /**
      *  <p>{@summary Sets the 'OnCloseRequest' event handler for the new
      *  alert.}</p>
      *  <p>This operation can be called repeatedly; each consecutive call will
@@ -420,6 +441,25 @@ public class AlertBuilder
         //---* Done *----------------------------------------------------------
         return this;
     }   //  setResultConverter()
+
+    /**
+     *  <p>{@summary Sets the
+     *  {@linkplain StageStyle style}
+     *  for the new alert.}</p>
+     *
+     *  @param  style   The style.
+     *  @return The builder reference.
+     *
+     *  @see Alert#initStyle(StageStyle)
+     */
+    public final AlertBuilder setStyle( final StageStyle style )
+    {
+        checkIsBuilt();
+        m_Alert.initStyle( requireNonNullArgument( style, "style" ) );
+
+        //---* Done *----------------------------------------------------------
+        return this;
+    }   //  setStyle()
 
     /**
      *  <p>{@summary Sets the window title for the new alert.}</p>

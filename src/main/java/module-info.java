@@ -19,7 +19,7 @@
 /**
  *  The module for the JavaFX extensions by the <i>Foundation</i> Library.
  *
- *  @version $Id: module-info.java 990 2022-01-14 23:34:24Z tquadrat $
+ *  @version $Id: module-info.java 1094 2024-02-06 16:43:11Z tquadrat $
  *
  *  @todo task.list
  */
