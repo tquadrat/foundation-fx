@@ -6,8 +6,8 @@
      xmlns:xlink="http://www.w3.org/1999/xlink"
      version='1.1'
      baseProfile='full'
-     width='996.000'
-     height='781.000'>
+     width='462.000'
+     height='484.000'>
     <defs>
         <style><![CDATA[
             line
@@ -118,91 +118,39 @@
         </marker>
         <clipPath id='ID000001'>
             <rect class='focusClass'
-                  height='359.000'
-                  width='946.000'
+                  height='62.000'
+                  width='412.000'
                   x='0.000'
                   y='0.000'/>
         </clipPath>
-        <symbol id='org.tquadrat.foundation.fx.AlertBuilder'>
+        <symbol id='org.tquadrat.foundation.fx.FXUtils'>
             <g>
                 <g class='focusClass'
                    clip-path='url(#ID000001)'>
                     <rect x='0.000'
                           y='0.000'
-                          width='946.000'
-                          height='359.000'
+                          width='412.000'
+                          height='62.000'
                           class='focusClass'/>
                     <line x1='0.000'
                           y1='17.000'
-                          x2='946.000'
+                          x2='412.000'
                           y2='17.000'
                           class='separator'/>
-                    <text x='437.000'
-                          y='13.000'>AlertBuilder</text>
+                    <text x='185.000'
+                          y='13.000'>FXUtils</text>
                     <line x1='0.000'
-                          y1='45.000'
-                          x2='946.000'
-                          y2='45.000'
+                          y1='34.000'
+                          x2='412.000'
+                          y2='34.000'
                           class='separator'/>
-                    <text y='30.000'
-                          class='final'>- m_Alert:javafx.scene.control.Alert</text>
-                    <text y='41.000'>- m_IsBuilt:boolean</text>
                     <text x='5.000'
-                          y='58.000'>+ AlertBuilder(type:javafx.scene.control.Alert.AlertType)</text>
+                          y='30.000'/>
                     <text x='5.000'
-                          y='69.000'>+ AlertBuilder(type:javafx.scene.control.Alert.AlertType,owner:javafx.stage.Window)</text>
+                          y='47.000'>- FXUtils()</text>
                     <text x='5.000'
-                          y='80.000'>+ addEventFilter(eventType:javafx.event.EventType&lt;E&gt;,eventFilter:javafx.event.EventHandler&lt;? super E&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='91.000'>+ addEventHandler(eventType:javafx.event.EventType&lt;E&gt;,eventHandler:javafx.event.EventHandler&lt;? super E&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='102.000'>+ build():javafx.scene.control.Alert</text>
-                    <text x='5.000'
-                          y='113.000'>- checkIsBuilt():void</text>
-                    <text x='5.000'
-                          y='124.000'>+ execute():boolean</text>
-                    <text x='5.000'
-                          y='135.000'>+ setContentText(s:java.lang.String):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='146.000'>+ setDialogPane(dialogPane:javafx.scene.control.DialogPane):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='157.000'>+ setDimensions(width:double,height:double):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='168.000'>+ setGraphic(node:javafx.scene.Node):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='179.000'>+ setHeaderText(s:java.lang.String):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='190.000'>+ setHeight(height:double):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='201.000'>+ setModality(modality:javafx.stage.Modality):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='212.000'>+ setOnCloseRequest(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='223.000'>+ setOnHidden(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='234.000'>+ setOnHiding(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='245.000'>+ setOnShowing(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='256.000'>+ setOnShown(eventHandler:javafx.event.EventHandler&lt;javafx.scene.control.DialogEvent&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='267.000'>+ setOwner(owner:javafx.stage.Window):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='278.000'>+ setPos(x:double,y:double):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='289.000'>+ setResizable(flag:boolean):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='300.000'>+ setResultConverter(callback:javafx.util.Callback&lt;javafx.scene.control.ButtonType,javafx.scene.control.ButtonType&gt;):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='311.000'>+ setStyle(style:javafx.stage.StageStyle):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='322.000'>+ setTitle(s:java.lang.String):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='333.000'>+ setWidth(width:double):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='344.000'>+ setX(x:double):org.tquadrat.foundation.fx.AlertBuilder</text>
-                    <text x='5.000'
-                          y='355.000'>+ setY(y:double):org.tquadrat.foundation.fx.AlertBuilder</text>
+                          y='58.000'
+                          class='static'>+ retrieveOwner(event:javafx.event.ActionEvent):javafx.stage.Window</text>
                 </g>
             </g>
         </symbol>
@@ -264,12 +212,12 @@
         </symbol>
     </defs>
     <path class='inheritance'
-          d='M498.000,297.000 L498.000,197.000'
+          d='M231.000,297.000 L231.000,197.000'
           marker-end='url(#inheritance)'/>
-    <use x='376.000'
+    <use x='109.000'
          y='25.000'
          xlink:href='#java.lang.Object'/>
     <use x='25.000'
          y='297.000'
-         xlink:href='#org.tquadrat.foundation.fx.AlertBuilder'/>
+         xlink:href='#org.tquadrat.foundation.fx.FXUtils'/>
 </svg>

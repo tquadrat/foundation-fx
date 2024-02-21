@@ -17,6 +17,7 @@
 
 package org.tquadrat.foundation.fx;
 
+import static javafx.scene.control.ButtonType.OK;
 import static org.apiguardian.api.API.Status.STABLE;
 import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
 
@@ -33,6 +34,7 @@ import javafx.scene.control.DialogEvent;
 import javafx.scene.control.DialogPane;
 import javafx.stage.Modality;
 import javafx.stage.StageStyle;
+import javafx.stage.Window;
 import javafx.util.Callback;
 
 /**
@@ -77,6 +79,18 @@ public class AlertBuilder
         m_IsBuilt = false;
     }   //  AlertBuilder()
 
+    /**
+     *  Creates a new instance of {@code AlertBuilder}.
+     *
+     *  @param  type    The type of the new alert.
+     *  @param  owner   The parent window for the alert.
+     */
+    public AlertBuilder( final AlertType type, final Window owner )
+    {
+        this( type );
+        setOwner( owner );
+    }   //  AlertBuilder()
+
         /*---------*\
     ====** Methods **==========================================================
         \*---------*/
@@ -87,10 +101,13 @@ public class AlertBuilder
      *  @param  eventType   The type of the events received by the filter.
      *  @param  eventFilter The event filter.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#addEventFilter(EventType,EventHandler)
      */
-    public final <E extends Event> AlertBuilder addEventFilter( final EventType<E> eventType, final EventHandler<? super E> eventFilter )
+    public final <E extends Event> AlertBuilder addEventFilter( final EventType<E> eventType, final EventHandler<? super E> eventFilter ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.addEventFilter( eventType, eventFilter );
@@ -102,14 +119,17 @@ public class AlertBuilder
     /**
      *  <p>{@summary Registers an even filter for the new alert.}</p>
      *
-     *  @param  <E> The event class of the filer.
+     *  @param  <E> The event class of the filter.
      *  @param  eventType   The type of the events received by the filter.
      *  @param  eventHandler    The event handler.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#addEventHandler(EventType,EventHandler)
      */
-    public final <E extends Event> AlertBuilder addEventHandler( final EventType<E> eventType, final EventHandler<? super E> eventHandler )
+    public final <E extends Event> AlertBuilder addEventHandler( final EventType<E> eventType, final EventHandler<? super E> eventHandler ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.addEventHandler( eventType, eventHandler );
@@ -122,8 +142,10 @@ public class AlertBuilder
      *  Returns the alert instance.
      *
      *  @return The alert.
+     *  @throws IllegalStateException   The method {@code build()} was already
+     *      called previously on this builder instance.
      */
-    public final Alert build()
+    public final Alert build() throws IllegalStateException
     {
         checkIsBuilt();
         m_IsBuilt = true;
@@ -141,12 +163,38 @@ public class AlertBuilder
      *
      *  @throws IllegalStateException
      *      {@link #m_IsBuilt}
-     *      is @code true}.
+     *      is {@code true}.
      */
     private final void checkIsBuilt() throws IllegalStateException
     {
         if( m_IsBuilt ) throw new IllegalStateException( "Illegal Builder state" );
     }   //  checkIsBuilt()
+
+    /**
+     *  Builds the alert, calls
+     *  {@link Alert#showAndWait() showAndWait()}
+     *  on it and returns the result.
+     *
+     *  @return {@code true} if the alert was terminated with the
+     *      {@linkplain ButtonType#OK Ok button}, {@code false} in any other
+     *      case.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
+     *
+     *  @since 0.4.2
+     */
+    @SuppressWarnings( "BooleanMethodNameMustStartWithQuestion" )
+    @API( status = STABLE, since = "0.4.1" )
+    public final boolean execute() throws IllegalStateException
+    {
+        final var retValue = build().showAndWait()
+            .filter( result -> result == OK )
+            .isPresent();
+
+        //---* Done *----------------------------------------------------------
+        return retValue;
+    }   //  execute()
 
     /**
      *  <p>{@summary Sets the content text for the new alert.}</p>
@@ -155,10 +203,13 @@ public class AlertBuilder
      *
      *  @param  s   The content text; can be {@code null}.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setContentText(String)
      */
-    public final AlertBuilder setContentText( final String s )
+    public final AlertBuilder setContentText( final String s ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setContentText( s );
@@ -176,10 +227,13 @@ public class AlertBuilder
      *
      *  @param  dialogPane   The dialog pane; can be {@code null}.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setDialogPane(DialogPane)
      */
-    public final AlertBuilder setDialogPane( final DialogPane dialogPane )
+    public final AlertBuilder setDialogPane( final DialogPane dialogPane ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setDialogPane( dialogPane );
@@ -196,11 +250,14 @@ public class AlertBuilder
      *  @param  width   The window width.
      *  @param  height  The window height.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setHeight(double)
      *  @see Alert#setWidth(double)
      */
-    public final AlertBuilder setDimensions( final double width, final double height )
+    public final AlertBuilder setDimensions( final double width, final double height ) throws IllegalStateException
     {
         setHeight( height );
         setWidth( width );
@@ -216,10 +273,13 @@ public class AlertBuilder
      *
      *  @param  node    The graphics; can be {@code null}.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setGraphic(Node)
      */
-    public final AlertBuilder setGraphic( final Node node )
+    public final AlertBuilder setGraphic( final Node node ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setGraphic( node );
@@ -235,10 +295,13 @@ public class AlertBuilder
      *
      *  @param  s   The text for the header; can be {@code null}.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setHeaderText(String)
      */
-    public final AlertBuilder setHeaderText( final String s )
+    public final AlertBuilder setHeaderText( final String s ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setHeaderText( s );
@@ -254,10 +317,13 @@ public class AlertBuilder
      *
      *  @param  height  The window height.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setHeight(double)
      */
-    public final AlertBuilder setHeight( final double height )
+    public final AlertBuilder setHeight( final double height ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setHeight( height );
@@ -273,10 +339,13 @@ public class AlertBuilder
      *
      *  @param  modality    The modality.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#initModality(Modality)
      */
-    public final AlertBuilder setModality( final Modality modality )
+    public final AlertBuilder setModality( final Modality modality ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.initModality( requireNonNullArgument( modality, "modality" ) );
@@ -293,10 +362,13 @@ public class AlertBuilder
      *
      *  @param  eventHandler    The event handler
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setOnCloseRequest(EventHandler)
      */
-    public final AlertBuilder setOnCloseRequest( final EventHandler<DialogEvent> eventHandler )
+    public final AlertBuilder setOnCloseRequest( final EventHandler<DialogEvent> eventHandler ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setOnCloseRequest( eventHandler );
@@ -312,10 +384,13 @@ public class AlertBuilder
      *
      *  @param  eventHandler    The event handler
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setOnHidden(EventHandler)
      */
-    public final AlertBuilder setOnHidden( final EventHandler<DialogEvent> eventHandler )
+    public final AlertBuilder setOnHidden( final EventHandler<DialogEvent> eventHandler ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setOnHidden( eventHandler );
@@ -331,10 +406,13 @@ public class AlertBuilder
      *
      *  @param  eventHandler    The event handler
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setOnHiding(EventHandler)
      */
-    public final AlertBuilder setOnHiding( final EventHandler<DialogEvent> eventHandler )
+    public final AlertBuilder setOnHiding( final EventHandler<DialogEvent> eventHandler ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setOnHiding( eventHandler );
@@ -350,10 +428,13 @@ public class AlertBuilder
      *
      *  @param  eventHandler    The event handler
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setOnShowing(EventHandler)
      */
-    public final AlertBuilder setOnShowing( final EventHandler<DialogEvent> eventHandler )
+    public final AlertBuilder setOnShowing( final EventHandler<DialogEvent> eventHandler ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setOnShowing( eventHandler );
@@ -369,10 +450,13 @@ public class AlertBuilder
      *
      *  @param  eventHandler    The event handler
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setOnShown(EventHandler)
      */
-    public final AlertBuilder setOnShown( final EventHandler<DialogEvent> eventHandler )
+    public final AlertBuilder setOnShown( final EventHandler<DialogEvent> eventHandler ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setOnShown( eventHandler );
@@ -382,6 +466,29 @@ public class AlertBuilder
     }   //  setOnShown()
 
     /**
+     *  Sets the parent window for the new alert.
+     *
+     *  @param  owner   The parent window.
+     *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
+     *
+     *  @see Alert#initOwner(Window)
+     *
+     *  @since 0.4.2
+     */
+    @API( status = STABLE, since = "0.4.1" )
+    public final AlertBuilder setOwner( final Window owner ) throws IllegalStateException
+    {
+        checkIsBuilt();
+        m_Alert.initOwner( owner );
+
+        //---* Done *----------------------------------------------------------
+        return this;
+    }   //  setOwner()
+
+    /**
      *  <p>{@summary Sets the position for the new alert.}</p>
      *  <p>This operation can be called repeatedly; each consecutive call will
      *  overwrite the values set by the previous one.</p>
@@ -389,11 +496,14 @@ public class AlertBuilder
      *  @param  x   The x position for the alert window.
      *  @param  y   The y position for the alert window.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setX(double)
      *  @see Alert#setY(double)
      */
-    public final AlertBuilder setPos( final double x, final double y )
+    public final AlertBuilder setPos( final double x, final double y ) throws IllegalStateException
     {
         setX( x );
         setY( y );
@@ -411,10 +521,13 @@ public class AlertBuilder
      *  @param  flag    {@code true} for a resizeable window, _false for a
      *      window with fixed sizes.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setResizable(boolean)
      */
-    public final AlertBuilder setResizable( final boolean flag )
+    public final AlertBuilder setResizable( final boolean flag ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setResizable( flag );
@@ -427,13 +540,18 @@ public class AlertBuilder
      *  <p>{@summary Sets the result converter for the new alert.}</p>
      *  <p>This operation can be called repeatedly; each consecutive call will
      *  overwrite the value set by the previous one.</p>
+     *  <p>Setting a result converter may have an impact on the behaviour of
+     *  {@link #execute()}.</p>
      *
      *  @param  callback    The result converter; can be {@code null}.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setResultConverter(Callback)
      */
-    public final AlertBuilder setResultConverter( final Callback<ButtonType,ButtonType> callback )
+    public final AlertBuilder setResultConverter( final Callback<ButtonType,ButtonType> callback ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setResultConverter( callback );
@@ -449,10 +567,13 @@ public class AlertBuilder
      *
      *  @param  style   The style.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#initStyle(StageStyle)
      */
-    public final AlertBuilder setStyle( final StageStyle style )
+    public final AlertBuilder setStyle( final StageStyle style ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.initStyle( requireNonNullArgument( style, "style" ) );
@@ -468,10 +589,13 @@ public class AlertBuilder
      *
      *  @param  s   The window title; can be {@code null}.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setTitle(String)
      */
-    public final AlertBuilder setTitle( final String s )
+    public final AlertBuilder setTitle( final String s ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setTitle( s );
@@ -487,10 +611,13 @@ public class AlertBuilder
      *
      *  @param  width   The window width.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setWidth(double)
      */
-    public final AlertBuilder setWidth( final double width )
+    public final AlertBuilder setWidth( final double width ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setWidth( width );
@@ -506,10 +633,13 @@ public class AlertBuilder
      *
      *  @param  x   The x position.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setX(double)
      */
-    public final AlertBuilder setX( final double x )
+    public final AlertBuilder setX( final double x ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setX( x );
@@ -525,10 +655,13 @@ public class AlertBuilder
      *
      *  @param  y   The y position.
      *  @return The builder reference.
+     *  @throws IllegalStateException   The method
+     *      {@link #build()}
+     *      was already called on this builder instance.
      *
      *  @see Alert#setX(double)
      */
-    public final AlertBuilder setY( final double y )
+    public final AlertBuilder setY( final double y ) throws IllegalStateException
     {
         checkIsBuilt();
         m_Alert.setY( y );
