@@ -33,12 +33,12 @@ import javafx.stage.Window;
  *  Some useful utility function for the work with JavaFX.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: HexUtils.java 747 2020-12-01 12:40:38Z tquadrat $
+ *  @version $Id: FXUtils.java 1103 2024-02-27 12:34:53Z tquadrat $
  *  @since 0.4.2
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: HexUtils.java 747 2020-12-01 12:40:38Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: FXUtils.java 1103 2024-02-27 12:34:53Z tquadrat $" )
 @API( status = STABLE, since = "0.4.2" )
 @UtilityClass
 public final class FXUtils

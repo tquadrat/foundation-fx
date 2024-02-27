@@ -42,13 +42,13 @@ import javafx.util.Callback;
  *  {@link Alert}.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: AlertBuilder.java 1095 2024-02-06 17:30:48Z tquadrat $
+ *  @version $Id: AlertBuilder.java 1103 2024-02-27 12:34:53Z tquadrat $
  *  @since 0.4.1
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "ClassWithTooManyMethods" )
-@ClassVersion( sourceVersion = "$Id: AlertBuilder.java 1095 2024-02-06 17:30:48Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: AlertBuilder.java 1103 2024-02-27 12:34:53Z tquadrat $" )
 @API( status = STABLE, since = "0.4.1" )
 public class AlertBuilder
 {
