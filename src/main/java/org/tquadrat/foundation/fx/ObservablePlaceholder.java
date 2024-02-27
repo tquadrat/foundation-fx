@@ -38,12 +38,12 @@ import javafx.beans.Observable;
  *  <p>It is useful when creating bindings that do not change their status.</p>
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: HexUtils.java 747 2020-12-01 12:40:38Z tquadrat $
+ *  @version $Id: ObservablePlaceholder.java 1102 2024-02-21 13:00:03Z tquadrat $
  *  @since 0.4.2
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: HexUtils.java 747 2020-12-01 12:40:38Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: ObservablePlaceholder.java 1102 2024-02-21 13:00:03Z tquadrat $" )
 @API( status = STABLE, since = "0.4.2" )
 public final class ObservablePlaceholder implements Observable
 {

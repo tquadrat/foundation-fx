@@ -26,6 +26,7 @@ import org.tquadrat.foundation.annotation.UtilityClass;
 import org.tquadrat.foundation.exception.PrivateConstructorForStaticClassCalledError;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Window;
 
 /**
@@ -97,6 +98,14 @@ public final class FXUtils
                 .getRoot()
                 .getScene()
                 .getWindow();
+
+            /*
+             * When the event is triggered from a menu item, this is either
+             * part of a menu or a popup window. In both cases it has the same
+             * path to the window that owns it.
+             */
+            case final MenuItem menuItem -> menuItem.getParentPopup()
+                .getOwnerWindow();
 
             default -> throw new IllegalArgumentException( "Inappropriate event source" );
         };
