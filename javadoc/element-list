@@ -1,3 +1,8 @@
 module:org.tquadrat.foundation.fx
 org.tquadrat.foundation.fx
+org.tquadrat.foundation.fx.beans
+org.tquadrat.foundation.fx.control
+org.tquadrat.foundation.fx.control.skin
+org.tquadrat.foundation.fx.control.tester
 org.tquadrat.foundation.fx.internal
+org.tquadrat.foundation.fx.util

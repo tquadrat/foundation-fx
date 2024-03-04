@@ -19,7 +19,7 @@
 /**
  *  The module for the JavaFX extensions by the <i>Foundation</i> Library.
  *
- *  @version $Id: module-info.java 1094 2024-02-06 16:43:11Z tquadrat $
+ *  @version $Id: module-info.java 1110 2024-03-04 15:26:06Z tquadrat $
  *
  *  @todo task.list
  */
@@ -34,6 +34,10 @@ module org.tquadrat.foundation.fx
 
     //---* Common Use *--------------------------------------------------------
     exports org.tquadrat.foundation.fx;
+    exports org.tquadrat.foundation.fx.beans;
+    exports org.tquadrat.foundation.fx.control;
+    exports org.tquadrat.foundation.fx.control.tester;
+    exports org.tquadrat.foundation.fx.util;
 }
 
 /*

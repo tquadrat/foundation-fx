@@ -28,6 +28,7 @@ import java.util.TreeMap;
 
 import org.apiguardian.api.API;
 import org.tquadrat.foundation.annotation.ClassVersion;
+import org.tquadrat.foundation.fx.beans.SceneUserData;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -37,16 +38,16 @@ import javafx.stage.Stage;
  *
  *  @param  <A> The class of the JavaFX application.
  *
- *  @version $Id: FXUserDataBean.java 989 2022-01-13 19:09:58Z tquadrat $
+ *  @version $Id: FXUserDataBean.java 1110 2024-03-04 15:26:06Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.1.0
  */
 @SuppressWarnings( "AbstractClassWithoutAbstractMethods" )
-@ClassVersion( sourceVersion = "$Id: FXUserDataBean.java 989 2022-01-13 19:09:58Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: FXUserDataBean.java 1110 2024-03-04 15:26:06Z tquadrat $" )
 @API( status = INTERNAL, since = "0.1.0" )
 public abstract sealed class FXUserDataBean<A extends Application>
-    permits org.tquadrat.foundation.fx.SceneUserData
+    permits SceneUserData
 {
         /*------------*\
     ====** Attributes **=======================================================
