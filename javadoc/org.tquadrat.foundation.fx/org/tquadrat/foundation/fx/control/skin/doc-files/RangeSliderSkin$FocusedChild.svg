@@ -6,8 +6,8 @@
      xmlns:xlink="http://www.w3.org/1999/xlink"
      version='1.1'
      baseProfile='full'
-     width='1010.000'
-     height='750.000'>
+     width='1207.000'
+     height='797.000'>
     <defs>
         <style><![CDATA[
             line
@@ -118,107 +118,108 @@
         </marker>
         <clipPath id='ID000001'>
             <rect class='focusClass'
-                  height='95.000'
-                  width='622.000'
+                  height='84.000'
+                  width='616.000'
                   x='0.000'
-                  y='8.000'/>
+                  y='0.000'/>
         </clipPath>
-        <symbol id='org.tquadrat.foundation.fx.FXStringConverter'>
+        <symbol id='org.tquadrat.foundation.fx.control.skin.RangeSliderSkin.FocusedChild'>
             <g>
                 <g class='focusClass'
                    clip-path='url(#ID000001)'>
                     <rect x='0.000'
-                          y='8.000'
-                          width='622.000'
-                          height='95.000'
+                          y='0.000'
+                          width='616.000'
+                          height='84.000'
                           class='focusClass'/>
                     <line x1='0.000'
-                          y1='25.000'
-                          x2='622.000'
-                          y2='25.000'
+                          y1='28.000'
+                          x2='616.000'
+                          y2='28.000'
                           class='separator'/>
-                    <text x='260.000'
-                          y='21.000'>FXStringConverter</text>
+                    <text x='293.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Enum&#xBB;</text>
+                    <text x='272.000'
+                          y='24.000'>FocusedChild</text>
                     <line x1='0.000'
-                          y1='42.000'
-                          x2='622.000'
-                          y2='42.000'
+                          y1='45.000'
+                          x2='616.000'
+                          y2='45.000'
                           class='separator'/>
-                    <text y='38.000'
-                          class='final'>- m_StringConverter:org.tquadrat.foundation.lang.StringConverter&lt;T&gt;</text>
                     <text x='5.000'
-                          y='55.000'>+ FXStringConverter(stringConverter:org.tquadrat.foundation.lang.StringConverter&lt;T&gt;)</text>
+                          y='41.000'/>
                     <text x='5.000'
-                          y='66.000'>+ fromString(source:java.lang.String):T</text>
+                          y='58.000'>- FocusedChild()</text>
                     <text x='5.000'
-                          y='77.000'>+ fromString(source:java.lang.CharSequence):T</text>
+                          y='69.000'
+                          class='static'>+ values():org.tquadrat.foundation.fx.control.skin.RangeSliderSkin.FocusedChild[]</text>
                     <text x='5.000'
-                          y='88.000'>+ toString(source:T):java.lang.String</text>
-                    <text x='5.000'
-                          y='99.000'
-                          class='static'>+ wrap(stringConverter:javafx.util.StringConverter&lt;C&gt;):org.tquadrat.foundation.fx.FXStringConverter&lt;C&gt;</text>
-                </g>
-                <g transform='translate(597.000 0.000)'>
-                    <rect x='0.000'
-                          y='1.000'
-                          width='50.000'
-                          height='17.000'
-                          class='template'/>
-                    <rect x='0.000'
-                          y='1.000'
-                          width='50.000'
-                          height='17.000'
-                          class='focusClass'
-                          stroke='none'
-                          stroke-opacity='0.0'/>
-                    <text x='5.000'
-                          y='14.000'>T</text>
+                          y='80.000'
+                          class='static'>+ valueOf(name:java.lang.String):org.tquadrat.foundation.fx.control.skin.RangeSliderSkin.FocusedChild</text>
                 </g>
             </g>
         </symbol>
         <clipPath id='ID000002'>
             <rect class='externalClass'
-                  height='84.000'
-                  width='232.000'
+                  height='183.000'
+                  width='418.000'
                   x='0.000'
                   y='8.000'/>
         </clipPath>
-        <symbol id='javafx.util.StringConverter'>
+        <symbol id='java.lang.Enum'>
             <g>
                 <g clip-path='url(#ID000002)'>
                     <rect x='0.000'
                           y='8.000'
-                          width='232.000'
-                          height='84.000'
+                          width='418.000'
+                          height='183.000'
                           class='externalClass'/>
                     <line x1='0.000'
                           y1='36.000'
-                          x2='232.000'
+                          x2='418.000'
                           y2='36.000'
                           class='separator'/>
-                    <text x='101.600'
+                    <text x='194.600'
                           y='21.000'
                           class='stereotype'>&#xAB;Type&#xBB;</text>
-                    <text x='71.000'
+                    <text x='197.000'
                           y='32.000'
-                          class='abstract'>StringConverter</text>
+                          class='abstract'>Enum</text>
                     <line x1='0.000'
                           y1='53.000'
-                          x2='232.000'
+                          x2='418.000'
                           y2='53.000'
                           class='separator'/>
                     <text x='5.000'
-                          y='49.000'/>
+                          y='49.000'>&#x2026;</text>
                     <text x='5.000'
-                          y='66.000'>+ StringConverter()</text>
+                          y='66.000'># Enum(arg0:java.lang.String,arg1:int)</text>
                     <text x='5.000'
-                          y='77.000'
-                          class='abstract'>+ toString(arg0:T):java.lang.String</text>
+                          y='77.000'>+ name():java.lang.String</text>
                     <text x='5.000'
-                          y='88.000'
-                          class='abstract'>+ fromString(arg0:java.lang.String):T</text>
+                          y='88.000'>+ ordinal():int</text>
+                    <text x='5.000'
+                          y='99.000'>+ toString():java.lang.String</text>
+                    <text x='5.000'
+                          y='110.000'>+ equals(arg0:java.lang.Object):boolean</text>
+                    <text x='5.000'
+                          y='121.000'>+ hashCode():int</text>
+                    <text x='5.000'
+                          y='132.000'># clone():java.lang.Object</text>
+                    <text x='5.000'
+                          y='143.000'>+ compareTo(arg0:E):int</text>
+                    <text x='5.000'
+                          y='154.000'>+ getDeclaringClass():java.lang.Class&lt;E&gt;</text>
+                    <text x='5.000'
+                          y='165.000'>+ describeConstable():java.util.Optional&lt;java.lang.Enum.EnumDesc&lt;E&gt;&gt;</text>
+                    <text x='5.000'
+                          y='176.000'
+                          class='static'>+ valueOf(arg0:java.lang.Class&lt;T&gt;,arg1:java.lang.String):T</text>
+                    <text x='5.000'
+                          y='187.000'># finalize():void</text>
                 </g>
-                <g transform='translate(207.000 0.000)'>
+                <g transform='translate(393.000 0.000)'>
                     <rect x='0.000'
                           y='1.000'
                           width='50.000'
@@ -232,79 +233,11 @@
                           stroke='none'
                           stroke-opacity='0.0'/>
                     <text x='5.000'
-                          y='14.000'>T</text>
+                          y='14.000'>E</text>
                 </g>
             </g>
         </symbol>
         <clipPath id='ID000003'>
-            <rect class='externalClass'
-                  height='117.000'
-                  width='628.000'
-                  x='0.000'
-                  y='8.000'/>
-        </clipPath>
-        <symbol id='org.tquadrat.foundation.lang.StringConverter'>
-            <g>
-                <g clip-path='url(#ID000003)'>
-                    <rect x='0.000'
-                          y='8.000'
-                          width='628.000'
-                          height='117.000'
-                          class='externalClass'/>
-                    <line x1='0.000'
-                          y1='36.000'
-                          x2='628.000'
-                          y2='36.000'
-                          class='separator'/>
-                    <text x='287.600'
-                          y='21.000'
-                          class='stereotype'>&#xAB;Interface&#xBB;</text>
-                    <text x='269.000'
-                          y='32.000'
-                          class='abstract'>StringConverter</text>
-                    <line x1='0.000'
-                          y1='64.000'
-                          x2='628.000'
-                          y2='64.000'
-                          class='separator'/>
-                    <text y='49.000'
-                          class='static final'>+ METHOD_NAME_GetSubjectClass:java.lang.String</text>
-                    <text y='60.000'
-                          class='static final'>+ METHOD_NAME_Provider:java.lang.String</text>
-                    <text x='5.000'
-                          y='77.000'
-                          class='abstract static'>+ forClass(arg0:java.lang.Class&lt;C&gt;):java.util.Optional&lt;org.tquadrat.foundation.lang.StringConverter&lt;C&gt;&gt;</text>
-                    <text x='5.000'
-                          y='88.000'
-                          class='abstract static'>+ forEnum(arg0:java.lang.Class&lt;E&gt;):org.tquadrat.foundation.lang.StringConverter&lt;E&gt;</text>
-                    <text x='5.000'
-                          y='99.000'
-                          class='abstract'>+ fromString(arg0:java.lang.CharSequence):T</text>
-                    <text x='5.000'
-                          y='110.000'>&#x2A22; toString(arg0:T):java.lang.String</text>
-                    <text x='5.000'
-                          y='121.000'
-                          class='abstract static'>+ list():java.util.Collection&lt;java.lang.Class&lt;?&gt;&gt;</text>
-                </g>
-                <g transform='translate(603.000 0.000)'>
-                    <rect x='0.000'
-                          y='1.000'
-                          width='50.000'
-                          height='17.000'
-                          class='template'/>
-                    <rect x='0.000'
-                          y='1.000'
-                          width='50.000'
-                          height='17.000'
-                          class='externalClass'
-                          stroke='none'
-                          stroke-opacity='0.0'/>
-                    <text x='5.000'
-                          y='14.000'>T</text>
-                </g>
-            </g>
-        </symbol>
-        <clipPath id='ID000004'>
             <rect class='externalClass'
                   height='172.000'
                   width='244.000'
@@ -313,7 +246,7 @@
         </clipPath>
         <symbol id='java.lang.Object'>
             <g>
-                <g clip-path='url(#ID000004)'>
+                <g clip-path='url(#ID000003)'>
                     <rect x='0.000'
                           y='0.000'
                           width='244.000'
@@ -360,7 +293,101 @@
                 </g>
             </g>
         </symbol>
+        <clipPath id='ID000004'>
+            <rect class='externalClass'
+                  height='62.000'
+                  width='508.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='java.lang.constant.Constable'>
+            <g>
+                <g clip-path='url(#ID000004)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='508.000'
+                          height='62.000'
+                          class='externalClass'/>
+                    <line x1='0.000'
+                          y1='28.000'
+                          x2='508.000'
+                          y2='28.000'
+                          class='separator'/>
+                    <text x='227.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Interface&#xBB;</text>
+                    <text x='227.000'
+                          y='24.000'
+                          class='abstract'>Constable</text>
+                    <line x1='0.000'
+                          y1='45.000'
+                          x2='508.000'
+                          y2='45.000'
+                          class='separator'/>
+                    <text x='5.000'
+                          y='41.000'/>
+                    <text x='5.000'
+                          y='58.000'
+                          class='abstract'>+ describeConstable():java.util.Optional&lt;? extends java.lang.constant.ConstantDesc&gt;</text>
+                </g>
+            </g>
+        </symbol>
         <clipPath id='ID000005'>
+            <rect class='externalClass'
+                  height='62.000'
+                  width='148.000'
+                  x='0.000'
+                  y='8.000'/>
+        </clipPath>
+        <symbol id='java.lang.Comparable'>
+            <g>
+                <g clip-path='url(#ID000005)'>
+                    <rect x='0.000'
+                          y='8.000'
+                          width='148.000'
+                          height='62.000'
+                          class='externalClass'/>
+                    <line x1='0.000'
+                          y1='36.000'
+                          x2='148.000'
+                          y2='36.000'
+                          class='separator'/>
+                    <text x='47.600'
+                          y='21.000'
+                          class='stereotype'>&#xAB;Interface&#xBB;</text>
+                    <text x='44.000'
+                          y='32.000'
+                          class='abstract'>Comparable</text>
+                    <line x1='0.000'
+                          y1='53.000'
+                          x2='148.000'
+                          y2='53.000'
+                          class='separator'/>
+                    <text x='5.000'
+                          y='49.000'/>
+                    <text x='5.000'
+                          y='66.000'
+                          class='abstract'>+ compareTo(arg0:T):int</text>
+                </g>
+                <g transform='translate(123.000 0.000)'>
+                    <rect x='0.000'
+                          y='1.000'
+                          width='50.000'
+                          height='17.000'
+                          class='template'/>
+                    <rect x='0.000'
+                          y='1.000'
+                          width='50.000'
+                          height='17.000'
+                          class='externalClass'
+                          stroke='none'
+                          stroke-opacity='0.0'/>
+                    <text x='5.000'
+                          y='14.000'>T</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000006'>
             <rect class='externalClass'
                   height='62.000'
                   width='82.000'
@@ -369,7 +396,7 @@
         </clipPath>
         <symbol id='java.io.Serializable'>
             <g>
-                <g clip-path='url(#ID000005)'>
+                <g clip-path='url(#ID000006)'>
                     <rect x='0.000'
                           y='0.000'
                           width='82.000'
@@ -400,30 +427,36 @@
         </symbol>
     </defs>
     <path class='inheritance'
-          d='M467.500,530.000 c0.000,-126.000,-326.500,0.000,-326.500,-126.000 v-15'
+          d='M603.500,588.000 c0.000,-85.000,-12.500,0.000,-12.500,-85.000 v-15'
+          marker-end='url(#inheritance)'/>
+    <path class='inheritance'
+          d='M516.000,305.000 c0.000,-93.000,-369.000,0.000,-369.000,-93.000 v-15'
           marker-end='url(#inheritance)'/>
     <path class='implementation'
-          d='M517.500,530.000 c0.000,-93.000,128.500,0.000,128.500,-93.000 v-15'
+          d='M566.000,305.000 c0.000,-203.000,7.000,0.000,7.000,-203.000 v-15'
           marker-end='url(#implementation)'/>
-    <path class='inheritance'
-          d='M141.000,305.000 c0.000,-93.000,111.500,0.000,111.500,-93.000 v-15'
-          marker-end='url(#inheritance)'/>
-    <path class='inheritance'
-          d='M646.000,305.000 c0.000,-203.000,111.500,0.000,111.500,-203.000 v-15'
-          marker-end='url(#inheritance)'/>
-    <use x='130.500'
+    <path class='implementation'
+          d='M616.000,305.000 c0.000,-195.000,335.000,0.000,335.000,-195.000 v-15'
+          marker-end='url(#implementation)'/>
+    <path class='implementation'
+          d='M666.000,305.000 c0.000,-203.000,475.000,0.000,475.000,-203.000 v-15'
+          marker-end='url(#implementation)'/>
+    <use x='25.000'
          y='25.000'
          xlink:href='#java.lang.Object'/>
-    <use x='716.500'
+    <use x='319.000'
+         y='25.000'
+         xlink:href='#java.lang.constant.Constable'/>
+    <use x='877.000'
+         y='25.000'
+         xlink:href='#java.lang.Comparable'/>
+    <use x='1100.000'
          y='25.000'
          xlink:href='#java.io.Serializable'/>
-    <use x='25.000'
+    <use x='382.000'
          y='297.000'
-         xlink:href='#javafx.util.StringConverter'/>
-    <use x='332.000'
-         y='297.000'
-         xlink:href='#org.tquadrat.foundation.lang.StringConverter'/>
-    <use x='181.500'
-         y='522.000'
-         xlink:href='#org.tquadrat.foundation.fx.FXStringConverter'/>
+         xlink:href='#java.lang.Enum'/>
+    <use x='295.500'
+         y='588.000'
+         xlink:href='#org.tquadrat.foundation.fx.control.skin.RangeSliderSkin.FocusedChild'/>
 </svg>

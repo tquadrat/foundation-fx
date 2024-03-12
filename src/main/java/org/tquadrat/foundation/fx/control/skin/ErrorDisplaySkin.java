@@ -49,13 +49,13 @@ import javafx.scene.layout.VBox;
  *
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: ErrorDisplaySkin.java 1110 2024-03-04 15:26:06Z tquadrat $
+ *  @version $Id: ErrorDisplaySkin.java 1111 2024-03-04 21:54:29Z tquadrat $
  *  @since 0.4.3
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "JavadocLinkAsPlainText" )
-@ClassVersion( sourceVersion = "$Id: ErrorDisplaySkin.java 1110 2024-03-04 15:26:06Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: ErrorDisplaySkin.java 1111 2024-03-04 21:54:29Z tquadrat $" )
 @API( status = STABLE, since = "0.4.3" )
 public final class ErrorDisplaySkin extends SkinBase<ErrorDisplay>
 {

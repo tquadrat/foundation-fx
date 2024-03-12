@@ -90,17 +90,17 @@ public final class FXStringConverter<T> extends StringConverter<T> implements or
      *  The reference to the error display.
      */
     @SuppressWarnings( "OptionalUsedAsFieldOrParameterType" )
-    private final Optional<ErrorDisplay> m_ErrorDisplay;
+    private final transient Optional<ErrorDisplay> m_ErrorDisplay;
 
     /**
      *  The function that composes the error messsage.
      */
-    private final UnaryOperator<String> m_MessageComposer;
+    private final transient UnaryOperator<String> m_MessageComposer;
 
     /**
      *  The message id.
      */
-    private final String m_MessageId;
+    private final transient String m_MessageId;
 
     /**
      *  The <i>Foundation</i>

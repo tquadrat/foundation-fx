@@ -33,12 +33,12 @@ import javafx.stage.Window;
  *  Some useful utility function for the work with JavaFX.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: FXUtils.java 1103 2024-02-27 12:34:53Z tquadrat $
+ *  @version $Id: FXUtils.java 1112 2024-03-10 14:16:51Z tquadrat $
  *  @since 0.4.2
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: FXUtils.java 1103 2024-02-27 12:34:53Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: FXUtils.java 1112 2024-03-10 14:16:51Z tquadrat $" )
 @API( status = STABLE, since = "0.4.2" )
 @UtilityClass
 public final class FXUtils
@@ -70,6 +70,55 @@ public final class FXUtils
         /*---------*\
     ====** Methods **==========================================================
         \*---------*/
+    /**
+     *  <p>{@summary Clamps the given value to be strictly between the
+     *  {@code min} and {@code max} values.}</p>
+     *  <p>Basically, this method does the same as
+     *  {@link Math#clamp(double, double, double)},
+     *  only the sequence of the arguments is different.</p>
+     *
+     *  @param  min The lower border.
+     *  @param  value   The value.
+     *  @param  max The upper border.
+     *  @return The value if it is greater than {@code min} and less than
+     *      {@code max}, {@code min}, when it is less than {@code min}, or
+     *      {@code max} when it is greater than that.
+     *  @throws IllegalArgumentException {@code min} is greater than {@code max}.
+     *
+     *  @since 0.4.6
+     */
+    @API( status = STABLE, since = "0.4.6" )
+    public static final double clamp( final double min, final double value, final double max ) throws IllegalArgumentException
+    {
+        final var retValue = Math.clamp( value, min, max );
+
+        //---* Done *----------------------------------------------------------
+        return retValue;
+    }   //  clamp()
+
+    /**
+     *  <p>{@summary Returns either {@code less} or {@code more} depending on
+     *  which one is closer to {@code value}.} If {@code value} is perfectly
+     *  between them, then either may be returned.</p>
+     *
+     *  @param  less    The lower value.
+     *  @param  value   The reference value.
+     *  @param  more    The upper value.
+     *  @return The value that is closer to the reference.
+     *
+     *  @since 0.4.6
+     */
+    @API( status = STABLE, since = "0.4.6" )
+    public static final double nearest( final double less, final double value, final double more )
+    {
+        final var lessDiff = value - less;
+        final var moreDiff = more - value;
+        final var retValue = lessDiff < moreDiff ? less : more;
+
+        //---* Done *----------------------------------------------------------
+        return retValue;
+    }   //  nearest()
+
     /**
      *  Retrieves the window owning the
      *  {@link Button}

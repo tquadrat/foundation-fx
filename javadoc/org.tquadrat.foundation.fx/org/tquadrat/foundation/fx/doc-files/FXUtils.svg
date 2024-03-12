@@ -7,7 +7,7 @@
      version='1.1'
      baseProfile='full'
      width='462.000'
-     height='484.000'>
+     height='506.000'>
     <defs>
         <style><![CDATA[
             line
@@ -118,7 +118,7 @@
         </marker>
         <clipPath id='ID000001'>
             <rect class='focusClass'
-                  height='62.000'
+                  height='84.000'
                   width='412.000'
                   x='0.000'
                   y='0.000'/>
@@ -130,7 +130,7 @@
                     <rect x='0.000'
                           y='0.000'
                           width='412.000'
-                          height='62.000'
+                          height='84.000'
                           class='focusClass'/>
                     <line x1='0.000'
                           y1='17.000'
@@ -150,6 +150,12 @@
                           y='47.000'>- FXUtils()</text>
                     <text x='5.000'
                           y='58.000'
+                          class='static'>+ clamp(min:double,value:double,max:double):double</text>
+                    <text x='5.000'
+                          y='69.000'
+                          class='static'>+ nearest(less:double,value:double,more:double):double</text>
+                    <text x='5.000'
+                          y='80.000'
                           class='static'>+ retrieveOwner(event:javafx.event.ActionEvent):javafx.stage.Window</text>
                 </g>
             </g>

@@ -7,7 +7,7 @@
      version='1.1'
      baseProfile='full'
      width='2112.000'
-     height='6588.000'>
+     height='6761.000'>
     <defs>
         <style><![CDATA[
             line
@@ -184,6 +184,45 @@
             </g>
         </symbol>
         <clipPath id='ID000002'>
+            <rect class='otherClass'
+                  height='73.000'
+                  width='604.000'
+                  x='0.000'
+                  y='0.000'/>
+        </clipPath>
+        <symbol id='org.tquadrat.foundation.fx.internal.FoundationFXControl'>
+            <g>
+                <g clip-path='url(#ID000002)'>
+                    <rect x='0.000'
+                          y='0.000'
+                          width='604.000'
+                          height='73.000'
+                          class='otherClass'/>
+                    <line x1='0.000'
+                          y1='28.000'
+                          x2='604.000'
+                          y2='28.000'
+                          class='separator'/>
+                    <text x='287.600'
+                          y='13.000'
+                          class='stereotype'>&#xAB;Type&#xBB;</text>
+                    <text x='245.000'
+                          y='24.000'
+                          class='abstract'>FoundationFXControl</text>
+                    <line x1='0.000'
+                          y1='45.000'
+                          x2='604.000'
+                          y2='45.000'
+                          class='separator'/>
+                    <text y='41.000'>- m_Stylesheet:java.lang.String</text>
+                    <text x='5.000'
+                          y='58.000'># FoundationFXControl()</text>
+                    <text x='5.000'
+                          y='69.000'># getUserAgentStylesheet(lookupClass:java.lang.Class&lt;?&gt;,fileName:java.lang.String):java.lang.String</text>
+                </g>
+            </g>
+        </symbol>
+        <clipPath id='ID000003'>
             <rect class='externalClass'
                   height='337.000'
                   width='640.000'
@@ -192,7 +231,7 @@
         </clipPath>
         <symbol id='javafx.scene.control.Control'>
             <g>
-                <g clip-path='url(#ID000002)'>
+                <g clip-path='url(#ID000003)'>
                     <rect x='0.000'
                           y='0.000'
                           width='640.000'
@@ -272,7 +311,7 @@
                 </g>
             </g>
         </symbol>
-        <clipPath id='ID000003'>
+        <clipPath id='ID000004'>
             <rect class='externalClass'
                   height='1074.000'
                   width='1354.000'
@@ -281,7 +320,7 @@
         </clipPath>
         <symbol id='javafx.scene.layout.Region'>
             <g>
-                <g clip-path='url(#ID000003)'>
+                <g clip-path='url(#ID000004)'>
                     <rect x='0.000'
                           y='0.000'
                           width='1354.000'
@@ -495,7 +534,7 @@
                 </g>
             </g>
         </symbol>
-        <clipPath id='ID000004'>
+        <clipPath id='ID000005'>
             <rect class='externalClass'
                   height='84.000'
                   width='508.000'
@@ -504,7 +543,7 @@
         </clipPath>
         <symbol id='javafx.scene.control.Skinnable'>
             <g>
-                <g clip-path='url(#ID000004)'>
+                <g clip-path='url(#ID000005)'>
                     <rect x='0.000'
                           y='0.000'
                           width='508.000'
@@ -540,7 +579,7 @@
                 </g>
             </g>
         </symbol>
-        <clipPath id='ID000005'>
+        <clipPath id='ID000006'>
             <rect class='externalClass'
                   height='315.000'
                   width='640.000'
@@ -549,7 +588,7 @@
         </clipPath>
         <symbol id='javafx.scene.Parent'>
             <g>
-                <g clip-path='url(#ID000005)'>
+                <g clip-path='url(#ID000006)'>
                     <rect x='0.000'
                           y='0.000'
                           width='640.000'
@@ -624,7 +663,7 @@
                 </g>
             </g>
         </symbol>
-        <clipPath id='ID000006'>
+        <clipPath id='ID000007'>
             <rect class='externalClass'
                   height='3813.000'
                   width='976.000'
@@ -633,7 +672,7 @@
         </clipPath>
         <symbol id='javafx.scene.Node'>
             <g>
-                <g clip-path='url(#ID000006)'>
+                <g clip-path='url(#ID000007)'>
                     <rect x='0.000'
                           y='0.000'
                           width='976.000'
@@ -1345,7 +1384,7 @@
                 </g>
             </g>
         </symbol>
-        <clipPath id='ID000007'>
+        <clipPath id='ID000008'>
             <rect class='externalClass'
                   height='172.000'
                   width='244.000'
@@ -1354,7 +1393,7 @@
         </clipPath>
         <symbol id='java.lang.Object'>
             <g>
-                <g clip-path='url(#ID000007)'>
+                <g clip-path='url(#ID000008)'>
                     <rect x='0.000'
                           y='0.000'
                           width='244.000'
@@ -1401,7 +1440,7 @@
                 </g>
             </g>
         </symbol>
-        <clipPath id='ID000008'>
+        <clipPath id='ID000009'>
             <rect class='externalClass'
                   height='106.000'
                   width='604.000'
@@ -1410,7 +1449,7 @@
         </clipPath>
         <symbol id='javafx.event.EventTarget'>
             <g>
-                <g clip-path='url(#ID000008)'>
+                <g clip-path='url(#ID000009)'>
                     <rect x='0.000'
                           y='0.000'
                           width='604.000'
@@ -1448,7 +1487,7 @@
                 </g>
             </g>
         </symbol>
-        <clipPath id='ID000009'>
+        <clipPath id='ID000010'>
             <rect class='externalClass'
                   height='139.000'
                   width='556.000'
@@ -1457,7 +1496,7 @@
         </clipPath>
         <symbol id='javafx.css.Styleable'>
             <g>
-                <g clip-path='url(#ID000009)'>
+                <g clip-path='url(#ID000010)'>
                     <rect x='0.000'
                           y='0.000'
                           width='556.000'
@@ -1509,6 +1548,9 @@
         </symbol>
     </defs>
     <path class='inheritance'
+          d='M1056.000,6409.000 L1056.000,6309.000'
+          marker-end='url(#inheritance)'/>
+    <path class='inheritance'
           d='M1056.000,6236.000 L1056.000,6136.000'
           marker-end='url(#inheritance)'/>
     <path class='inheritance'
@@ -1556,7 +1598,10 @@
     <use x='736.000'
          y='5799.000'
          xlink:href='#javafx.scene.control.Control'/>
-    <use x='598.000'
+    <use x='754.000'
          y='6236.000'
+         xlink:href='#org.tquadrat.foundation.fx.internal.FoundationFXControl'/>
+    <use x='598.000'
+         y='6409.000'
          xlink:href='#org.tquadrat.foundation.fx.control.ErrorDisplay'/>
 </svg>

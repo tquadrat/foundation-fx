@@ -46,12 +46,12 @@
 <span class="source-line-no">033</span><span id="line-33"> *  Some useful utility function for the work with JavaFX.</span>
 <span class="source-line-no">034</span><span id="line-34"> *</span>
 <span class="source-line-no">035</span><span id="line-35"> *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org</span>
-<span class="source-line-no">036</span><span id="line-36"> *  @version $Id: FXUtils.java 1103 2024-02-27 12:34:53Z tquadrat $</span>
+<span class="source-line-no">036</span><span id="line-36"> *  @version $Id: FXUtils.java 1112 2024-03-10 14:16:51Z tquadrat $</span>
 <span class="source-line-no">037</span><span id="line-37"> *  @since 0.4.2</span>
 <span class="source-line-no">038</span><span id="line-38"> *</span>
 <span class="source-line-no">039</span><span id="line-39"> *  @UMLGraph.link</span>
 <span class="source-line-no">040</span><span id="line-40"> */</span>
-<span class="source-line-no">041</span><span id="line-41">@ClassVersion( sourceVersion = "$Id: FXUtils.java 1103 2024-02-27 12:34:53Z tquadrat $" )</span>
+<span class="source-line-no">041</span><span id="line-41">@ClassVersion( sourceVersion = "$Id: FXUtils.java 1112 2024-03-10 14:16:51Z tquadrat $" )</span>
 <span class="source-line-no">042</span><span id="line-42">@API( status = STABLE, since = "0.4.2" )</span>
 <span class="source-line-no">043</span><span id="line-43">@UtilityClass</span>
 <span class="source-line-no">044</span><span id="line-44">public final class FXUtils</span>
@@ -84,54 +84,103 @@
 <span class="source-line-no">071</span><span id="line-71">    ====** Methods **==========================================================</span>
 <span class="source-line-no">072</span><span id="line-72">        \*---------*/</span>
 <span class="source-line-no">073</span><span id="line-73">    /**</span>
-<span class="source-line-no">074</span><span id="line-74">     *  Retrieves the window owning the</span>
-<span class="source-line-no">075</span><span id="line-75">     *  {@link Button}</span>
-<span class="source-line-no">076</span><span id="line-76">     *  that fired the given</span>
-<span class="source-line-no">077</span><span id="line-77">     *  {@link ActionEvent}.</span>
-<span class="source-line-no">078</span><span id="line-78">     *</span>
-<span class="source-line-no">079</span><span id="line-79">     *  @param  event   The action event.</span>
-<span class="source-line-no">080</span><span id="line-80">     *  @return The owning window.</span>
-<span class="source-line-no">081</span><span id="line-81">     *  @throws IllegalArgumentException    The event was not fired by a</span>
-<span class="source-line-no">082</span><span id="line-82">     *      {@code Button}.</span>
-<span class="source-line-no">083</span><span id="line-83">     */</span>
-<span class="source-line-no">084</span><span id="line-84">    public static final Window retrieveOwner( final ActionEvent event ) throws IllegalArgumentException</span>
-<span class="source-line-no">085</span><span id="line-85">    {</span>
-<span class="source-line-no">086</span><span id="line-86">        final var retValue = switch( requireNonNullArgument( event, "event" ).getSource() )</span>
-<span class="source-line-no">087</span><span id="line-87">        {</span>
-<span class="source-line-no">088</span><span id="line-88">            case null -&gt; throw new IllegalArgumentException( "Event source is null" );</span>
-<span class="source-line-no">089</span><span id="line-89"></span>
-<span class="source-line-no">090</span><span id="line-90">            /*</span>
-<span class="source-line-no">091</span><span id="line-91">             * When the triggering event originates from a button, that button</span>
-<span class="source-line-no">092</span><span id="line-92">             * is part of a scene (perhaps defined by an FXML file or created</span>
-<span class="source-line-no">093</span><span id="line-93">             * from scratch). So we just walk up the scenes to the root, and</span>
-<span class="source-line-no">094</span><span id="line-94">             * from there we take the Window that owns that button. That is</span>
-<span class="source-line-no">095</span><span id="line-95">             * quite often a Stage.</span>
-<span class="source-line-no">096</span><span id="line-96">             */</span>
-<span class="source-line-no">097</span><span id="line-97">            case final Button button -&gt; button.getScene()</span>
-<span class="source-line-no">098</span><span id="line-98">                .getRoot()</span>
-<span class="source-line-no">099</span><span id="line-99">                .getScene()</span>
-<span class="source-line-no">100</span><span id="line-100">                .getWindow();</span>
-<span class="source-line-no">101</span><span id="line-101"></span>
-<span class="source-line-no">102</span><span id="line-102">            /*</span>
-<span class="source-line-no">103</span><span id="line-103">             * When the event is triggered from a menu item, this is either</span>
-<span class="source-line-no">104</span><span id="line-104">             * part of a menu or a popup window. In both cases it has the same</span>
-<span class="source-line-no">105</span><span id="line-105">             * path to the window that owns it.</span>
-<span class="source-line-no">106</span><span id="line-106">             */</span>
-<span class="source-line-no">107</span><span id="line-107">            case final MenuItem menuItem -&gt; menuItem.getParentPopup()</span>
-<span class="source-line-no">108</span><span id="line-108">                .getOwnerWindow();</span>
-<span class="source-line-no">109</span><span id="line-109"></span>
-<span class="source-line-no">110</span><span id="line-110">            default -&gt; throw new IllegalArgumentException( "Inappropriate event source" );</span>
-<span class="source-line-no">111</span><span id="line-111">        };</span>
-<span class="source-line-no">112</span><span id="line-112"></span>
-<span class="source-line-no">113</span><span id="line-113">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">114</span><span id="line-114">        return retValue;</span>
-<span class="source-line-no">115</span><span id="line-115">    }   //  retrieveOwner()</span>
-<span class="source-line-no">116</span><span id="line-116">}</span>
-<span class="source-line-no">117</span><span id="line-117">//  class FXUtils</span>
-<span class="source-line-no">118</span><span id="line-118"></span>
-<span class="source-line-no">119</span><span id="line-119">/*</span>
-<span class="source-line-no">120</span><span id="line-120"> *  End of File</span>
-<span class="source-line-no">121</span><span id="line-121"> */</span>
+<span class="source-line-no">074</span><span id="line-74">     *  &lt;p&gt;{@summary Clamps the given value to be strictly between the</span>
+<span class="source-line-no">075</span><span id="line-75">     *  {@code min} and {@code max} values.}&lt;/p&gt;</span>
+<span class="source-line-no">076</span><span id="line-76">     *  &lt;p&gt;Basically, this method does the same as</span>
+<span class="source-line-no">077</span><span id="line-77">     *  {@link Math#clamp(double, double, double)},</span>
+<span class="source-line-no">078</span><span id="line-78">     *  only the sequence of the arguments is different.&lt;/p&gt;</span>
+<span class="source-line-no">079</span><span id="line-79">     *</span>
+<span class="source-line-no">080</span><span id="line-80">     *  @param  min The lower border.</span>
+<span class="source-line-no">081</span><span id="line-81">     *  @param  value   The value.</span>
+<span class="source-line-no">082</span><span id="line-82">     *  @param  max The upper border.</span>
+<span class="source-line-no">083</span><span id="line-83">     *  @return The value if it is greater than {@code min} and less than</span>
+<span class="source-line-no">084</span><span id="line-84">     *      {@code max}, {@code min}, when it is less than {@code min}, or</span>
+<span class="source-line-no">085</span><span id="line-85">     *      {@code max} when it is greater than that.</span>
+<span class="source-line-no">086</span><span id="line-86">     *  @throws IllegalArgumentException {@code min} is greater than {@code max}.</span>
+<span class="source-line-no">087</span><span id="line-87">     *</span>
+<span class="source-line-no">088</span><span id="line-88">     *  @since 0.4.6</span>
+<span class="source-line-no">089</span><span id="line-89">     */</span>
+<span class="source-line-no">090</span><span id="line-90">    @API( status = STABLE, since = "0.4.6" )</span>
+<span class="source-line-no">091</span><span id="line-91">    public static final double clamp( final double min, final double value, final double max ) throws IllegalArgumentException</span>
+<span class="source-line-no">092</span><span id="line-92">    {</span>
+<span class="source-line-no">093</span><span id="line-93">        final var retValue = Math.clamp( value, min, max );</span>
+<span class="source-line-no">094</span><span id="line-94"></span>
+<span class="source-line-no">095</span><span id="line-95">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">096</span><span id="line-96">        return retValue;</span>
+<span class="source-line-no">097</span><span id="line-97">    }   //  clamp()</span>
+<span class="source-line-no">098</span><span id="line-98"></span>
+<span class="source-line-no">099</span><span id="line-99">    /**</span>
+<span class="source-line-no">100</span><span id="line-100">     *  &lt;p&gt;{@summary Returns either {@code less} or {@code more} depending on</span>
+<span class="source-line-no">101</span><span id="line-101">     *  which one is closer to {@code value}.} If {@code value} is perfectly</span>
+<span class="source-line-no">102</span><span id="line-102">     *  between them, then either may be returned.&lt;/p&gt;</span>
+<span class="source-line-no">103</span><span id="line-103">     *</span>
+<span class="source-line-no">104</span><span id="line-104">     *  @param  less    The lower value.</span>
+<span class="source-line-no">105</span><span id="line-105">     *  @param  value   The reference value.</span>
+<span class="source-line-no">106</span><span id="line-106">     *  @param  more    The upper value.</span>
+<span class="source-line-no">107</span><span id="line-107">     *  @return The value that is closer to the reference.</span>
+<span class="source-line-no">108</span><span id="line-108">     *</span>
+<span class="source-line-no">109</span><span id="line-109">     *  @since 0.4.6</span>
+<span class="source-line-no">110</span><span id="line-110">     */</span>
+<span class="source-line-no">111</span><span id="line-111">    @API( status = STABLE, since = "0.4.6" )</span>
+<span class="source-line-no">112</span><span id="line-112">    public static final double nearest( final double less, final double value, final double more )</span>
+<span class="source-line-no">113</span><span id="line-113">    {</span>
+<span class="source-line-no">114</span><span id="line-114">        final var lessDiff = value - less;</span>
+<span class="source-line-no">115</span><span id="line-115">        final var moreDiff = more - value;</span>
+<span class="source-line-no">116</span><span id="line-116">        final var retValue = lessDiff &lt; moreDiff ? less : more;</span>
+<span class="source-line-no">117</span><span id="line-117"></span>
+<span class="source-line-no">118</span><span id="line-118">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">119</span><span id="line-119">        return retValue;</span>
+<span class="source-line-no">120</span><span id="line-120">    }   //  nearest()</span>
+<span class="source-line-no">121</span><span id="line-121"></span>
+<span class="source-line-no">122</span><span id="line-122">    /**</span>
+<span class="source-line-no">123</span><span id="line-123">     *  Retrieves the window owning the</span>
+<span class="source-line-no">124</span><span id="line-124">     *  {@link Button}</span>
+<span class="source-line-no">125</span><span id="line-125">     *  that fired the given</span>
+<span class="source-line-no">126</span><span id="line-126">     *  {@link ActionEvent}.</span>
+<span class="source-line-no">127</span><span id="line-127">     *</span>
+<span class="source-line-no">128</span><span id="line-128">     *  @param  event   The action event.</span>
+<span class="source-line-no">129</span><span id="line-129">     *  @return The owning window.</span>
+<span class="source-line-no">130</span><span id="line-130">     *  @throws IllegalArgumentException    The event was not fired by a</span>
+<span class="source-line-no">131</span><span id="line-131">     *      {@code Button}.</span>
+<span class="source-line-no">132</span><span id="line-132">     */</span>
+<span class="source-line-no">133</span><span id="line-133">    public static final Window retrieveOwner( final ActionEvent event ) throws IllegalArgumentException</span>
+<span class="source-line-no">134</span><span id="line-134">    {</span>
+<span class="source-line-no">135</span><span id="line-135">        final var retValue = switch( requireNonNullArgument( event, "event" ).getSource() )</span>
+<span class="source-line-no">136</span><span id="line-136">        {</span>
+<span class="source-line-no">137</span><span id="line-137">            case null -&gt; throw new IllegalArgumentException( "Event source is null" );</span>
+<span class="source-line-no">138</span><span id="line-138"></span>
+<span class="source-line-no">139</span><span id="line-139">            /*</span>
+<span class="source-line-no">140</span><span id="line-140">             * When the triggering event originates from a button, that button</span>
+<span class="source-line-no">141</span><span id="line-141">             * is part of a scene (perhaps defined by an FXML file or created</span>
+<span class="source-line-no">142</span><span id="line-142">             * from scratch). So we just walk up the scenes to the root, and</span>
+<span class="source-line-no">143</span><span id="line-143">             * from there we take the Window that owns that button. That is</span>
+<span class="source-line-no">144</span><span id="line-144">             * quite often a Stage.</span>
+<span class="source-line-no">145</span><span id="line-145">             */</span>
+<span class="source-line-no">146</span><span id="line-146">            case final Button button -&gt; button.getScene()</span>
+<span class="source-line-no">147</span><span id="line-147">                .getRoot()</span>
+<span class="source-line-no">148</span><span id="line-148">                .getScene()</span>
+<span class="source-line-no">149</span><span id="line-149">                .getWindow();</span>
+<span class="source-line-no">150</span><span id="line-150"></span>
+<span class="source-line-no">151</span><span id="line-151">            /*</span>
+<span class="source-line-no">152</span><span id="line-152">             * When the event is triggered from a menu item, this is either</span>
+<span class="source-line-no">153</span><span id="line-153">             * part of a menu or a popup window. In both cases it has the same</span>
+<span class="source-line-no">154</span><span id="line-154">             * path to the window that owns it.</span>
+<span class="source-line-no">155</span><span id="line-155">             */</span>
+<span class="source-line-no">156</span><span id="line-156">            case final MenuItem menuItem -&gt; menuItem.getParentPopup()</span>
+<span class="source-line-no">157</span><span id="line-157">                .getOwnerWindow();</span>
+<span class="source-line-no">158</span><span id="line-158"></span>
+<span class="source-line-no">159</span><span id="line-159">            default -&gt; throw new IllegalArgumentException( "Inappropriate event source" );</span>
+<span class="source-line-no">160</span><span id="line-160">        };</span>
+<span class="source-line-no">161</span><span id="line-161"></span>
+<span class="source-line-no">162</span><span id="line-162">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">163</span><span id="line-163">        return retValue;</span>
+<span class="source-line-no">164</span><span id="line-164">    }   //  retrieveOwner()</span>
+<span class="source-line-no">165</span><span id="line-165">}</span>
+<span class="source-line-no">166</span><span id="line-166">//  class FXUtils</span>
+<span class="source-line-no">167</span><span id="line-167"></span>
+<span class="source-line-no">168</span><span id="line-168">/*</span>
+<span class="source-line-no">169</span><span id="line-169"> *  End of File</span>
+<span class="source-line-no">170</span><span id="line-170"> */</span>
 
 
 

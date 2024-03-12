@@ -34,6 +34,7 @@ import java.util.function.Supplier;
 import org.apiguardian.api.API;
 import org.tquadrat.foundation.annotation.ClassVersion;
 import org.tquadrat.foundation.fx.control.skin.ErrorDisplaySkin;
+import org.tquadrat.foundation.fx.internal.FoundationFXControl;
 import javafx.beans.Observable;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.MapProperty;
@@ -41,7 +42,6 @@ import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.ReadOnlyMapProperty;
 import javafx.beans.property.SimpleMapProperty;
 import javafx.collections.ObservableMap;
-import javafx.scene.control.Control;
 import javafx.scene.control.Skin;
 
 /**
@@ -67,14 +67,14 @@ import javafx.scene.control.Skin;
  *      vertical scrollbar does not work properly for smaller values.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: ErrorDisplay.java 1110 2024-03-04 15:26:06Z tquadrat $
+ *  @version $Id: ErrorDisplay.java 1112 2024-03-10 14:16:51Z tquadrat $
  *  @since 0.4.3
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: ErrorDisplay.java 1110 2024-03-04 15:26:06Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: ErrorDisplay.java 1112 2024-03-10 14:16:51Z tquadrat $" )
 @API( status = STABLE, since = "0.4.3" )
-public final class ErrorDisplay extends Control
+public final class ErrorDisplay extends FoundationFXControl
 {
         /*---------------*\
     ====** Inner Classes **====================================================
@@ -87,12 +87,12 @@ public final class ErrorDisplay extends Control
      *  error message will be added or removed from the error display.</p>
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
-     *  @version $Id: ErrorDisplay.java 1110 2024-03-04 15:26:06Z tquadrat $
+     *  @version $Id: ErrorDisplay.java 1112 2024-03-10 14:16:51Z tquadrat $
      *  @since 0.4.3
      *
      *  @UMLGraph.link
      */
-    @ClassVersion( sourceVersion = "$Id: ErrorDisplay.java 1110 2024-03-04 15:26:06Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: ErrorDisplay.java 1112 2024-03-10 14:16:51Z tquadrat $" )
     @API( status = INTERNAL, since = "0.4.3" )
     private final class MessageTrigger
     {

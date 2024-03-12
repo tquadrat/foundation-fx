@@ -20,7 +20,7 @@ package org.tquadrat.foundation.fx.control.tester;
 import static java.lang.System.err;
 import static java.lang.System.out;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
-import static org.apiguardian.api.API.Status.STABLE;
+import static org.apiguardian.api.API.Status.EXPERIMENTAL;
 import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
 import static org.tquadrat.foundation.lang.Objects.requireNotBlankArgument;
 import static org.tquadrat.foundation.util.UniqueIdUtils.timebasedUUID;
@@ -40,18 +40,20 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
- *  Test bed for custom controls.
+ *  Test bed for the custom control
+ *  {@link ErrorDisplay}.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: CustomControlTester.java 1110 2024-03-04 15:26:06Z tquadrat $
- *  @since 0.0.1
+ *  @version $Id: CustomControlTester.java 1111 2024-03-04 21:54:29Z tquadrat $
+ *  @since 0.4.3
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: CustomControlTester.java 1110 2024-03-04 15:26:06Z tquadrat $" )
-@API( status = STABLE, since = "0.0.1" )
+@SuppressWarnings( "UseOfSystemOutOrSystemErr" )
+@ClassVersion( sourceVersion = "$Id: CustomControlTester.java 1111 2024-03-04 21:54:29Z tquadrat $" )
+@API( status = EXPERIMENTAL, since = "0.4.3" )
 @ProgramClass
-public final class CustomControlTester extends Application
+public final class ErrorDisplayTester extends Application
 {
         /*---------------*\
     ====** Inner Classes **====================================================
@@ -81,6 +83,7 @@ public final class CustomControlTester extends Application
     /**
      *  The message.
      */
+    @SuppressWarnings( "StringBufferField" )
     private final StringBuilder m_Buffer = new StringBuilder( "zero " );
 
         /*------------------------*\
@@ -103,9 +106,9 @@ public final class CustomControlTester extends Application
     ====** Constructors **=====================================================
         \*--------------*/
     /**
-     *  Creates a new instance of {@code UserDialogTester}.
+     *  Creates a new instance of {@code ErrorDisplayTester}.
      */
-    public CustomControlTester() { /* Just exists */ }
+    public ErrorDisplayTester() { /* Just exists */ }
 
         /*---------*\
     ====** Methods **==========================================================
@@ -117,6 +120,7 @@ public final class CustomControlTester extends Application
      *  @param  eventHandler    The event handler for the new button.
      *  @return The new button.
      */
+    @SuppressWarnings( "SameParameterValue" )
     private final Button createButton( final String text, final EventHandler<ActionEvent> eventHandler )
     {
         final var retValue = new Button( requireNotBlankArgument( text, "text" ) );
@@ -174,6 +178,7 @@ public final class CustomControlTester extends Application
     /**
      *  {@inheritDoc}
      */
+    @SuppressWarnings( "ProhibitedExceptionDeclared" )
     @Override
     public void start( final Stage primaryStage ) throws Exception
     {
@@ -186,6 +191,7 @@ public final class CustomControlTester extends Application
         m_ErrorDisplay = new ErrorDisplay();
         root.getChildren().add( createButton( "Add Message", this::onAddMessage ) );
         root.getChildren().add( m_ErrorDisplay );
+        //noinspection MagicNumber
         m_ErrorDisplay.setMinSize( 500.0, 300.0 );
         m_ErrorDisplay.setPrefSize( USE_COMPUTED_SIZE, USE_COMPUTED_SIZE );
         m_ErrorDisplay.setMaxSize( Double.MAX_VALUE, Double.MAX_VALUE );
@@ -195,13 +201,13 @@ public final class CustomControlTester extends Application
         final var scene = new Scene( root, -1, -1 );
         primaryStage.setScene( scene );
         primaryStage.centerOnScreen();
-        primaryStage.setOnCloseRequest( event -> out.println( "Done!" ) );
+        primaryStage.setOnCloseRequest( $ -> out.println( "Done!" ) );
 
         //---* Show the stage *--------------------------------------------
         primaryStage.show();
     }   //  start()
 }
-//  class CustomControlTester
+//  class ErrorDisplayTester
 
 /*
  *  End of File
