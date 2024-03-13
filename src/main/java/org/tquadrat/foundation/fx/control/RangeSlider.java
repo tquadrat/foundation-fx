@@ -135,13 +135,13 @@ import javafx.util.StringConverter;
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
- *  @version $Id: RangeSlider.java 1112 2024-03-10 14:16:51Z tquadrat $
+ *  @version $Id: RangeSlider.java 1114 2024-03-12 23:07:59Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( {"ClassWithTooManyFields", "ClassWithTooManyMethods"} )
-@ClassVersion( sourceVersion = "$Id: RangeSlider.java 1112 2024-03-10 14:16:51Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: RangeSlider.java 1114 2024-03-12 23:07:59Z tquadrat $" )
 @API( status = STABLE, since = "0.4.6" )
 public final class RangeSlider extends FoundationFXControl
 {
@@ -154,12 +154,12 @@ public final class RangeSlider extends FoundationFXControl
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
      *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
-     *  @version $Id: RangeSlider.java 1112 2024-03-10 14:16:51Z tquadrat $
+     *  @version $Id: RangeSlider.java 1114 2024-03-12 23:07:59Z tquadrat $
      *  @since 0.4.6
      */
     @SuppressWarnings( {"ProtectedInnerClass", "InnerClassTooDeeplyNested", "AnonymousInnerClass"} )
     @UtilityClass
-    @ClassVersion( sourceVersion = "$Id: RangeSlider.java 1112 2024-03-10 14:16:51Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: RangeSlider.java 1114 2024-03-12 23:07:59Z tquadrat $" )
     @API( status = STABLE, since = "0.4.6" )
     protected static final class StyleableProperties
     {
@@ -167,7 +167,7 @@ public final class RangeSlider extends FoundationFXControl
         ====** Static Initialisations **=======================================
             \*------------------------*/
         /**
-         *  The CSS attribute for the BLOCK_INCREMENT.
+         *  The CSS attribute for the {@code BLOCK_INCREMENT}.
          *
          *  @see #blockIncrementProperty()
          */
@@ -187,7 +187,7 @@ public final class RangeSlider extends FoundationFXControl
         };
 
         /**
-         *  The CSS attribute for the MAJOR_TICK_UNIT.
+         *  The CSS attribute for the {@code MAJOR_TICK_UNIT}.
          *
          *  @see #majorTickUnitProperty()
          */
@@ -208,7 +208,7 @@ public final class RangeSlider extends FoundationFXControl
         };
 
         /**
-         *  The CSS attribute for the MAJOR_TICK_UNIT.
+         *  The CSS attribute for the {@code MAJOR_TICK_UNIT}.
          *
          *  @see #minorTickCountProperty()
          */
@@ -242,7 +242,7 @@ public final class RangeSlider extends FoundationFXControl
         };
 
         /**
-         *  The CSS attribute for the ORIENTATION.
+         *  The CSS attribute for the {@code ORIENTATION}.
          *
          *  @see #orientationProperty()
          */
@@ -275,7 +275,7 @@ public final class RangeSlider extends FoundationFXControl
         };
 
         /**
-         *  The CSS attribute for SHOW_TICK_LABELS.
+         *  The CSS attribute for {@code SHOW_TICK_LABELS}.
          *
          *  @see #showTickLabelsProperty()
          */
@@ -295,7 +295,7 @@ public final class RangeSlider extends FoundationFXControl
         };
 
         /**
-         *  The CSS attribute for SHOW_TICK_MARKS.
+         *  The CSS attribute for {@code SHOW_TICK_MARKS}.
          *
          *  @see #showTickMarksProperty()
          */
@@ -315,7 +315,7 @@ public final class RangeSlider extends FoundationFXControl
         };
 
         /**
-         *  The CSS attribute for SNAP_TO_TICKS.
+         *  The CSS attribute for {@code SNAP_TO_TICKS}.
          *
          *  @see #snapToTicksProperty()
          */
@@ -1070,6 +1070,7 @@ public final class RangeSlider extends FoundationFXControl
     {
         m_TickLabelFormatterProperty.set( formatter );
     }   //  setLabelFormatter()
+
     /**
      *  Sets the low value for the range slider, which may or may not be
      *  clamped to be within the allowable range as specified by the
@@ -1117,7 +1118,7 @@ public final class RangeSlider extends FoundationFXControl
      *
      *  @param  min The new value
      */
-    public final void setMin(final double min ) { m_MinProperty.set( min ); }
+    public final void setMin( final double min ) { m_MinProperty.set( min ); }
 
     /**
      *  Sets the number of minor ticks to place between any two major ticks.

@@ -44,13 +44,13 @@ import javafx.stage.Stage;
  *  {@link ErrorDisplay}.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: CustomControlTester.java 1111 2024-03-04 21:54:29Z tquadrat $
+ *  @version $Id: ErrorDisplayTester.java 1113 2024-03-12 02:01:14Z tquadrat $
  *  @since 0.4.3
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "UseOfSystemOutOrSystemErr" )
-@ClassVersion( sourceVersion = "$Id: CustomControlTester.java 1111 2024-03-04 21:54:29Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: ErrorDisplayTester.java 1113 2024-03-12 02:01:14Z tquadrat $" )
 @API( status = EXPERIMENTAL, since = "0.4.3" )
 @ProgramClass
 public final class ErrorDisplayTester extends Application

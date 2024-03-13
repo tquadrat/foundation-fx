@@ -49,13 +49,13 @@ import javafx.scene.layout.VBox;
  *
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: ErrorDisplaySkin.java 1111 2024-03-04 21:54:29Z tquadrat $
+ *  @version $Id: ErrorDisplaySkin.java 1114 2024-03-12 23:07:59Z tquadrat $
  *  @since 0.4.3
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "JavadocLinkAsPlainText" )
-@ClassVersion( sourceVersion = "$Id: ErrorDisplaySkin.java 1111 2024-03-04 21:54:29Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: ErrorDisplaySkin.java 1114 2024-03-12 23:07:59Z tquadrat $" )
 @API( status = STABLE, since = "0.4.3" )
 public final class ErrorDisplaySkin extends SkinBase<ErrorDisplay>
 {
@@ -100,7 +100,7 @@ public final class ErrorDisplaySkin extends SkinBase<ErrorDisplay>
      */
     public ErrorDisplaySkin( final ErrorDisplay control )
     {
-        super( control );
+        super( requireNonNullArgument( control, "control" ) );
 
         //---* Get the icon for the messages *---------------------------------
         final var inputStream = control.getClass().getResourceAsStream( "ErrorDisplay.png" );

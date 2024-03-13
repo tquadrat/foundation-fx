@@ -72,14 +72,14 @@ import javafx.util.StringConverter;
  *
  *  @param <T>  The target type for the conversion.
  *
- *  @version $Id: FXStringConverter.java 1110 2024-03-04 15:26:06Z tquadrat $
+ *  @version $Id: FXStringConverter.java 1113 2024-03-12 02:01:14Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.4.3
  *
  *  @see GenericStringConverter
  */
-@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 1110 2024-03-04 15:26:06Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 1113 2024-03-12 02:01:14Z tquadrat $" )
 @API( status = STABLE, since = "0.4.3" )
 public final class FXStringConverter<T> extends StringConverter<T> implements org.tquadrat.foundation.lang.StringConverter<T>
 {

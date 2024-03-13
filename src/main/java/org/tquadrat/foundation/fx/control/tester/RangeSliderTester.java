@@ -49,13 +49,13 @@ import javafx.stage.Stage;
  *  {@link RangeSlider}.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: CustomControlTester.java 1111 2024-03-04 21:54:29Z tquadrat $
+ *  @version $Id: RangeSliderTester.java 1113 2024-03-12 02:01:14Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "UseOfSystemOutOrSystemErr" )
-@ClassVersion( sourceVersion = "$Id: CustomControlTester.java 1111 2024-03-04 21:54:29Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: RangeSliderTester.java 1113 2024-03-12 02:01:14Z tquadrat $" )
 @API( status = EXPERIMENTAL, since = "0.4.6" )
 @ProgramClass
 public final class RangeSliderTester extends Application
