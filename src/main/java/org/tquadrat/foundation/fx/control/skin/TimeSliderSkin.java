@@ -17,12 +17,10 @@
 
 package org.tquadrat.foundation.fx.control.skin;
 
-import static java.lang.Math.round;
 import static java.time.temporal.ChronoField.HOUR_OF_DAY;
 import static java.time.temporal.ChronoField.MINUTE_OF_HOUR;
 import static javafx.beans.binding.Bindings.createDoubleBinding;
 import static javafx.beans.binding.Bindings.createIntegerBinding;
-import static javafx.beans.binding.Bindings.createObjectBinding;
 import static org.apiguardian.api.API.Status.INTERNAL;
 import static org.apiguardian.api.API.Status.STABLE;
 import static org.tquadrat.foundation.lang.CommonConstants.EMPTY_STRING;
@@ -30,8 +28,11 @@ import static org.tquadrat.foundation.lang.Objects.nonNull;
 import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.OffsetTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 
@@ -39,9 +40,8 @@ import org.apiguardian.api.API;
 import org.tquadrat.foundation.annotation.ClassVersion;
 import org.tquadrat.foundation.fx.control.RangeSlider;
 import org.tquadrat.foundation.fx.control.TimeSlider;
-import javafx.beans.InvalidationListener;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.value.ObservableBooleanValue;
+import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.scene.control.SkinBase;
 import javafx.util.StringConverter;
 
@@ -50,12 +50,12 @@ import javafx.util.StringConverter;
  *  {@link TimeSlider}.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: TimeSliderSkin.java 1115 2024-03-12 23:43:18Z tquadrat $
+ *  @version $Id: TimeSliderSkin.java 1116 2024-03-13 15:44:33Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: TimeSliderSkin.java 1115 2024-03-12 23:43:18Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: TimeSliderSkin.java 1116 2024-03-13 15:44:33Z tquadrat $" )
 @API( status = STABLE, since = "0.4.6" )
 public class TimeSliderSkin extends SkinBase<TimeSlider>
 {
@@ -80,12 +80,12 @@ public class TimeSliderSkin extends SkinBase<TimeSlider>
      *  {@code StringConverter} is incomplete.</p>
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
-     *  @version $Id: TimeSliderSkin.java 1115 2024-03-12 23:43:18Z tquadrat $
+     *  @version $Id: TimeSliderSkin.java 1116 2024-03-13 15:44:33Z tquadrat $
      *  @since 0.4.6
      *
      *  @UMLGraph.link
      */
-    @ClassVersion( sourceVersion = "$Id: TimeSliderSkin.java 1115 2024-03-12 23:43:18Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: TimeSliderSkin.java 1116 2024-03-13 15:44:33Z tquadrat $" )
     @API( status = INTERNAL, since = "0.4.6" )
     private final class OffsetTimeConverter extends StringConverter<Number>
     {
@@ -168,98 +168,74 @@ public class TimeSliderSkin extends SkinBase<TimeSlider>
      */
     private final RangeSlider m_Content;
 
-    /**
-     *  The
-     *  {@link StringConverter}
-     *  instance that is used to convert the values to time strings.
-     */
-    private final OffsetTimeConverter m_TimeConverter;
-
-        /*------------------------*\
-    ====** Static Initialisations **===========================================
-        \*------------------------*/
-
-        /*--------------*\
+    /*--------------*\
     ====** Constructors **=====================================================
         \*--------------*/
     /**
      *  Creates a new instance of {@code TimeSliderSkin}.
      *
      *  @param  control The reference for the control.
-     *  @param  lowValueProperty   The low value property of the control.
-     *  @param  highValueProperty   The high value property of the control.
      */
-    public TimeSliderSkin( final TimeSlider control, final ObjectProperty<OffsetTime> lowValueProperty, final ObjectProperty<OffsetTime> highValueProperty )
+    public TimeSliderSkin( final TimeSlider control )
     {
         super( requireNonNullArgument( control, "control" ) );
 
-        final var initialHighValue = requireNonNullArgument( highValueProperty, "highValueProperty" ).get();
-        final var initialLowValue = requireNonNullArgument( lowValueProperty, "lowValueProperty" ).get();
-
         //---* Create the children and add them *------------------------------
-        m_Content = new RangeSlider();
+        final var min = convertZonedDateTimeToSeconds( control.minValueProperty() );
+        final var max = convertZonedDateTimeToSeconds( control.maxValueProperty() );
+        final var lowValue = convertZonedDateTimeToSeconds( composeZonedDateTime( control.getDay(), control.getLowValue(), control.getTimeZone() ) );
+        final var highValue = convertZonedDateTimeToSeconds( composeZonedDateTime( control.getDay(), control.getHighValue(), control.getTimeZone() ) );
+        m_Content = new RangeSlider( min, max, lowValue, highValue );
         getChildren().add( m_Content );
 
-        //---* Create the bindings *-------------------------------------------
-        final var highValueBinding = createObjectBinding( () -> convertSecondsToOffsetTime( m_Content.getHighValue() ), m_Content.highValueProperty(), control.timeZoneProperty() );
-        final var lowValueBinding = createObjectBinding( () -> convertSecondsToOffsetTime( m_Content.getLowValue() ), m_Content.lowValueProperty(), control.timeZoneProperty() );
+        //---* Bind the children *---------------------------------------------
+        final var maxValueBinding = createDoubleBinding( () -> convertZonedDateTimeToSeconds( getSkinnable().maxValueProperty() ), getSkinnable().maxValueProperty() );
+        m_Content.maxProperty().bind( maxValueBinding );
 
-        @SuppressWarnings( "OverlyLongLambda" )
-        final var maxBinding = createDoubleBinding( () ->
-        {
-            final var day = control.getDay();
-            final var max = control.getMax();
-            final Instant instant;
-            if( nonNull( max ) )
-            {
-                instant = max.atDate( day ).toInstant();
-            }
-            else
-            {
-                instant = day.atStartOfDay( control.getTimeZone() ).plusDays( 1 ).toInstant();
-            }
-            return Double.valueOf( (double) instant.getEpochSecond() );
-        }, control.dayProperty(), control.maxProperty() );
-
-        @SuppressWarnings( "OverlyLongLambda" )
-        final var minBinding = createDoubleBinding( () ->
-        {
-            final var day = control.getDay();
-            final var min = control.getMin();
-            final Instant instant;
-            if( nonNull( min ) )
-            {
-                instant = min.atDate( day ).toInstant();
-            }
-            else
-            {
-                instant = day.atStartOfDay( control.getTimeZone() ).toInstant();
-            }
-            return Double.valueOf( (double) instant.getEpochSecond() );
-        }, control.dayProperty(), control.minProperty() );
+        final var minValueBinding = createDoubleBinding( () -> convertZonedDateTimeToSeconds( getSkinnable().minValueProperty() ), getSkinnable().minValueProperty() );
+        m_Content.minProperty().bind( minValueBinding );
 
         final var minorTickCountBinding = createIntegerBinding( () -> control.getGranularity().getMinorTickCount(), control.granularityProperty() );
-
-        //---* Apply the bindings *--------------------------------------------
-        highValueProperty.bind( highValueBinding );
-        lowValueProperty.bind( lowValueBinding );
-
-        m_Content.maxProperty().bind( maxBinding );
-        m_Content.minProperty().bind( minBinding );
         m_Content.minorTickCountProperty().bind( minorTickCountBinding );
 
-        //---* Create the listeners and apply them *---------------------------
-        final InvalidationListener snapToTick = observable -> m_Content.setSnapToTicks( ((ObservableBooleanValue) observable).get() );
-        control.snapToTicksProperty().addListener( snapToTick );
+        m_Content.snapToTicksProperty().bind( control.snapToTicksProperty() );
 
-        //---* Set the initial values *----------------------------------------
-        setHighValue( initialHighValue );
-        setLowValue( initialLowValue );
+        m_Content.lowValueProperty().addListener( ($,oldValue,newValue) ->
+        {
+           if( nonNull( newValue ) && !newValue.equals( oldValue ) )
+           {
+               getSkinnable().lowValueProperty().set( convertSecondsToOffsetTime( newValue.longValue() ) );
+           }
+        });
+        m_Content.highValueProperty().addListener( ($,oldValue,newValue) ->
+        {
+           if( nonNull( newValue ) && !newValue.equals( oldValue ) )
+           {
+               getSkinnable().highValueProperty().set( convertSecondsToOffsetTime( newValue.longValue() ) );
+           }
+        });
+
+        control.lowValueProperty().addListener( $ ->
+        {
+            final var timeSlider = getSkinnable();
+            final var day = timeSlider.getDay();
+            final var timeZone = timeSlider.getTimeZone();
+            final var time = timeSlider.getLowValue();
+            m_Content.setLowValue( (double) day.atTime( time ).atZoneSameInstant( timeZone ).toEpochSecond() );
+        });
+
+        control.highValueProperty().addListener( $ ->
+        {
+            final var timeSlider = getSkinnable();
+            final var day = timeSlider.getDay();
+            final var timeZone = timeSlider.getTimeZone();
+            final var time = timeSlider.getHighValue();
+            m_Content.setHighValue( (double) day.atTime( time ).atZoneSameInstant( timeZone ).toEpochSecond() );
+        });
 
         //---* Configure the range slider *------------------------------------
-        m_TimeConverter = new OffsetTimeConverter();
-        m_Content.setLabelFormatter( m_TimeConverter );
-        m_Content.setSnapToTicks( control.isSnapToTicks() );
+        final var timeConverter = new OffsetTimeConverter();
+        m_Content.setLabelFormatter( timeConverter );
         //noinspection MagicNumber
         m_Content.setMajorTickUnit( 3_600.0 ); // one hour
         m_Content.setShowTickLabels( true );
@@ -270,16 +246,68 @@ public class TimeSliderSkin extends SkinBase<TimeSlider>
     ====** Methods **==========================================================
         \*---------*/
     /**
-     *  Convert the given {@code double} value, representing the seconds since
+     *  Composes an instance of
+     *  {@link ZonedDateTime}
+     *  from the given components.
+     *
+     *  @param  day The day.
+     *  @param  time    The time.
+     *  @param  timeZone    The time zone.
+     *  @return The zoned date time instance.
+     */
+    private final ZonedDateTime composeZonedDateTime( final LocalDate day, final OffsetTime time, final ZoneId timeZone )
+    {
+        final var retValue = day.atTime( time ).atZoneSameInstant( timeZone );
+
+        //---* Done *----------------------------------------------------------
+        return retValue;
+    }   //  composeZonedDateTime()
+
+    /**
+     *  Converts the given
+     *  {@link ZonedDateTime}
+     *  to seconds since the start of the epoch.
+     *
+     *  @param  dateTime    The time and date.
+     *  @return The seconds since the epoch.
+     */
+    private final double convertZonedDateTimeToSeconds( final ZonedDateTime dateTime )
+    {
+        final var retValue = (double) dateTime.toEpochSecond();
+
+        //---* Done *----------------------------------------------------------
+        return retValue;
+    }   //  convertZonedDateTimeToSeconds()
+
+    /**
+     *  Converts the
+     *  {@link ZonedDateTime}
+     *  value of the given
+     *  {@link ObjectProperty}
+     *  to seconds since the start of the epoch.
+     *
+     *  @param  dateTimeProperty    The property with the time and date.
+     *  @return The seconds since the epoch.
+     */
+    private final double convertZonedDateTimeToSeconds( final ReadOnlyObjectProperty<ZonedDateTime> dateTimeProperty )
+    {
+        final var retValue = convertZonedDateTimeToSeconds( requireNonNullArgument( dateTimeProperty, "dateTimeProperty" ).get() );
+
+        //---* Done *----------------------------------------------------------
+        return retValue;
+    }   //  convertZonedDateTimeToSeconds()
+
+    /**
+     *  Convert the given {@code long} value, representing the seconds since
      *  the start of the epoch, to an instance of
      *  {@link OffsetTime}.
      *
      *  @param  seconds The seconds.
      *  @return The offset time.
      */
-    private final OffsetTime convertSecondsToOffsetTime( final double seconds )
+    private final OffsetTime convertSecondsToOffsetTime( final long seconds )
     {
-        final var retValue = Instant.ofEpochSecond( round( seconds ) )
+        final var retValue = Instant.ofEpochSecond( seconds )
             .atZone( getSkinnable().getTimeZone() )
             .toOffsetDateTime()
             .toOffsetTime();
@@ -287,50 +315,6 @@ public class TimeSliderSkin extends SkinBase<TimeSlider>
         //---* Done *----------------------------------------------------------
         return retValue;
     }   //  convertSecondsToOffsetTime()
-
-    /**
-     *  <p>{@summary Sets the high value for the slider.}</p>
-     *  <p>The method
-     *  {@link TimeSlider#setHighValue(OffsetTime)}
-     *  cannot set the property
-     *  {@link TimeSlider#highValueProperty()}
-     *  directly, because that is bound to
-     *  {@link RangeSlider#highValueProperty() m_Content.highValueProperty()}.</p>
-     *
-     *  @param  highValue The value.
-     */
-    public final void setHighValue( final OffsetTime highValue )
-    {
-        if( nonNull( highValue ) )
-        {
-            final var timeSlider = getSkinnable();
-            final var day = timeSlider.getDay();
-            final var instant = highValue.atDate( day ).toInstant();
-            m_Content.setHighValue( (double) instant.getEpochSecond() );
-        }
-    }   //  setHighValue()
-
-    /**
-     *  <p>{@summary Sets the low value for the slider.}</p>
-     *  <p>The method
-     *  {@link TimeSlider#setLowValue(OffsetTime)}
-     *  cannot set the property
-     *  {@link TimeSlider#lowValueProperty()}
-     *  directly, because that is bound to
-     *  {@link RangeSlider#lowValueProperty() m_Content.lowValueProperty()}.</p>
-     *
-     *  @param  lowValue The value.
-     */
-    public final void setLowValue( final OffsetTime lowValue )
-    {
-        if( nonNull( lowValue ) )
-        {
-            final var timeSlider = getSkinnable();
-            final var day = timeSlider.getDay();
-            final var instant = lowValue.atDate( day ).toInstant();
-            m_Content.setLowValue( (double) instant.getEpochSecond() );
-        }
-    }   //  setLowValue()
 }
 //  class TimeSliderSkin
 

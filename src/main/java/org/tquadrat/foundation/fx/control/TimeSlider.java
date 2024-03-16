@@ -26,12 +26,14 @@ import static org.tquadrat.foundation.fx.control.RangeSlider.StyleableProperties
 import static org.tquadrat.foundation.fx.control.TimeSlider.StyleableProperties.GRANULARITY;
 import static org.tquadrat.foundation.fx.control.TimeSlider.StyleableProperties.TIME_ZONE;
 import static org.tquadrat.foundation.lang.Objects.mapFromNull;
-import static org.tquadrat.foundation.lang.Objects.nonNull;
+import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.OffsetTime;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 import org.apiguardian.api.API;
@@ -42,10 +44,14 @@ import org.tquadrat.foundation.fx.control.skin.TimeSliderSkin;
 import org.tquadrat.foundation.fx.css.TimeZoneConverter;
 import org.tquadrat.foundation.fx.internal.FoundationFXControl;
 import org.tquadrat.foundation.lang.Objects;
+import javafx.beans.binding.ObjectBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.Property;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.css.CssMetaData;
 import javafx.css.ParsedValue;
 import javafx.css.SimpleStyleableBooleanProperty;
@@ -67,13 +73,13 @@ import javafx.scene.text.Font;
  *  is configured in a special way.</p>
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: TimeSlider.java 1115 2024-03-12 23:43:18Z tquadrat $
+ *  @version $Id: TimeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
-@SuppressWarnings( "ClassWithTooManyMethods" )
-@ClassVersion( sourceVersion = "$Id: TimeSlider.java 1115 2024-03-12 23:43:18Z tquadrat $" )
+@SuppressWarnings( {"ClassWithTooManyMethods", "ClassWithTooManyConstructors", "ClassWithTooManyFields"} )
+@ClassVersion( sourceVersion = "$Id: TimeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $" )
 @API( status = STABLE, since = "0.4.6" )
 public final class TimeSlider extends FoundationFXControl
 {
@@ -85,10 +91,10 @@ public final class TimeSlider extends FoundationFXControl
      *  {@link TimeSlider}.
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
-     *  @version $Id: TimeSlider.java 1115 2024-03-12 23:43:18Z tquadrat $
+     *  @version $Id: TimeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $
      *  @since 0.4.6
      */
-    @ClassVersion( sourceVersion = "$Id: TimeSlider.java 1115 2024-03-12 23:43:18Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: TimeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $" )
     @API( status = STABLE, since = "0.4.6" )
     public static enum Granularity
     {
@@ -171,12 +177,12 @@ public final class TimeSlider extends FoundationFXControl
      *  {@link Granularity}.
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
-     *  @version $Id: TimeZoneConverter.java 1114 2024-03-12 23:07:59Z tquadrat $
+     *  @version $Id: TimeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $
      *  @since 0.4.6
      *
      *  @UMLGraph.link
      */
-    @ClassVersion( sourceVersion = "$Id: TimeZoneConverter.java 1114 2024-03-12 23:07:59Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: TimeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $" )
     @API( status = INTERNAL, since = "0.4.6" )
     private static final class GranularityConverter extends StyleConverter<String,Granularity>
     {
@@ -224,12 +230,12 @@ public final class TimeSlider extends FoundationFXControl
      *  {@link TimeSlider}.
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
-     *  @version $Id: TimeSlider.java 1115 2024-03-12 23:43:18Z tquadrat $
+     *  @version $Id: TimeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $
      *  @since 0.4.6
      */
     @SuppressWarnings( {"ProtectedInnerClass", "InnerClassTooDeeplyNested", "AnonymousInnerClass"} )
     @UtilityClass
-    @ClassVersion( sourceVersion = "$Id: TimeSlider.java 1115 2024-03-12 23:43:18Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: TimeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $" )
     @API( status = STABLE, since = "0.4.6" )
     protected static final class StyleableProperties
     {
@@ -321,10 +327,21 @@ public final class TimeSlider extends FoundationFXControl
     ====** Attributes **=======================================================
         \*------------*/
     /**
-     *  The property for the day for that the times should be set.
+     *  <p>{@summary The property for the day for that the times should be set.}
+     *  The value for this property may not be {@code null}.</p>
      */
-    @SuppressWarnings( "ThisEscapedInObjectConstruction" )
-    private final ObjectProperty<LocalDate> m_DayProperty = new SimpleObjectProperty<>( this, "day", LocalDate.now() );
+    @SuppressWarnings( "AnonymousInnerClass" )
+    private final ObjectProperty<LocalDate> m_DayProperty = new SimpleObjectProperty<>( this, "day", LocalDate.now() )
+    {
+        /**
+         *  {@inheritDoc}
+         */
+        @Override
+        public final void set( final LocalDate newValue )
+        {
+            super.set( requireNonNullArgument( newValue, "newValue" ) );
+        }   //  set()
+    };
 
     /**
      *  <p>{@summary The property that holds the duration of the time period
@@ -348,9 +365,9 @@ public final class TimeSlider extends FoundationFXControl
      *  <p>{@summary The high value property.} It represents the current
      *  position of the high value thumb, and is within the allowable range as
      *  specified by the
-     *  {@link #minProperty() min}
+     *  {@link #minDisplayProperty() min}
      *  and
-     *  {@link #maxProperty() max}
+     *  {@link #maxDisplayProperty() max}
      *  properties.</p>
      */
     @SuppressWarnings( "ThisEscapedInObjectConstruction" )
@@ -360,19 +377,20 @@ public final class TimeSlider extends FoundationFXControl
      *  <p>{@summary The low value property.} It represents the current
      *  position of the low value thumb, and is within the allowable range as
      *  specified by the
-     *  {@link #minProperty() min}
+     *  {@link #minDisplayProperty() min}
      *  and
-     *  {@link #maxProperty() max}
+     *  {@link #maxDisplayProperty() max}
      *  properties.</p>
      */
     @SuppressWarnings( "ThisEscapedInObjectConstruction" )
     private final ObjectProperty<OffsetTime> m_LowValueProperty = new SimpleObjectProperty<>(this, "lowValue" );
 
     /**
-     *  The property for the maximum value of this {@code TimeSlider}.
+     *  The property for the maximum displayed value of this
+     *  {@code TimeSlider}.
      */
     @SuppressWarnings( "AnonymousInnerClass" )
-    private final ObjectProperty<OffsetTime> m_MaxProperty = new SimpleObjectProperty<>(this, "max" )
+    private final ObjectProperty<LocalTime> m_MaxDisplayProperty = new SimpleObjectProperty<>(this, "maxDisplay" )
     {
         /**
          *  {@inheritDoc}
@@ -386,10 +404,28 @@ public final class TimeSlider extends FoundationFXControl
     };
 
     /**
-     *  The property for the maximum value of this {@code TimeSlider}.
+     *  <p>{@summary The property for the maximum value of this
+     *  {@code TimeSlider}.}</p>
+     *  <p>This property is fixed bound to the properties
+     *  {@link #maxDisplayProperty()},
+     *  {@link #dayProperty()}
+     *  {@link #timeZoneProperty()}.</p>
+     */
+    @SuppressWarnings( "ThisEscapedInObjectConstruction" )
+    private final ObjectProperty<ZonedDateTime> m_MaxValueProperty = new SimpleObjectProperty<>(this, "maxValue" );
+
+    /**
+     *  The binding that updates the internal
+     *  {@link #m_MaxValueProperty}.
+     */
+    private final ObjectBinding<ZonedDateTime> m_MaxValueBinding;
+
+    /**
+     *  The property for the minimum displayed value of this
+     *  {@code TimeSlider}.
      */
     @SuppressWarnings( "AnonymousInnerClass" )
-    private final ObjectProperty<OffsetTime> m_MinProperty = new SimpleObjectProperty<>( this, "min" )
+    private final ObjectProperty<LocalTime> m_MinDisplayProperty = new SimpleObjectProperty<>( this, "minDisplay" )
     {
         /**
          *  {@inheritDoc}
@@ -401,6 +437,23 @@ public final class TimeSlider extends FoundationFXControl
             if( Objects.isNull( max ) || get().isAfter( max ) ) setMax( get() );
         }   //  invalidated()
     };
+
+    /**
+     *  <p>{@summary The property for the minimum value of this
+     *  {@code TimeSlider}.}</p>
+     *  <p>This property is fixed bound to the properties
+     *  {@link #minDisplayProperty()},
+     *  {@link #dayProperty()}
+     *  {@link #timeZoneProperty()}.</p>
+     */
+    @SuppressWarnings( "ThisEscapedInObjectConstruction" )
+    private final ObjectProperty<ZonedDateTime> m_MinValueProperty = new SimpleObjectProperty<>( this, "minValue" );
+
+    /**
+     *  The binding that updates the internal
+     *  {@link #m_MinValueProperty}.
+     */
+    private final ObjectBinding<ZonedDateTime> m_MinValueBinding;
 
     /**
      *  The property for the flag that controls whether the thumbs will snap to
@@ -424,36 +477,119 @@ public final class TimeSlider extends FoundationFXControl
     ====** Constructors **=====================================================
         \*--------------*/
     /**
-     *  Creates a new instance of {@code TimeSlider}.
+     *  <p>{@summary Creates a new instance of {@code TimeSlider} for the
+     *  current day and the default time zone.} The time range will be set from
+     *  00:00 to 23:59.</p>
+     *  <p>Once created, the time zone  for the {@code TimeSlider} cannot be
+     *  modified.</p>
      */
     public TimeSlider()
     {
-        this( LocalDate.now().atStartOfDay( ZoneId.systemDefault() ).toOffsetDateTime().toOffsetTime(), LocalDate.now().atStartOfDay( ZoneId.systemDefault() ).plusDays( 1 ).minusSeconds( 1 ).toOffsetDateTime().toOffsetTime() );
+        this( LocalDate.now() );
     }   //  TimeSlider()
 
     /**
-     *  Creates a new instance of {@code TimeSlider}.
+     *  <p>{@summary Creates a new instance of {@code TimeSlider} for the given
+     *  day and the default time zone.} The time range will be set from 00:00
+     *  to 23:59.</p>
+     *  <p>Once created, the time zone  for the {@code TimeSlider} cannot be
+     *  modified.</p>
      *
-     *  @param  min The minimum time.
-     *  @param  max The maximum time.
+     *  @param  day The day for the time slider.
+     */
+    public TimeSlider( final LocalDate day )
+    {
+        this( requireNonNullArgument( day, "day" ), ZoneId.systemDefault() );
+    }   //  TimeSlider()
+
+    /**
+     *  <p>{@summary Creates a new instance of {@code TimeSlider} for the given
+     *  day and the given time zone.} The time range will be set from 00:00
+     *  to 23:59.</p>
+     *  <p>Once created, the time zone  for the {@code TimeSlider} cannot be
+     *  modified.</p>
+     *
+     *  @param  day The day for the time slider.
+     *  @param  timeZone    The time zone.
+     */
+    public TimeSlider( final LocalDate day, final ZoneId timeZone )
+    {
+        this( requireNonNullArgument( day, "day" ), requireNonNullArgument( timeZone, "timeZone" ), LocalTime.MIN, LocalTime.MAX.withSecond( 0 ).withNano( 0 ) );
+    }   //  TimeSlider()
+
+    /**
+     *  <p>{@summary Creates a new instance of {@code TimeSlider} for the
+     *  current day and the default time zone.}</p>
+     *  <p>Once created, the time zone  for the {@code TimeSlider} cannot be
+     *  modified.</p>
+     *
+     *  @param  min The minimum displayed time for the slider.
+     *  @param  max The maximum displayed time for the slider.
      *
      */
-    public TimeSlider( final OffsetTime min, final OffsetTime max )
+    public TimeSlider( final LocalTime min, final LocalTime max )
+    {
+        this( LocalDate.now(), ZoneId.systemDefault(), requireNonNullArgument( min, "min" ), requireNonNullArgument( max, "max" ) );
+    }   //  TimeSlider()
+
+    /**
+     *  <p>{@summary Creates a new instance of {@code TimeSlider} for the
+     *  given day and the default time zone.}</p>
+     *  <p>Once created, the time zone  for the {@code TimeSlider} cannot be
+     *  modified.</p>
+     *
+     *  @param  day The day for the time slider.
+     *  @param  min The minimum displayed time for the slider.
+     *  @param  max The maximum displayed time for the slider.
+     *
+     */
+    public TimeSlider( final LocalDate day, final LocalTime min, final LocalTime max )
+    {
+        this( requireNonNullArgument( day, "day" ), ZoneId.systemDefault(), requireNonNullArgument( min, "min" ), requireNonNullArgument( max, "max" ) );
+    }   //  TimeSlider()
+
+    /**
+     *  <p>{@summary Creates a new instance of {@code TimeSlider} for the
+     *  given day and the given time zone.}</p>
+     *  <p>Once created, the time zone  for the {@code TimeSlider} cannot be
+     *  modified.</p>
+     *
+     *  @param  day The day for the time slider.
+     *  @param  timeZone    The time zone.
+     *  @param  min The minimum displayed time for the slider.
+     *  @param  max The maximum displayed time for the slider.
+     *
+     */
+    public TimeSlider( final LocalDate day, final ZoneId timeZone, final LocalTime min, final LocalTime max )
     {
         super();
 
         //---* Apply the arguments *-------------------------------------------
-        setMax( max );
-        setMin( min );
+        setDay( day );
+        m_TimeZoneProperty.set( requireNonNullArgument( timeZone, "timeZone" ) );
+        setMax( requireNonNullArgument( max, "max" ) );
+        setMin( requireNonNullArgument( min, "min" ) );
+
+        m_MaxValueProperty.set( day.atTime( max ).atZone( timeZone ) );
+        m_MinValueProperty.set( day.atTime( min ).atZone( timeZone ) );
 
         //---* Set the defaults *----------------------------------------------
-        m_HighValueProperty.set( max );
-        m_LowValueProperty.set( min );
+        setHighValue( m_MaxValueProperty.get().toOffsetDateTime().toOffsetTime() );
+        setLowValue( m_MinValueProperty.get().toOffsetDateTime().toOffsetTime() );
 
         //---* Create and apply the bindings *---------------------------------
-        final var durationBinding = createObjectBinding( () -> Duration.between( getLowValue().atDate( getDay() ), getHighValue().atDate( getDay() ) ), m_LowValueProperty, m_HighValueProperty, m_DayProperty );
+        m_MinValueBinding = createObjectBinding( () -> getDay().atTime( getMin() ).atZone( getTimeZone() ), m_MinDisplayProperty );
+        m_MinValueProperty.bind( m_MinValueBinding );
+
+        m_MaxValueBinding = createObjectBinding( () -> getDay().atTime( getMax() ).atZone( getTimeZone() ), m_MaxDisplayProperty );
+        m_MaxValueProperty.bind( m_MaxValueBinding );
+
+        m_DayProperty.addListener( this::dayChangeListener );
+
+        final var durationBinding = createObjectBinding( () -> Duration.between( getLowValue().atDate( getDay() ), getHighValue().atDate( getDay() ) ), m_LowValueProperty, m_HighValueProperty );
         m_DurationProperty.bind( durationBinding );
 
+        //---* Apply the skin *------------------------------------------------
         setSkin( createDefaultSkin() );
     }   //  TimeSlider()
 
@@ -466,11 +602,49 @@ public final class TimeSlider extends FoundationFXControl
     @Override
     protected final Skin<?> createDefaultSkin()
     {
-        final var retValue = new TimeSliderSkin( this, m_LowValueProperty, m_HighValueProperty );
+        final var retValue = new TimeSliderSkin( this );
 
         //---* Done *----------------------------------------------------------
         return retValue;
     }   //  createDefaultSkin()
+
+    /**
+     *  The implementation of
+     *  {@link ChangeListener}
+     *  that responds on changes to the
+     *  {@linkplain #dayProperty() day property}.
+     *
+     *  @param  observable    The observable.
+     *  @param  oldValue    The old value.
+     *  @param  newValue    The new value.
+     */
+    @SuppressWarnings( "TypeParameterExtendsFinalClass" )
+    private final void dayChangeListener( final ObservableValue<? extends LocalDate> observable, final LocalDate oldValue, final LocalDate newValue )
+    {
+        if( !Objects.equals( oldValue, newValue ) )
+        {
+            final var lowValue = m_LowValueProperty.get();
+            final var highValue = m_HighValueProperty.get();
+
+            if( oldValue.isBefore( newValue ) )
+            {
+                m_MaxValueBinding.invalidate();
+                m_MaxValueProperty.get();
+                m_MinValueBinding.invalidate();
+                m_MinValueProperty.get();
+            }
+            else
+            {
+                m_MinValueBinding.invalidate();
+                m_MinValueProperty.get();
+                m_MaxValueBinding.invalidate();
+                m_MaxValueProperty.get();
+            }
+
+            setHighValue( highValue );
+            setLowValue( lowValue );
+        }
+    }   //  dayChangeListener()
 
     /**
      *  <p>{@summary Returns a reference to the property that holds the day for
@@ -527,24 +701,24 @@ public final class TimeSlider extends FoundationFXControl
     public final OffsetTime getLowValue() { return m_LowValueProperty.get(); }
 
     /**
-     *  <p>{@summary Returns the maximum value for this
+     *  <p>{@summary Returns the maximum displayed value for this
      *  {@code TimeSlider}.}</p>
      *  <p>23:59:59 is returned if the maximum value has never been set
      *  explicitly.</p>
      *
      *  @return The maximum value for this time slider.
      */
-    public final OffsetTime getMax() { return m_MaxProperty.get(); }
+    public final LocalTime getMax() { return m_MaxDisplayProperty.get(); }
 
     /**
-     *  <p>{@summary Returns the minimum value for this
+     *  <p>{@summary Returns the minimum displayed value for this
      *  {@code TimeSlider}.}</p>
      *  <p>00:00:00 is returned if the minimum has never been set
      *  explicitly.</p>
      *
      *  @return The minimum value for this time slider.
      */
-    public final OffsetTime getMin() { return m_MinProperty.get(); }
+    public final LocalTime getMin() { return m_MinDisplayProperty.get(); }
 
     /**
      *  Returns the time zone that is used to calculate the offset for the
@@ -568,14 +742,14 @@ public final class TimeSlider extends FoundationFXControl
      *  value.}</p>
      *  <p>The high value property represents the current position of the high
      *  value thumb, and is within the allowable range as specified by the
-     *  {@link #minProperty() min}
+     *  {@link #minDisplayProperty() min}
      *  and
-     *  {@link #maxProperty() max}
+     *  {@link #maxDisplayProperty() max}
      *  properties.</p>
      *
      *  @return The property reference.
      */
-    public final ReadOnlyObjectProperty<OffsetTime> highValueProperty() { return m_HighValueProperty; }
+    public final ObjectProperty<OffsetTime> highValueProperty() { return m_HighValueProperty; }
 
     /**
      *  Returns the flag that controls whether the thumbs will snap to the tick
@@ -593,14 +767,22 @@ public final class TimeSlider extends FoundationFXControl
      *  value.}</p>
      *  <p>The low value property represents the current position of the low
      *  value thumb, and is within the allowable range as specified by the
-     *  {@link #minProperty() min}
+     *  {@link #minDisplayProperty() min}
      *  and
-     *  {@link #maxProperty() max}
+     *  {@link #maxDisplayProperty() max}
      *  properties.</p>
      *
      *  @return The property reference.
      */
-    public final ReadOnlyObjectProperty<OffsetTime> lowValueProperty() { return m_LowValueProperty; }
+    public final ObjectProperty<OffsetTime> lowValueProperty() { return m_LowValueProperty; }
+
+    /**
+     *  <p>{@summary Returns a reference to the property that holds the maximum
+     *  displayed value for this {@code TimeSlider}.}</p>
+     *
+     *  @return The property reference.
+     */
+    public final ObjectProperty<LocalTime> maxDisplayProperty() { return m_MaxDisplayProperty; }
 
     /**
      *  <p>{@summary Returns a reference to the property that holds the maximum
@@ -608,7 +790,7 @@ public final class TimeSlider extends FoundationFXControl
      *
      *  @return The property reference.
      */
-    public final ObjectProperty<OffsetTime> maxProperty() { return m_MaxProperty; }
+    public final ReadOnlyObjectProperty<ZonedDateTime> maxValueProperty() { return m_MaxValueProperty; }
 
     /**
      *  <p>{@summary Returns a reference to the property that holds the minimum
@@ -616,7 +798,22 @@ public final class TimeSlider extends FoundationFXControl
      *
      *  @return The property reference.
      */
-    public final ObjectProperty<OffsetTime> minProperty() { return m_MinProperty; }
+    public final Property<LocalTime> minDisplayProperty() { return m_MinDisplayProperty; }
+
+    /**
+     *  <p>{@summary Returns a reference to the property that holds the minimum
+     *  for this {@code TimeSlider}.}</p>
+     *
+     *  @return The property reference.
+     */
+    public final ReadOnlyObjectProperty<ZonedDateTime> minValueProperty() { return m_MinValueProperty; }
+
+    /**
+     *  Sets the day for this {@code TimeSlider}.
+     *
+     *  @param  day The day.
+     */
+    public final void setDay( final LocalDate day ) { m_DayProperty.set( requireNonNullArgument( day, "day" ) ); }
 
     /**
      *  Sets the granularity for this {@code TimeSlider}.
@@ -631,54 +828,40 @@ public final class TimeSlider extends FoundationFXControl
     /**
      *  Sets the high value for this {@code TimeSlider}, which may or may not
      *  be clamped to be within the allowable range as specified by the
-     *  {@link #minProperty() min}
+     *  {@link #minDisplayProperty() min}
      *  and
-     *  {@link #maxProperty() max}
+     *  {@link #maxDisplayProperty() max}
      *  properties.
      *
      *  @param  highValue   The value.
      */
-    public final void setHighValue( final OffsetTime highValue )
-    {
-        if( nonNull( highValue ) )
-        {
-            final var skin = (TimeSliderSkin) getSkin();
-            skin.setHighValue( highValue );
-        }
-    }   //  setHighValue()
+    public final void setHighValue( final OffsetTime highValue ) { m_HighValueProperty.set( highValue ); }
 
     /**
      *  Sets the low value for this {@code TimeSlider}, which may or may not be
      *  clamped to be within the allowable range as specified by the
-     *  {@link #minProperty() min}
+     *  {@link #minDisplayProperty() min}
      *  and
-     *  {@link #maxProperty() max}
+     *  {@link #maxDisplayProperty() max}
      *  properties.
      *
      *  @param  lowValue The value.
      */
-    public final void setLowValue( final OffsetTime lowValue )
-    {
-        if( nonNull( lowValue ) )
-        {
-            final var skin = (TimeSliderSkin) getSkin();
-            skin.setLowValue( lowValue );
-        }
-    }   //  setLowValue()
+    public final void setLowValue( final OffsetTime lowValue ) { m_LowValueProperty.set( lowValue ); }
 
     /**
-     *  Sets the maximum value for this {@code TimeSlider}.
+     *  Sets the maximum displayed value for this {@code TimeSlider}.
      *
      *  @param  max The new value.
      */
-    public final void setMax( final OffsetTime max ) { m_MaxProperty.set( max ); }
+    public final void setMax( final LocalTime max ) { m_MaxDisplayProperty.set( max ); }
 
     /**
-     *  Sets the minimum value for this  {@code TimeSlider}.
+     *  Sets the minimum displayed value for this  {@code TimeSlider}.
      *
      *  @param  min The new value
      */
-    public final void setMin( final OffsetTime min ) { m_MinProperty.set( min ); }
+    public final void setMin( final LocalTime min ) { m_MinDisplayProperty.set( min ); }
 
     /**
      *  Sets the flag that controls whether the thumbs will snap to the tick
@@ -708,7 +891,7 @@ public final class TimeSlider extends FoundationFXControl
      *
      *  @return The property reference.
      */
-    public final ObjectProperty<ZoneId> timeZoneProperty() { return m_TimeZoneProperty; }
+    public final ReadOnlyObjectProperty<ZoneId> timeZoneProperty() { return m_TimeZoneProperty; }
 }
 //  class TimeSlider
 

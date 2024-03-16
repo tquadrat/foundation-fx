@@ -603,16 +603,16 @@ public class RangeSliderSkin extends SkinBase<RangeSlider>
     {
         final var rangeSlider = getSkinnable();
 
-        rangeSlider.setLowValueChanging( false );
         if( rangeSlider.isSnapToTicks() )
         {
             rangeSlider.setLowValue( snapValueToTicks( rangeSlider.getLowValue() ) );
         }
-        rangeSlider.setHighValueChanging( false );
+        rangeSlider.setLowValueChanging( false );
         if( rangeSlider.isSnapToTicks() )
         {
             rangeSlider.setHighValue( snapValueToTicks( rangeSlider.getHighValue() ) );
         }
+        rangeSlider.setHighValueChanging( false );
     }   //  confirmRange()
 
     /**
@@ -722,8 +722,11 @@ public class RangeSliderSkin extends SkinBase<RangeSlider>
     private final void highThumbReleased( final MouseEvent mouseEvent )
     {
         final var rangeSlider = getSkinnable();
+        if( rangeSlider.isSnapToTicks() )
+        {
+            rangeSlider.setHighValue( snapValueToTicks( rangeSlider.getHighValue() ) );
+        }
         rangeSlider.setHighValueChanging( false );
-        if( rangeSlider.isSnapToTicks() ) rangeSlider.setHighValue( snapValueToTicks( rangeSlider.getHighValue() ) );
     }   //  highThumbReleased()
 
     /**
@@ -1078,11 +1081,11 @@ public class RangeSliderSkin extends SkinBase<RangeSlider>
     public final void lowThumbReleased( final MouseEvent mouseEvent )
     {
         final var rangeSlider = getSkinnable();
-        rangeSlider.setLowValueChanging( false );
         if( rangeSlider.isSnapToTicks() )
         {
             rangeSlider.setLowValue( snapValueToTicks( rangeSlider.getLowValue() ) );
         }
+        rangeSlider.setLowValueChanging( false );
     }   //  lowThumbReleased()
 
     /**

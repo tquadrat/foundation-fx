@@ -616,16 +616,16 @@
 <span class="source-line-no">603</span><span id="line-603">    {</span>
 <span class="source-line-no">604</span><span id="line-604">        final var rangeSlider = getSkinnable();</span>
 <span class="source-line-no">605</span><span id="line-605"></span>
-<span class="source-line-no">606</span><span id="line-606">        rangeSlider.setLowValueChanging( false );</span>
-<span class="source-line-no">607</span><span id="line-607">        if( rangeSlider.isSnapToTicks() )</span>
-<span class="source-line-no">608</span><span id="line-608">        {</span>
-<span class="source-line-no">609</span><span id="line-609">            rangeSlider.setLowValue( snapValueToTicks( rangeSlider.getLowValue() ) );</span>
-<span class="source-line-no">610</span><span id="line-610">        }</span>
-<span class="source-line-no">611</span><span id="line-611">        rangeSlider.setHighValueChanging( false );</span>
-<span class="source-line-no">612</span><span id="line-612">        if( rangeSlider.isSnapToTicks() )</span>
-<span class="source-line-no">613</span><span id="line-613">        {</span>
-<span class="source-line-no">614</span><span id="line-614">            rangeSlider.setHighValue( snapValueToTicks( rangeSlider.getHighValue() ) );</span>
-<span class="source-line-no">615</span><span id="line-615">        }</span>
+<span class="source-line-no">606</span><span id="line-606">        if( rangeSlider.isSnapToTicks() )</span>
+<span class="source-line-no">607</span><span id="line-607">        {</span>
+<span class="source-line-no">608</span><span id="line-608">            rangeSlider.setLowValue( snapValueToTicks( rangeSlider.getLowValue() ) );</span>
+<span class="source-line-no">609</span><span id="line-609">        }</span>
+<span class="source-line-no">610</span><span id="line-610">        rangeSlider.setLowValueChanging( false );</span>
+<span class="source-line-no">611</span><span id="line-611">        if( rangeSlider.isSnapToTicks() )</span>
+<span class="source-line-no">612</span><span id="line-612">        {</span>
+<span class="source-line-no">613</span><span id="line-613">            rangeSlider.setHighValue( snapValueToTicks( rangeSlider.getHighValue() ) );</span>
+<span class="source-line-no">614</span><span id="line-614">        }</span>
+<span class="source-line-no">615</span><span id="line-615">        rangeSlider.setHighValueChanging( false );</span>
 <span class="source-line-no">616</span><span id="line-616">    }   //  confirmRange()</span>
 <span class="source-line-no">617</span><span id="line-617"></span>
 <span class="source-line-no">618</span><span id="line-618">    /**</span>
@@ -735,661 +735,664 @@
 <span class="source-line-no">722</span><span id="line-722">    private final void highThumbReleased( final MouseEvent mouseEvent )</span>
 <span class="source-line-no">723</span><span id="line-723">    {</span>
 <span class="source-line-no">724</span><span id="line-724">        final var rangeSlider = getSkinnable();</span>
-<span class="source-line-no">725</span><span id="line-725">        rangeSlider.setHighValueChanging( false );</span>
-<span class="source-line-no">726</span><span id="line-726">        if( rangeSlider.isSnapToTicks() ) rangeSlider.setHighValue( snapValueToTicks( rangeSlider.getHighValue() ) );</span>
-<span class="source-line-no">727</span><span id="line-727">    }   //  highThumbReleased()</span>
-<span class="source-line-no">728</span><span id="line-728"></span>
-<span class="source-line-no">729</span><span id="line-729">    /**</span>
-<span class="source-line-no">730</span><span id="line-730">     *  Responds to the HOME key.</span>
-<span class="source-line-no">731</span><span id="line-731">     */</span>
-<span class="source-line-no">732</span><span id="line-732">    private final void home()</span>
-<span class="source-line-no">733</span><span id="line-733">    {</span>
-<span class="source-line-no">734</span><span id="line-734">        final var rangeSlider = getSkinnable();</span>
-<span class="source-line-no">735</span><span id="line-735">        rangeSlider.adjustHighValue( rangeSlider.getMin() );</span>
-<span class="source-line-no">736</span><span id="line-736">    }   //  home()</span>
-<span class="source-line-no">737</span><span id="line-737"></span>
-<span class="source-line-no">738</span><span id="line-738">    /**</span>
-<span class="source-line-no">739</span><span id="line-739">     *  Moves the selected thumb in the direction to the</span>
-<span class="source-line-no">740</span><span id="line-740">     *  {@link RangeSlider#getMax() max}</span>
-<span class="source-line-no">741</span><span id="line-741">     *  value.</span>
-<span class="source-line-no">742</span><span id="line-742">     */</span>
-<span class="source-line-no">743</span><span id="line-743">    private final void incrementValue()</span>
-<span class="source-line-no">744</span><span id="line-744">    {</span>
-<span class="source-line-no">745</span><span id="line-745">        final var rangeSlider = getSkinnable();</span>
-<span class="source-line-no">746</span><span id="line-746">        if( nonNull( m_SelectedValue ) )</span>
-<span class="source-line-no">747</span><span id="line-747">        {</span>
-<span class="source-line-no">748</span><span id="line-748">            if( m_SelectedValue.call(null) == HIGH_THUMB )</span>
-<span class="source-line-no">749</span><span id="line-749">            {</span>
-<span class="source-line-no">750</span><span id="line-750">                if( rangeSlider.isSnapToTicks() )</span>
-<span class="source-line-no">751</span><span id="line-751">                {</span>
-<span class="source-line-no">752</span><span id="line-752">                    rangeSlider.adjustHighValue( rangeSlider.getHighValue() + computeIncrement() );</span>
-<span class="source-line-no">753</span><span id="line-753">                }</span>
-<span class="source-line-no">754</span><span id="line-754">                else</span>
-<span class="source-line-no">755</span><span id="line-755">                {</span>
-<span class="source-line-no">756</span><span id="line-756">                    rangeSlider.incrementHighValue();</span>
-<span class="source-line-no">757</span><span id="line-757">                }</span>
-<span class="source-line-no">758</span><span id="line-758">            }</span>
-<span class="source-line-no">759</span><span id="line-759">            else</span>
-<span class="source-line-no">760</span><span id="line-760">            {</span>
-<span class="source-line-no">761</span><span id="line-761">                if( rangeSlider.isSnapToTicks() )</span>
-<span class="source-line-no">762</span><span id="line-762">                {</span>
-<span class="source-line-no">763</span><span id="line-763">                    rangeSlider.adjustLowValue( rangeSlider.getLowValue() + computeIncrement() );</span>
-<span class="source-line-no">764</span><span id="line-764">                }</span>
-<span class="source-line-no">765</span><span id="line-765">                else</span>
-<span class="source-line-no">766</span><span id="line-766">                {</span>
-<span class="source-line-no">767</span><span id="line-767">                    rangeSlider.incrementLowValue();</span>
-<span class="source-line-no">768</span><span id="line-768">                }</span>
-<span class="source-line-no">769</span><span id="line-769">            }</span>
-<span class="source-line-no">770</span><span id="line-770">        }</span>
-<span class="source-line-no">771</span><span id="line-771">    }   //  incrementValue()</span>
-<span class="source-line-no">772</span><span id="line-772"></span>
-<span class="source-line-no">773</span><span id="line-773">    /**</span>
-<span class="source-line-no">774</span><span id="line-774">     *  &lt;p&gt;{@summary Initialises the high thumb.}&lt;/p&gt;</span>
-<span class="source-line-no">775</span><span id="line-775">     *  &lt;p&gt;Needs to be called after</span>
-<span class="source-line-no">776</span><span id="line-776">     *  {@link #initLowThumb()}</span>
-<span class="source-line-no">777</span><span id="line-777">     *  and before</span>
-<span class="source-line-no">778</span><span id="line-778">     *  {@link #initRangeBar()}.&lt;/p&gt;</span>
-<span class="source-line-no">779</span><span id="line-779">     */</span>
-<span class="source-line-no">780</span><span id="line-780">    private final void initHighThumb()</span>
-<span class="source-line-no">781</span><span id="line-781">    {</span>
-<span class="source-line-no">782</span><span id="line-782">        m_HighThumb = new ThumbPane();</span>
-<span class="source-line-no">783</span><span id="line-783">        m_HighThumb.getStyleClass().setAll( "high-thumb" );</span>
-<span class="source-line-no">784</span><span id="line-784">        if( !getChildren().contains( m_HighThumb ) ) getChildren().add( m_HighThumb );</span>
-<span class="source-line-no">785</span><span id="line-785"></span>
-<span class="source-line-no">786</span><span id="line-786">        m_HighThumb.setOnMousePressed( e -&gt;</span>
-<span class="source-line-no">787</span><span id="line-787">        {</span>
-<span class="source-line-no">788</span><span id="line-788">            m_LowThumb.setFocus( false );</span>
-<span class="source-line-no">789</span><span id="line-789">            m_HighThumb.setFocus( true );</span>
-<span class="source-line-no">790</span><span id="line-790">            highThumbPressed( e, 0.0D );</span>
-<span class="source-line-no">791</span><span id="line-791">            m_PreDragThumbPoint = m_HighThumb.localToParent( e.getX(), e.getY() );</span>
-<span class="source-line-no">792</span><span id="line-792">            m_PreDragPos = (getSkinnable().getHighValue() - getSkinnable().getMin()) / (getMaxMinusMinNoZero());</span>
-<span class="source-line-no">793</span><span id="line-793">        } );</span>
-<span class="source-line-no">794</span><span id="line-794">        m_HighThumb.setOnMouseReleased( this::highThumbReleased );</span>
-<span class="source-line-no">795</span><span id="line-795">        //noinspection OverlyLongLambda</span>
-<span class="source-line-no">796</span><span id="line-796">        m_HighThumb.setOnMouseDragged( mouseEvent -&gt;</span>
-<span class="source-line-no">797</span><span id="line-797">        {</span>
-<span class="source-line-no">798</span><span id="line-798">            final var orientation = getSkinnable().getOrientation() == HORIZONTAL;</span>
-<span class="source-line-no">799</span><span id="line-799">            final var trackLength = orientation ? m_Track.getWidth() : m_Track.getHeight();</span>
-<span class="source-line-no">800</span><span id="line-800"></span>
-<span class="source-line-no">801</span><span id="line-801">            final var point2d = m_HighThumb.localToParent( mouseEvent.getX(), mouseEvent.getY() );</span>
-<span class="source-line-no">802</span><span id="line-802">            if( isNull( m_PreDragThumbPoint ) )  m_PreDragThumbPoint = point2d;</span>
-<span class="source-line-no">803</span><span id="line-803">            final var relativePosition = getSkinnable().getOrientation() == HORIZONTAL</span>
-<span class="source-line-no">804</span><span id="line-804">                ? point2d.getX() - m_PreDragThumbPoint.getX()</span>
-<span class="source-line-no">805</span><span id="line-805">                : -(point2d.getY() - m_PreDragThumbPoint.getY());</span>
-<span class="source-line-no">806</span><span id="line-806">            highThumbDragged( mouseEvent, m_PreDragPos + relativePosition / trackLength );</span>
-<span class="source-line-no">807</span><span id="line-807">        } );</span>
-<span class="source-line-no">808</span><span id="line-808">    }   //  initHighThumb()</span>
-<span class="source-line-no">809</span><span id="line-809"></span>
-<span class="source-line-no">810</span><span id="line-810">    /**</span>
-<span class="source-line-no">811</span><span id="line-811">     *  &lt;p&gt;{@summary Initialises the low thumb.}&lt;/p&gt;</span>
-<span class="source-line-no">812</span><span id="line-812">     *  &lt;p&gt;Needs to be called before</span>
-<span class="source-line-no">813</span><span id="line-813">     *  {@link #initHighThumb()}.&lt;/p&gt;</span>
-<span class="source-line-no">814</span><span id="line-814">     */</span>
-<span class="source-line-no">815</span><span id="line-815">    private final void initLowThumb()</span>
-<span class="source-line-no">816</span><span id="line-816">    {</span>
-<span class="source-line-no">817</span><span id="line-817">        m_LowThumb = new ThumbPane();</span>
-<span class="source-line-no">818</span><span id="line-818">        m_LowThumb.getStyleClass().setAll( "low-thumb" );</span>
-<span class="source-line-no">819</span><span id="line-819">        m_LowThumb.setFocusTraversable( true );</span>
-<span class="source-line-no">820</span><span id="line-820">        m_Track = new StackPane();</span>
-<span class="source-line-no">821</span><span id="line-821">        m_Track.setFocusTraversable( false );</span>
-<span class="source-line-no">822</span><span id="line-822">        m_Track.getStyleClass().setAll( "track" );</span>
-<span class="source-line-no">823</span><span id="line-823"></span>
-<span class="source-line-no">824</span><span id="line-824">        getChildren().clear();</span>
-<span class="source-line-no">825</span><span id="line-825">        getChildren().addAll( m_Track, m_LowThumb );</span>
-<span class="source-line-no">826</span><span id="line-826">        setShowTickMarks( getSkinnable().isShowTickMarks(), getSkinnable().isShowTickLabels() );</span>
-<span class="source-line-no">827</span><span id="line-827"></span>
-<span class="source-line-no">828</span><span id="line-828">        m_Track.setOnMousePressed( me -&gt;</span>
-<span class="source-line-no">829</span><span id="line-829">        {</span>
-<span class="source-line-no">830</span><span id="line-830">            if( !m_LowThumb.isPressed() &amp;&amp; !m_HighThumb.isPressed() )</span>
-<span class="source-line-no">831</span><span id="line-831">            {</span>
-<span class="source-line-no">832</span><span id="line-832">                if( isHorizontal() )</span>
-<span class="source-line-no">833</span><span id="line-833">                {</span>
-<span class="source-line-no">834</span><span id="line-834">                    trackPress( me, (me.getX() / m_TrackLength) );</span>
-<span class="source-line-no">835</span><span id="line-835">                }</span>
-<span class="source-line-no">836</span><span id="line-836">                else</span>
-<span class="source-line-no">837</span><span id="line-837">                {</span>
-<span class="source-line-no">838</span><span id="line-838">                    trackPress( me, (me.getY() / m_TrackLength) );</span>
-<span class="source-line-no">839</span><span id="line-839">                }</span>
-<span class="source-line-no">840</span><span id="line-840">            }</span>
-<span class="source-line-no">841</span><span id="line-841">        } );</span>
-<span class="source-line-no">842</span><span id="line-842"></span>
-<span class="source-line-no">843</span><span id="line-843">        m_LowThumb.setOnMousePressed( me -&gt;</span>
-<span class="source-line-no">844</span><span id="line-844">        {</span>
-<span class="source-line-no">845</span><span id="line-845">            m_HighThumb.setFocus( false );</span>
-<span class="source-line-no">846</span><span id="line-846">            m_LowThumb.setFocus( true );</span>
-<span class="source-line-no">847</span><span id="line-847">            lowThumbPressed( me, 0.0f );</span>
-<span class="source-line-no">848</span><span id="line-848">            m_PreDragThumbPoint = m_LowThumb.localToParent( me.getX(), me.getY() );</span>
-<span class="source-line-no">849</span><span id="line-849">            m_PreDragPos = (getSkinnable().getLowValue() - getSkinnable().getMin()) / getMaxMinusMinNoZero();</span>
-<span class="source-line-no">850</span><span id="line-850">        } );</span>
-<span class="source-line-no">851</span><span id="line-851"></span>
-<span class="source-line-no">852</span><span id="line-852">        m_LowThumb.setOnMouseReleased( this::lowThumbReleased );</span>
-<span class="source-line-no">853</span><span id="line-853"></span>
-<span class="source-line-no">854</span><span id="line-854">        m_LowThumb.setOnMouseDragged( mouseEvent -&gt;</span>
-<span class="source-line-no">855</span><span id="line-855">        {</span>
-<span class="source-line-no">856</span><span id="line-856">            final var cur = m_LowThumb.localToParent( mouseEvent.getX(), mouseEvent.getY() );</span>
-<span class="source-line-no">857</span><span id="line-857">            if( isNull( m_PreDragThumbPoint ) )  m_PreDragThumbPoint = cur;</span>
-<span class="source-line-no">858</span><span id="line-858">            final var dragPos = isHorizontal() ? cur.getX() - m_PreDragThumbPoint.getX() : -(cur.getY() - m_PreDragThumbPoint.getY());</span>
-<span class="source-line-no">859</span><span id="line-859">            lowThumbDragged( mouseEvent, m_PreDragPos + dragPos / m_TrackLength );</span>
-<span class="source-line-no">860</span><span id="line-860">        } );</span>
-<span class="source-line-no">861</span><span id="line-861">    }   //  initLowThumb()</span>
-<span class="source-line-no">862</span><span id="line-862"></span>
-<span class="source-line-no">863</span><span id="line-863">    /**</span>
-<span class="source-line-no">864</span><span id="line-864">     *  &lt;p&gt;{@summary Initialises the range bar.}&lt;/p&gt;</span>
-<span class="source-line-no">865</span><span id="line-865">     *  &lt;p&gt;Needs to be called after</span>
-<span class="source-line-no">866</span><span id="line-866">     *  {@link #initHighThumb()}.&lt;/p&gt;</span>
-<span class="source-line-no">867</span><span id="line-867">     */</span>
-<span class="source-line-no">868</span><span id="line-868">    private final void initRangeBar()</span>
-<span class="source-line-no">869</span><span id="line-869">    {</span>
-<span class="source-line-no">870</span><span id="line-870">        m_RangeBar = new StackPane();</span>
-<span class="source-line-no">871</span><span id="line-871">        m_RangeBar.setFocusTraversable( false );</span>
-<span class="source-line-no">872</span><span id="line-872">        //noinspection AnonymousInnerClass</span>
-<span class="source-line-no">873</span><span id="line-873">        m_RangeBar.cursorProperty().bind( new ObjectBinding&lt;&gt;()</span>
-<span class="source-line-no">874</span><span id="line-874">        {</span>
-<span class="source-line-no">875</span><span id="line-875">            {</span>
-<span class="source-line-no">876</span><span id="line-876">                bind( m_RangeBar.hoverProperty() );</span>
-<span class="source-line-no">877</span><span id="line-877">            }</span>
-<span class="source-line-no">878</span><span id="line-878"></span>
-<span class="source-line-no">879</span><span id="line-879">            /**</span>
-<span class="source-line-no">880</span><span id="line-880">             *  {@inheritDoc}</span>
-<span class="source-line-no">881</span><span id="line-881">             */</span>
-<span class="source-line-no">882</span><span id="line-882">            @Override</span>
-<span class="source-line-no">883</span><span id="line-883">            protected final Cursor computeValue()</span>
-<span class="source-line-no">884</span><span id="line-884">            {</span>
-<span class="source-line-no">885</span><span id="line-885">                return m_RangeBar.isHover() ? Cursor.HAND : Cursor.DEFAULT;</span>
-<span class="source-line-no">886</span><span id="line-886">            }</span>
-<span class="source-line-no">887</span><span id="line-887">        } );</span>
-<span class="source-line-no">888</span><span id="line-888">        m_RangeBar.getStyleClass().setAll( "range-bar" );</span>
-<span class="source-line-no">889</span><span id="line-889"></span>
-<span class="source-line-no">890</span><span id="line-890">        m_RangeBar.setOnMousePressed( e -&gt;</span>
-<span class="source-line-no">891</span><span id="line-891">        {</span>
-<span class="source-line-no">892</span><span id="line-892">            m_RangeBar.requestFocus();</span>
-<span class="source-line-no">893</span><span id="line-893">            m_PreDragPos = isHorizontal() ? e.getX() : -e.getY();</span>
-<span class="source-line-no">894</span><span id="line-894">        } );</span>
-<span class="source-line-no">895</span><span id="line-895"></span>
-<span class="source-line-no">896</span><span id="line-896">        m_RangeBar.setOnMouseDragged( e -&gt;</span>
-<span class="source-line-no">897</span><span id="line-897">        {</span>
-<span class="source-line-no">898</span><span id="line-898">            final var delta = (isHorizontal() ? e.getX() : -e.getY()) - m_PreDragPos;</span>
-<span class="source-line-no">899</span><span id="line-899">            moveRange( delta );</span>
-<span class="source-line-no">900</span><span id="line-900">        } );</span>
-<span class="source-line-no">901</span><span id="line-901"></span>
-<span class="source-line-no">902</span><span id="line-902">        m_RangeBar.setOnMouseReleased( $ -&gt; confirmRange() );</span>
-<span class="source-line-no">903</span><span id="line-903">        getChildren().add( m_RangeBar );</span>
-<span class="source-line-no">904</span><span id="line-904">    }   //  initRangeBar()</span>
-<span class="source-line-no">905</span><span id="line-905"></span>
-<span class="source-line-no">906</span><span id="line-906">    /**</span>
-<span class="source-line-no">907</span><span id="line-907">     *  Checks whether the orientation of the</span>
-<span class="source-line-no">908</span><span id="line-908">     *  {@link RangeSlider}</span>
-<span class="source-line-no">909</span><span id="line-909">     *  is</span>
-<span class="source-line-no">910</span><span id="line-910">     *  {@linkplain Orientation#HORIZONTAL horizontal}.</span>
-<span class="source-line-no">911</span><span id="line-911">     *</span>
-<span class="source-line-no">912</span><span id="line-912">     *  @return {@code true} if the orientation is</span>
-<span class="source-line-no">913</span><span id="line-913">     *      {@link Orientation#HORIZONTAL},</span>
-<span class="source-line-no">914</span><span id="line-914">     *      {@code false} when it is</span>
-<span class="source-line-no">915</span><span id="line-915">     *      {@link Orientation#VERTICAL}.</span>
-<span class="source-line-no">916</span><span id="line-916">     */</span>
-<span class="source-line-no">917</span><span id="line-917">    private final boolean isHorizontal() { return isNull( m_Orientation ) || m_Orientation == HORIZONTAL; }</span>
-<span class="source-line-no">918</span><span id="line-918"></span>
-<span class="source-line-no">919</span><span id="line-919">    /**</span>
-<span class="source-line-no">920</span><span id="line-920">     *  {@inheritDoc}</span>
-<span class="source-line-no">921</span><span id="line-921">     */</span>
-<span class="source-line-no">922</span><span id="line-922">    @SuppressWarnings( {"OverlyComplexMethod", "MagicNumber"} )</span>
-<span class="source-line-no">923</span><span id="line-923">    @Override</span>
-<span class="source-line-no">924</span><span id="line-924">    protected final void layoutChildren( final double contentX, final double contentY, final double contentWidth, final double contentHeight )</span>
-<span class="source-line-no">925</span><span id="line-925">    {</span>
-<span class="source-line-no">926</span><span id="line-926">        //---* Resize thumb to preferred size *--------------------------------</span>
-<span class="source-line-no">927</span><span id="line-927">        m_ThumbWidth = m_LowThumb.prefWidth( USE_COMPUTED_SIZE );</span>
-<span class="source-line-no">928</span><span id="line-928">        m_ThumbHeight = m_LowThumb.prefHeight( USE_COMPUTED_SIZE );</span>
-<span class="source-line-no">929</span><span id="line-929">        m_LowThumb.resize( m_ThumbWidth, m_ThumbHeight );</span>
-<span class="source-line-no">930</span><span id="line-930"></span>
-<span class="source-line-no">931</span><span id="line-931">        /*</span>
-<span class="source-line-no">932</span><span id="line-932">         * We assume there is a common radius for all corners on the track.</span>
-<span class="source-line-no">933</span><span id="line-933">         */</span>
-<span class="source-line-no">934</span><span id="line-934">        final var trackRadius = isNull( m_Track.getBackground() )</span>
-<span class="source-line-no">935</span><span id="line-935">            ? 0.0</span>
-<span class="source-line-no">936</span><span id="line-936">            : m_Track.getBackground().getFills().isEmpty()</span>
-<span class="source-line-no">937</span><span id="line-937">                ? 0.0</span>
-<span class="source-line-no">938</span><span id="line-938">                : m_Track.getBackground().getFills().getFirst().getRadii().getTopLeftHorizontalRadius();</span>
-<span class="source-line-no">939</span><span id="line-939"></span>
-<span class="source-line-no">940</span><span id="line-940">        if( isHorizontal() )</span>
-<span class="source-line-no">941</span><span id="line-941">        {</span>
-<span class="source-line-no">942</span><span id="line-942">            final var tickLineHeight = m_ShowTickMarks ? m_TickLine.prefHeight( USE_COMPUTED_SIZE ) : 0.0;</span>
-<span class="source-line-no">943</span><span id="line-943">            final var trackHeight = m_Track.prefHeight( USE_COMPUTED_SIZE );</span>
-<span class="source-line-no">944</span><span id="line-944">            final var trackAreaHeight = max( trackHeight, m_ThumbHeight );</span>
-<span class="source-line-no">945</span><span id="line-945">            final var totalHeightNeeded = trackAreaHeight  + ((m_ShowTickMarks) ? m_TrackToTickGap + tickLineHeight : 0.0);</span>
-<span class="source-line-no">946</span><span id="line-946"></span>
-<span class="source-line-no">947</span><span id="line-947">            //---* Vertically center slider in available height *--------------</span>
-<span class="source-line-no">948</span><span id="line-948">            final var startY = contentY + ((contentHeight - totalHeightNeeded) / 2.0);</span>
+<span class="source-line-no">725</span><span id="line-725">        if( rangeSlider.isSnapToTicks() )</span>
+<span class="source-line-no">726</span><span id="line-726">        {</span>
+<span class="source-line-no">727</span><span id="line-727">            rangeSlider.setHighValue( snapValueToTicks( rangeSlider.getHighValue() ) );</span>
+<span class="source-line-no">728</span><span id="line-728">        }</span>
+<span class="source-line-no">729</span><span id="line-729">        rangeSlider.setHighValueChanging( false );</span>
+<span class="source-line-no">730</span><span id="line-730">    }   //  highThumbReleased()</span>
+<span class="source-line-no">731</span><span id="line-731"></span>
+<span class="source-line-no">732</span><span id="line-732">    /**</span>
+<span class="source-line-no">733</span><span id="line-733">     *  Responds to the HOME key.</span>
+<span class="source-line-no">734</span><span id="line-734">     */</span>
+<span class="source-line-no">735</span><span id="line-735">    private final void home()</span>
+<span class="source-line-no">736</span><span id="line-736">    {</span>
+<span class="source-line-no">737</span><span id="line-737">        final var rangeSlider = getSkinnable();</span>
+<span class="source-line-no">738</span><span id="line-738">        rangeSlider.adjustHighValue( rangeSlider.getMin() );</span>
+<span class="source-line-no">739</span><span id="line-739">    }   //  home()</span>
+<span class="source-line-no">740</span><span id="line-740"></span>
+<span class="source-line-no">741</span><span id="line-741">    /**</span>
+<span class="source-line-no">742</span><span id="line-742">     *  Moves the selected thumb in the direction to the</span>
+<span class="source-line-no">743</span><span id="line-743">     *  {@link RangeSlider#getMax() max}</span>
+<span class="source-line-no">744</span><span id="line-744">     *  value.</span>
+<span class="source-line-no">745</span><span id="line-745">     */</span>
+<span class="source-line-no">746</span><span id="line-746">    private final void incrementValue()</span>
+<span class="source-line-no">747</span><span id="line-747">    {</span>
+<span class="source-line-no">748</span><span id="line-748">        final var rangeSlider = getSkinnable();</span>
+<span class="source-line-no">749</span><span id="line-749">        if( nonNull( m_SelectedValue ) )</span>
+<span class="source-line-no">750</span><span id="line-750">        {</span>
+<span class="source-line-no">751</span><span id="line-751">            if( m_SelectedValue.call(null) == HIGH_THUMB )</span>
+<span class="source-line-no">752</span><span id="line-752">            {</span>
+<span class="source-line-no">753</span><span id="line-753">                if( rangeSlider.isSnapToTicks() )</span>
+<span class="source-line-no">754</span><span id="line-754">                {</span>
+<span class="source-line-no">755</span><span id="line-755">                    rangeSlider.adjustHighValue( rangeSlider.getHighValue() + computeIncrement() );</span>
+<span class="source-line-no">756</span><span id="line-756">                }</span>
+<span class="source-line-no">757</span><span id="line-757">                else</span>
+<span class="source-line-no">758</span><span id="line-758">                {</span>
+<span class="source-line-no">759</span><span id="line-759">                    rangeSlider.incrementHighValue();</span>
+<span class="source-line-no">760</span><span id="line-760">                }</span>
+<span class="source-line-no">761</span><span id="line-761">            }</span>
+<span class="source-line-no">762</span><span id="line-762">            else</span>
+<span class="source-line-no">763</span><span id="line-763">            {</span>
+<span class="source-line-no">764</span><span id="line-764">                if( rangeSlider.isSnapToTicks() )</span>
+<span class="source-line-no">765</span><span id="line-765">                {</span>
+<span class="source-line-no">766</span><span id="line-766">                    rangeSlider.adjustLowValue( rangeSlider.getLowValue() + computeIncrement() );</span>
+<span class="source-line-no">767</span><span id="line-767">                }</span>
+<span class="source-line-no">768</span><span id="line-768">                else</span>
+<span class="source-line-no">769</span><span id="line-769">                {</span>
+<span class="source-line-no">770</span><span id="line-770">                    rangeSlider.incrementLowValue();</span>
+<span class="source-line-no">771</span><span id="line-771">                }</span>
+<span class="source-line-no">772</span><span id="line-772">            }</span>
+<span class="source-line-no">773</span><span id="line-773">        }</span>
+<span class="source-line-no">774</span><span id="line-774">    }   //  incrementValue()</span>
+<span class="source-line-no">775</span><span id="line-775"></span>
+<span class="source-line-no">776</span><span id="line-776">    /**</span>
+<span class="source-line-no">777</span><span id="line-777">     *  &lt;p&gt;{@summary Initialises the high thumb.}&lt;/p&gt;</span>
+<span class="source-line-no">778</span><span id="line-778">     *  &lt;p&gt;Needs to be called after</span>
+<span class="source-line-no">779</span><span id="line-779">     *  {@link #initLowThumb()}</span>
+<span class="source-line-no">780</span><span id="line-780">     *  and before</span>
+<span class="source-line-no">781</span><span id="line-781">     *  {@link #initRangeBar()}.&lt;/p&gt;</span>
+<span class="source-line-no">782</span><span id="line-782">     */</span>
+<span class="source-line-no">783</span><span id="line-783">    private final void initHighThumb()</span>
+<span class="source-line-no">784</span><span id="line-784">    {</span>
+<span class="source-line-no">785</span><span id="line-785">        m_HighThumb = new ThumbPane();</span>
+<span class="source-line-no">786</span><span id="line-786">        m_HighThumb.getStyleClass().setAll( "high-thumb" );</span>
+<span class="source-line-no">787</span><span id="line-787">        if( !getChildren().contains( m_HighThumb ) ) getChildren().add( m_HighThumb );</span>
+<span class="source-line-no">788</span><span id="line-788"></span>
+<span class="source-line-no">789</span><span id="line-789">        m_HighThumb.setOnMousePressed( e -&gt;</span>
+<span class="source-line-no">790</span><span id="line-790">        {</span>
+<span class="source-line-no">791</span><span id="line-791">            m_LowThumb.setFocus( false );</span>
+<span class="source-line-no">792</span><span id="line-792">            m_HighThumb.setFocus( true );</span>
+<span class="source-line-no">793</span><span id="line-793">            highThumbPressed( e, 0.0D );</span>
+<span class="source-line-no">794</span><span id="line-794">            m_PreDragThumbPoint = m_HighThumb.localToParent( e.getX(), e.getY() );</span>
+<span class="source-line-no">795</span><span id="line-795">            m_PreDragPos = (getSkinnable().getHighValue() - getSkinnable().getMin()) / (getMaxMinusMinNoZero());</span>
+<span class="source-line-no">796</span><span id="line-796">        } );</span>
+<span class="source-line-no">797</span><span id="line-797">        m_HighThumb.setOnMouseReleased( this::highThumbReleased );</span>
+<span class="source-line-no">798</span><span id="line-798">        //noinspection OverlyLongLambda</span>
+<span class="source-line-no">799</span><span id="line-799">        m_HighThumb.setOnMouseDragged( mouseEvent -&gt;</span>
+<span class="source-line-no">800</span><span id="line-800">        {</span>
+<span class="source-line-no">801</span><span id="line-801">            final var orientation = getSkinnable().getOrientation() == HORIZONTAL;</span>
+<span class="source-line-no">802</span><span id="line-802">            final var trackLength = orientation ? m_Track.getWidth() : m_Track.getHeight();</span>
+<span class="source-line-no">803</span><span id="line-803"></span>
+<span class="source-line-no">804</span><span id="line-804">            final var point2d = m_HighThumb.localToParent( mouseEvent.getX(), mouseEvent.getY() );</span>
+<span class="source-line-no">805</span><span id="line-805">            if( isNull( m_PreDragThumbPoint ) )  m_PreDragThumbPoint = point2d;</span>
+<span class="source-line-no">806</span><span id="line-806">            final var relativePosition = getSkinnable().getOrientation() == HORIZONTAL</span>
+<span class="source-line-no">807</span><span id="line-807">                ? point2d.getX() - m_PreDragThumbPoint.getX()</span>
+<span class="source-line-no">808</span><span id="line-808">                : -(point2d.getY() - m_PreDragThumbPoint.getY());</span>
+<span class="source-line-no">809</span><span id="line-809">            highThumbDragged( mouseEvent, m_PreDragPos + relativePosition / trackLength );</span>
+<span class="source-line-no">810</span><span id="line-810">        } );</span>
+<span class="source-line-no">811</span><span id="line-811">    }   //  initHighThumb()</span>
+<span class="source-line-no">812</span><span id="line-812"></span>
+<span class="source-line-no">813</span><span id="line-813">    /**</span>
+<span class="source-line-no">814</span><span id="line-814">     *  &lt;p&gt;{@summary Initialises the low thumb.}&lt;/p&gt;</span>
+<span class="source-line-no">815</span><span id="line-815">     *  &lt;p&gt;Needs to be called before</span>
+<span class="source-line-no">816</span><span id="line-816">     *  {@link #initHighThumb()}.&lt;/p&gt;</span>
+<span class="source-line-no">817</span><span id="line-817">     */</span>
+<span class="source-line-no">818</span><span id="line-818">    private final void initLowThumb()</span>
+<span class="source-line-no">819</span><span id="line-819">    {</span>
+<span class="source-line-no">820</span><span id="line-820">        m_LowThumb = new ThumbPane();</span>
+<span class="source-line-no">821</span><span id="line-821">        m_LowThumb.getStyleClass().setAll( "low-thumb" );</span>
+<span class="source-line-no">822</span><span id="line-822">        m_LowThumb.setFocusTraversable( true );</span>
+<span class="source-line-no">823</span><span id="line-823">        m_Track = new StackPane();</span>
+<span class="source-line-no">824</span><span id="line-824">        m_Track.setFocusTraversable( false );</span>
+<span class="source-line-no">825</span><span id="line-825">        m_Track.getStyleClass().setAll( "track" );</span>
+<span class="source-line-no">826</span><span id="line-826"></span>
+<span class="source-line-no">827</span><span id="line-827">        getChildren().clear();</span>
+<span class="source-line-no">828</span><span id="line-828">        getChildren().addAll( m_Track, m_LowThumb );</span>
+<span class="source-line-no">829</span><span id="line-829">        setShowTickMarks( getSkinnable().isShowTickMarks(), getSkinnable().isShowTickLabels() );</span>
+<span class="source-line-no">830</span><span id="line-830"></span>
+<span class="source-line-no">831</span><span id="line-831">        m_Track.setOnMousePressed( me -&gt;</span>
+<span class="source-line-no">832</span><span id="line-832">        {</span>
+<span class="source-line-no">833</span><span id="line-833">            if( !m_LowThumb.isPressed() &amp;&amp; !m_HighThumb.isPressed() )</span>
+<span class="source-line-no">834</span><span id="line-834">            {</span>
+<span class="source-line-no">835</span><span id="line-835">                if( isHorizontal() )</span>
+<span class="source-line-no">836</span><span id="line-836">                {</span>
+<span class="source-line-no">837</span><span id="line-837">                    trackPress( me, (me.getX() / m_TrackLength) );</span>
+<span class="source-line-no">838</span><span id="line-838">                }</span>
+<span class="source-line-no">839</span><span id="line-839">                else</span>
+<span class="source-line-no">840</span><span id="line-840">                {</span>
+<span class="source-line-no">841</span><span id="line-841">                    trackPress( me, (me.getY() / m_TrackLength) );</span>
+<span class="source-line-no">842</span><span id="line-842">                }</span>
+<span class="source-line-no">843</span><span id="line-843">            }</span>
+<span class="source-line-no">844</span><span id="line-844">        } );</span>
+<span class="source-line-no">845</span><span id="line-845"></span>
+<span class="source-line-no">846</span><span id="line-846">        m_LowThumb.setOnMousePressed( me -&gt;</span>
+<span class="source-line-no">847</span><span id="line-847">        {</span>
+<span class="source-line-no">848</span><span id="line-848">            m_HighThumb.setFocus( false );</span>
+<span class="source-line-no">849</span><span id="line-849">            m_LowThumb.setFocus( true );</span>
+<span class="source-line-no">850</span><span id="line-850">            lowThumbPressed( me, 0.0f );</span>
+<span class="source-line-no">851</span><span id="line-851">            m_PreDragThumbPoint = m_LowThumb.localToParent( me.getX(), me.getY() );</span>
+<span class="source-line-no">852</span><span id="line-852">            m_PreDragPos = (getSkinnable().getLowValue() - getSkinnable().getMin()) / getMaxMinusMinNoZero();</span>
+<span class="source-line-no">853</span><span id="line-853">        } );</span>
+<span class="source-line-no">854</span><span id="line-854"></span>
+<span class="source-line-no">855</span><span id="line-855">        m_LowThumb.setOnMouseReleased( this::lowThumbReleased );</span>
+<span class="source-line-no">856</span><span id="line-856"></span>
+<span class="source-line-no">857</span><span id="line-857">        m_LowThumb.setOnMouseDragged( mouseEvent -&gt;</span>
+<span class="source-line-no">858</span><span id="line-858">        {</span>
+<span class="source-line-no">859</span><span id="line-859">            final var cur = m_LowThumb.localToParent( mouseEvent.getX(), mouseEvent.getY() );</span>
+<span class="source-line-no">860</span><span id="line-860">            if( isNull( m_PreDragThumbPoint ) )  m_PreDragThumbPoint = cur;</span>
+<span class="source-line-no">861</span><span id="line-861">            final var dragPos = isHorizontal() ? cur.getX() - m_PreDragThumbPoint.getX() : -(cur.getY() - m_PreDragThumbPoint.getY());</span>
+<span class="source-line-no">862</span><span id="line-862">            lowThumbDragged( mouseEvent, m_PreDragPos + dragPos / m_TrackLength );</span>
+<span class="source-line-no">863</span><span id="line-863">        } );</span>
+<span class="source-line-no">864</span><span id="line-864">    }   //  initLowThumb()</span>
+<span class="source-line-no">865</span><span id="line-865"></span>
+<span class="source-line-no">866</span><span id="line-866">    /**</span>
+<span class="source-line-no">867</span><span id="line-867">     *  &lt;p&gt;{@summary Initialises the range bar.}&lt;/p&gt;</span>
+<span class="source-line-no">868</span><span id="line-868">     *  &lt;p&gt;Needs to be called after</span>
+<span class="source-line-no">869</span><span id="line-869">     *  {@link #initHighThumb()}.&lt;/p&gt;</span>
+<span class="source-line-no">870</span><span id="line-870">     */</span>
+<span class="source-line-no">871</span><span id="line-871">    private final void initRangeBar()</span>
+<span class="source-line-no">872</span><span id="line-872">    {</span>
+<span class="source-line-no">873</span><span id="line-873">        m_RangeBar = new StackPane();</span>
+<span class="source-line-no">874</span><span id="line-874">        m_RangeBar.setFocusTraversable( false );</span>
+<span class="source-line-no">875</span><span id="line-875">        //noinspection AnonymousInnerClass</span>
+<span class="source-line-no">876</span><span id="line-876">        m_RangeBar.cursorProperty().bind( new ObjectBinding&lt;&gt;()</span>
+<span class="source-line-no">877</span><span id="line-877">        {</span>
+<span class="source-line-no">878</span><span id="line-878">            {</span>
+<span class="source-line-no">879</span><span id="line-879">                bind( m_RangeBar.hoverProperty() );</span>
+<span class="source-line-no">880</span><span id="line-880">            }</span>
+<span class="source-line-no">881</span><span id="line-881"></span>
+<span class="source-line-no">882</span><span id="line-882">            /**</span>
+<span class="source-line-no">883</span><span id="line-883">             *  {@inheritDoc}</span>
+<span class="source-line-no">884</span><span id="line-884">             */</span>
+<span class="source-line-no">885</span><span id="line-885">            @Override</span>
+<span class="source-line-no">886</span><span id="line-886">            protected final Cursor computeValue()</span>
+<span class="source-line-no">887</span><span id="line-887">            {</span>
+<span class="source-line-no">888</span><span id="line-888">                return m_RangeBar.isHover() ? Cursor.HAND : Cursor.DEFAULT;</span>
+<span class="source-line-no">889</span><span id="line-889">            }</span>
+<span class="source-line-no">890</span><span id="line-890">        } );</span>
+<span class="source-line-no">891</span><span id="line-891">        m_RangeBar.getStyleClass().setAll( "range-bar" );</span>
+<span class="source-line-no">892</span><span id="line-892"></span>
+<span class="source-line-no">893</span><span id="line-893">        m_RangeBar.setOnMousePressed( e -&gt;</span>
+<span class="source-line-no">894</span><span id="line-894">        {</span>
+<span class="source-line-no">895</span><span id="line-895">            m_RangeBar.requestFocus();</span>
+<span class="source-line-no">896</span><span id="line-896">            m_PreDragPos = isHorizontal() ? e.getX() : -e.getY();</span>
+<span class="source-line-no">897</span><span id="line-897">        } );</span>
+<span class="source-line-no">898</span><span id="line-898"></span>
+<span class="source-line-no">899</span><span id="line-899">        m_RangeBar.setOnMouseDragged( e -&gt;</span>
+<span class="source-line-no">900</span><span id="line-900">        {</span>
+<span class="source-line-no">901</span><span id="line-901">            final var delta = (isHorizontal() ? e.getX() : -e.getY()) - m_PreDragPos;</span>
+<span class="source-line-no">902</span><span id="line-902">            moveRange( delta );</span>
+<span class="source-line-no">903</span><span id="line-903">        } );</span>
+<span class="source-line-no">904</span><span id="line-904"></span>
+<span class="source-line-no">905</span><span id="line-905">        m_RangeBar.setOnMouseReleased( $ -&gt; confirmRange() );</span>
+<span class="source-line-no">906</span><span id="line-906">        getChildren().add( m_RangeBar );</span>
+<span class="source-line-no">907</span><span id="line-907">    }   //  initRangeBar()</span>
+<span class="source-line-no">908</span><span id="line-908"></span>
+<span class="source-line-no">909</span><span id="line-909">    /**</span>
+<span class="source-line-no">910</span><span id="line-910">     *  Checks whether the orientation of the</span>
+<span class="source-line-no">911</span><span id="line-911">     *  {@link RangeSlider}</span>
+<span class="source-line-no">912</span><span id="line-912">     *  is</span>
+<span class="source-line-no">913</span><span id="line-913">     *  {@linkplain Orientation#HORIZONTAL horizontal}.</span>
+<span class="source-line-no">914</span><span id="line-914">     *</span>
+<span class="source-line-no">915</span><span id="line-915">     *  @return {@code true} if the orientation is</span>
+<span class="source-line-no">916</span><span id="line-916">     *      {@link Orientation#HORIZONTAL},</span>
+<span class="source-line-no">917</span><span id="line-917">     *      {@code false} when it is</span>
+<span class="source-line-no">918</span><span id="line-918">     *      {@link Orientation#VERTICAL}.</span>
+<span class="source-line-no">919</span><span id="line-919">     */</span>
+<span class="source-line-no">920</span><span id="line-920">    private final boolean isHorizontal() { return isNull( m_Orientation ) || m_Orientation == HORIZONTAL; }</span>
+<span class="source-line-no">921</span><span id="line-921"></span>
+<span class="source-line-no">922</span><span id="line-922">    /**</span>
+<span class="source-line-no">923</span><span id="line-923">     *  {@inheritDoc}</span>
+<span class="source-line-no">924</span><span id="line-924">     */</span>
+<span class="source-line-no">925</span><span id="line-925">    @SuppressWarnings( {"OverlyComplexMethod", "MagicNumber"} )</span>
+<span class="source-line-no">926</span><span id="line-926">    @Override</span>
+<span class="source-line-no">927</span><span id="line-927">    protected final void layoutChildren( final double contentX, final double contentY, final double contentWidth, final double contentHeight )</span>
+<span class="source-line-no">928</span><span id="line-928">    {</span>
+<span class="source-line-no">929</span><span id="line-929">        //---* Resize thumb to preferred size *--------------------------------</span>
+<span class="source-line-no">930</span><span id="line-930">        m_ThumbWidth = m_LowThumb.prefWidth( USE_COMPUTED_SIZE );</span>
+<span class="source-line-no">931</span><span id="line-931">        m_ThumbHeight = m_LowThumb.prefHeight( USE_COMPUTED_SIZE );</span>
+<span class="source-line-no">932</span><span id="line-932">        m_LowThumb.resize( m_ThumbWidth, m_ThumbHeight );</span>
+<span class="source-line-no">933</span><span id="line-933"></span>
+<span class="source-line-no">934</span><span id="line-934">        /*</span>
+<span class="source-line-no">935</span><span id="line-935">         * We assume there is a common radius for all corners on the track.</span>
+<span class="source-line-no">936</span><span id="line-936">         */</span>
+<span class="source-line-no">937</span><span id="line-937">        final var trackRadius = isNull( m_Track.getBackground() )</span>
+<span class="source-line-no">938</span><span id="line-938">            ? 0.0</span>
+<span class="source-line-no">939</span><span id="line-939">            : m_Track.getBackground().getFills().isEmpty()</span>
+<span class="source-line-no">940</span><span id="line-940">                ? 0.0</span>
+<span class="source-line-no">941</span><span id="line-941">                : m_Track.getBackground().getFills().getFirst().getRadii().getTopLeftHorizontalRadius();</span>
+<span class="source-line-no">942</span><span id="line-942"></span>
+<span class="source-line-no">943</span><span id="line-943">        if( isHorizontal() )</span>
+<span class="source-line-no">944</span><span id="line-944">        {</span>
+<span class="source-line-no">945</span><span id="line-945">            final var tickLineHeight = m_ShowTickMarks ? m_TickLine.prefHeight( USE_COMPUTED_SIZE ) : 0.0;</span>
+<span class="source-line-no">946</span><span id="line-946">            final var trackHeight = m_Track.prefHeight( USE_COMPUTED_SIZE );</span>
+<span class="source-line-no">947</span><span id="line-947">            final var trackAreaHeight = max( trackHeight, m_ThumbHeight );</span>
+<span class="source-line-no">948</span><span id="line-948">            final var totalHeightNeeded = trackAreaHeight  + ((m_ShowTickMarks) ? m_TrackToTickGap + tickLineHeight : 0.0);</span>
 <span class="source-line-no">949</span><span id="line-949"></span>
-<span class="source-line-no">950</span><span id="line-950">            m_TrackLength = contentWidth - m_ThumbWidth;</span>
-<span class="source-line-no">951</span><span id="line-951">            m_TrackStart = contentX + (m_ThumbWidth / 2.0);</span>
-<span class="source-line-no">952</span><span id="line-952">            @SuppressWarnings( "NumericCastThatLosesPrecision" )</span>
-<span class="source-line-no">953</span><span id="line-953">            final var trackTop = (double) ((int) (startY + ((trackAreaHeight - trackHeight) / 2.0)));</span>
-<span class="source-line-no">954</span><span id="line-954">            //noinspection NumericCastThatLosesPrecision</span>
-<span class="source-line-no">955</span><span id="line-955">            m_LowThumbPos = (double) ((int) (startY + ((trackAreaHeight - m_ThumbHeight) / 2.0)));</span>
-<span class="source-line-no">956</span><span id="line-956"></span>
-<span class="source-line-no">957</span><span id="line-957">            positionLowThumb();</span>
-<span class="source-line-no">958</span><span id="line-958"></span>
-<span class="source-line-no">959</span><span id="line-959">            //---* Now do the layout for the track *---------------------------</span>
-<span class="source-line-no">960</span><span id="line-960">            m_Track.resizeRelocate( m_TrackStart - trackRadius, trackTop , m_TrackLength + trackRadius + trackRadius, trackHeight );</span>
+<span class="source-line-no">950</span><span id="line-950">            //---* Vertically center slider in available height *--------------</span>
+<span class="source-line-no">951</span><span id="line-951">            final var startY = contentY + ((contentHeight - totalHeightNeeded) / 2.0);</span>
+<span class="source-line-no">952</span><span id="line-952"></span>
+<span class="source-line-no">953</span><span id="line-953">            m_TrackLength = contentWidth - m_ThumbWidth;</span>
+<span class="source-line-no">954</span><span id="line-954">            m_TrackStart = contentX + (m_ThumbWidth / 2.0);</span>
+<span class="source-line-no">955</span><span id="line-955">            @SuppressWarnings( "NumericCastThatLosesPrecision" )</span>
+<span class="source-line-no">956</span><span id="line-956">            final var trackTop = (double) ((int) (startY + ((trackAreaHeight - trackHeight) / 2.0)));</span>
+<span class="source-line-no">957</span><span id="line-957">            //noinspection NumericCastThatLosesPrecision</span>
+<span class="source-line-no">958</span><span id="line-958">            m_LowThumbPos = (double) ((int) (startY + ((trackAreaHeight - m_ThumbHeight) / 2.0)));</span>
+<span class="source-line-no">959</span><span id="line-959"></span>
+<span class="source-line-no">960</span><span id="line-960">            positionLowThumb();</span>
 <span class="source-line-no">961</span><span id="line-961"></span>
-<span class="source-line-no">962</span><span id="line-962">            positionHighThumb();</span>
-<span class="source-line-no">963</span><span id="line-963"></span>
-<span class="source-line-no">964</span><span id="line-964">            //---* Do the range bar layout *-----------------------------------</span>
-<span class="source-line-no">965</span><span id="line-965">            m_RangeBar.resizeRelocate( m_RangeStart, trackTop, m_RangeEnd - m_RangeStart, trackHeight );</span>
+<span class="source-line-no">962</span><span id="line-962">            //---* Now do the layout for the track *---------------------------</span>
+<span class="source-line-no">963</span><span id="line-963">            m_Track.resizeRelocate( m_TrackStart - trackRadius, trackTop , m_TrackLength + trackRadius + trackRadius, trackHeight );</span>
+<span class="source-line-no">964</span><span id="line-964"></span>
+<span class="source-line-no">965</span><span id="line-965">            positionHighThumb();</span>
 <span class="source-line-no">966</span><span id="line-966"></span>
-<span class="source-line-no">967</span><span id="line-967">            //---* Do the layout for the tick line *---------------------------</span>
-<span class="source-line-no">968</span><span id="line-968">            if( m_ShowTickMarks )</span>
-<span class="source-line-no">969</span><span id="line-969">            {</span>
-<span class="source-line-no">970</span><span id="line-970">                m_TickLine.setLayoutX( m_TrackStart );</span>
-<span class="source-line-no">971</span><span id="line-971">                m_TickLine.setLayoutY( trackTop + trackHeight + m_TrackToTickGap );</span>
-<span class="source-line-no">972</span><span id="line-972">                m_TickLine.resize( m_TrackLength, tickLineHeight );</span>
-<span class="source-line-no">973</span><span id="line-973">                m_TickLine.requestAxisLayout();</span>
-<span class="source-line-no">974</span><span id="line-974">            }</span>
-<span class="source-line-no">975</span><span id="line-975">            else</span>
-<span class="source-line-no">976</span><span id="line-976">            {</span>
-<span class="source-line-no">977</span><span id="line-977">                if( nonNull( m_TickLine ) )</span>
-<span class="source-line-no">978</span><span id="line-978">                {</span>
-<span class="source-line-no">979</span><span id="line-979">                    m_TickLine.resize(0,0 );</span>
-<span class="source-line-no">980</span><span id="line-980">                    m_TickLine.requestAxisLayout();</span>
-<span class="source-line-no">981</span><span id="line-981">                }</span>
-<span class="source-line-no">982</span><span id="line-982">                m_TickLine = null;</span>
-<span class="source-line-no">983</span><span id="line-983">            }</span>
-<span class="source-line-no">984</span><span id="line-984">        }</span>
-<span class="source-line-no">985</span><span id="line-985">        else</span>
-<span class="source-line-no">986</span><span id="line-986">        {</span>
-<span class="source-line-no">987</span><span id="line-987">            final var tickLineWidth = m_ShowTickMarks ? m_TickLine.prefWidth( USE_COMPUTED_SIZE ) : 0.0;</span>
-<span class="source-line-no">988</span><span id="line-988">            final var trackWidth = m_Track.prefWidth( USE_COMPUTED_SIZE );</span>
-<span class="source-line-no">989</span><span id="line-989">            final var trackAreaWidth = max( trackWidth, m_ThumbWidth );</span>
-<span class="source-line-no">990</span><span id="line-990">            final var totalWidthNeeded = trackAreaWidth  + (m_ShowTickMarks ? m_TrackToTickGap + tickLineWidth : 0.0) ;</span>
-<span class="source-line-no">991</span><span id="line-991"></span>
-<span class="source-line-no">992</span><span id="line-992">            //---* Horizontally center the slider in available width *---------</span>
-<span class="source-line-no">993</span><span id="line-993">            final var startX = contentX + ((contentWidth - totalWidthNeeded) / 2.0);</span>
-<span class="source-line-no">994</span><span id="line-994">            m_TrackLength = contentHeight - m_ThumbHeight;</span>
-<span class="source-line-no">995</span><span id="line-995">            m_TrackStart = contentY + (m_ThumbHeight / 2.0);</span>
-<span class="source-line-no">996</span><span id="line-996">            @SuppressWarnings( "NumericCastThatLosesPrecision" )</span>
-<span class="source-line-no">997</span><span id="line-997">            final var trackLeft = (double) ((int) (startX + ((trackAreaWidth - trackWidth) / 2.0)));</span>
-<span class="source-line-no">998</span><span id="line-998">            //noinspection NumericCastThatLosesPrecision</span>
-<span class="source-line-no">999</span><span id="line-999">            m_LowThumbPos = (double) ((int) (startX + ((trackAreaWidth - m_ThumbWidth) / 2.0)));</span>
-<span class="source-line-no">1000</span><span id="line-1000"></span>
-<span class="source-line-no">1001</span><span id="line-1001">            positionLowThumb();</span>
-<span class="source-line-no">1002</span><span id="line-1002"></span>
-<span class="source-line-no">1003</span><span id="line-1003">            //---* Now do the layout for the track *---------------------------</span>
-<span class="source-line-no">1004</span><span id="line-1004">            m_Track.resizeRelocate( trackLeft, m_TrackStart - trackRadius, trackWidth, m_TrackLength + trackRadius + trackRadius );</span>
+<span class="source-line-no">967</span><span id="line-967">            //---* Do the range bar layout *-----------------------------------</span>
+<span class="source-line-no">968</span><span id="line-968">            m_RangeBar.resizeRelocate( m_RangeStart, trackTop, m_RangeEnd - m_RangeStart, trackHeight );</span>
+<span class="source-line-no">969</span><span id="line-969"></span>
+<span class="source-line-no">970</span><span id="line-970">            //---* Do the layout for the tick line *---------------------------</span>
+<span class="source-line-no">971</span><span id="line-971">            if( m_ShowTickMarks )</span>
+<span class="source-line-no">972</span><span id="line-972">            {</span>
+<span class="source-line-no">973</span><span id="line-973">                m_TickLine.setLayoutX( m_TrackStart );</span>
+<span class="source-line-no">974</span><span id="line-974">                m_TickLine.setLayoutY( trackTop + trackHeight + m_TrackToTickGap );</span>
+<span class="source-line-no">975</span><span id="line-975">                m_TickLine.resize( m_TrackLength, tickLineHeight );</span>
+<span class="source-line-no">976</span><span id="line-976">                m_TickLine.requestAxisLayout();</span>
+<span class="source-line-no">977</span><span id="line-977">            }</span>
+<span class="source-line-no">978</span><span id="line-978">            else</span>
+<span class="source-line-no">979</span><span id="line-979">            {</span>
+<span class="source-line-no">980</span><span id="line-980">                if( nonNull( m_TickLine ) )</span>
+<span class="source-line-no">981</span><span id="line-981">                {</span>
+<span class="source-line-no">982</span><span id="line-982">                    m_TickLine.resize(0,0 );</span>
+<span class="source-line-no">983</span><span id="line-983">                    m_TickLine.requestAxisLayout();</span>
+<span class="source-line-no">984</span><span id="line-984">                }</span>
+<span class="source-line-no">985</span><span id="line-985">                m_TickLine = null;</span>
+<span class="source-line-no">986</span><span id="line-986">            }</span>
+<span class="source-line-no">987</span><span id="line-987">        }</span>
+<span class="source-line-no">988</span><span id="line-988">        else</span>
+<span class="source-line-no">989</span><span id="line-989">        {</span>
+<span class="source-line-no">990</span><span id="line-990">            final var tickLineWidth = m_ShowTickMarks ? m_TickLine.prefWidth( USE_COMPUTED_SIZE ) : 0.0;</span>
+<span class="source-line-no">991</span><span id="line-991">            final var trackWidth = m_Track.prefWidth( USE_COMPUTED_SIZE );</span>
+<span class="source-line-no">992</span><span id="line-992">            final var trackAreaWidth = max( trackWidth, m_ThumbWidth );</span>
+<span class="source-line-no">993</span><span id="line-993">            final var totalWidthNeeded = trackAreaWidth  + (m_ShowTickMarks ? m_TrackToTickGap + tickLineWidth : 0.0) ;</span>
+<span class="source-line-no">994</span><span id="line-994"></span>
+<span class="source-line-no">995</span><span id="line-995">            //---* Horizontally center the slider in available width *---------</span>
+<span class="source-line-no">996</span><span id="line-996">            final var startX = contentX + ((contentWidth - totalWidthNeeded) / 2.0);</span>
+<span class="source-line-no">997</span><span id="line-997">            m_TrackLength = contentHeight - m_ThumbHeight;</span>
+<span class="source-line-no">998</span><span id="line-998">            m_TrackStart = contentY + (m_ThumbHeight / 2.0);</span>
+<span class="source-line-no">999</span><span id="line-999">            @SuppressWarnings( "NumericCastThatLosesPrecision" )</span>
+<span class="source-line-no">1000</span><span id="line-1000">            final var trackLeft = (double) ((int) (startX + ((trackAreaWidth - trackWidth) / 2.0)));</span>
+<span class="source-line-no">1001</span><span id="line-1001">            //noinspection NumericCastThatLosesPrecision</span>
+<span class="source-line-no">1002</span><span id="line-1002">            m_LowThumbPos = (double) ((int) (startX + ((trackAreaWidth - m_ThumbWidth) / 2.0)));</span>
+<span class="source-line-no">1003</span><span id="line-1003"></span>
+<span class="source-line-no">1004</span><span id="line-1004">            positionLowThumb();</span>
 <span class="source-line-no">1005</span><span id="line-1005"></span>
-<span class="source-line-no">1006</span><span id="line-1006">            positionHighThumb();</span>
-<span class="source-line-no">1007</span><span id="line-1007"></span>
-<span class="source-line-no">1008</span><span id="line-1008">            //---* Do the range bar layout *-----------------------------------</span>
-<span class="source-line-no">1009</span><span id="line-1009">            m_RangeBar.resizeRelocate( trackLeft, m_RangeStart, trackWidth, m_RangeEnd - m_RangeStart );</span>
+<span class="source-line-no">1006</span><span id="line-1006">            //---* Now do the layout for the track *---------------------------</span>
+<span class="source-line-no">1007</span><span id="line-1007">            m_Track.resizeRelocate( trackLeft, m_TrackStart - trackRadius, trackWidth, m_TrackLength + trackRadius + trackRadius );</span>
+<span class="source-line-no">1008</span><span id="line-1008"></span>
+<span class="source-line-no">1009</span><span id="line-1009">            positionHighThumb();</span>
 <span class="source-line-no">1010</span><span id="line-1010"></span>
-<span class="source-line-no">1011</span><span id="line-1011">            //---* Do the layout for the tick line *---------------------------</span>
-<span class="source-line-no">1012</span><span id="line-1012">            if( m_ShowTickMarks )</span>
-<span class="source-line-no">1013</span><span id="line-1013">            {</span>
-<span class="source-line-no">1014</span><span id="line-1014">                m_TickLine.setLayoutX( trackLeft + trackWidth + m_TrackToTickGap );</span>
-<span class="source-line-no">1015</span><span id="line-1015">                m_TickLine.setLayoutY( m_TrackStart );</span>
-<span class="source-line-no">1016</span><span id="line-1016">                m_TickLine.resize( tickLineWidth, m_TrackLength );</span>
-<span class="source-line-no">1017</span><span id="line-1017">                m_TickLine.requestAxisLayout();</span>
-<span class="source-line-no">1018</span><span id="line-1018">            }</span>
-<span class="source-line-no">1019</span><span id="line-1019">            else</span>
-<span class="source-line-no">1020</span><span id="line-1020">            {</span>
-<span class="source-line-no">1021</span><span id="line-1021">                if( nonNull( m_TickLine ) )</span>
-<span class="source-line-no">1022</span><span id="line-1022">                {</span>
-<span class="source-line-no">1023</span><span id="line-1023">                    m_TickLine.resize( 0,0 );</span>
-<span class="source-line-no">1024</span><span id="line-1024">                    m_TickLine.requestAxisLayout();</span>
-<span class="source-line-no">1025</span><span id="line-1025">                }</span>
-<span class="source-line-no">1026</span><span id="line-1026">                m_TickLine = null;</span>
-<span class="source-line-no">1027</span><span id="line-1027">            }</span>
-<span class="source-line-no">1028</span><span id="line-1028">        }</span>
-<span class="source-line-no">1029</span><span id="line-1029">    }   //  layoutChildren()</span>
-<span class="source-line-no">1030</span><span id="line-1030"></span>
-<span class="source-line-no">1031</span><span id="line-1031">    /**</span>
-<span class="source-line-no">1032</span><span id="line-1032">     *  Updates the</span>
-<span class="source-line-no">1033</span><span id="line-1033">     *  {@linkplain RangeSlider#lowValueProperty() low value}</span>
-<span class="source-line-no">1034</span><span id="line-1034">     *  based on the new position of the low thumb after it was dragged with</span>
-<span class="source-line-no">1035</span><span id="line-1035">     *  the mouse.</span>
-<span class="source-line-no">1036</span><span id="line-1036">     *</span>
-<span class="source-line-no">1037</span><span id="line-1037">     *  @param  ignoredMouseEvent   The mouse event.</span>
-<span class="source-line-no">1038</span><span id="line-1038">     *  @param  position    The mouse position on the track with 0.0 being the</span>
-<span class="source-line-no">1039</span><span id="line-1039">     *      start of the track and 1.0 being the end.</span>
-<span class="source-line-no">1040</span><span id="line-1040">     */</span>
-<span class="source-line-no">1041</span><span id="line-1041">    public final void lowThumbDragged( final MouseEvent ignoredMouseEvent, final double position )</span>
-<span class="source-line-no">1042</span><span id="line-1042">    {</span>
-<span class="source-line-no">1043</span><span id="line-1043">        final var rangeSlider = getSkinnable();</span>
-<span class="source-line-no">1044</span><span id="line-1044">        final var newValue = clamp</span>
-<span class="source-line-no">1045</span><span id="line-1045">            (</span>
-<span class="source-line-no">1046</span><span id="line-1046">                rangeSlider.getMin(),</span>
-<span class="source-line-no">1047</span><span id="line-1047">                (position * (rangeSlider.getMax() - rangeSlider.getMin())) + rangeSlider.getMin(),</span>
-<span class="source-line-no">1048</span><span id="line-1048">                rangeSlider.getMax()</span>
-<span class="source-line-no">1049</span><span id="line-1049">            );</span>
-<span class="source-line-no">1050</span><span id="line-1050">        rangeSlider.setLowValue( newValue );</span>
-<span class="source-line-no">1051</span><span id="line-1051">    }   //  lowThumbDragged()</span>
-<span class="source-line-no">1052</span><span id="line-1052"></span>
-<span class="source-line-no">1053</span><span id="line-1053">    /**</span>
-<span class="source-line-no">1054</span><span id="line-1054">     *  &lt;p&gt;{@summary Prepares the dragging of the low thumb.}&lt;/p&gt;</span>
-<span class="source-line-no">1055</span><span id="line-1055">     *  &lt;p&gt;When the low thumb is released,</span>
-<span class="source-line-no">1056</span><span id="line-1056">     *  {@link RangeSlider#lowValueChangingProperty()}</span>
-<span class="source-line-no">1057</span><span id="line-1057">     *  is set to {@code false}.&lt;/p&gt;</span>
-<span class="source-line-no">1058</span><span id="line-1058">     *</span>
-<span class="source-line-no">1059</span><span id="line-1059">     *  @param  ignoredMouseEvent   The mouse event.</span>
-<span class="source-line-no">1060</span><span id="line-1060">     *  @param  ignoredPosition The new position.</span>
-<span class="source-line-no">1061</span><span id="line-1061">     */</span>
-<span class="source-line-no">1062</span><span id="line-1062">    public void lowThumbPressed( final MouseEvent ignoredMouseEvent, final double ignoredPosition )</span>
-<span class="source-line-no">1063</span><span id="line-1063">    {</span>
-<span class="source-line-no">1064</span><span id="line-1064">        //---* If not already focused, request focus *-------------------------</span>
-<span class="source-line-no">1065</span><span id="line-1065">        final var rangeSlider = getSkinnable();</span>
-<span class="source-line-no">1066</span><span id="line-1066">        if( !rangeSlider.isFocused() )  rangeSlider.requestFocus();</span>
-<span class="source-line-no">1067</span><span id="line-1067"></span>
-<span class="source-line-no">1068</span><span id="line-1068">        rangeSlider.setLowValueChanging( true );</span>
-<span class="source-line-no">1069</span><span id="line-1069">    }   //  lowThumbPressed()</span>
+<span class="source-line-no">1011</span><span id="line-1011">            //---* Do the range bar layout *-----------------------------------</span>
+<span class="source-line-no">1012</span><span id="line-1012">            m_RangeBar.resizeRelocate( trackLeft, m_RangeStart, trackWidth, m_RangeEnd - m_RangeStart );</span>
+<span class="source-line-no">1013</span><span id="line-1013"></span>
+<span class="source-line-no">1014</span><span id="line-1014">            //---* Do the layout for the tick line *---------------------------</span>
+<span class="source-line-no">1015</span><span id="line-1015">            if( m_ShowTickMarks )</span>
+<span class="source-line-no">1016</span><span id="line-1016">            {</span>
+<span class="source-line-no">1017</span><span id="line-1017">                m_TickLine.setLayoutX( trackLeft + trackWidth + m_TrackToTickGap );</span>
+<span class="source-line-no">1018</span><span id="line-1018">                m_TickLine.setLayoutY( m_TrackStart );</span>
+<span class="source-line-no">1019</span><span id="line-1019">                m_TickLine.resize( tickLineWidth, m_TrackLength );</span>
+<span class="source-line-no">1020</span><span id="line-1020">                m_TickLine.requestAxisLayout();</span>
+<span class="source-line-no">1021</span><span id="line-1021">            }</span>
+<span class="source-line-no">1022</span><span id="line-1022">            else</span>
+<span class="source-line-no">1023</span><span id="line-1023">            {</span>
+<span class="source-line-no">1024</span><span id="line-1024">                if( nonNull( m_TickLine ) )</span>
+<span class="source-line-no">1025</span><span id="line-1025">                {</span>
+<span class="source-line-no">1026</span><span id="line-1026">                    m_TickLine.resize( 0,0 );</span>
+<span class="source-line-no">1027</span><span id="line-1027">                    m_TickLine.requestAxisLayout();</span>
+<span class="source-line-no">1028</span><span id="line-1028">                }</span>
+<span class="source-line-no">1029</span><span id="line-1029">                m_TickLine = null;</span>
+<span class="source-line-no">1030</span><span id="line-1030">            }</span>
+<span class="source-line-no">1031</span><span id="line-1031">        }</span>
+<span class="source-line-no">1032</span><span id="line-1032">    }   //  layoutChildren()</span>
+<span class="source-line-no">1033</span><span id="line-1033"></span>
+<span class="source-line-no">1034</span><span id="line-1034">    /**</span>
+<span class="source-line-no">1035</span><span id="line-1035">     *  Updates the</span>
+<span class="source-line-no">1036</span><span id="line-1036">     *  {@linkplain RangeSlider#lowValueProperty() low value}</span>
+<span class="source-line-no">1037</span><span id="line-1037">     *  based on the new position of the low thumb after it was dragged with</span>
+<span class="source-line-no">1038</span><span id="line-1038">     *  the mouse.</span>
+<span class="source-line-no">1039</span><span id="line-1039">     *</span>
+<span class="source-line-no">1040</span><span id="line-1040">     *  @param  ignoredMouseEvent   The mouse event.</span>
+<span class="source-line-no">1041</span><span id="line-1041">     *  @param  position    The mouse position on the track with 0.0 being the</span>
+<span class="source-line-no">1042</span><span id="line-1042">     *      start of the track and 1.0 being the end.</span>
+<span class="source-line-no">1043</span><span id="line-1043">     */</span>
+<span class="source-line-no">1044</span><span id="line-1044">    public final void lowThumbDragged( final MouseEvent ignoredMouseEvent, final double position )</span>
+<span class="source-line-no">1045</span><span id="line-1045">    {</span>
+<span class="source-line-no">1046</span><span id="line-1046">        final var rangeSlider = getSkinnable();</span>
+<span class="source-line-no">1047</span><span id="line-1047">        final var newValue = clamp</span>
+<span class="source-line-no">1048</span><span id="line-1048">            (</span>
+<span class="source-line-no">1049</span><span id="line-1049">                rangeSlider.getMin(),</span>
+<span class="source-line-no">1050</span><span id="line-1050">                (position * (rangeSlider.getMax() - rangeSlider.getMin())) + rangeSlider.getMin(),</span>
+<span class="source-line-no">1051</span><span id="line-1051">                rangeSlider.getMax()</span>
+<span class="source-line-no">1052</span><span id="line-1052">            );</span>
+<span class="source-line-no">1053</span><span id="line-1053">        rangeSlider.setLowValue( newValue );</span>
+<span class="source-line-no">1054</span><span id="line-1054">    }   //  lowThumbDragged()</span>
+<span class="source-line-no">1055</span><span id="line-1055"></span>
+<span class="source-line-no">1056</span><span id="line-1056">    /**</span>
+<span class="source-line-no">1057</span><span id="line-1057">     *  &lt;p&gt;{@summary Prepares the dragging of the low thumb.}&lt;/p&gt;</span>
+<span class="source-line-no">1058</span><span id="line-1058">     *  &lt;p&gt;When the low thumb is released,</span>
+<span class="source-line-no">1059</span><span id="line-1059">     *  {@link RangeSlider#lowValueChangingProperty()}</span>
+<span class="source-line-no">1060</span><span id="line-1060">     *  is set to {@code false}.&lt;/p&gt;</span>
+<span class="source-line-no">1061</span><span id="line-1061">     *</span>
+<span class="source-line-no">1062</span><span id="line-1062">     *  @param  ignoredMouseEvent   The mouse event.</span>
+<span class="source-line-no">1063</span><span id="line-1063">     *  @param  ignoredPosition The new position.</span>
+<span class="source-line-no">1064</span><span id="line-1064">     */</span>
+<span class="source-line-no">1065</span><span id="line-1065">    public void lowThumbPressed( final MouseEvent ignoredMouseEvent, final double ignoredPosition )</span>
+<span class="source-line-no">1066</span><span id="line-1066">    {</span>
+<span class="source-line-no">1067</span><span id="line-1067">        //---* If not already focused, request focus *-------------------------</span>
+<span class="source-line-no">1068</span><span id="line-1068">        final var rangeSlider = getSkinnable();</span>
+<span class="source-line-no">1069</span><span id="line-1069">        if( !rangeSlider.isFocused() )  rangeSlider.requestFocus();</span>
 <span class="source-line-no">1070</span><span id="line-1070"></span>
-<span class="source-line-no">1071</span><span id="line-1071">    /**</span>
-<span class="source-line-no">1072</span><span id="line-1072">     *  Adjusts the</span>
-<span class="source-line-no">1073</span><span id="line-1073">     *  {@linkplain RangeSlider#lowValueProperty() low value}</span>
-<span class="source-line-no">1074</span><span id="line-1074">     *  when the low thumb is released.</span>
-<span class="source-line-no">1075</span><span id="line-1075">     *</span>
-<span class="source-line-no">1076</span><span id="line-1076">     *  @param  mouseEvent  The mouse event.</span>
-<span class="source-line-no">1077</span><span id="line-1077">     */</span>
-<span class="source-line-no">1078</span><span id="line-1078">    public final void lowThumbReleased( final MouseEvent mouseEvent )</span>
-<span class="source-line-no">1079</span><span id="line-1079">    {</span>
-<span class="source-line-no">1080</span><span id="line-1080">        final var rangeSlider = getSkinnable();</span>
-<span class="source-line-no">1081</span><span id="line-1081">        rangeSlider.setLowValueChanging( false );</span>
-<span class="source-line-no">1082</span><span id="line-1082">        if( rangeSlider.isSnapToTicks() )</span>
-<span class="source-line-no">1083</span><span id="line-1083">        {</span>
-<span class="source-line-no">1084</span><span id="line-1084">            rangeSlider.setLowValue( snapValueToTicks( rangeSlider.getLowValue() ) );</span>
-<span class="source-line-no">1085</span><span id="line-1085">        }</span>
-<span class="source-line-no">1086</span><span id="line-1086">    }   //  lowThumbReleased()</span>
-<span class="source-line-no">1087</span><span id="line-1087"></span>
-<span class="source-line-no">1088</span><span id="line-1088">    /**</span>
-<span class="source-line-no">1089</span><span id="line-1089">     *  Calculates the minimum length for the track.</span>
-<span class="source-line-no">1090</span><span id="line-1090">     *</span>
-<span class="source-line-no">1091</span><span id="line-1091">     *  @return The minimum track length.</span>
-<span class="source-line-no">1092</span><span id="line-1092">     */</span>
-<span class="source-line-no">1093</span><span id="line-1093">    private final double minTrackLength()</span>
-<span class="source-line-no">1094</span><span id="line-1094">    {</span>
-<span class="source-line-no">1095</span><span id="line-1095">        final var retValue = 2.0 * m_LowThumb.prefWidth( USE_COMPUTED_SIZE );</span>
-<span class="source-line-no">1096</span><span id="line-1096"></span>
-<span class="source-line-no">1097</span><span id="line-1097">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">1098</span><span id="line-1098">        return retValue;</span>
-<span class="source-line-no">1099</span><span id="line-1099">    }   //  minTrackLength()</span>
-<span class="source-line-no">1100</span><span id="line-1100"></span>
-<span class="source-line-no">1101</span><span id="line-1101">    /**</span>
-<span class="source-line-no">1102</span><span id="line-1102">     *  Sets the new positions after a move of the range bar.</span>
-<span class="source-line-no">1103</span><span id="line-1103">     *</span>
-<span class="source-line-no">1104</span><span id="line-1104">     *  @param  position    The new position.</span>
-<span class="source-line-no">1105</span><span id="line-1105">     */</span>
-<span class="source-line-no">1106</span><span id="line-1106">    private final void moveRange( final double position )</span>
-<span class="source-line-no">1107</span><span id="line-1107">    {</span>
-<span class="source-line-no">1108</span><span id="line-1108">        final var rangeSlider = getSkinnable();</span>
-<span class="source-line-no">1109</span><span id="line-1109">        final var min = rangeSlider.getMin();</span>
-<span class="source-line-no">1110</span><span id="line-1110">        final var max = rangeSlider.getMax();</span>
-<span class="source-line-no">1111</span><span id="line-1111">        final var lowValue = rangeSlider.getLowValue();</span>
-<span class="source-line-no">1112</span><span id="line-1112">        final var newLowValue = clamp</span>
-<span class="source-line-no">1113</span><span id="line-1113">            (</span>
-<span class="source-line-no">1114</span><span id="line-1114">                min,</span>
-<span class="source-line-no">1115</span><span id="line-1115">                lowValue + position * (max-min) / (isHorizontal() ? rangeSlider.getWidth(): rangeSlider.getHeight()),</span>
-<span class="source-line-no">1116</span><span id="line-1116">                max</span>
-<span class="source-line-no">1117</span><span id="line-1117">            );</span>
-<span class="source-line-no">1118</span><span id="line-1118">        final var highValue = rangeSlider.getHighValue();</span>
-<span class="source-line-no">1119</span><span id="line-1119">        final var newHighValue = clamp</span>
-<span class="source-line-no">1120</span><span id="line-1120">            (</span>
-<span class="source-line-no">1121</span><span id="line-1121">                min,</span>
-<span class="source-line-no">1122</span><span id="line-1122">                highValue + position * (max-min) / (isHorizontal() ? rangeSlider.getWidth(): rangeSlider.getHeight() ),</span>
-<span class="source-line-no">1123</span><span id="line-1123">                max</span>
-<span class="source-line-no">1124</span><span id="line-1124">            );</span>
-<span class="source-line-no">1125</span><span id="line-1125"></span>
-<span class="source-line-no">1126</span><span id="line-1126">        if( (newLowValue &gt; min) &amp;&amp; (newHighValue &lt; max) )</span>
-<span class="source-line-no">1127</span><span id="line-1127">        {</span>
-<span class="source-line-no">1128</span><span id="line-1128">            rangeSlider.setLowValueChanging( true );</span>
-<span class="source-line-no">1129</span><span id="line-1129">            rangeSlider.setHighValueChanging( true );</span>
-<span class="source-line-no">1130</span><span id="line-1130">            rangeSlider.setLowValue( newLowValue);</span>
-<span class="source-line-no">1131</span><span id="line-1131">            rangeSlider.setHighValue( newHighValue);</span>
-<span class="source-line-no">1132</span><span id="line-1132">        }</span>
-<span class="source-line-no">1133</span><span id="line-1133">    }   //  moveRange()</span>
-<span class="source-line-no">1134</span><span id="line-1134"></span>
-<span class="source-line-no">1135</span><span id="line-1135">    /**</span>
-<span class="source-line-no">1136</span><span id="line-1136">     *  Called whenever either</span>
-<span class="source-line-no">1137</span><span id="line-1137">     *  {@link RangeSlider#getMin() min},</span>
-<span class="source-line-no">1138</span><span id="line-1138">     *  {@link RangeSlider#getMax() max}</span>
-<span class="source-line-no">1139</span><span id="line-1139">     *  or</span>
-<span class="source-line-no">1140</span><span id="line-1140">     *  {@link RangeSlider#getHighValue() highValue}</span>
-<span class="source-line-no">1141</span><span id="line-1141">     *  has changed, so that high thumb's</span>
-<span class="source-line-no">1142</span><span id="line-1142">     *  {@link ThumbPane#setLayoutX(double)}</span>
-<span class="source-line-no">1143</span><span id="line-1143">     *  and</span>
-<span class="source-line-no">1144</span><span id="line-1144">     *  {@link ThumbPane#setLayoutY(double)}</span>
-<span class="source-line-no">1145</span><span id="line-1145">     *  is recomputed.</span>
-<span class="source-line-no">1146</span><span id="line-1146">     */</span>
-<span class="source-line-no">1147</span><span id="line-1147">    private final void positionHighThumb()</span>
-<span class="source-line-no">1148</span><span id="line-1148">    {</span>
-<span class="source-line-no">1149</span><span id="line-1149">        final var rangeSlider = getSkinnable();</span>
-<span class="source-line-no">1150</span><span id="line-1150">        final var horizontal = getSkinnable().getOrientation() == HORIZONTAL;</span>
-<span class="source-line-no">1151</span><span id="line-1151"></span>
-<span class="source-line-no">1152</span><span id="line-1152">        final var thumbWidth = m_LowThumb.getWidth();</span>
-<span class="source-line-no">1153</span><span id="line-1153">        final var thumbHeight = m_LowThumb.getHeight();</span>
-<span class="source-line-no">1154</span><span id="line-1154">        m_HighThumb.resize( thumbWidth, thumbHeight );</span>
-<span class="source-line-no">1155</span><span id="line-1155"></span>
-<span class="source-line-no">1156</span><span id="line-1156">        final var pad = 0.0d;</span>
-<span class="source-line-no">1157</span><span id="line-1157">        var trackStart = horizontal ? m_Track.getLayoutX() : m_Track.getLayoutY();</span>
-<span class="source-line-no">1158</span><span id="line-1158">        trackStart += pad;</span>
-<span class="source-line-no">1159</span><span id="line-1159">        var trackLength = horizontal ? m_Track.getWidth() : m_Track.getHeight();</span>
-<span class="source-line-no">1160</span><span id="line-1160">        trackLength -= 2 * pad;</span>
-<span class="source-line-no">1161</span><span id="line-1161"></span>
-<span class="source-line-no">1162</span><span id="line-1162">        @SuppressWarnings( "OverlyComplexArithmeticExpression" )</span>
-<span class="source-line-no">1163</span><span id="line-1163">        final var lx = horizontal</span>
-<span class="source-line-no">1164</span><span id="line-1164">            ? trackStart + (trackLength * ((rangeSlider.getHighValue() - rangeSlider.getMin()) / (getMaxMinusMinNoZero())) - thumbWidth / 2.0 )</span>
-<span class="source-line-no">1165</span><span id="line-1165">            : m_LowThumb.getLayoutX();</span>
-<span class="source-line-no">1166</span><span id="line-1166">        final var ly = horizontal</span>
-<span class="source-line-no">1167</span><span id="line-1167">            ? m_LowThumb.getLayoutY()</span>
-<span class="source-line-no">1168</span><span id="line-1168">            : (getSkinnable().getInsets().getTop() + trackLength) - trackLength * ((rangeSlider.getHighValue() - rangeSlider.getMin()) / (getMaxMinusMinNoZero()));</span>
-<span class="source-line-no">1169</span><span id="line-1169">        m_HighThumb.setLayoutX( lx );</span>
-<span class="source-line-no">1170</span><span id="line-1170">        m_HighThumb.setLayoutY( ly );</span>
-<span class="source-line-no">1171</span><span id="line-1171">        if( horizontal )</span>
-<span class="source-line-no">1172</span><span id="line-1172">        {</span>
-<span class="source-line-no">1173</span><span id="line-1173">            m_RangeEnd = lx;</span>
-<span class="source-line-no">1174</span><span id="line-1174">        }</span>
-<span class="source-line-no">1175</span><span id="line-1175">        else</span>
-<span class="source-line-no">1176</span><span id="line-1176">        {</span>
-<span class="source-line-no">1177</span><span id="line-1177">            m_RangeStart = ly + thumbHeight;</span>
-<span class="source-line-no">1178</span><span id="line-1178">        }</span>
-<span class="source-line-no">1179</span><span id="line-1179">    }   //  positionHighThumb()</span>
-<span class="source-line-no">1180</span><span id="line-1180"></span>
-<span class="source-line-no">1181</span><span id="line-1181">    /**</span>
-<span class="source-line-no">1182</span><span id="line-1182">     *  Called whenever either</span>
-<span class="source-line-no">1183</span><span id="line-1183">     *  {@link RangeSlider#getMin() min},</span>
-<span class="source-line-no">1184</span><span id="line-1184">     *  {@link RangeSlider#getMax() max}</span>
-<span class="source-line-no">1185</span><span id="line-1185">     *  or</span>
-<span class="source-line-no">1186</span><span id="line-1186">     *  {@link RangeSlider#getLowValue() lowValue}</span>
-<span class="source-line-no">1187</span><span id="line-1187">     *  has changed, so that low thumb's</span>
-<span class="source-line-no">1188</span><span id="line-1188">     *  {@link ThumbPane#setLayoutX(double)}</span>
-<span class="source-line-no">1189</span><span id="line-1189">     *  and</span>
-<span class="source-line-no">1190</span><span id="line-1190">     *  {@link ThumbPane#setLayoutY(double)}</span>
-<span class="source-line-no">1191</span><span id="line-1191">     *  is recomputed.</span>
-<span class="source-line-no">1192</span><span id="line-1192">     */</span>
-<span class="source-line-no">1193</span><span id="line-1193">    private final void positionLowThumb()</span>
-<span class="source-line-no">1194</span><span id="line-1194">    {</span>
-<span class="source-line-no">1195</span><span id="line-1195">        final var rangeSlider = getSkinnable();</span>
-<span class="source-line-no">1196</span><span id="line-1196">        final var horizontal = isHorizontal();</span>
-<span class="source-line-no">1197</span><span id="line-1197">        @SuppressWarnings( "OverlyComplexArithmeticExpression" )</span>
-<span class="source-line-no">1198</span><span id="line-1198">        final var lx = horizontal</span>
-<span class="source-line-no">1199</span><span id="line-1199">            ? m_TrackStart + (((m_TrackLength * ((rangeSlider.getLowValue() - rangeSlider.getMin()) / (getMaxMinusMinNoZero()))) - m_ThumbWidth / 2.0))</span>
-<span class="source-line-no">1200</span><span id="line-1200">            : m_LowThumbPos;</span>
-<span class="source-line-no">1201</span><span id="line-1201">        final var ly = horizontal</span>
-<span class="source-line-no">1202</span><span id="line-1202">            ? m_LowThumbPos</span>
-<span class="source-line-no">1203</span><span id="line-1203">            : getSkinnable().getInsets().getTop() + m_TrackLength - (m_TrackLength * ((rangeSlider.getLowValue() - rangeSlider.getMin()) / getMaxMinusMinNoZero()));</span>
-<span class="source-line-no">1204</span><span id="line-1204">        m_LowThumb.setLayoutX( lx );</span>
-<span class="source-line-no">1205</span><span id="line-1205">        m_LowThumb.setLayoutY( ly );</span>
-<span class="source-line-no">1206</span><span id="line-1206">        if( horizontal )</span>
-<span class="source-line-no">1207</span><span id="line-1207">        {</span>
-<span class="source-line-no">1208</span><span id="line-1208">            m_RangeStart = lx + m_ThumbWidth;</span>
-<span class="source-line-no">1209</span><span id="line-1209">        }</span>
-<span class="source-line-no">1210</span><span id="line-1210">        else</span>
-<span class="source-line-no">1211</span><span id="line-1211">        {</span>
-<span class="source-line-no">1212</span><span id="line-1212">            m_RangeEnd = ly;</span>
-<span class="source-line-no">1213</span><span id="line-1213">        }</span>
-<span class="source-line-no">1214</span><span id="line-1214">    }   //  positionLowThumb()</span>
-<span class="source-line-no">1215</span><span id="line-1215"></span>
-<span class="source-line-no">1216</span><span id="line-1216">    /**</span>
-<span class="source-line-no">1217</span><span id="line-1217">     *  Implements the inverted orientation.</span>
-<span class="source-line-no">1218</span><span id="line-1218">     *</span>
-<span class="source-line-no">1219</span><span id="line-1219">     *  @param  node    A reference to the node.</span>
-<span class="source-line-no">1220</span><span id="line-1220">     *  @param  rtlMethod   The function that has to be used for an orientation</span>
-<span class="source-line-no">1221</span><span id="line-1221">     *      from right to left.</span>
-<span class="source-line-no">1222</span><span id="line-1222">     *  @param  nonRtlMethod    The function that has to be used for an</span>
-<span class="source-line-no">1223</span><span id="line-1223">     *      orientation from left to right.</span>
-<span class="source-line-no">1224</span><span id="line-1224">     */</span>
-<span class="source-line-no">1225</span><span id="line-1225">    private final void rtl( final RangeSlider node, final Runnable rtlMethod, final Runnable nonRtlMethod )</span>
-<span class="source-line-no">1226</span><span id="line-1226">    {</span>
-<span class="source-line-no">1227</span><span id="line-1227">        switch( requireNonNullArgument( node, "node" ).getEffectiveNodeOrientation() )</span>
-<span class="source-line-no">1228</span><span id="line-1228">        {</span>
-<span class="source-line-no">1229</span><span id="line-1229">            case null -&gt; throw new IllegalStateException( "Effective node orientation is null" );</span>
-<span class="source-line-no">1230</span><span id="line-1230">            case RIGHT_TO_LEFT -&gt; requireNonNullArgument( rtlMethod, "rtlMethod" ).run();</span>
-<span class="source-line-no">1231</span><span id="line-1231">            case LEFT_TO_RIGHT -&gt; requireNonNullArgument( nonRtlMethod, "nonRtlMethod" ).run();</span>
-<span class="source-line-no">1232</span><span id="line-1232">            default -&gt; throw new IllegalArgumentException( "Unexpected node orientation: %s".formatted( node.getEffectiveNodeOrientation().name() ) );</span>
-<span class="source-line-no">1233</span><span id="line-1233">        }</span>
-<span class="source-line-no">1234</span><span id="line-1234">    }   //  rtl()</span>
-<span class="source-line-no">1235</span><span id="line-1235"></span>
-<span class="source-line-no">1236</span><span id="line-1236">    /**</span>
-<span class="source-line-no">1237</span><span id="line-1237">     *  Set up a callback to indicate which thumb is currently selected</span>
-<span class="source-line-no">1238</span><span id="line-1238">     *  (via enum).</span>
-<span class="source-line-no">1239</span><span id="line-1239">     *</span>
-<span class="source-line-no">1240</span><span id="line-1240">     *  @param  callback    The callback.</span>
-<span class="source-line-no">1241</span><span id="line-1241">     */</span>
-<span class="source-line-no">1242</span><span id="line-1242">    private void setSelectedValue( final Callback&lt;Void,FocusedChild&gt; callback ) { m_SelectedValue = callback; }</span>
-<span class="source-line-no">1243</span><span id="line-1243"></span>
-<span class="source-line-no">1244</span><span id="line-1244">    /**</span>
-<span class="source-line-no">1245</span><span id="line-1245">     *  &lt;p&gt;{@summary Shows tick marks and their labels.}&lt;/p&gt;</span>
-<span class="source-line-no">1246</span><span id="line-1246">     *  &lt;p&gt;When ticks or labels change their visibility, we have to compute the</span>
-<span class="source-line-no">1247</span><span id="line-1247">     *  new visibility and to add the necessary objects. After this method</span>
-<span class="source-line-no">1248</span><span id="line-1248">     *  returns, we must be sure to add the high thumb and the range bar.&lt;/p&gt;</span>
-<span class="source-line-no">1249</span><span id="line-1249">     *</span>
-<span class="source-line-no">1250</span><span id="line-1250">     *  @param  ticksVisible    {@code true} if the tick marks are visible,</span>
-<span class="source-line-no">1251</span><span id="line-1251">     *      {@code false} if not.</span>
-<span class="source-line-no">1252</span><span id="line-1252">     *  @param  labelsVisible   {@code true} if the tick labels are visible,</span>
-<span class="source-line-no">1253</span><span id="line-1253">     *      {@code false} if not.</span>
-<span class="source-line-no">1254</span><span id="line-1254">     */</span>
-<span class="source-line-no">1255</span><span id="line-1255">    private void setShowTickMarks( final boolean ticksVisible, final boolean labelsVisible)</span>
-<span class="source-line-no">1256</span><span id="line-1256">    {</span>
-<span class="source-line-no">1257</span><span id="line-1257">        m_ShowTickMarks = (ticksVisible || labelsVisible);</span>
-<span class="source-line-no">1258</span><span id="line-1258">        final var rangeSlider = getSkinnable();</span>
-<span class="source-line-no">1259</span><span id="line-1259">        if( m_ShowTickMarks )</span>
-<span class="source-line-no">1260</span><span id="line-1260">        {</span>
-<span class="source-line-no">1261</span><span id="line-1261">            if( isNull( m_TickLine ) )</span>
-<span class="source-line-no">1262</span><span id="line-1262">            {</span>
-<span class="source-line-no">1263</span><span id="line-1263">                m_TickLine = new NumberAxis();</span>
-<span class="source-line-no">1264</span><span id="line-1264">                m_TickLine.setFocusTraversable( false );</span>
-<span class="source-line-no">1265</span><span id="line-1265">                m_TickLine.tickLabelFormatterProperty().bind( getSkinnable().labelFormatterProperty() );</span>
-<span class="source-line-no">1266</span><span id="line-1266">                m_TickLine.setAnimated( false );</span>
-<span class="source-line-no">1267</span><span id="line-1267">                m_TickLine.setAutoRanging( false );</span>
-<span class="source-line-no">1268</span><span id="line-1268">                m_TickLine.setSide( isHorizontal() ? Side.BOTTOM : Side.RIGHT );</span>
-<span class="source-line-no">1269</span><span id="line-1269">                m_TickLine.setUpperBound( rangeSlider.getMax() );</span>
-<span class="source-line-no">1270</span><span id="line-1270">                m_TickLine.setLowerBound( rangeSlider.getMin() );</span>
-<span class="source-line-no">1271</span><span id="line-1271">                m_TickLine.setTickUnit( rangeSlider.getMajorTickUnit() );</span>
-<span class="source-line-no">1272</span><span id="line-1272">                m_TickLine.setTickMarkVisible( ticksVisible );</span>
-<span class="source-line-no">1273</span><span id="line-1273">                m_TickLine.setTickLabelsVisible( labelsVisible );</span>
-<span class="source-line-no">1274</span><span id="line-1274">                m_TickLine.setMinorTickVisible( ticksVisible );</span>
-<span class="source-line-no">1275</span><span id="line-1275"></span>
-<span class="source-line-no">1276</span><span id="line-1276">                /*</span>
-<span class="source-line-no">1277</span><span id="line-1277">                 * We add 1 to the slider minor tick count since the axis draws</span>
-<span class="source-line-no">1278</span><span id="line-1278">                 * one less minor ticks than the number given.</span>
-<span class="source-line-no">1279</span><span id="line-1279">                 */</span>
-<span class="source-line-no">1280</span><span id="line-1280">                m_TickLine.setMinorTickCount( Integer.max( rangeSlider.getMinorTickCount(), 0 ) + 1) ;</span>
-<span class="source-line-no">1281</span><span id="line-1281">                getChildren().clear();</span>
-<span class="source-line-no">1282</span><span id="line-1282">                getChildren().addAll( m_TickLine, m_Track, m_LowThumb );</span>
-<span class="source-line-no">1283</span><span id="line-1283">            }</span>
-<span class="source-line-no">1284</span><span id="line-1284">            else</span>
-<span class="source-line-no">1285</span><span id="line-1285">            {</span>
-<span class="source-line-no">1286</span><span id="line-1286">                m_TickLine.setTickLabelsVisible( labelsVisible );</span>
-<span class="source-line-no">1287</span><span id="line-1287">                m_TickLine.setTickMarkVisible( ticksVisible );</span>
-<span class="source-line-no">1288</span><span id="line-1288">                m_TickLine.setMinorTickVisible( ticksVisible );</span>
-<span class="source-line-no">1289</span><span id="line-1289">            }</span>
-<span class="source-line-no">1290</span><span id="line-1290">        }</span>
-<span class="source-line-no">1291</span><span id="line-1291">        else</span>
-<span class="source-line-no">1292</span><span id="line-1292">        {</span>
-<span class="source-line-no">1293</span><span id="line-1293">            getChildren().clear();</span>
-<span class="source-line-no">1294</span><span id="line-1294">            getChildren().addAll( m_Track, m_LowThumb );</span>
-<span class="source-line-no">1295</span><span id="line-1295">            // m_TickLine = null;</span>
-<span class="source-line-no">1296</span><span id="line-1296">        }</span>
-<span class="source-line-no">1297</span><span id="line-1297"></span>
-<span class="source-line-no">1298</span><span id="line-1298">        getSkinnable().requestLayout();</span>
-<span class="source-line-no">1299</span><span id="line-1299">    }   //  setShowTickMarks()</span>
+<span class="source-line-no">1071</span><span id="line-1071">        rangeSlider.setLowValueChanging( true );</span>
+<span class="source-line-no">1072</span><span id="line-1072">    }   //  lowThumbPressed()</span>
+<span class="source-line-no">1073</span><span id="line-1073"></span>
+<span class="source-line-no">1074</span><span id="line-1074">    /**</span>
+<span class="source-line-no">1075</span><span id="line-1075">     *  Adjusts the</span>
+<span class="source-line-no">1076</span><span id="line-1076">     *  {@linkplain RangeSlider#lowValueProperty() low value}</span>
+<span class="source-line-no">1077</span><span id="line-1077">     *  when the low thumb is released.</span>
+<span class="source-line-no">1078</span><span id="line-1078">     *</span>
+<span class="source-line-no">1079</span><span id="line-1079">     *  @param  mouseEvent  The mouse event.</span>
+<span class="source-line-no">1080</span><span id="line-1080">     */</span>
+<span class="source-line-no">1081</span><span id="line-1081">    public final void lowThumbReleased( final MouseEvent mouseEvent )</span>
+<span class="source-line-no">1082</span><span id="line-1082">    {</span>
+<span class="source-line-no">1083</span><span id="line-1083">        final var rangeSlider = getSkinnable();</span>
+<span class="source-line-no">1084</span><span id="line-1084">        if( rangeSlider.isSnapToTicks() )</span>
+<span class="source-line-no">1085</span><span id="line-1085">        {</span>
+<span class="source-line-no">1086</span><span id="line-1086">            rangeSlider.setLowValue( snapValueToTicks( rangeSlider.getLowValue() ) );</span>
+<span class="source-line-no">1087</span><span id="line-1087">        }</span>
+<span class="source-line-no">1088</span><span id="line-1088">        rangeSlider.setLowValueChanging( false );</span>
+<span class="source-line-no">1089</span><span id="line-1089">    }   //  lowThumbReleased()</span>
+<span class="source-line-no">1090</span><span id="line-1090"></span>
+<span class="source-line-no">1091</span><span id="line-1091">    /**</span>
+<span class="source-line-no">1092</span><span id="line-1092">     *  Calculates the minimum length for the track.</span>
+<span class="source-line-no">1093</span><span id="line-1093">     *</span>
+<span class="source-line-no">1094</span><span id="line-1094">     *  @return The minimum track length.</span>
+<span class="source-line-no">1095</span><span id="line-1095">     */</span>
+<span class="source-line-no">1096</span><span id="line-1096">    private final double minTrackLength()</span>
+<span class="source-line-no">1097</span><span id="line-1097">    {</span>
+<span class="source-line-no">1098</span><span id="line-1098">        final var retValue = 2.0 * m_LowThumb.prefWidth( USE_COMPUTED_SIZE );</span>
+<span class="source-line-no">1099</span><span id="line-1099"></span>
+<span class="source-line-no">1100</span><span id="line-1100">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">1101</span><span id="line-1101">        return retValue;</span>
+<span class="source-line-no">1102</span><span id="line-1102">    }   //  minTrackLength()</span>
+<span class="source-line-no">1103</span><span id="line-1103"></span>
+<span class="source-line-no">1104</span><span id="line-1104">    /**</span>
+<span class="source-line-no">1105</span><span id="line-1105">     *  Sets the new positions after a move of the range bar.</span>
+<span class="source-line-no">1106</span><span id="line-1106">     *</span>
+<span class="source-line-no">1107</span><span id="line-1107">     *  @param  position    The new position.</span>
+<span class="source-line-no">1108</span><span id="line-1108">     */</span>
+<span class="source-line-no">1109</span><span id="line-1109">    private final void moveRange( final double position )</span>
+<span class="source-line-no">1110</span><span id="line-1110">    {</span>
+<span class="source-line-no">1111</span><span id="line-1111">        final var rangeSlider = getSkinnable();</span>
+<span class="source-line-no">1112</span><span id="line-1112">        final var min = rangeSlider.getMin();</span>
+<span class="source-line-no">1113</span><span id="line-1113">        final var max = rangeSlider.getMax();</span>
+<span class="source-line-no">1114</span><span id="line-1114">        final var lowValue = rangeSlider.getLowValue();</span>
+<span class="source-line-no">1115</span><span id="line-1115">        final var newLowValue = clamp</span>
+<span class="source-line-no">1116</span><span id="line-1116">            (</span>
+<span class="source-line-no">1117</span><span id="line-1117">                min,</span>
+<span class="source-line-no">1118</span><span id="line-1118">                lowValue + position * (max-min) / (isHorizontal() ? rangeSlider.getWidth(): rangeSlider.getHeight()),</span>
+<span class="source-line-no">1119</span><span id="line-1119">                max</span>
+<span class="source-line-no">1120</span><span id="line-1120">            );</span>
+<span class="source-line-no">1121</span><span id="line-1121">        final var highValue = rangeSlider.getHighValue();</span>
+<span class="source-line-no">1122</span><span id="line-1122">        final var newHighValue = clamp</span>
+<span class="source-line-no">1123</span><span id="line-1123">            (</span>
+<span class="source-line-no">1124</span><span id="line-1124">                min,</span>
+<span class="source-line-no">1125</span><span id="line-1125">                highValue + position * (max-min) / (isHorizontal() ? rangeSlider.getWidth(): rangeSlider.getHeight() ),</span>
+<span class="source-line-no">1126</span><span id="line-1126">                max</span>
+<span class="source-line-no">1127</span><span id="line-1127">            );</span>
+<span class="source-line-no">1128</span><span id="line-1128"></span>
+<span class="source-line-no">1129</span><span id="line-1129">        if( (newLowValue &gt; min) &amp;&amp; (newHighValue &lt; max) )</span>
+<span class="source-line-no">1130</span><span id="line-1130">        {</span>
+<span class="source-line-no">1131</span><span id="line-1131">            rangeSlider.setLowValueChanging( true );</span>
+<span class="source-line-no">1132</span><span id="line-1132">            rangeSlider.setHighValueChanging( true );</span>
+<span class="source-line-no">1133</span><span id="line-1133">            rangeSlider.setLowValue( newLowValue);</span>
+<span class="source-line-no">1134</span><span id="line-1134">            rangeSlider.setHighValue( newHighValue);</span>
+<span class="source-line-no">1135</span><span id="line-1135">        }</span>
+<span class="source-line-no">1136</span><span id="line-1136">    }   //  moveRange()</span>
+<span class="source-line-no">1137</span><span id="line-1137"></span>
+<span class="source-line-no">1138</span><span id="line-1138">    /**</span>
+<span class="source-line-no">1139</span><span id="line-1139">     *  Called whenever either</span>
+<span class="source-line-no">1140</span><span id="line-1140">     *  {@link RangeSlider#getMin() min},</span>
+<span class="source-line-no">1141</span><span id="line-1141">     *  {@link RangeSlider#getMax() max}</span>
+<span class="source-line-no">1142</span><span id="line-1142">     *  or</span>
+<span class="source-line-no">1143</span><span id="line-1143">     *  {@link RangeSlider#getHighValue() highValue}</span>
+<span class="source-line-no">1144</span><span id="line-1144">     *  has changed, so that high thumb's</span>
+<span class="source-line-no">1145</span><span id="line-1145">     *  {@link ThumbPane#setLayoutX(double)}</span>
+<span class="source-line-no">1146</span><span id="line-1146">     *  and</span>
+<span class="source-line-no">1147</span><span id="line-1147">     *  {@link ThumbPane#setLayoutY(double)}</span>
+<span class="source-line-no">1148</span><span id="line-1148">     *  is recomputed.</span>
+<span class="source-line-no">1149</span><span id="line-1149">     */</span>
+<span class="source-line-no">1150</span><span id="line-1150">    private final void positionHighThumb()</span>
+<span class="source-line-no">1151</span><span id="line-1151">    {</span>
+<span class="source-line-no">1152</span><span id="line-1152">        final var rangeSlider = getSkinnable();</span>
+<span class="source-line-no">1153</span><span id="line-1153">        final var horizontal = getSkinnable().getOrientation() == HORIZONTAL;</span>
+<span class="source-line-no">1154</span><span id="line-1154"></span>
+<span class="source-line-no">1155</span><span id="line-1155">        final var thumbWidth = m_LowThumb.getWidth();</span>
+<span class="source-line-no">1156</span><span id="line-1156">        final var thumbHeight = m_LowThumb.getHeight();</span>
+<span class="source-line-no">1157</span><span id="line-1157">        m_HighThumb.resize( thumbWidth, thumbHeight );</span>
+<span class="source-line-no">1158</span><span id="line-1158"></span>
+<span class="source-line-no">1159</span><span id="line-1159">        final var pad = 0.0d;</span>
+<span class="source-line-no">1160</span><span id="line-1160">        var trackStart = horizontal ? m_Track.getLayoutX() : m_Track.getLayoutY();</span>
+<span class="source-line-no">1161</span><span id="line-1161">        trackStart += pad;</span>
+<span class="source-line-no">1162</span><span id="line-1162">        var trackLength = horizontal ? m_Track.getWidth() : m_Track.getHeight();</span>
+<span class="source-line-no">1163</span><span id="line-1163">        trackLength -= 2 * pad;</span>
+<span class="source-line-no">1164</span><span id="line-1164"></span>
+<span class="source-line-no">1165</span><span id="line-1165">        @SuppressWarnings( "OverlyComplexArithmeticExpression" )</span>
+<span class="source-line-no">1166</span><span id="line-1166">        final var lx = horizontal</span>
+<span class="source-line-no">1167</span><span id="line-1167">            ? trackStart + (trackLength * ((rangeSlider.getHighValue() - rangeSlider.getMin()) / (getMaxMinusMinNoZero())) - thumbWidth / 2.0 )</span>
+<span class="source-line-no">1168</span><span id="line-1168">            : m_LowThumb.getLayoutX();</span>
+<span class="source-line-no">1169</span><span id="line-1169">        final var ly = horizontal</span>
+<span class="source-line-no">1170</span><span id="line-1170">            ? m_LowThumb.getLayoutY()</span>
+<span class="source-line-no">1171</span><span id="line-1171">            : (getSkinnable().getInsets().getTop() + trackLength) - trackLength * ((rangeSlider.getHighValue() - rangeSlider.getMin()) / (getMaxMinusMinNoZero()));</span>
+<span class="source-line-no">1172</span><span id="line-1172">        m_HighThumb.setLayoutX( lx );</span>
+<span class="source-line-no">1173</span><span id="line-1173">        m_HighThumb.setLayoutY( ly );</span>
+<span class="source-line-no">1174</span><span id="line-1174">        if( horizontal )</span>
+<span class="source-line-no">1175</span><span id="line-1175">        {</span>
+<span class="source-line-no">1176</span><span id="line-1176">            m_RangeEnd = lx;</span>
+<span class="source-line-no">1177</span><span id="line-1177">        }</span>
+<span class="source-line-no">1178</span><span id="line-1178">        else</span>
+<span class="source-line-no">1179</span><span id="line-1179">        {</span>
+<span class="source-line-no">1180</span><span id="line-1180">            m_RangeStart = ly + thumbHeight;</span>
+<span class="source-line-no">1181</span><span id="line-1181">        }</span>
+<span class="source-line-no">1182</span><span id="line-1182">    }   //  positionHighThumb()</span>
+<span class="source-line-no">1183</span><span id="line-1183"></span>
+<span class="source-line-no">1184</span><span id="line-1184">    /**</span>
+<span class="source-line-no">1185</span><span id="line-1185">     *  Called whenever either</span>
+<span class="source-line-no">1186</span><span id="line-1186">     *  {@link RangeSlider#getMin() min},</span>
+<span class="source-line-no">1187</span><span id="line-1187">     *  {@link RangeSlider#getMax() max}</span>
+<span class="source-line-no">1188</span><span id="line-1188">     *  or</span>
+<span class="source-line-no">1189</span><span id="line-1189">     *  {@link RangeSlider#getLowValue() lowValue}</span>
+<span class="source-line-no">1190</span><span id="line-1190">     *  has changed, so that low thumb's</span>
+<span class="source-line-no">1191</span><span id="line-1191">     *  {@link ThumbPane#setLayoutX(double)}</span>
+<span class="source-line-no">1192</span><span id="line-1192">     *  and</span>
+<span class="source-line-no">1193</span><span id="line-1193">     *  {@link ThumbPane#setLayoutY(double)}</span>
+<span class="source-line-no">1194</span><span id="line-1194">     *  is recomputed.</span>
+<span class="source-line-no">1195</span><span id="line-1195">     */</span>
+<span class="source-line-no">1196</span><span id="line-1196">    private final void positionLowThumb()</span>
+<span class="source-line-no">1197</span><span id="line-1197">    {</span>
+<span class="source-line-no">1198</span><span id="line-1198">        final var rangeSlider = getSkinnable();</span>
+<span class="source-line-no">1199</span><span id="line-1199">        final var horizontal = isHorizontal();</span>
+<span class="source-line-no">1200</span><span id="line-1200">        @SuppressWarnings( "OverlyComplexArithmeticExpression" )</span>
+<span class="source-line-no">1201</span><span id="line-1201">        final var lx = horizontal</span>
+<span class="source-line-no">1202</span><span id="line-1202">            ? m_TrackStart + (((m_TrackLength * ((rangeSlider.getLowValue() - rangeSlider.getMin()) / (getMaxMinusMinNoZero()))) - m_ThumbWidth / 2.0))</span>
+<span class="source-line-no">1203</span><span id="line-1203">            : m_LowThumbPos;</span>
+<span class="source-line-no">1204</span><span id="line-1204">        final var ly = horizontal</span>
+<span class="source-line-no">1205</span><span id="line-1205">            ? m_LowThumbPos</span>
+<span class="source-line-no">1206</span><span id="line-1206">            : getSkinnable().getInsets().getTop() + m_TrackLength - (m_TrackLength * ((rangeSlider.getLowValue() - rangeSlider.getMin()) / getMaxMinusMinNoZero()));</span>
+<span class="source-line-no">1207</span><span id="line-1207">        m_LowThumb.setLayoutX( lx );</span>
+<span class="source-line-no">1208</span><span id="line-1208">        m_LowThumb.setLayoutY( ly );</span>
+<span class="source-line-no">1209</span><span id="line-1209">        if( horizontal )</span>
+<span class="source-line-no">1210</span><span id="line-1210">        {</span>
+<span class="source-line-no">1211</span><span id="line-1211">            m_RangeStart = lx + m_ThumbWidth;</span>
+<span class="source-line-no">1212</span><span id="line-1212">        }</span>
+<span class="source-line-no">1213</span><span id="line-1213">        else</span>
+<span class="source-line-no">1214</span><span id="line-1214">        {</span>
+<span class="source-line-no">1215</span><span id="line-1215">            m_RangeEnd = ly;</span>
+<span class="source-line-no">1216</span><span id="line-1216">        }</span>
+<span class="source-line-no">1217</span><span id="line-1217">    }   //  positionLowThumb()</span>
+<span class="source-line-no">1218</span><span id="line-1218"></span>
+<span class="source-line-no">1219</span><span id="line-1219">    /**</span>
+<span class="source-line-no">1220</span><span id="line-1220">     *  Implements the inverted orientation.</span>
+<span class="source-line-no">1221</span><span id="line-1221">     *</span>
+<span class="source-line-no">1222</span><span id="line-1222">     *  @param  node    A reference to the node.</span>
+<span class="source-line-no">1223</span><span id="line-1223">     *  @param  rtlMethod   The function that has to be used for an orientation</span>
+<span class="source-line-no">1224</span><span id="line-1224">     *      from right to left.</span>
+<span class="source-line-no">1225</span><span id="line-1225">     *  @param  nonRtlMethod    The function that has to be used for an</span>
+<span class="source-line-no">1226</span><span id="line-1226">     *      orientation from left to right.</span>
+<span class="source-line-no">1227</span><span id="line-1227">     */</span>
+<span class="source-line-no">1228</span><span id="line-1228">    private final void rtl( final RangeSlider node, final Runnable rtlMethod, final Runnable nonRtlMethod )</span>
+<span class="source-line-no">1229</span><span id="line-1229">    {</span>
+<span class="source-line-no">1230</span><span id="line-1230">        switch( requireNonNullArgument( node, "node" ).getEffectiveNodeOrientation() )</span>
+<span class="source-line-no">1231</span><span id="line-1231">        {</span>
+<span class="source-line-no">1232</span><span id="line-1232">            case null -&gt; throw new IllegalStateException( "Effective node orientation is null" );</span>
+<span class="source-line-no">1233</span><span id="line-1233">            case RIGHT_TO_LEFT -&gt; requireNonNullArgument( rtlMethod, "rtlMethod" ).run();</span>
+<span class="source-line-no">1234</span><span id="line-1234">            case LEFT_TO_RIGHT -&gt; requireNonNullArgument( nonRtlMethod, "nonRtlMethod" ).run();</span>
+<span class="source-line-no">1235</span><span id="line-1235">            default -&gt; throw new IllegalArgumentException( "Unexpected node orientation: %s".formatted( node.getEffectiveNodeOrientation().name() ) );</span>
+<span class="source-line-no">1236</span><span id="line-1236">        }</span>
+<span class="source-line-no">1237</span><span id="line-1237">    }   //  rtl()</span>
+<span class="source-line-no">1238</span><span id="line-1238"></span>
+<span class="source-line-no">1239</span><span id="line-1239">    /**</span>
+<span class="source-line-no">1240</span><span id="line-1240">     *  Set up a callback to indicate which thumb is currently selected</span>
+<span class="source-line-no">1241</span><span id="line-1241">     *  (via enum).</span>
+<span class="source-line-no">1242</span><span id="line-1242">     *</span>
+<span class="source-line-no">1243</span><span id="line-1243">     *  @param  callback    The callback.</span>
+<span class="source-line-no">1244</span><span id="line-1244">     */</span>
+<span class="source-line-no">1245</span><span id="line-1245">    private void setSelectedValue( final Callback&lt;Void,FocusedChild&gt; callback ) { m_SelectedValue = callback; }</span>
+<span class="source-line-no">1246</span><span id="line-1246"></span>
+<span class="source-line-no">1247</span><span id="line-1247">    /**</span>
+<span class="source-line-no">1248</span><span id="line-1248">     *  &lt;p&gt;{@summary Shows tick marks and their labels.}&lt;/p&gt;</span>
+<span class="source-line-no">1249</span><span id="line-1249">     *  &lt;p&gt;When ticks or labels change their visibility, we have to compute the</span>
+<span class="source-line-no">1250</span><span id="line-1250">     *  new visibility and to add the necessary objects. After this method</span>
+<span class="source-line-no">1251</span><span id="line-1251">     *  returns, we must be sure to add the high thumb and the range bar.&lt;/p&gt;</span>
+<span class="source-line-no">1252</span><span id="line-1252">     *</span>
+<span class="source-line-no">1253</span><span id="line-1253">     *  @param  ticksVisible    {@code true} if the tick marks are visible,</span>
+<span class="source-line-no">1254</span><span id="line-1254">     *      {@code false} if not.</span>
+<span class="source-line-no">1255</span><span id="line-1255">     *  @param  labelsVisible   {@code true} if the tick labels are visible,</span>
+<span class="source-line-no">1256</span><span id="line-1256">     *      {@code false} if not.</span>
+<span class="source-line-no">1257</span><span id="line-1257">     */</span>
+<span class="source-line-no">1258</span><span id="line-1258">    private void setShowTickMarks( final boolean ticksVisible, final boolean labelsVisible)</span>
+<span class="source-line-no">1259</span><span id="line-1259">    {</span>
+<span class="source-line-no">1260</span><span id="line-1260">        m_ShowTickMarks = (ticksVisible || labelsVisible);</span>
+<span class="source-line-no">1261</span><span id="line-1261">        final var rangeSlider = getSkinnable();</span>
+<span class="source-line-no">1262</span><span id="line-1262">        if( m_ShowTickMarks )</span>
+<span class="source-line-no">1263</span><span id="line-1263">        {</span>
+<span class="source-line-no">1264</span><span id="line-1264">            if( isNull( m_TickLine ) )</span>
+<span class="source-line-no">1265</span><span id="line-1265">            {</span>
+<span class="source-line-no">1266</span><span id="line-1266">                m_TickLine = new NumberAxis();</span>
+<span class="source-line-no">1267</span><span id="line-1267">                m_TickLine.setFocusTraversable( false );</span>
+<span class="source-line-no">1268</span><span id="line-1268">                m_TickLine.tickLabelFormatterProperty().bind( getSkinnable().labelFormatterProperty() );</span>
+<span class="source-line-no">1269</span><span id="line-1269">                m_TickLine.setAnimated( false );</span>
+<span class="source-line-no">1270</span><span id="line-1270">                m_TickLine.setAutoRanging( false );</span>
+<span class="source-line-no">1271</span><span id="line-1271">                m_TickLine.setSide( isHorizontal() ? Side.BOTTOM : Side.RIGHT );</span>
+<span class="source-line-no">1272</span><span id="line-1272">                m_TickLine.setUpperBound( rangeSlider.getMax() );</span>
+<span class="source-line-no">1273</span><span id="line-1273">                m_TickLine.setLowerBound( rangeSlider.getMin() );</span>
+<span class="source-line-no">1274</span><span id="line-1274">                m_TickLine.setTickUnit( rangeSlider.getMajorTickUnit() );</span>
+<span class="source-line-no">1275</span><span id="line-1275">                m_TickLine.setTickMarkVisible( ticksVisible );</span>
+<span class="source-line-no">1276</span><span id="line-1276">                m_TickLine.setTickLabelsVisible( labelsVisible );</span>
+<span class="source-line-no">1277</span><span id="line-1277">                m_TickLine.setMinorTickVisible( ticksVisible );</span>
+<span class="source-line-no">1278</span><span id="line-1278"></span>
+<span class="source-line-no">1279</span><span id="line-1279">                /*</span>
+<span class="source-line-no">1280</span><span id="line-1280">                 * We add 1 to the slider minor tick count since the axis draws</span>
+<span class="source-line-no">1281</span><span id="line-1281">                 * one less minor ticks than the number given.</span>
+<span class="source-line-no">1282</span><span id="line-1282">                 */</span>
+<span class="source-line-no">1283</span><span id="line-1283">                m_TickLine.setMinorTickCount( Integer.max( rangeSlider.getMinorTickCount(), 0 ) + 1) ;</span>
+<span class="source-line-no">1284</span><span id="line-1284">                getChildren().clear();</span>
+<span class="source-line-no">1285</span><span id="line-1285">                getChildren().addAll( m_TickLine, m_Track, m_LowThumb );</span>
+<span class="source-line-no">1286</span><span id="line-1286">            }</span>
+<span class="source-line-no">1287</span><span id="line-1287">            else</span>
+<span class="source-line-no">1288</span><span id="line-1288">            {</span>
+<span class="source-line-no">1289</span><span id="line-1289">                m_TickLine.setTickLabelsVisible( labelsVisible );</span>
+<span class="source-line-no">1290</span><span id="line-1290">                m_TickLine.setTickMarkVisible( ticksVisible );</span>
+<span class="source-line-no">1291</span><span id="line-1291">                m_TickLine.setMinorTickVisible( ticksVisible );</span>
+<span class="source-line-no">1292</span><span id="line-1292">            }</span>
+<span class="source-line-no">1293</span><span id="line-1293">        }</span>
+<span class="source-line-no">1294</span><span id="line-1294">        else</span>
+<span class="source-line-no">1295</span><span id="line-1295">        {</span>
+<span class="source-line-no">1296</span><span id="line-1296">            getChildren().clear();</span>
+<span class="source-line-no">1297</span><span id="line-1297">            getChildren().addAll( m_Track, m_LowThumb );</span>
+<span class="source-line-no">1298</span><span id="line-1298">            // m_TickLine = null;</span>
+<span class="source-line-no">1299</span><span id="line-1299">        }</span>
 <span class="source-line-no">1300</span><span id="line-1300"></span>
-<span class="source-line-no">1301</span><span id="line-1301">    /**</span>
-<span class="source-line-no">1302</span><span id="line-1302">     *  Adjusts the position of a thumb to the nearest tick mark.</span>
-<span class="source-line-no">1303</span><span id="line-1303">     *</span>
-<span class="source-line-no">1304</span><span id="line-1304">     *  @param  calculatedPosition  The calculated raw position.</span>
-<span class="source-line-no">1305</span><span id="line-1305">     *  @return The adjusted position.</span>
-<span class="source-line-no">1306</span><span id="line-1306">     */</span>
-<span class="source-line-no">1307</span><span id="line-1307">    private final double snapValueToTicks( final double calculatedPosition )</span>
-<span class="source-line-no">1308</span><span id="line-1308">    {</span>
-<span class="source-line-no">1309</span><span id="line-1309">        final var rangeSlider = getSkinnable();</span>
-<span class="source-line-no">1310</span><span id="line-1310">        var input = calculatedPosition;</span>
-<span class="source-line-no">1311</span><span id="line-1311">        final var d2 = (rangeSlider.getMinorTickCount() != 0)</span>
-<span class="source-line-no">1312</span><span id="line-1312">            ? rangeSlider.getMajorTickUnit() / (max( (double) rangeSlider.getMinorTickCount(), 0.0 ) + 1)</span>
-<span class="source-line-no">1313</span><span id="line-1313">            : rangeSlider.getMajorTickUnit();</span>
-<span class="source-line-no">1314</span><span id="line-1314">        @SuppressWarnings( "NumericCastThatLosesPrecision" )</span>
-<span class="source-line-no">1315</span><span id="line-1315">        final var leftTicks = (int) ((input - rangeSlider.getMin()) / d2);</span>
-<span class="source-line-no">1316</span><span id="line-1316">        final var d3 = (double) leftTicks * d2 + rangeSlider.getMin();</span>
-<span class="source-line-no">1317</span><span id="line-1317">        final var d4 = (double) (leftTicks + 1) * d2 + rangeSlider.getMin();</span>
-<span class="source-line-no">1318</span><span id="line-1318">        input = nearest( d3, input, d4) ;</span>
-<span class="source-line-no">1319</span><span id="line-1319">        final var retValue = clamp( rangeSlider.getMin(), input, rangeSlider.getMax() );</span>
-<span class="source-line-no">1320</span><span id="line-1320"></span>
-<span class="source-line-no">1321</span><span id="line-1321">        //---* Done *----------------------------------------------------------</span>
-<span class="source-line-no">1322</span><span id="line-1322">        return retValue;</span>
-<span class="source-line-no">1323</span><span id="line-1323">    }   //  snapValueToTicks(</span>
-<span class="source-line-no">1324</span><span id="line-1324"></span>
-<span class="source-line-no">1325</span><span id="line-1325">    /**</span>
-<span class="source-line-no">1326</span><span id="line-1326">     *  Invoked by the</span>
-<span class="source-line-no">1327</span><span id="line-1327">     *  {@link RangeSlider}'s</span>
-<span class="source-line-no">1328</span><span id="line-1328">     *  {@link Skin}</span>
-<span class="source-line-no">1329</span><span id="line-1329">     *  implementation whenever a mouse press occurs on the &amp;quot;track&amp;quot;</span>
-<span class="source-line-no">1330</span><span id="line-1330">     *  of the slider. This will cause the thumb to be moved by some amount.</span>
-<span class="source-line-no">1331</span><span id="line-1331">     *</span>
-<span class="source-line-no">1332</span><span id="line-1332">     *  @param  ignoredMouseEvent   The mouse event.</span>
-<span class="source-line-no">1333</span><span id="line-1333">     *  @param  position    The relative mouse position on the track, with 0.0</span>
-<span class="source-line-no">1334</span><span id="line-1334">     *      being the start of the track and 1.0 being the end.</span>
-<span class="source-line-no">1335</span><span id="line-1335">     */</span>
-<span class="source-line-no">1336</span><span id="line-1336">    private final void trackPress( final MouseEvent ignoredMouseEvent, final double position )</span>
-<span class="source-line-no">1337</span><span id="line-1337">    {</span>
-<span class="source-line-no">1338</span><span id="line-1338"></span>
-<span class="source-line-no">1339</span><span id="line-1339">        final var rangeSlider = getSkinnable();</span>
-<span class="source-line-no">1340</span><span id="line-1340">        //---* If not already focused, request focus *-------------------------</span>
-<span class="source-line-no">1341</span><span id="line-1341">        if( !rangeSlider.isFocused() )  rangeSlider.requestFocus();</span>
-<span class="source-line-no">1342</span><span id="line-1342"></span>
-<span class="source-line-no">1343</span><span id="line-1343">        if( nonNull( m_SelectedValue ) )</span>
-<span class="source-line-no">1344</span><span id="line-1344">        {</span>
-<span class="source-line-no">1345</span><span id="line-1345">            /*</span>
-<span class="source-line-no">1346</span><span id="line-1346">             * Determine the percentage of the way between min and max</span>
-<span class="source-line-no">1347</span><span id="line-1347">             * represented by this mouse event.</span>
-<span class="source-line-no">1348</span><span id="line-1348">             */</span>
-<span class="source-line-no">1349</span><span id="line-1349">            final double newPosition;</span>
-<span class="source-line-no">1350</span><span id="line-1350">            if( isHorizontal() )</span>
-<span class="source-line-no">1351</span><span id="line-1351">            {</span>
-<span class="source-line-no">1352</span><span id="line-1352">                newPosition = position * (rangeSlider.getMax() - rangeSlider.getMin()) + rangeSlider.getMin();</span>
-<span class="source-line-no">1353</span><span id="line-1353">            }</span>
-<span class="source-line-no">1354</span><span id="line-1354">            else</span>
-<span class="source-line-no">1355</span><span id="line-1355">            {</span>
-<span class="source-line-no">1356</span><span id="line-1356">                newPosition = (1 - position) * (rangeSlider.getMax() - rangeSlider.getMin()) + rangeSlider.getMin();</span>
-<span class="source-line-no">1357</span><span id="line-1357">            }</span>
-<span class="source-line-no">1358</span><span id="line-1358"></span>
-<span class="source-line-no">1359</span><span id="line-1359">            /*</span>
-<span class="source-line-no">1360</span><span id="line-1360">             * If the position is inferior to the current LowValue, this means</span>
-<span class="source-line-no">1361</span><span id="line-1361">             * the user clicked on the track to move the low thumb. If not,</span>
-<span class="source-line-no">1362</span><span id="line-1362">             * then it means the user wanted to move the high thumb.</span>
-<span class="source-line-no">1363</span><span id="line-1363">             */</span>
-<span class="source-line-no">1364</span><span id="line-1364">            if( newPosition &lt; rangeSlider.getLowValue() )</span>
-<span class="source-line-no">1365</span><span id="line-1365">            {</span>
-<span class="source-line-no">1366</span><span id="line-1366">                rangeSlider.adjustLowValue( newPosition );</span>
-<span class="source-line-no">1367</span><span id="line-1367">            }</span>
-<span class="source-line-no">1368</span><span id="line-1368">            else</span>
-<span class="source-line-no">1369</span><span id="line-1369">            {</span>
-<span class="source-line-no">1370</span><span id="line-1370">                rangeSlider.adjustHighValue(newPosition);</span>
-<span class="source-line-no">1371</span><span id="line-1371">            }</span>
-<span class="source-line-no">1372</span><span id="line-1372">        }</span>
-<span class="source-line-no">1373</span><span id="line-1373">    }   //  trackPress()</span>
-<span class="source-line-no">1374</span><span id="line-1374">}</span>
-<span class="source-line-no">1375</span><span id="line-1375">//  class RangeSliderSkin</span>
-<span class="source-line-no">1376</span><span id="line-1376"></span>
-<span class="source-line-no">1377</span><span id="line-1377">/*</span>
-<span class="source-line-no">1378</span><span id="line-1378"> *  End of File</span>
-<span class="source-line-no">1379</span><span id="line-1379"> */</span>
+<span class="source-line-no">1301</span><span id="line-1301">        getSkinnable().requestLayout();</span>
+<span class="source-line-no">1302</span><span id="line-1302">    }   //  setShowTickMarks()</span>
+<span class="source-line-no">1303</span><span id="line-1303"></span>
+<span class="source-line-no">1304</span><span id="line-1304">    /**</span>
+<span class="source-line-no">1305</span><span id="line-1305">     *  Adjusts the position of a thumb to the nearest tick mark.</span>
+<span class="source-line-no">1306</span><span id="line-1306">     *</span>
+<span class="source-line-no">1307</span><span id="line-1307">     *  @param  calculatedPosition  The calculated raw position.</span>
+<span class="source-line-no">1308</span><span id="line-1308">     *  @return The adjusted position.</span>
+<span class="source-line-no">1309</span><span id="line-1309">     */</span>
+<span class="source-line-no">1310</span><span id="line-1310">    private final double snapValueToTicks( final double calculatedPosition )</span>
+<span class="source-line-no">1311</span><span id="line-1311">    {</span>
+<span class="source-line-no">1312</span><span id="line-1312">        final var rangeSlider = getSkinnable();</span>
+<span class="source-line-no">1313</span><span id="line-1313">        var input = calculatedPosition;</span>
+<span class="source-line-no">1314</span><span id="line-1314">        final var d2 = (rangeSlider.getMinorTickCount() != 0)</span>
+<span class="source-line-no">1315</span><span id="line-1315">            ? rangeSlider.getMajorTickUnit() / (max( (double) rangeSlider.getMinorTickCount(), 0.0 ) + 1)</span>
+<span class="source-line-no">1316</span><span id="line-1316">            : rangeSlider.getMajorTickUnit();</span>
+<span class="source-line-no">1317</span><span id="line-1317">        @SuppressWarnings( "NumericCastThatLosesPrecision" )</span>
+<span class="source-line-no">1318</span><span id="line-1318">        final var leftTicks = (int) ((input - rangeSlider.getMin()) / d2);</span>
+<span class="source-line-no">1319</span><span id="line-1319">        final var d3 = (double) leftTicks * d2 + rangeSlider.getMin();</span>
+<span class="source-line-no">1320</span><span id="line-1320">        final var d4 = (double) (leftTicks + 1) * d2 + rangeSlider.getMin();</span>
+<span class="source-line-no">1321</span><span id="line-1321">        input = nearest( d3, input, d4) ;</span>
+<span class="source-line-no">1322</span><span id="line-1322">        final var retValue = clamp( rangeSlider.getMin(), input, rangeSlider.getMax() );</span>
+<span class="source-line-no">1323</span><span id="line-1323"></span>
+<span class="source-line-no">1324</span><span id="line-1324">        //---* Done *----------------------------------------------------------</span>
+<span class="source-line-no">1325</span><span id="line-1325">        return retValue;</span>
+<span class="source-line-no">1326</span><span id="line-1326">    }   //  snapValueToTicks(</span>
+<span class="source-line-no">1327</span><span id="line-1327"></span>
+<span class="source-line-no">1328</span><span id="line-1328">    /**</span>
+<span class="source-line-no">1329</span><span id="line-1329">     *  Invoked by the</span>
+<span class="source-line-no">1330</span><span id="line-1330">     *  {@link RangeSlider}'s</span>
+<span class="source-line-no">1331</span><span id="line-1331">     *  {@link Skin}</span>
+<span class="source-line-no">1332</span><span id="line-1332">     *  implementation whenever a mouse press occurs on the &amp;quot;track&amp;quot;</span>
+<span class="source-line-no">1333</span><span id="line-1333">     *  of the slider. This will cause the thumb to be moved by some amount.</span>
+<span class="source-line-no">1334</span><span id="line-1334">     *</span>
+<span class="source-line-no">1335</span><span id="line-1335">     *  @param  ignoredMouseEvent   The mouse event.</span>
+<span class="source-line-no">1336</span><span id="line-1336">     *  @param  position    The relative mouse position on the track, with 0.0</span>
+<span class="source-line-no">1337</span><span id="line-1337">     *      being the start of the track and 1.0 being the end.</span>
+<span class="source-line-no">1338</span><span id="line-1338">     */</span>
+<span class="source-line-no">1339</span><span id="line-1339">    private final void trackPress( final MouseEvent ignoredMouseEvent, final double position )</span>
+<span class="source-line-no">1340</span><span id="line-1340">    {</span>
+<span class="source-line-no">1341</span><span id="line-1341"></span>
+<span class="source-line-no">1342</span><span id="line-1342">        final var rangeSlider = getSkinnable();</span>
+<span class="source-line-no">1343</span><span id="line-1343">        //---* If not already focused, request focus *-------------------------</span>
+<span class="source-line-no">1344</span><span id="line-1344">        if( !rangeSlider.isFocused() )  rangeSlider.requestFocus();</span>
+<span class="source-line-no">1345</span><span id="line-1345"></span>
+<span class="source-line-no">1346</span><span id="line-1346">        if( nonNull( m_SelectedValue ) )</span>
+<span class="source-line-no">1347</span><span id="line-1347">        {</span>
+<span class="source-line-no">1348</span><span id="line-1348">            /*</span>
+<span class="source-line-no">1349</span><span id="line-1349">             * Determine the percentage of the way between min and max</span>
+<span class="source-line-no">1350</span><span id="line-1350">             * represented by this mouse event.</span>
+<span class="source-line-no">1351</span><span id="line-1351">             */</span>
+<span class="source-line-no">1352</span><span id="line-1352">            final double newPosition;</span>
+<span class="source-line-no">1353</span><span id="line-1353">            if( isHorizontal() )</span>
+<span class="source-line-no">1354</span><span id="line-1354">            {</span>
+<span class="source-line-no">1355</span><span id="line-1355">                newPosition = position * (rangeSlider.getMax() - rangeSlider.getMin()) + rangeSlider.getMin();</span>
+<span class="source-line-no">1356</span><span id="line-1356">            }</span>
+<span class="source-line-no">1357</span><span id="line-1357">            else</span>
+<span class="source-line-no">1358</span><span id="line-1358">            {</span>
+<span class="source-line-no">1359</span><span id="line-1359">                newPosition = (1 - position) * (rangeSlider.getMax() - rangeSlider.getMin()) + rangeSlider.getMin();</span>
+<span class="source-line-no">1360</span><span id="line-1360">            }</span>
+<span class="source-line-no">1361</span><span id="line-1361"></span>
+<span class="source-line-no">1362</span><span id="line-1362">            /*</span>
+<span class="source-line-no">1363</span><span id="line-1363">             * If the position is inferior to the current LowValue, this means</span>
+<span class="source-line-no">1364</span><span id="line-1364">             * the user clicked on the track to move the low thumb. If not,</span>
+<span class="source-line-no">1365</span><span id="line-1365">             * then it means the user wanted to move the high thumb.</span>
+<span class="source-line-no">1366</span><span id="line-1366">             */</span>
+<span class="source-line-no">1367</span><span id="line-1367">            if( newPosition &lt; rangeSlider.getLowValue() )</span>
+<span class="source-line-no">1368</span><span id="line-1368">            {</span>
+<span class="source-line-no">1369</span><span id="line-1369">                rangeSlider.adjustLowValue( newPosition );</span>
+<span class="source-line-no">1370</span><span id="line-1370">            }</span>
+<span class="source-line-no">1371</span><span id="line-1371">            else</span>
+<span class="source-line-no">1372</span><span id="line-1372">            {</span>
+<span class="source-line-no">1373</span><span id="line-1373">                rangeSlider.adjustHighValue(newPosition);</span>
+<span class="source-line-no">1374</span><span id="line-1374">            }</span>
+<span class="source-line-no">1375</span><span id="line-1375">        }</span>
+<span class="source-line-no">1376</span><span id="line-1376">    }   //  trackPress()</span>
+<span class="source-line-no">1377</span><span id="line-1377">}</span>
+<span class="source-line-no">1378</span><span id="line-1378">//  class RangeSliderSkin</span>
+<span class="source-line-no">1379</span><span id="line-1379"></span>
+<span class="source-line-no">1380</span><span id="line-1380">/*</span>
+<span class="source-line-no">1381</span><span id="line-1381"> *  End of File</span>
+<span class="source-line-no">1382</span><span id="line-1382"> */</span>
 
 
 

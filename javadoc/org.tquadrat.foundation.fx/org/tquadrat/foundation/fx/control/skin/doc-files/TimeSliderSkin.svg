@@ -6,7 +6,7 @@
      xmlns:xlink="http://www.w3.org/1999/xlink"
      version='1.1'
      baseProfile='full'
-     width='1404.000'
+     width='1345.000'
      height='1160.000'>
     <defs>
         <style><![CDATA[
@@ -119,7 +119,7 @@
         <clipPath id='ID000001'>
             <rect class='focusClass'
                   height='106.000'
-                  width='1354.000'
+                  width='766.000'
                   x='0.000'
                   y='0.000'/>
         </clipPath>
@@ -129,35 +129,35 @@
                    clip-path='url(#ID000001)'>
                     <rect x='0.000'
                           y='0.000'
-                          width='1354.000'
+                          width='766.000'
                           height='106.000'
                           class='focusClass'/>
                     <line x1='0.000'
                           y1='17.000'
-                          x2='1354.000'
+                          x2='766.000'
                           y2='17.000'
                           class='separator'/>
-                    <text x='635.000'
+                    <text x='341.000'
                           y='13.000'>TimeSliderSkin</text>
                     <line x1='0.000'
-                          y1='56.000'
-                          x2='1354.000'
-                          y2='56.000'
+                          y1='45.000'
+                          x2='766.000'
+                          y2='45.000'
                           class='separator'/>
                     <text y='30.000'
                           class='static final'>+ TWENTY_FOUR_HOURS:double</text>
                     <text y='41.000'
                           class='final'>- m_Content:org.tquadrat.foundation.fx.control.RangeSlider</text>
-                    <text y='52.000'
-                          class='final'>- m_TimeConverter:org.tquadrat.foundation.fx.control.skin.TimeSliderSkin.OffsetTimeConverter</text>
                     <text x='5.000'
-                          y='69.000'>+ TimeSliderSkin(control:org.tquadrat.foundation.fx.control.TimeSlider,lowValueProperty:javafx.beans.property.ObjectProperty&lt;java.time.OffsetTime&gt;,highValueProperty:javafx.beans.property.ObjectProperty&lt;java.time.OffsetTime&gt;)</text>
+                          y='58.000'>+ TimeSliderSkin(control:org.tquadrat.foundation.fx.control.TimeSlider)</text>
                     <text x='5.000'
-                          y='80.000'>- convertSecondsToOffsetTime(seconds:double):java.time.OffsetTime</text>
+                          y='69.000'>- composeZonedDateTime(day:java.time.LocalDate,time:java.time.OffsetTime,timeZone:java.time.ZoneId):java.time.ZonedDateTime</text>
                     <text x='5.000'
-                          y='91.000'>+ setHighValue(highValue:java.time.OffsetTime):void</text>
+                          y='80.000'>- convertZonedDateTimeToSeconds(dateTime:java.time.ZonedDateTime):double</text>
                     <text x='5.000'
-                          y='102.000'>+ setLowValue(lowValue:java.time.OffsetTime):void</text>
+                          y='91.000'>- convertZonedDateTimeToSeconds(dateTimeProperty:javafx.beans.property.ReadOnlyObjectProperty&lt;java.time.ZonedDateTime&gt;):double</text>
+                    <text x='5.000'
+                          y='102.000'>- convertSecondsToOffsetTime(seconds:long):java.time.OffsetTime</text>
                 </g>
             </g>
         </symbol>
@@ -421,24 +421,24 @@
         </symbol>
     </defs>
     <path class='inheritance'
-          d='M702.000,929.000 c0.000,-85.000,-12.500,0.000,-12.500,-85.000 v-15'
+          d='M672.500,929.000 c0.000,-85.000,-12.500,0.000,-12.500,-85.000 v-15'
           marker-end='url(#inheritance)'/>
     <path class='inheritance'
-          d='M664.500,305.000 c0.000,-93.000,-313.500,0.000,-313.500,-93.000 v-15'
+          d='M635.000,305.000 c0.000,-93.000,-298.750,0.000,-298.750,-93.000 v-15'
           marker-end='url(#inheritance)'/>
     <path class='implementation'
-          d='M714.500,305.000 c0.000,-162.000,326.000,0.000,326.000,-162.000 v-15'
+          d='M685.000,305.000 c0.000,-162.000,311.250,0.000,311.250,-162.000 v-15'
           marker-end='url(#implementation)'/>
-    <use x='229.000'
+    <use x='214.250'
          y='25.000'
          xlink:href='#java.lang.Object'/>
-    <use x='948.500'
+    <use x='904.250'
          y='25.000'
          xlink:href='#javafx.scene.control.Skin'/>
-    <use x='54.500'
+    <use x='25.000'
          y='297.000'
          xlink:href='#javafx.scene.control.SkinBase'/>
-    <use x='25.000'
+    <use x='289.500'
          y='929.000'
          xlink:href='#org.tquadrat.foundation.fx.control.skin.TimeSliderSkin'/>
 </svg>

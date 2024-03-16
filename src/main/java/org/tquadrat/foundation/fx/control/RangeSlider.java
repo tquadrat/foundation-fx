@@ -135,13 +135,13 @@ import javafx.util.StringConverter;
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
- *  @version $Id: RangeSlider.java 1114 2024-03-12 23:07:59Z tquadrat $
+ *  @version $Id: RangeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( {"ClassWithTooManyFields", "ClassWithTooManyMethods"} )
-@ClassVersion( sourceVersion = "$Id: RangeSlider.java 1114 2024-03-12 23:07:59Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: RangeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $" )
 @API( status = STABLE, since = "0.4.6" )
 public final class RangeSlider extends FoundationFXControl
 {
@@ -154,12 +154,12 @@ public final class RangeSlider extends FoundationFXControl
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
      *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
-     *  @version $Id: RangeSlider.java 1114 2024-03-12 23:07:59Z tquadrat $
+     *  @version $Id: RangeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $
      *  @since 0.4.6
      */
     @SuppressWarnings( {"ProtectedInnerClass", "InnerClassTooDeeplyNested", "AnonymousInnerClass"} )
     @UtilityClass
-    @ClassVersion( sourceVersion = "$Id: RangeSlider.java 1114 2024-03-12 23:07:59Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: RangeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $" )
     @API( status = STABLE, since = "0.4.6" )
     protected static final class StyleableProperties
     {
@@ -452,7 +452,7 @@ public final class RangeSlider extends FoundationFXControl
         @Override
         protected final void invalidated()
         {
-            if( get() < getMin() ) setMin( get() );
+            if( get() < getMin() && !m_MinProperty.isBound() ) setMin( get() );
             adjustValues();
         }   //  invalidated()
     };
@@ -476,7 +476,7 @@ public final class RangeSlider extends FoundationFXControl
         @Override
         protected final void invalidated()
         {
-            if( get() > getMax() ) setMax( get() );
+            if( get() > getMax() && !m_MaxProperty.isBound() ) setMax( get() );
             adjustValues();
         }   //  invalidated()
     };

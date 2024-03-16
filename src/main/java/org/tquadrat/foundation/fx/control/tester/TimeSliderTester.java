@@ -29,12 +29,12 @@ import java.time.OffsetDateTime;
 import org.apiguardian.api.API;
 import org.tquadrat.foundation.annotation.ClassVersion;
 import org.tquadrat.foundation.annotation.ProgramClass;
-import org.tquadrat.foundation.fx.control.RangeSlider;
 import org.tquadrat.foundation.fx.control.TimeSlider;
 import org.tquadrat.foundation.fx.control.TimeSlider.Granularity;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -46,25 +46,17 @@ import javafx.stage.Stage;
  *  {@link TimeSlider}.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: TimeSliderTester.java 1114 2024-03-12 23:07:59Z tquadrat $
+ *  @version $Id: TimeSliderTester.java 1116 2024-03-13 15:44:33Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "UseOfSystemOutOrSystemErr" )
-@ClassVersion( sourceVersion = "$Id: TimeSliderTester.java 1114 2024-03-12 23:07:59Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: TimeSliderTester.java 1116 2024-03-13 15:44:33Z tquadrat $" )
 @API( status = EXPERIMENTAL, since = "0.4.6" )
 @ProgramClass
 public final class TimeSliderTester extends Application
 {
-        /*---------------*\
-    ====** Inner Classes **====================================================
-        \*---------------*/
-
-        /*-----------*\
-    ====** Constants **========================================================
-        \*-----------*/
-
         /*------------*\
     ====** Attributes **=======================================================
         \*------------*/
@@ -101,8 +93,8 @@ public final class TimeSliderTester extends Application
     ====** Methods **==========================================================
         \*---------*/
     /**
-     *  Creates a simple
-     *  {@link RangeSlider}.
+     *  Creates an advanced
+     *  {@link TimeSlider}.
      *
      *  @param  root    The parent node.
      */
@@ -162,11 +154,77 @@ public final class TimeSliderTester extends Application
         final var highValueBinding = createStringBinding( () -> format( "%s", timeSlider.getHighValue() ), timeSlider.highValueProperty() );
         high.textProperty().bind( highValueBinding );
         fieldBox.getChildren().addAll( low, range, high );
-    }   //  createAdvanceRangeSlider()
+    }   //  createAdvancedTimeSlider()
+
+    /**
+     *  Creates a
+     *  {@link TimeSlider}.
+     *
+     *  @param  root    The parent node.
+     */
+    private final void createDateChangingTimeSlider( final Pane root )
+    {
+        final var lowValue = OffsetDateTime.now()
+            .withHour( 8 )
+            .withMinute( 0 )
+            .withSecond( 0 )
+            .withNano( 0 )
+            .toOffsetTime();
+        final var highValue = OffsetDateTime.now()
+            .withHour( 17 )
+            .withMinute( 0 )
+            .withSecond( 0 )
+            .withNano( 0 )
+            .toOffsetTime();
+
+        final var paramBox = new HBox();
+        paramBox.setSpacing( m_Spacing );
+        paramBox.setPadding( new Insets( m_Spacing ) );
+        root.getChildren().add( paramBox );
+        final var date = new DatePicker();
+        final var min = new TextField();
+        final var max = new TextField();
+        paramBox.getChildren().addAll( date, min, max );
+
+        final var sliderBox = new HBox();
+        sliderBox.setSpacing( m_Spacing );
+        sliderBox.setPadding( new Insets( m_Spacing ) );
+        root.getChildren().add( sliderBox );
+
+        final var timeSlider = new TimeSlider();
+
+        timeSlider.setLowValue( lowValue );
+        timeSlider.setHighValue( highValue );
+        timeSlider.setGranularity( Granularity.ONE_HOUR );
+
+        timeSlider.setMinWidth( 600.0 );
+        timeSlider.setPrefWidth( USE_COMPUTED_SIZE );
+        timeSlider.setMaxWidth( Double.MAX_VALUE );
+        sliderBox.getChildren().add( timeSlider );
+        date.valueProperty().bindBidirectional( timeSlider.dayProperty() );
+        min.textProperty().set( format( "%s", timeSlider.getMin() ) );
+        max.textProperty().set( format( "%s", timeSlider.getMax() ) );
+
+        final var fieldBox = new HBox();
+        fieldBox.setSpacing( m_Spacing );
+        fieldBox.setPadding( new Insets( m_Spacing ) );
+        root.getChildren().add( fieldBox );
+
+        final var low = new TextField();
+        final var lowValueBinding = createStringBinding( () -> format( "%s", timeSlider.getLowValue() ), timeSlider.lowValueProperty() );
+        low.textProperty().bind( lowValueBinding );
+        final var range = new TextField();
+        final var durationBinding = createStringBinding( () -> format( "%s", timeSlider.getDuration() ), timeSlider.durationProperty() );
+        range.textProperty().bind( durationBinding );
+        final var high = new TextField();
+        final var highValueBinding = createStringBinding( () -> format( "%s", timeSlider.getHighValue() ), timeSlider.highValueProperty() );
+        high.textProperty().bind( highValueBinding );
+        fieldBox.getChildren().addAll( low, range, high );
+    }   //  createDateChangingTimeSlider()
 
     /**
      *  Creates a simple
-     *  {@link RangeSlider}.
+     *  {@link TimeSlider}.
      *
      *  @param  root    The parent node.
      */
@@ -209,7 +267,7 @@ public final class TimeSliderTester extends Application
         final var highValueBinding = createStringBinding( () -> format( "%s", timeSlider.getHighValue() ), timeSlider.highValueProperty() );
         high.textProperty().bind( highValueBinding );
         fieldBox.getChildren().addAll( low, range, high );
-    }   //  createSimpleRangeSlider()
+    }   //  createSimpleTimeSlider()
 
     /**
      *  The program entry point.
@@ -242,6 +300,7 @@ public final class TimeSliderTester extends Application
 
         createDefaultTimeSlider( root );
         createAdvancedTimeSlider( root );
+        createDateChangingTimeSlider( root );
 
         final var scene = new Scene( root, -1, -1 );
         primaryStage.setScene( scene );

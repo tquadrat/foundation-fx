@@ -39,12 +39,12 @@ import javafx.scene.text.Font;
  *  {@link ZoneId}s).
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: TimeZoneConverter.java 1114 2024-03-12 23:07:59Z tquadrat $
+ *  @version $Id: TimeZoneConverter.java 1116 2024-03-13 15:44:33Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: TimeZoneConverter.java 1114 2024-03-12 23:07:59Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: TimeZoneConverter.java 1116 2024-03-13 15:44:33Z tquadrat $" )
 @API( status = STABLE, since = "0.4.6" )
 public final class TimeZoneConverter extends StyleConverter<String,ZoneId>
 {
@@ -55,10 +55,10 @@ public final class TimeZoneConverter extends StyleConverter<String,ZoneId>
      *  The instance holder for this class.
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
-     *  @version $Id: TimeZoneConverter.java 1114 2024-03-12 23:07:59Z tquadrat $
+     *  @version $Id: TimeZoneConverter.java 1116 2024-03-13 15:44:33Z tquadrat $
      *  @since 0.4.6
      */
-    @ClassVersion( sourceVersion = "$Id: TimeZoneConverter.java 1114 2024-03-12 23:07:59Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: TimeZoneConverter.java 1116 2024-03-13 15:44:33Z tquadrat $" )
     @API( status = INTERNAL, since = "0.4.6" )
     @UtilityClass
     private static final class Holder
