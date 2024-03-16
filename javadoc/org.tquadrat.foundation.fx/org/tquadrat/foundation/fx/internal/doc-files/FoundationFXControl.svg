@@ -158,7 +158,7 @@
         </symbol>
         <clipPath id='ID000002'>
             <rect class='otherClass'
-                  height='557.000'
+                  height='579.000'
                   width='970.000'
                   x='0.000'
                   y='0.000'/>
@@ -169,7 +169,7 @@
                     <rect x='0.000'
                           y='0.000'
                           width='970.000'
-                          height='557.000'
+                          height='579.000'
                           class='otherClass'/>
                     <line x1='0.000'
                           y1='17.000'
@@ -268,17 +268,21 @@
                     <text x='5.000'
                           y='487.000'>+ setHighValue(highValue:java.time.OffsetTime):void</text>
                     <text x='5.000'
-                          y='498.000'>+ setLowValue(lowValue:java.time.OffsetTime):void</text>
+                          y='498.000'>+ setHighValue(highValue:java.time.LocalTime):void</text>
                     <text x='5.000'
-                          y='509.000'>+ setMax(max:java.time.LocalTime):void</text>
+                          y='509.000'>+ setLowValue(lowValue:java.time.OffsetTime):void</text>
                     <text x='5.000'
-                          y='520.000'>+ setMin(min:java.time.LocalTime):void</text>
+                          y='520.000'>+ setLowValue(lowValue:java.time.LocalTime):void</text>
                     <text x='5.000'
-                          y='531.000'>+ setSnapToTicks(flag:boolean):void</text>
+                          y='531.000'>+ setMax(max:java.time.LocalTime):void</text>
                     <text x='5.000'
-                          y='542.000'>+ snapToTicksProperty():javafx.beans.property.BooleanProperty</text>
+                          y='542.000'>+ setMin(min:java.time.LocalTime):void</text>
                     <text x='5.000'
-                          y='553.000'>+ timeZoneProperty():javafx.beans.property.ReadOnlyObjectProperty&lt;java.time.ZoneId&gt;</text>
+                          y='553.000'>+ setSnapToTicks(flag:boolean):void</text>
+                    <text x='5.000'
+                          y='564.000'>+ snapToTicksProperty():javafx.beans.property.BooleanProperty</text>
+                    <text x='5.000'
+                          y='575.000'>+ timeZoneProperty():javafx.beans.property.ReadOnlyObjectProperty&lt;java.time.ZoneId&gt;</text>
                 </g>
             </g>
         </symbol>

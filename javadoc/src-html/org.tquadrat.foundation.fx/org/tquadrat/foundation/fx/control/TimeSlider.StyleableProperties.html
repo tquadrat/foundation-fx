@@ -851,66 +851,106 @@
 <span class="source-line-no">838</span><span id="line-838">    public final void setHighValue( final OffsetTime highValue ) { m_HighValueProperty.set( highValue ); }</span>
 <span class="source-line-no">839</span><span id="line-839"></span>
 <span class="source-line-no">840</span><span id="line-840">    /**</span>
-<span class="source-line-no">841</span><span id="line-841">     *  Sets the low value for this {@code TimeSlider}, which may or may not be</span>
-<span class="source-line-no">842</span><span id="line-842">     *  clamped to be within the allowable range as specified by the</span>
+<span class="source-line-no">841</span><span id="line-841">     *  Sets the high value for this {@code TimeSlider}, which may or may not</span>
+<span class="source-line-no">842</span><span id="line-842">     *  be clamped to be within the allowable range as specified by the</span>
 <span class="source-line-no">843</span><span id="line-843">     *  {@link #minDisplayProperty() min}</span>
 <span class="source-line-no">844</span><span id="line-844">     *  and</span>
 <span class="source-line-no">845</span><span id="line-845">     *  {@link #maxDisplayProperty() max}</span>
 <span class="source-line-no">846</span><span id="line-846">     *  properties.</span>
 <span class="source-line-no">847</span><span id="line-847">     *</span>
-<span class="source-line-no">848</span><span id="line-848">     *  @param  lowValue The value.</span>
+<span class="source-line-no">848</span><span id="line-848">     *  @param  highValue   The value.</span>
 <span class="source-line-no">849</span><span id="line-849">     */</span>
-<span class="source-line-no">850</span><span id="line-850">    public final void setLowValue( final OffsetTime lowValue ) { m_LowValueProperty.set( lowValue ); }</span>
-<span class="source-line-no">851</span><span id="line-851"></span>
-<span class="source-line-no">852</span><span id="line-852">    /**</span>
-<span class="source-line-no">853</span><span id="line-853">     *  Sets the maximum displayed value for this {@code TimeSlider}.</span>
-<span class="source-line-no">854</span><span id="line-854">     *</span>
-<span class="source-line-no">855</span><span id="line-855">     *  @param  max The new value.</span>
-<span class="source-line-no">856</span><span id="line-856">     */</span>
-<span class="source-line-no">857</span><span id="line-857">    public final void setMax( final LocalTime max ) { m_MaxDisplayProperty.set( max ); }</span>
-<span class="source-line-no">858</span><span id="line-858"></span>
-<span class="source-line-no">859</span><span id="line-859">    /**</span>
-<span class="source-line-no">860</span><span id="line-860">     *  Sets the minimum displayed value for this  {@code TimeSlider}.</span>
-<span class="source-line-no">861</span><span id="line-861">     *</span>
-<span class="source-line-no">862</span><span id="line-862">     *  @param  min The new value</span>
-<span class="source-line-no">863</span><span id="line-863">     */</span>
-<span class="source-line-no">864</span><span id="line-864">    public final void setMin( final LocalTime min ) { m_MinDisplayProperty.set( min ); }</span>
-<span class="source-line-no">865</span><span id="line-865"></span>
-<span class="source-line-no">866</span><span id="line-866">    /**</span>
-<span class="source-line-no">867</span><span id="line-867">     *  Sets the flag that controls whether the thumbs will snap to the tick</span>
-<span class="source-line-no">868</span><span id="line-868">     *  marks.</span>
-<span class="source-line-no">869</span><span id="line-869">     *</span>
-<span class="source-line-no">870</span><span id="line-870">     *  @param  flag    {@code true} if the thumbs snaps to the tick marks,</span>
-<span class="source-line-no">871</span><span id="line-871">     *      {@code false} if not.</span>
-<span class="source-line-no">872</span><span id="line-872">     *</span>
-<span class="source-line-no">873</span><span id="line-873">     *  @see #snapToTicksProperty()</span>
-<span class="source-line-no">874</span><span id="line-874">     */</span>
-<span class="source-line-no">875</span><span id="line-875">    public final void setSnapToTicks( final boolean flag ) { m_SnapToTicksProperty.set( flag ); }</span>
-<span class="source-line-no">876</span><span id="line-876"></span>
-<span class="source-line-no">877</span><span id="line-877">    /**</span>
-<span class="source-line-no">878</span><span id="line-878">     *  &lt;p&gt;{@summary Returns a reference to the property that holds the flag</span>
-<span class="source-line-no">879</span><span id="line-879">     *  that indicates whether the</span>
-<span class="source-line-no">880</span><span id="line-880">     *  {@linkplain #lowValueProperty() low value}/{@linkplain #highValueProperty() high value}</span>
-<span class="source-line-no">881</span><span id="line-881">     *  thumbs of the {@code TimeSlider} should always be aligned with the</span>
-<span class="source-line-no">882</span><span id="line-882">     *  tick marks.} This is honored even if the tick marks are not shown.&lt;/p&gt;</span>
-<span class="source-line-no">883</span><span id="line-883">     *</span>
-<span class="source-line-no">884</span><span id="line-884">     *  @return The property reference.</span>
-<span class="source-line-no">885</span><span id="line-885">     */</span>
-<span class="source-line-no">886</span><span id="line-886">    public final BooleanProperty snapToTicksProperty() { return m_SnapToTicksProperty; }</span>
-<span class="source-line-no">887</span><span id="line-887"></span>
-<span class="source-line-no">888</span><span id="line-888">    /**</span>
-<span class="source-line-no">889</span><span id="line-889">     *  &lt;p&gt;{@summary Returns a reference to the property that holds the time</span>
-<span class="source-line-no">890</span><span id="line-890">     *  zone that is used to determine the offset for the times.}&lt;/p&gt;</span>
-<span class="source-line-no">891</span><span id="line-891">     *</span>
-<span class="source-line-no">892</span><span id="line-892">     *  @return The property reference.</span>
-<span class="source-line-no">893</span><span id="line-893">     */</span>
-<span class="source-line-no">894</span><span id="line-894">    public final ReadOnlyObjectProperty&lt;ZoneId&gt; timeZoneProperty() { return m_TimeZoneProperty; }</span>
-<span class="source-line-no">895</span><span id="line-895">}</span>
-<span class="source-line-no">896</span><span id="line-896">//  class TimeSlider</span>
-<span class="source-line-no">897</span><span id="line-897"></span>
-<span class="source-line-no">898</span><span id="line-898">/*</span>
-<span class="source-line-no">899</span><span id="line-899"> *  End of File</span>
-<span class="source-line-no">900</span><span id="line-900"> */</span>
+<span class="source-line-no">850</span><span id="line-850">    public final void setHighValue( final LocalTime highValue )</span>
+<span class="source-line-no">851</span><span id="line-851">    {</span>
+<span class="source-line-no">852</span><span id="line-852">        final var offsetTime = getDay()</span>
+<span class="source-line-no">853</span><span id="line-853">            .atTime( requireNonNullArgument( highValue, "highValue" ) )</span>
+<span class="source-line-no">854</span><span id="line-854">            .atZone( getTimeZone() )</span>
+<span class="source-line-no">855</span><span id="line-855">            .toOffsetDateTime()</span>
+<span class="source-line-no">856</span><span id="line-856">            .toOffsetTime();</span>
+<span class="source-line-no">857</span><span id="line-857">        setHighValue( offsetTime );</span>
+<span class="source-line-no">858</span><span id="line-858">    }   //  setHighValue()</span>
+<span class="source-line-no">859</span><span id="line-859"></span>
+<span class="source-line-no">860</span><span id="line-860">    /**</span>
+<span class="source-line-no">861</span><span id="line-861">     *  Sets the low value for this {@code TimeSlider}, which may or may not be</span>
+<span class="source-line-no">862</span><span id="line-862">     *  clamped to be within the allowable range as specified by the</span>
+<span class="source-line-no">863</span><span id="line-863">     *  {@link #minDisplayProperty() min}</span>
+<span class="source-line-no">864</span><span id="line-864">     *  and</span>
+<span class="source-line-no">865</span><span id="line-865">     *  {@link #maxDisplayProperty() max}</span>
+<span class="source-line-no">866</span><span id="line-866">     *  properties.</span>
+<span class="source-line-no">867</span><span id="line-867">     *</span>
+<span class="source-line-no">868</span><span id="line-868">     *  @param  lowValue The value.</span>
+<span class="source-line-no">869</span><span id="line-869">     */</span>
+<span class="source-line-no">870</span><span id="line-870">    public final void setLowValue( final OffsetTime lowValue ) { m_LowValueProperty.set( lowValue ); }</span>
+<span class="source-line-no">871</span><span id="line-871"></span>
+<span class="source-line-no">872</span><span id="line-872">    /**</span>
+<span class="source-line-no">873</span><span id="line-873">     *  Sets the low value for this {@code TimeSlider}, which may or may not be</span>
+<span class="source-line-no">874</span><span id="line-874">     *  clamped to be within the allowable range as specified by the</span>
+<span class="source-line-no">875</span><span id="line-875">     *  {@link #minDisplayProperty() min}</span>
+<span class="source-line-no">876</span><span id="line-876">     *  and</span>
+<span class="source-line-no">877</span><span id="line-877">     *  {@link #maxDisplayProperty() max}</span>
+<span class="source-line-no">878</span><span id="line-878">     *  properties.</span>
+<span class="source-line-no">879</span><span id="line-879">     *</span>
+<span class="source-line-no">880</span><span id="line-880">     *  @param  lowValue The value.</span>
+<span class="source-line-no">881</span><span id="line-881">     */</span>
+<span class="source-line-no">882</span><span id="line-882">    public final void setLowValue( final LocalTime lowValue )</span>
+<span class="source-line-no">883</span><span id="line-883">    {</span>
+<span class="source-line-no">884</span><span id="line-884">        final var offsetTime = getDay()</span>
+<span class="source-line-no">885</span><span id="line-885">            .atTime( requireNonNullArgument( lowValue, "lowValue" ) )</span>
+<span class="source-line-no">886</span><span id="line-886">            .atZone( getTimeZone() )</span>
+<span class="source-line-no">887</span><span id="line-887">            .toOffsetDateTime()</span>
+<span class="source-line-no">888</span><span id="line-888">            .toOffsetTime();</span>
+<span class="source-line-no">889</span><span id="line-889">        setLowValue( offsetTime );</span>
+<span class="source-line-no">890</span><span id="line-890">    }   //  setLowValue()</span>
+<span class="source-line-no">891</span><span id="line-891"></span>
+<span class="source-line-no">892</span><span id="line-892">    /**</span>
+<span class="source-line-no">893</span><span id="line-893">     *  Sets the maximum displayed value for this {@code TimeSlider}.</span>
+<span class="source-line-no">894</span><span id="line-894">     *</span>
+<span class="source-line-no">895</span><span id="line-895">     *  @param  max The new value.</span>
+<span class="source-line-no">896</span><span id="line-896">     */</span>
+<span class="source-line-no">897</span><span id="line-897">    public final void setMax( final LocalTime max ) { m_MaxDisplayProperty.set( max ); }</span>
+<span class="source-line-no">898</span><span id="line-898"></span>
+<span class="source-line-no">899</span><span id="line-899">    /**</span>
+<span class="source-line-no">900</span><span id="line-900">     *  Sets the minimum displayed value for this  {@code TimeSlider}.</span>
+<span class="source-line-no">901</span><span id="line-901">     *</span>
+<span class="source-line-no">902</span><span id="line-902">     *  @param  min The new value</span>
+<span class="source-line-no">903</span><span id="line-903">     */</span>
+<span class="source-line-no">904</span><span id="line-904">    public final void setMin( final LocalTime min ) { m_MinDisplayProperty.set( min ); }</span>
+<span class="source-line-no">905</span><span id="line-905"></span>
+<span class="source-line-no">906</span><span id="line-906">    /**</span>
+<span class="source-line-no">907</span><span id="line-907">     *  Sets the flag that controls whether the thumbs will snap to the tick</span>
+<span class="source-line-no">908</span><span id="line-908">     *  marks.</span>
+<span class="source-line-no">909</span><span id="line-909">     *</span>
+<span class="source-line-no">910</span><span id="line-910">     *  @param  flag    {@code true} if the thumbs snaps to the tick marks,</span>
+<span class="source-line-no">911</span><span id="line-911">     *      {@code false} if not.</span>
+<span class="source-line-no">912</span><span id="line-912">     *</span>
+<span class="source-line-no">913</span><span id="line-913">     *  @see #snapToTicksProperty()</span>
+<span class="source-line-no">914</span><span id="line-914">     */</span>
+<span class="source-line-no">915</span><span id="line-915">    public final void setSnapToTicks( final boolean flag ) { m_SnapToTicksProperty.set( flag ); }</span>
+<span class="source-line-no">916</span><span id="line-916"></span>
+<span class="source-line-no">917</span><span id="line-917">    /**</span>
+<span class="source-line-no">918</span><span id="line-918">     *  &lt;p&gt;{@summary Returns a reference to the property that holds the flag</span>
+<span class="source-line-no">919</span><span id="line-919">     *  that indicates whether the</span>
+<span class="source-line-no">920</span><span id="line-920">     *  {@linkplain #lowValueProperty() low value}/{@linkplain #highValueProperty() high value}</span>
+<span class="source-line-no">921</span><span id="line-921">     *  thumbs of the {@code TimeSlider} should always be aligned with the</span>
+<span class="source-line-no">922</span><span id="line-922">     *  tick marks.} This is honored even if the tick marks are not shown.&lt;/p&gt;</span>
+<span class="source-line-no">923</span><span id="line-923">     *</span>
+<span class="source-line-no">924</span><span id="line-924">     *  @return The property reference.</span>
+<span class="source-line-no">925</span><span id="line-925">     */</span>
+<span class="source-line-no">926</span><span id="line-926">    public final BooleanProperty snapToTicksProperty() { return m_SnapToTicksProperty; }</span>
+<span class="source-line-no">927</span><span id="line-927"></span>
+<span class="source-line-no">928</span><span id="line-928">    /**</span>
+<span class="source-line-no">929</span><span id="line-929">     *  &lt;p&gt;{@summary Returns a reference to the property that holds the time</span>
+<span class="source-line-no">930</span><span id="line-930">     *  zone that is used to determine the offset for the times.}&lt;/p&gt;</span>
+<span class="source-line-no">931</span><span id="line-931">     *</span>
+<span class="source-line-no">932</span><span id="line-932">     *  @return The property reference.</span>
+<span class="source-line-no">933</span><span id="line-933">     */</span>
+<span class="source-line-no">934</span><span id="line-934">    public final ReadOnlyObjectProperty&lt;ZoneId&gt; timeZoneProperty() { return m_TimeZoneProperty; }</span>
+<span class="source-line-no">935</span><span id="line-935">}</span>
+<span class="source-line-no">936</span><span id="line-936">//  class TimeSlider</span>
+<span class="source-line-no">937</span><span id="line-937"></span>
+<span class="source-line-no">938</span><span id="line-938">/*</span>
+<span class="source-line-no">939</span><span id="line-939"> *  End of File</span>
+<span class="source-line-no">940</span><span id="line-940"> */</span>
 
 
 

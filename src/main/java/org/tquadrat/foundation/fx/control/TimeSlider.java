@@ -838,6 +838,26 @@ public final class TimeSlider extends FoundationFXControl
     public final void setHighValue( final OffsetTime highValue ) { m_HighValueProperty.set( highValue ); }
 
     /**
+     *  Sets the high value for this {@code TimeSlider}, which may or may not
+     *  be clamped to be within the allowable range as specified by the
+     *  {@link #minDisplayProperty() min}
+     *  and
+     *  {@link #maxDisplayProperty() max}
+     *  properties.
+     *
+     *  @param  highValue   The value.
+     */
+    public final void setHighValue( final LocalTime highValue )
+    {
+        final var offsetTime = getDay()
+            .atTime( requireNonNullArgument( highValue, "highValue" ) )
+            .atZone( getTimeZone() )
+            .toOffsetDateTime()
+            .toOffsetTime();
+        setHighValue( offsetTime );
+    }   //  setHighValue()
+
+    /**
      *  Sets the low value for this {@code TimeSlider}, which may or may not be
      *  clamped to be within the allowable range as specified by the
      *  {@link #minDisplayProperty() min}
@@ -848,6 +868,26 @@ public final class TimeSlider extends FoundationFXControl
      *  @param  lowValue The value.
      */
     public final void setLowValue( final OffsetTime lowValue ) { m_LowValueProperty.set( lowValue ); }
+
+    /**
+     *  Sets the low value for this {@code TimeSlider}, which may or may not be
+     *  clamped to be within the allowable range as specified by the
+     *  {@link #minDisplayProperty() min}
+     *  and
+     *  {@link #maxDisplayProperty() max}
+     *  properties.
+     *
+     *  @param  lowValue The value.
+     */
+    public final void setLowValue( final LocalTime lowValue )
+    {
+        final var offsetTime = getDay()
+            .atTime( requireNonNullArgument( lowValue, "lowValue" ) )
+            .atZone( getTimeZone() )
+            .toOffsetDateTime()
+            .toOffsetTime();
+        setLowValue( offsetTime );
+    }   //  setLowValue()
 
     /**
      *  Sets the maximum displayed value for this {@code TimeSlider}.

@@ -601,10 +601,30 @@ loadScripts(document, 'script');</script>
 <div class="block">Sets the granularity for this <code>TimeSlider</code>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setHighValue(java.time.OffsetTime)" class="member-name-link">setHighValue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/OffsetTime.html" title="class or interface in java.time" class="external-link">OffsetTime</a>&nbsp;highValue)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setHighValue(java.time.LocalTime)" class="member-name-link">setHighValue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/LocalTime.html" title="class or interface in java.time" class="external-link">LocalTime</a>&nbsp;highValue)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the high value for this <code>TimeSlider</code>, which may or may not
   be clamped to be within the allowable range as specified by the
+  <a href="#minDisplayProperty()"><code>min</code></a>
+  and
+  <a href="#maxDisplayProperty()"><code>max</code></a>
+  properties.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setHighValue(java.time.OffsetTime)" class="member-name-link">setHighValue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/OffsetTime.html" title="class or interface in java.time" class="external-link">OffsetTime</a>&nbsp;highValue)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the high value for this <code>TimeSlider</code>, which may or may not
+  be clamped to be within the allowable range as specified by the
+  <a href="#minDisplayProperty()"><code>min</code></a>
+  and
+  <a href="#maxDisplayProperty()"><code>max</code></a>
+  properties.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLowValue(java.time.LocalTime)" class="member-name-link">setLowValue</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/LocalTime.html" title="class or interface in java.time" class="external-link">LocalTime</a>&nbsp;lowValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the low value for this <code>TimeSlider</code>, which may or may not be
+  clamped to be within the allowable range as specified by the
   <a href="#minDisplayProperty()"><code>min</code></a>
   and
   <a href="#maxDisplayProperty()"><code>max</code></a>
@@ -858,7 +878,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="snapToTicksProperty">
 <h3>snapToTicks</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://openjfx.io/javadoc/17/javafx.base/javafx/beans/property/BooleanProperty.html" title="class or interface in javafx.beans.property" class="external-link">BooleanProperty</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-886">snapToTicksProperty</a></span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://openjfx.io/javadoc/17/javafx.base/javafx/beans/property/BooleanProperty.html" title="class or interface in javafx.beans.property" class="external-link">BooleanProperty</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-926">snapToTicksProperty</a></span></div>
 <div class="block"><p>Returns a reference to the property that holds the flag
   that indicates whether the
   <a href="#lowValueProperty()">low value</a>/<a href="#highValueProperty()">high value</a>
@@ -879,7 +899,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="timeZoneProperty">
 <h3>timeZone</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://openjfx.io/javadoc/17/javafx.base/javafx/beans/property/ReadOnlyObjectProperty.html" title="class or interface in javafx.beans.property" class="external-link">ReadOnlyObjectProperty</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZoneId.html" title="class or interface in java.time" class="external-link">ZoneId</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-894">timeZoneProperty</a></span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://openjfx.io/javadoc/17/javafx.base/javafx/beans/property/ReadOnlyObjectProperty.html" title="class or interface in javafx.beans.property" class="external-link">ReadOnlyObjectProperty</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZoneId.html" title="class or interface in java.time" class="external-link">ZoneId</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-934">timeZoneProperty</a></span></div>
 <div class="block"><p>Returns a reference to the property that holds the time
   zone that is used to determine the offset for the times.</p></div>
 <dl class="notes">
@@ -1479,9 +1499,41 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="setHighValue(java.time.LocalTime)">
+<h3>setHighValue</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-850">setHighValue</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/LocalTime.html" title="class or interface in java.time" class="external-link">LocalTime</a>&nbsp;highValue)</span></div>
+<div class="block">Sets the high value for this <code>TimeSlider</code>, which may or may not
+  be clamped to be within the allowable range as specified by the
+  <a href="#minDisplayProperty()"><code>min</code></a>
+  and
+  <a href="#maxDisplayProperty()"><code>max</code></a>
+  properties.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>highValue</code> - The value.</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="setLowValue(java.time.OffsetTime)">
 <h3>setLowValue</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-850">setLowValue</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/OffsetTime.html" title="class or interface in java.time" class="external-link">OffsetTime</a>&nbsp;lowValue)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-870">setLowValue</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/OffsetTime.html" title="class or interface in java.time" class="external-link">OffsetTime</a>&nbsp;lowValue)</span></div>
+<div class="block">Sets the low value for this <code>TimeSlider</code>, which may or may not be
+  clamped to be within the allowable range as specified by the
+  <a href="#minDisplayProperty()"><code>min</code></a>
+  and
+  <a href="#maxDisplayProperty()"><code>max</code></a>
+  properties.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>lowValue</code> - The value.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setLowValue(java.time.LocalTime)">
+<h3>setLowValue</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-882">setLowValue</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/LocalTime.html" title="class or interface in java.time" class="external-link">LocalTime</a>&nbsp;lowValue)</span></div>
 <div class="block">Sets the low value for this <code>TimeSlider</code>, which may or may not be
   clamped to be within the allowable range as specified by the
   <a href="#minDisplayProperty()"><code>min</code></a>
@@ -1497,7 +1549,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setMax(java.time.LocalTime)">
 <h3>setMax</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-857">setMax</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/LocalTime.html" title="class or interface in java.time" class="external-link">LocalTime</a>&nbsp;max)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-897">setMax</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/LocalTime.html" title="class or interface in java.time" class="external-link">LocalTime</a>&nbsp;max)</span></div>
 <div class="block">Sets the maximum displayed value for this <code>TimeSlider</code>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1508,7 +1560,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setMin(java.time.LocalTime)">
 <h3>setMin</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-864">setMin</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/LocalTime.html" title="class or interface in java.time" class="external-link">LocalTime</a>&nbsp;min)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-904">setMin</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/LocalTime.html" title="class or interface in java.time" class="external-link">LocalTime</a>&nbsp;min)</span></div>
 <div class="block">Sets the minimum displayed value for this  <code>TimeSlider</code>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -1519,7 +1571,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setSnapToTicks(boolean)">
 <h3>setSnapToTicks</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-875">setSnapToTicks</a></span><wbr><span class="parameters">(boolean&nbsp;flag)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-915">setSnapToTicks</a></span><wbr><span class="parameters">(boolean&nbsp;flag)</span></div>
 <div class="block">Sets the flag that controls whether the thumbs will snap to the tick
   marks.</div>
 <dl class="notes">
@@ -1538,7 +1590,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="snapToTicksProperty()">
 <h3>snapToTicksProperty</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://openjfx.io/javadoc/17/javafx.base/javafx/beans/property/BooleanProperty.html" title="class or interface in javafx.beans.property" class="external-link">BooleanProperty</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-886">snapToTicksProperty</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://openjfx.io/javadoc/17/javafx.base/javafx/beans/property/BooleanProperty.html" title="class or interface in javafx.beans.property" class="external-link">BooleanProperty</a></span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-926">snapToTicksProperty</a></span>()</div>
 <div class="block"><p>Returns a reference to the property that holds the flag
   that indicates whether the
   <a href="#lowValueProperty()">low value</a>/<a href="#highValueProperty()">high value</a>
@@ -1560,7 +1612,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="timeZoneProperty()">
 <h3>timeZoneProperty</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://openjfx.io/javadoc/17/javafx.base/javafx/beans/property/ReadOnlyObjectProperty.html" title="class or interface in javafx.beans.property" class="external-link">ReadOnlyObjectProperty</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZoneId.html" title="class or interface in java.time" class="external-link">ZoneId</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-894">timeZoneProperty</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://openjfx.io/javadoc/17/javafx.base/javafx/beans/property/ReadOnlyObjectProperty.html" title="class or interface in javafx.beans.property" class="external-link">ReadOnlyObjectProperty</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/time/ZoneId.html" title="class or interface in java.time" class="external-link">ZoneId</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../../src-html/org.tquadrat.foundation.fx/org/tquadrat/foundation/fx/control/TimeSlider.html#line-934">timeZoneProperty</a></span>()</div>
 <div class="block"><p>Returns a reference to the property that holds the time
   zone that is used to determine the offset for the times.</p></div>
 <dl class="notes">
