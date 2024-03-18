@@ -46,13 +46,13 @@ import javafx.stage.Stage;
  *  {@link TimeSlider}.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: TimeSliderTester.java 1116 2024-03-13 15:44:33Z tquadrat $
+ *  @version $Id: TimeSliderTester.java 1121 2024-03-16 16:51:23Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "UseOfSystemOutOrSystemErr" )
-@ClassVersion( sourceVersion = "$Id: TimeSliderTester.java 1116 2024-03-13 15:44:33Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: TimeSliderTester.java 1121 2024-03-16 16:51:23Z tquadrat $" )
 @API( status = EXPERIMENTAL, since = "0.4.6" )
 @ProgramClass
 public final class TimeSliderTester extends Application

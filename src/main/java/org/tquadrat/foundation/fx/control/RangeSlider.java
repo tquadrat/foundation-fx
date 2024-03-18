@@ -135,13 +135,13 @@ import javafx.util.StringConverter;
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
- *  @version $Id: RangeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $
+ *  @version $Id: RangeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( {"ClassWithTooManyFields", "ClassWithTooManyMethods"} )
-@ClassVersion( sourceVersion = "$Id: RangeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: RangeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $" )
 @API( status = STABLE, since = "0.4.6" )
 public final class RangeSlider extends FoundationFXControl
 {
@@ -154,12 +154,12 @@ public final class RangeSlider extends FoundationFXControl
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
      *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
-     *  @version $Id: RangeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $
+     *  @version $Id: RangeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $
      *  @since 0.4.6
      */
     @SuppressWarnings( {"ProtectedInnerClass", "InnerClassTooDeeplyNested", "AnonymousInnerClass"} )
     @UtilityClass
-    @ClassVersion( sourceVersion = "$Id: RangeSlider.java 1116 2024-03-13 15:44:33Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: RangeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $" )
     @API( status = STABLE, since = "0.4.6" )
     protected static final class StyleableProperties
     {

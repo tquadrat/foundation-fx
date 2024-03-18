@@ -50,12 +50,12 @@ import javafx.util.StringConverter;
  *  {@link TimeSlider}.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: TimeSliderSkin.java 1116 2024-03-13 15:44:33Z tquadrat $
+ *  @version $Id: TimeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: TimeSliderSkin.java 1116 2024-03-13 15:44:33Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: TimeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $" )
 @API( status = STABLE, since = "0.4.6" )
 public class TimeSliderSkin extends SkinBase<TimeSlider>
 {
@@ -80,12 +80,12 @@ public class TimeSliderSkin extends SkinBase<TimeSlider>
      *  {@code StringConverter} is incomplete.</p>
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
-     *  @version $Id: TimeSliderSkin.java 1116 2024-03-13 15:44:33Z tquadrat $
+     *  @version $Id: TimeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $
      *  @since 0.4.6
      *
      *  @UMLGraph.link
      */
-    @ClassVersion( sourceVersion = "$Id: TimeSliderSkin.java 1116 2024-03-13 15:44:33Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: TimeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $" )
     @API( status = INTERNAL, since = "0.4.6" )
     private final class OffsetTimeConverter extends StringConverter<Number>
     {

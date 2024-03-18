@@ -56,13 +56,13 @@ import javafx.util.Callback;
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
- *  @version $Id: RangeSliderSkin.java 1114 2024-03-12 23:07:59Z tquadrat $
+ *  @version $Id: RangeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( {"ClassWithTooManyFields", "ClassWithTooManyMethods", "OverlyComplexClass"} )
-@ClassVersion( sourceVersion = "$Id: RangeSliderSkin.java 1114 2024-03-12 23:07:59Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: RangeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $" )
 @API( status = STABLE, since = "0.4.6" )
 public class RangeSliderSkin extends SkinBase<RangeSlider>
 {
@@ -74,13 +74,13 @@ public class RangeSliderSkin extends SkinBase<RangeSlider>
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
      *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
-     *  @version $Id: RangeSliderSkin.java 1114 2024-03-12 23:07:59Z tquadrat $
+     *  @version $Id: RangeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $
      *  @since 0.4.6
      *
      *  @UMLGraph.link
      */
     @SuppressWarnings( "ProtectedInnerClass" )
-    @ClassVersion( sourceVersion = "$Id: RangeSliderSkin.java 1114 2024-03-12 23:07:59Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: RangeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $" )
     @API( status = INTERNAL, since = "0.4.6" )
     protected static enum FocusedChild
     {
@@ -120,12 +120,12 @@ public class RangeSliderSkin extends SkinBase<RangeSlider>
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
      *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
-     *  @version $Id: RangeSliderSkin.java 1114 2024-03-12 23:07:59Z tquadrat $
+     *  @version $Id: RangeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $
      *  @since 0.4.6
      *
      *  @UMLGraph.link
      */
-    @ClassVersion( sourceVersion = "$Id: RangeSliderSkin.java 1114 2024-03-12 23:07:59Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: RangeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $" )
     @API( status = INTERNAL, since = "0.4.6" )
     private static final class ThumbPane extends StackPane
     {
