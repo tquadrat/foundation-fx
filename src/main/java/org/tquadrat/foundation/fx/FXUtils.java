@@ -18,6 +18,7 @@
 package org.tquadrat.foundation.fx;
 
 import static org.apiguardian.api.API.Status.STABLE;
+import static org.tquadrat.foundation.lang.Objects.isNull;
 import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
 
 import org.apiguardian.api.API;
@@ -150,11 +151,20 @@ public final class FXUtils
 
             /*
              * When the event is triggered from a menu item, this is either
-             * part of a menu or a popup window. In both cases it has the same
+             * part of a menu or a context menu. In both cases it has the same
              * path to the window that owns it.
              */
-            case final MenuItem menuItem -> menuItem.getParentPopup()
-                .getOwnerWindow();
+            case final MenuItem menuItem ->
+            {
+                var resultItem = menuItem.getParentPopup();
+                var currentItem = menuItem;
+                while( isNull( resultItem ) )
+                {
+                    currentItem = currentItem.getParentMenu();
+                    resultItem = currentItem.getParentPopup();
+                }
+                yield resultItem.getOwnerWindow();
+            }
 
             default -> throw new IllegalArgumentException( "Inappropriate event source" );
         };
