@@ -72,14 +72,14 @@ import javafx.util.StringConverter;
  *
  *  @param <T>  The target type for the conversion.
  *
- *  @version $Id: FXStringConverter.java 1113 2024-03-12 02:01:14Z tquadrat $
+ *  @version $Id: FXStringConverter.java 1151 2025-10-01 21:32:15Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.4.3
  *
  *  @see GenericStringConverter
  */
-@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 1113 2024-03-12 02:01:14Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 1151 2025-10-01 21:32:15Z tquadrat $" )
 @API( status = STABLE, since = "0.4.3" )
 public final class FXStringConverter<T> extends StringConverter<T> implements org.tquadrat.foundation.lang.StringConverter<T>
 {
@@ -179,12 +179,14 @@ public final class FXStringConverter<T> extends StringConverter<T> implements or
         T retValue;
         try
         {
+            //noinspection AssignmentToNull
             retValue = isNull( source ) ? null : m_StringConverter.fromString( source );
             m_ErrorDisplay.ifPresent( errorDisplay -> errorDisplay.removeMessage( m_MessageId ) );
         }
         catch( final IllegalArgumentException e )
         {
             m_ErrorDisplay.ifPresentOrElse( errorDisplay -> errorDisplay.addMessage( m_MessageId, m_MessageComposer.apply( source.toString() ) ), () -> {throw e;} );
+            //noinspection AssignmentToNull
             retValue = null;
         }
 

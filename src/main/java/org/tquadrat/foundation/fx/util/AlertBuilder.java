@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- *  Copyright © 2002-2024 by Thomas Thrien.
+ *  Copyright © 2002-2025 by Thomas Thrien.
  *  All Rights Reserved.
  * ============================================================================
  *  Licensed to the public under the agreements of the GNU Lesser General Public
@@ -42,13 +42,13 @@ import javafx.util.Callback;
  *  {@link Alert}.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: AlertBuilder.java 1110 2024-03-04 15:26:06Z tquadrat $
+ *  @version $Id: AlertBuilder.java 1151 2025-10-01 21:32:15Z tquadrat $
  *  @since 0.4.1
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "ClassWithTooManyMethods" )
-@ClassVersion( sourceVersion = "$Id: AlertBuilder.java 1110 2024-03-04 15:26:06Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: AlertBuilder.java 1151 2025-10-01 21:32:15Z tquadrat $" )
 @API( status = STABLE, since = "0.4.1" )
 public class AlertBuilder
 {
@@ -323,6 +323,7 @@ public class AlertBuilder
      *
      *  @see Alert#setHeight(double)
      */
+    @SuppressWarnings( "UnusedReturnValue" )
     public final AlertBuilder setHeight( final double height ) throws IllegalStateException
     {
         checkIsBuilt();
@@ -479,6 +480,7 @@ public class AlertBuilder
      *  @since 0.4.2
      */
     @API( status = STABLE, since = "0.4.1" )
+    @SuppressWarnings( "UnusedReturnValue" )
     public final AlertBuilder setOwner( final Window owner ) throws IllegalStateException
     {
         checkIsBuilt();
@@ -617,6 +619,7 @@ public class AlertBuilder
      *
      *  @see Alert#setWidth(double)
      */
+    @SuppressWarnings( "UnusedReturnValue" )
     public final AlertBuilder setWidth( final double width ) throws IllegalStateException
     {
         checkIsBuilt();
@@ -639,6 +642,7 @@ public class AlertBuilder
      *
      *  @see Alert#setX(double)
      */
+    @SuppressWarnings( "UnusedReturnValue" )
     public final AlertBuilder setX( final double x ) throws IllegalStateException
     {
         checkIsBuilt();
@@ -661,6 +665,7 @@ public class AlertBuilder
      *
      *  @see Alert#setX(double)
      */
+    @SuppressWarnings( "UnusedReturnValue" )
     public final AlertBuilder setY( final double y ) throws IllegalStateException
     {
         checkIsBuilt();

@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- *  Copyright © 2002-2024 by Thomas Thrien.
+ *  Copyright © 2002-2025 by Thomas Thrien.
  *  All Rights Reserved.
  * ============================================================================
  *  Licensed to the public under the agreements of the GNU Lesser General Public
@@ -91,7 +91,7 @@ import javafx.util.StringConverter;
  *    <li>The area between the low and high values represents the allowable
  *      range. For example, if the low value is 2 and the high value is 8, then
  *      the allowable range is between 2 and 8.</li>
- *    <li>The allowable range area is rendered differently. This area is able to
+ *    <li>The allowable range area is rendered differently. This area can
  *      be dragged with mouse/touch input to allow for the entire range to be
  *      modified. For example, following on from the previous example of the
  *      allowable range being between 2 and 8, if the user drags the range bar
@@ -135,13 +135,13 @@ import javafx.util.StringConverter;
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
- *  @version $Id: RangeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $
+ *  @version $Id: RangeSlider.java 1151 2025-10-01 21:32:15Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( {"ClassWithTooManyFields", "ClassWithTooManyMethods"} )
-@ClassVersion( sourceVersion = "$Id: RangeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: RangeSlider.java 1151 2025-10-01 21:32:15Z tquadrat $" )
 @API( status = STABLE, since = "0.4.6" )
 public final class RangeSlider extends FoundationFXControl
 {
@@ -154,12 +154,12 @@ public final class RangeSlider extends FoundationFXControl
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
      *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
-     *  @version $Id: RangeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $
+     *  @version $Id: RangeSlider.java 1151 2025-10-01 21:32:15Z tquadrat $
      *  @since 0.4.6
      */
     @SuppressWarnings( {"ProtectedInnerClass", "InnerClassTooDeeplyNested", "AnonymousInnerClass"} )
     @UtilityClass
-    @ClassVersion( sourceVersion = "$Id: RangeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: RangeSlider.java 1151 2025-10-01 21:32:15Z tquadrat $" )
     @API( status = STABLE, since = "0.4.6" )
     protected static final class StyleableProperties
     {
@@ -383,7 +383,7 @@ public final class RangeSlider extends FoundationFXControl
      *  {@link #minProperty() min}
      *  and
      *  {@link #maxProperty() max}
-     *  properties. By default this value is 100.</p>
+     *  properties. By default, this value is 100.</p>
      */
     @SuppressWarnings( "AnonymousInnerClass" )
     private final DoubleProperty m_HighValueProperty = new SimpleDoubleProperty( this, "highValue", 100.0D )
@@ -409,7 +409,7 @@ public final class RangeSlider extends FoundationFXControl
      *  {@link #minProperty() min}
      *  and
      *  {@link #maxProperty() max}
-     *  properties. By default this value is 0.</p>
+     *  properties. By default, this value is 0.</p>
      */
     @SuppressWarnings( "AnonymousInnerClass" )
     private final DoubleProperty m_LowValueProperty = new SimpleDoubleProperty(this, "lowValue", 0.0D)
@@ -862,7 +862,7 @@ public final class RangeSlider extends FoundationFXControl
      *  {@link #minProperty() min}
      *  and
      *  {@link #maxProperty() max}
-     *  properties. By default this value is 100.</p>
+     *  properties. By default, this value is 100.</p>
      *
      *  @return The property reference.
      */
@@ -965,7 +965,7 @@ public final class RangeSlider extends FoundationFXControl
      *  {@link #minProperty() min}
      *  and
      *  {@link #maxProperty() max}
-     *  properties. By default this value is 0.</p>
+     *  properties. By default, this value is 0.</p>
      *
      *  @return The property reference.
      */
@@ -1103,7 +1103,7 @@ public final class RangeSlider extends FoundationFXControl
      */
     public final void setMajorTickUnit( final double tickUnit )
     {
-        m_MajorTickUnitProperty.set( requireValidDoubleArgument( tickUnit, "tickUnit", value -> value > 0.0, $ -> "MajorTickUnit cannot be less than or equal to 0." ) );
+        m_MajorTickUnitProperty.set( requireValidDoubleArgument( tickUnit, "tickUnit", value -> value > 0.0, _ -> "MajorTickUnit cannot be less than or equal to 0." ) );
     }   //  setMajorTickUnit()
 
     /**
@@ -1218,7 +1218,7 @@ public final class RangeSlider extends FoundationFXControl
             {
                 d2 = getMajorTickUnit();
             }
-            @SuppressWarnings( {"LocalVariableNamingConvention", "NumericCastThatLosesPrecision"} )
+            @SuppressWarnings( {"NumericCastThatLosesPrecision"} )
             final var i = (int) ((d1 - getMin()) / d2);
             final var d3 = (double) i * d2 + getMin();
             final var d4 = (double) (i + 1) * d2 + getMin();

@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- * Copyright © 2002-2024 by Thomas Thrien.
+ * Copyright © 2002-2025 by Thomas Thrien.
  * All Rights Reserved.
  * ============================================================================
  * Licensed to the public under the agreements of the GNU Lesser General Public
@@ -49,13 +49,13 @@ import javafx.scene.layout.VBox;
  *
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: ErrorDisplaySkin.java 1114 2024-03-12 23:07:59Z tquadrat $
+ *  @version $Id: ErrorDisplaySkin.java 1151 2025-10-01 21:32:15Z tquadrat $
  *  @since 0.4.3
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "JavadocLinkAsPlainText" )
-@ClassVersion( sourceVersion = "$Id: ErrorDisplaySkin.java 1114 2024-03-12 23:07:59Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: ErrorDisplaySkin.java 1151 2025-10-01 21:32:15Z tquadrat $" )
 @API( status = STABLE, since = "0.4.3" )
 public final class ErrorDisplaySkin extends SkinBase<ErrorDisplay>
 {
@@ -170,6 +170,7 @@ public final class ErrorDisplaySkin extends SkinBase<ErrorDisplay>
         {
             //---* Add the icon *----------------------------------------------
             final var imageView = new ImageView( m_Icon );
+            //noinspection MagicNumber
             imageView.setFitHeight( 20.0 );
             imageView.setPreserveRatio( true );
             retValue.setGraphic( imageView );
