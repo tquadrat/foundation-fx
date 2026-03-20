@@ -27,7 +27,7 @@ loadScripts(document, 'script');</script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
-<header role="banner"><div style="overflow:auto;"><img src="../../../../../../resources/tquadrat_logo.jpg" alt="tquadrat.org"style="float:right;"><div style="font-family:sans-serif;font-size:40px;font-weight:bold;padding-left:30px;"><p>tquadrat's <i>Foundation</i> Library<br>org.tquadrat.foundation.fx 0.25.2 API</p></div>      <p>Build: 2026-03-20T14:58:11.471502063Z[UTC]</p>      </div>
+<header role="banner"><div style="overflow:auto;"><img src="../../../../../../resources/tquadrat_logo.jpg" alt="tquadrat.org"style="float:right;"><div style="font-family:sans-serif;font-size:40px;font-weight:bold;padding-left:30px;"><p>tquadrat's <i>Foundation</i> Library<br>org.tquadrat.foundation.fx 0.25.2 API</p></div>      <p>Build: 2026-03-20T17:08:11.277786413Z[UTC]</p>      </div>
 <nav role="navigation">
 <!-- ========= START OF TOP NAVBAR ======= -->
 <div class="top-nav" id="navbar-top">
@@ -130,9 +130,10 @@ method
 <a href="#wrap(javafx.util.StringConverter)"><code>wrap(StringConverter)</code></a>.</p>
 <p>To get just a <i>Foundation</i> <code>StringConverter</code>, you can use
 this code (here <code>BigInteger</code> is used as an example):</p>
-<pre><code>    final var x = new BigIntegerStringConverter();
+<div class="source-container"><pre>
+    final var x = new BigIntegerStringConverter();
     final var c = new GenericStringConverter&lt;BigInteger&gt;( s -&gt; isNull( s ) ? null : x.fromString( s.toString() ), x::toString );
-</code></pre>
+</pre></div>
 <p>If you need to build a String converter from scratch that should serve
 both purposes, write your own class that extends
 <a href="https://openjfx.io/javadoc/25/javafx.base/javafx/util/StringConverter.html" title="class or interface in javafx.util" class="external-link"><code>javafx.util.StringConverter</code></a>

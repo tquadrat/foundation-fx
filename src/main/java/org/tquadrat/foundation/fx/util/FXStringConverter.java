@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- *  Copyright © 2002-2023 by Thomas Thrien.
+ *  Copyright © 2002-2026 by Thomas Thrien.
  *  All Rights Reserved.
  * ============================================================================
  *  Licensed to the public under the agreements of the GNU Lesser General Public
@@ -47,10 +47,10 @@ import javafx.util.StringConverter;
  *  {@link #wrap(StringConverter)}.</p>
  *  <p>To get just a <i>Foundation</i> {@code StringConverter}, you can use
  *  this code (here {@code BigInteger} is used as an example):</p>
- *  <pre><code>
+ *  <div class="source-container"><pre>
  *      final var x = new BigIntegerStringConverter();
  *      final var c = new GenericStringConverter&lt;BigInteger&gt;( s -> isNull( s ) ? null : x.fromString( s.toString() ), x::toString );
- *  </code></pre>
+ *  </pre></div>
  *  <p>If you need to build a String converter from scratch that should serve
  *  both purposes, write your own class that extends
  *  {@link StringConverter javafx.util.StringConverter}
