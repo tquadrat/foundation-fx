@@ -17,21 +17,21 @@
 
 package org.tquadrat.foundation.fx.util;
 
-import static org.apiguardian.api.API.Status.STABLE;
-import static org.tquadrat.foundation.lang.Objects.isNull;
-import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
-import static org.tquadrat.foundation.lang.Objects.requireNotBlankArgument;
-
-import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.UnaryOperator;
-
+import javafx.util.StringConverter;
 import org.apiguardian.api.API;
 import org.tquadrat.foundation.annotation.ClassVersion;
 import org.tquadrat.foundation.fx.control.ErrorDisplay;
 import org.tquadrat.foundation.lang.GenericStringConverter;
 import org.tquadrat.foundation.lang.Stringer;
-import javafx.util.StringConverter;
+
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
+
+import static org.apiguardian.api.API.Status.STABLE;
+import static org.tquadrat.foundation.lang.Objects.isNull;
+import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
+import static org.tquadrat.foundation.lang.Objects.requireNotBlankArgument;
 
 /**
  *  <p>{@summary An implementation of
@@ -72,14 +72,14 @@ import javafx.util.StringConverter;
  *
  *  @param <T>  The target type for the conversion.
  *
- *  @version $Id: FXStringConverter.java 1151 2025-10-01 21:32:15Z tquadrat $
+ *  @version $Id: FXStringConverter.java 1164 2026-03-20 17:38:18Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.4.3
  *
  *  @see GenericStringConverter
  */
-@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 1151 2025-10-01 21:32:15Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 1164 2026-03-20 17:38:18Z tquadrat $" )
 @API( status = STABLE, since = "0.4.3" )
 public final class FXStringConverter<T> extends StringConverter<T> implements org.tquadrat.foundation.lang.StringConverter<T>
 {
