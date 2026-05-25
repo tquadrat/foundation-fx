@@ -6,8 +6,8 @@ Some extensions and utilities for JavaFX.
     <dependency>
       <groupId>org.tquadrat.library</groupId>
       <artifactId>org.tquadrat.foundation.fx</artifactId>
-      <version>0.25.4</version>
+      <version>0.25.5</version>
     </dependency>
     ```
 ---  
-Last updated: 2026-05-17T13:10:54.275946893+02:00[Europe/Berlin]
+Last updated: 2026-05-25T22:09:10.562049645+02:00[Europe/Berlin]
