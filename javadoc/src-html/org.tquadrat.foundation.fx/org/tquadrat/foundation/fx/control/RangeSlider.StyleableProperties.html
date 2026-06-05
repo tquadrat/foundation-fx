@@ -148,13 +148,13 @@
 <span class="source-line-no">135</span><span id="line-135"> *</span>
 <span class="source-line-no">136</span><span id="line-136"> *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org</span>
 <span class="source-line-no">137</span><span id="line-137"> *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}</span>
-<span class="source-line-no">138</span><span id="line-138"> *  @version $Id: RangeSlider.java 1151 2025-10-01 21:32:15Z tquadrat $</span>
+<span class="source-line-no">138</span><span id="line-138"> *  @version $Id: RangeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $</span>
 <span class="source-line-no">139</span><span id="line-139"> *  @since 0.4.6</span>
 <span class="source-line-no">140</span><span id="line-140"> *</span>
 <span class="source-line-no">141</span><span id="line-141"> *  @UMLGraph.link</span>
 <span class="source-line-no">142</span><span id="line-142"> */</span>
 <span class="source-line-no">143</span><span id="line-143">@SuppressWarnings( {"ClassWithTooManyFields", "ClassWithTooManyMethods"} )</span>
-<span class="source-line-no">144</span><span id="line-144">@ClassVersion( sourceVersion = "$Id: RangeSlider.java 1151 2025-10-01 21:32:15Z tquadrat $" )</span>
+<span class="source-line-no">144</span><span id="line-144">@ClassVersion( sourceVersion = "$Id: RangeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $" )</span>
 <span class="source-line-no">145</span><span id="line-145">@API( status = STABLE, since = "0.4.6" )</span>
 <span class="source-line-no">146</span><span id="line-146">public final class RangeSlider extends FoundationFXControl</span>
 <span class="source-line-no">147</span><span id="line-147">{</span>
@@ -167,12 +167,12 @@
 <span class="source-line-no">154</span><span id="line-154">     *</span>
 <span class="source-line-no">155</span><span id="line-155">     *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org</span>
 <span class="source-line-no">156</span><span id="line-156">     *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}</span>
-<span class="source-line-no">157</span><span id="line-157">     *  @version $Id: RangeSlider.java 1151 2025-10-01 21:32:15Z tquadrat $</span>
+<span class="source-line-no">157</span><span id="line-157">     *  @version $Id: RangeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $</span>
 <span class="source-line-no">158</span><span id="line-158">     *  @since 0.4.6</span>
 <span class="source-line-no">159</span><span id="line-159">     */</span>
 <span class="source-line-no">160</span><span id="line-160">    @SuppressWarnings( {"ProtectedInnerClass", "InnerClassTooDeeplyNested", "AnonymousInnerClass"} )</span>
 <span class="source-line-no">161</span><span id="line-161">    @UtilityClass</span>
-<span class="source-line-no">162</span><span id="line-162">    @ClassVersion( sourceVersion = "$Id: RangeSlider.java 1151 2025-10-01 21:32:15Z tquadrat $" )</span>
+<span class="source-line-no">162</span><span id="line-162">    @ClassVersion( sourceVersion = "$Id: RangeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $" )</span>
 <span class="source-line-no">163</span><span id="line-163">    @API( status = STABLE, since = "0.4.6" )</span>
 <span class="source-line-no">164</span><span id="line-164">    protected static final class StyleableProperties</span>
 <span class="source-line-no">165</span><span id="line-165">    {</span>
@@ -711,7 +711,7 @@
 <span class="source-line-no">698</span><span id="line-698">     *  clicked.} This is used when manipulating the slider position using</span>
 <span class="source-line-no">699</span><span id="line-699">     *  keys. If</span>
 <span class="source-line-no">700</span><span id="line-700">     *  {@link #snapToTicksProperty() snapToTicks}</span>
-<span class="source-line-no">701</span><span id="line-701">     *  is {@code true} then the nearest tick mark to the adjusted value will</span>
+<span class="source-line-no">701</span><span id="line-701">     *  is {@true} then the nearest tick mark to the adjusted value will</span>
 <span class="source-line-no">702</span><span id="line-702">     *  be used.&lt;/p&gt;</span>
 <span class="source-line-no">703</span><span id="line-703">     *</span>
 <span class="source-line-no">704</span><span id="line-704">     *  @return The property reference.</span>
@@ -858,10 +858,10 @@
 <span class="source-line-no">845</span><span id="line-845">    /**</span>
 <span class="source-line-no">846</span><span id="line-846">     *  &lt;p&gt;{@summary Returns a reference to the property that indicates a</span>
 <span class="source-line-no">847</span><span id="line-847">     *  change to the high value of this {@code RangeSlider}.}&lt;/p&gt;</span>
-<span class="source-line-no">848</span><span id="line-848">     *  &lt;p&gt;When the property is set to {@code true}, it indicates that the</span>
+<span class="source-line-no">848</span><span id="line-848">     *  &lt;p&gt;When the property is set to {@true}, it indicates that the</span>
 <span class="source-line-no">849</span><span id="line-849">     *  current high value of this {@code RangeSlider} is changing. It provides</span>
 <span class="source-line-no">850</span><span id="line-850">     *  notification that the high value is changing. Once the high value is</span>
-<span class="source-line-no">851</span><span id="line-851">     *  computed, it is set back to {@code false}.&lt;/p&gt;</span>
+<span class="source-line-no">851</span><span id="line-851">     *  computed, it is set back to {@false}.&lt;/p&gt;</span>
 <span class="source-line-no">852</span><span id="line-852">     *</span>
 <span class="source-line-no">853</span><span id="line-853">     *  @return The property reference.</span>
 <span class="source-line-no">854</span><span id="line-854">     */</span>
@@ -903,8 +903,8 @@
 <span class="source-line-no">890</span><span id="line-890">     *  Returns whether the high value of this {@code RangeSlider} is currently</span>
 <span class="source-line-no">891</span><span id="line-891">     *  changing.</span>
 <span class="source-line-no">892</span><span id="line-892">     *</span>
-<span class="source-line-no">893</span><span id="line-893">     *  @return {@code true} if the high value is currently changing, otherwise</span>
-<span class="source-line-no">894</span><span id="line-894">     *      {@code false}.</span>
+<span class="source-line-no">893</span><span id="line-893">     *  @return {@true} if the high value is currently changing, otherwise</span>
+<span class="source-line-no">894</span><span id="line-894">     *      {@false}.</span>
 <span class="source-line-no">895</span><span id="line-895">     */</span>
 <span class="source-line-no">896</span><span id="line-896">    public final boolean isHighValueChanging() { return m_HighValueChangingProperty.get(); }</span>
 <span class="source-line-no">897</span><span id="line-897"></span>
@@ -912,8 +912,8 @@
 <span class="source-line-no">899</span><span id="line-899">     *  Returns whether the low value of this {@code RangeSlider} is currently</span>
 <span class="source-line-no">900</span><span id="line-900">     *  changing.</span>
 <span class="source-line-no">901</span><span id="line-901">     *</span>
-<span class="source-line-no">902</span><span id="line-902">     *  @return {@code true} if the low value is currently changing, otherwise</span>
-<span class="source-line-no">903</span><span id="line-903">     *      {@code false}.</span>
+<span class="source-line-no">902</span><span id="line-902">     *  @return {@true} if the low value is currently changing, otherwise</span>
+<span class="source-line-no">903</span><span id="line-903">     *      {@false}.</span>
 <span class="source-line-no">904</span><span id="line-904">     */</span>
 <span class="source-line-no">905</span><span id="line-905">    public final boolean isLowValueChanging() { return m_LowValueChangingProperty.get(); }</span>
 <span class="source-line-no">906</span><span id="line-906"></span>
@@ -921,16 +921,16 @@
 <span class="source-line-no">908</span><span id="line-908">     *  Returns the flag indicating whether labels of tick marks are being</span>
 <span class="source-line-no">909</span><span id="line-909">     *  shown.</span>
 <span class="source-line-no">910</span><span id="line-910">     *</span>
-<span class="source-line-no">911</span><span id="line-911">     *  @return {@code true} if the tick mark label are shown, otherwise</span>
-<span class="source-line-no">912</span><span id="line-912">     *      {@code false}.</span>
+<span class="source-line-no">911</span><span id="line-911">     *  @return {@true} if the tick mark label are shown, otherwise</span>
+<span class="source-line-no">912</span><span id="line-912">     *      {@false}.</span>
 <span class="source-line-no">913</span><span id="line-913">     */</span>
 <span class="source-line-no">914</span><span id="line-914">    public final boolean isShowTickLabels() { return m_ShowTickLabelsProperty.get(); }</span>
 <span class="source-line-no">915</span><span id="line-915"></span>
 <span class="source-line-no">916</span><span id="line-916">    /**</span>
 <span class="source-line-no">917</span><span id="line-917">     *  Returns the flag indication whether the tick marks are shown.</span>
 <span class="source-line-no">918</span><span id="line-918">     *</span>
-<span class="source-line-no">919</span><span id="line-919">     *  @return {@code true} if the tick marks are shown, otherwise</span>
-<span class="source-line-no">920</span><span id="line-920">     *      {@code false}.</span>
+<span class="source-line-no">919</span><span id="line-919">     *  @return {@true} if the tick marks are shown, otherwise</span>
+<span class="source-line-no">920</span><span id="line-920">     *      {@false}.</span>
 <span class="source-line-no">921</span><span id="line-921">     */</span>
 <span class="source-line-no">922</span><span id="line-922">    public final boolean isShowTickMarks() { return m_ShowTickMarksProperty.get(); }</span>
 <span class="source-line-no">923</span><span id="line-923"></span>
@@ -938,8 +938,8 @@
 <span class="source-line-no">925</span><span id="line-925">     *  Returns the flag that controls whether the thumbs will snap to the tick</span>
 <span class="source-line-no">926</span><span id="line-926">     *  marks.</span>
 <span class="source-line-no">927</span><span id="line-927">     *</span>
-<span class="source-line-no">928</span><span id="line-928">     *  @return {@code true} if the thumbs will snap to the tick marks,</span>
-<span class="source-line-no">929</span><span id="line-929">     *      otherwise {@code false}.</span>
+<span class="source-line-no">928</span><span id="line-928">     *  @return {@true} if the thumbs will snap to the tick marks,</span>
+<span class="source-line-no">929</span><span id="line-929">     *      otherwise {@false}.</span>
 <span class="source-line-no">930</span><span id="line-930">     *</span>
 <span class="source-line-no">931</span><span id="line-931">     *  @see #snapToTicksProperty()</span>
 <span class="source-line-no">932</span><span id="line-932">     */</span>
@@ -949,7 +949,7 @@
 <span class="source-line-no">936</span><span id="line-936">     *  &lt;p&gt;{@summary Returns a reference to the property that holds the</span>
 <span class="source-line-no">937</span><span id="line-937">     *  {@link StringConverter}</span>
 <span class="source-line-no">938</span><span id="line-938">     *  that is used to format the tick mark labels.}&lt;/p&gt;</span>
-<span class="source-line-no">939</span><span id="line-939">     *  &lt;p&gt;If {@code null}, a default will be used.&lt;/p&gt;</span>
+<span class="source-line-no">939</span><span id="line-939">     *  &lt;p&gt;If {@null}, a default will be used.&lt;/p&gt;</span>
 <span class="source-line-no">940</span><span id="line-940">     *</span>
 <span class="source-line-no">941</span><span id="line-941">     *  @return The property reference.</span>
 <span class="source-line-no">942</span><span id="line-942">     */</span>
@@ -961,10 +961,10 @@
 <span class="source-line-no">948</span><span id="line-948">    /**</span>
 <span class="source-line-no">949</span><span id="line-949">     *  &lt;p&gt;{@summary Returns a reference to the property that indicates a</span>
 <span class="source-line-no">950</span><span id="line-950">     *  change to the low value of this {@code RangeSlider}.}&lt;/p&gt;</span>
-<span class="source-line-no">951</span><span id="line-951">     *  &lt;p&gt;When the property is set to {@code true}, it indicates that the</span>
+<span class="source-line-no">951</span><span id="line-951">     *  &lt;p&gt;When the property is set to {@true}, it indicates that the</span>
 <span class="source-line-no">952</span><span id="line-952">     *  current low value of this {@code RangeSlider} is changing. It provides</span>
 <span class="source-line-no">953</span><span id="line-953">     *  notification that the low value is changing. Once the low value is</span>
-<span class="source-line-no">954</span><span id="line-954">     *  computed, the property is set back to {@code false}.&lt;/p&gt;</span>
+<span class="source-line-no">954</span><span id="line-954">     *  computed, the property is set back to {@false}.&lt;/p&gt;</span>
 <span class="source-line-no">955</span><span id="line-955">     *</span>
 <span class="source-line-no">956</span><span id="line-956">     *  @return The property reference.</span>
 <span class="source-line-no">957</span><span id="line-957">     */</span>
@@ -1052,8 +1052,8 @@
 <span class="source-line-no">1039</span><span id="line-1039">    /**</span>
 <span class="source-line-no">1040</span><span id="line-1040">     *  Call this when high value is changing.</span>
 <span class="source-line-no">1041</span><span id="line-1041">     *</span>
-<span class="source-line-no">1042</span><span id="line-1042">     *  @param  flag    {@code true} if the high value is currently changing,</span>
-<span class="source-line-no">1043</span><span id="line-1043">     *      {@code false} otherwise.</span>
+<span class="source-line-no">1042</span><span id="line-1042">     *  @param  flag    {@true} if the high value is currently changing,</span>
+<span class="source-line-no">1043</span><span id="line-1043">     *      {@false} otherwise.</span>
 <span class="source-line-no">1044</span><span id="line-1044">     */</span>
 <span class="source-line-no">1045</span><span id="line-1045">    public final void setHighValueChanging( final boolean flag ) { m_HighValueChangingProperty.set( flag ); }</span>
 <span class="source-line-no">1046</span><span id="line-1046"></span>
@@ -1102,7 +1102,7 @@
 <span class="source-line-no">1089</span><span id="line-1089">    /**</span>
 <span class="source-line-no">1090</span><span id="line-1090">     *  Call this when the low value is changing.</span>
 <span class="source-line-no">1091</span><span id="line-1091">     *</span>
-<span class="source-line-no">1092</span><span id="line-1092">     *  @param  flag {@code true} if the low value is changing, {@code false}</span>
+<span class="source-line-no">1092</span><span id="line-1092">     *  @param  flag {@true} if the low value is changing, {@false}</span>
 <span class="source-line-no">1093</span><span id="line-1093">     *      otherwise.</span>
 <span class="source-line-no">1094</span><span id="line-1094">     */</span>
 <span class="source-line-no">1095</span><span id="line-1095">    public final void setLowValueChanging( final boolean flag ) { m_LowValueChangingProperty.set( flag ); }</span>
@@ -1154,8 +1154,8 @@
 <span class="source-line-no">1141</span><span id="line-1141">     *  Sets the flag that controls whether the thumbs will snap to the tick</span>
 <span class="source-line-no">1142</span><span id="line-1142">     *  marks.</span>
 <span class="source-line-no">1143</span><span id="line-1143">     *</span>
-<span class="source-line-no">1144</span><span id="line-1144">     *  @param  flag    {@code true} if the thumbs snaps to the tick marks,</span>
-<span class="source-line-no">1145</span><span id="line-1145">     *      {@code false} if not.</span>
+<span class="source-line-no">1144</span><span id="line-1144">     *  @param  flag    {@true} if the thumbs snaps to the tick marks,</span>
+<span class="source-line-no">1145</span><span id="line-1145">     *      {@false} if not.</span>
 <span class="source-line-no">1146</span><span id="line-1146">     *</span>
 <span class="source-line-no">1147</span><span id="line-1147">     *  @see #snapToTicksProperty()</span>
 <span class="source-line-no">1148</span><span id="line-1148">     */</span>
@@ -1164,15 +1164,15 @@
 <span class="source-line-no">1151</span><span id="line-1151">    /**</span>
 <span class="source-line-no">1152</span><span id="line-1152">     *  Sets whether labels of tick marks should be shown or not.</span>
 <span class="source-line-no">1153</span><span id="line-1153">     *</span>
-<span class="source-line-no">1154</span><span id="line-1154">     *  @param  flag    {@code true} if the tick mark labels should be shown,</span>
-<span class="source-line-no">1155</span><span id="line-1155">     *      {@code false} if not.</span>
+<span class="source-line-no">1154</span><span id="line-1154">     *  @param  flag    {@true} if the tick mark labels should be shown,</span>
+<span class="source-line-no">1155</span><span id="line-1155">     *      {@false} if not.</span>
 <span class="source-line-no">1156</span><span id="line-1156">     */</span>
 <span class="source-line-no">1157</span><span id="line-1157">    public final void setShowTickLabels( final boolean flag ) { m_ShowTickLabelsProperty.set( flag ); }</span>
 <span class="source-line-no">1158</span><span id="line-1158"></span>
 <span class="source-line-no">1159</span><span id="line-1159">    /**</span>
 <span class="source-line-no">1160</span><span id="line-1160">     *  Sets whether tick marks should be shown or not.</span>
 <span class="source-line-no">1161</span><span id="line-1161">     *</span>
-<span class="source-line-no">1162</span><span id="line-1162">     *  @param  flag    {@code true} if the tick marks are shown, {@code false}</span>
+<span class="source-line-no">1162</span><span id="line-1162">     *  @param  flag    {@true} if the tick marks are shown, {@false}</span>
 <span class="source-line-no">1163</span><span id="line-1163">     *      if not.</span>
 <span class="source-line-no">1164</span><span id="line-1164">     */</span>
 <span class="source-line-no">1165</span><span id="line-1165">    public final void setShowTickMarks( final boolean flag ) { m_ShowTickMarksProperty.set( flag ); }</span>
@@ -1184,7 +1184,7 @@
 <span class="source-line-no">1171</span><span id="line-1171">     *  {@link Skin}</span>
 <span class="source-line-no">1172</span><span id="line-1172">     *  implementation will only show labels if</span>
 <span class="source-line-no">1173</span><span id="line-1173">     *  {@link #showTickMarksProperty() showTickMarks}</span>
-<span class="source-line-no">1174</span><span id="line-1174">     *  is also {@code true}.&lt;/p&gt;</span>
+<span class="source-line-no">1174</span><span id="line-1174">     *  is also {@true}.&lt;/p&gt;</span>
 <span class="source-line-no">1175</span><span id="line-1175">     *</span>
 <span class="source-line-no">1176</span><span id="line-1176">     *  @return The property reference.</span>
 <span class="source-line-no">1177</span><span id="line-1177">     */</span>

@@ -135,13 +135,13 @@ import javafx.util.StringConverter;
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
- *  @version $Id: RangeSlider.java 1151 2025-10-01 21:32:15Z tquadrat $
+ *  @version $Id: RangeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( {"ClassWithTooManyFields", "ClassWithTooManyMethods"} )
-@ClassVersion( sourceVersion = "$Id: RangeSlider.java 1151 2025-10-01 21:32:15Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: RangeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $" )
 @API( status = STABLE, since = "0.4.6" )
 public final class RangeSlider extends FoundationFXControl
 {
@@ -154,12 +154,12 @@ public final class RangeSlider extends FoundationFXControl
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
      *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
-     *  @version $Id: RangeSlider.java 1151 2025-10-01 21:32:15Z tquadrat $
+     *  @version $Id: RangeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $
      *  @since 0.4.6
      */
     @SuppressWarnings( {"ProtectedInnerClass", "InnerClassTooDeeplyNested", "AnonymousInnerClass"} )
     @UtilityClass
-    @ClassVersion( sourceVersion = "$Id: RangeSlider.java 1151 2025-10-01 21:32:15Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: RangeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $" )
     @API( status = STABLE, since = "0.4.6" )
     protected static final class StyleableProperties
     {
@@ -698,7 +698,7 @@ public final class RangeSlider extends FoundationFXControl
      *  clicked.} This is used when manipulating the slider position using
      *  keys. If
      *  {@link #snapToTicksProperty() snapToTicks}
-     *  is {@code true} then the nearest tick mark to the adjusted value will
+     *  is {@true} then the nearest tick mark to the adjusted value will
      *  be used.</p>
      *
      *  @return The property reference.
@@ -845,10 +845,10 @@ public final class RangeSlider extends FoundationFXControl
     /**
      *  <p>{@summary Returns a reference to the property that indicates a
      *  change to the high value of this {@code RangeSlider}.}</p>
-     *  <p>When the property is set to {@code true}, it indicates that the
+     *  <p>When the property is set to {@true}, it indicates that the
      *  current high value of this {@code RangeSlider} is changing. It provides
      *  notification that the high value is changing. Once the high value is
-     *  computed, it is set back to {@code false}.</p>
+     *  computed, it is set back to {@false}.</p>
      *
      *  @return The property reference.
      */
@@ -890,8 +890,8 @@ public final class RangeSlider extends FoundationFXControl
      *  Returns whether the high value of this {@code RangeSlider} is currently
      *  changing.
      *
-     *  @return {@code true} if the high value is currently changing, otherwise
-     *      {@code false}.
+     *  @return {@true} if the high value is currently changing, otherwise
+     *      {@false}.
      */
     public final boolean isHighValueChanging() { return m_HighValueChangingProperty.get(); }
 
@@ -899,8 +899,8 @@ public final class RangeSlider extends FoundationFXControl
      *  Returns whether the low value of this {@code RangeSlider} is currently
      *  changing.
      *
-     *  @return {@code true} if the low value is currently changing, otherwise
-     *      {@code false}.
+     *  @return {@true} if the low value is currently changing, otherwise
+     *      {@false}.
      */
     public final boolean isLowValueChanging() { return m_LowValueChangingProperty.get(); }
 
@@ -908,16 +908,16 @@ public final class RangeSlider extends FoundationFXControl
      *  Returns the flag indicating whether labels of tick marks are being
      *  shown.
      *
-     *  @return {@code true} if the tick mark label are shown, otherwise
-     *      {@code false}.
+     *  @return {@true} if the tick mark label are shown, otherwise
+     *      {@false}.
      */
     public final boolean isShowTickLabels() { return m_ShowTickLabelsProperty.get(); }
 
     /**
      *  Returns the flag indication whether the tick marks are shown.
      *
-     *  @return {@code true} if the tick marks are shown, otherwise
-     *      {@code false}.
+     *  @return {@true} if the tick marks are shown, otherwise
+     *      {@false}.
      */
     public final boolean isShowTickMarks() { return m_ShowTickMarksProperty.get(); }
 
@@ -925,8 +925,8 @@ public final class RangeSlider extends FoundationFXControl
      *  Returns the flag that controls whether the thumbs will snap to the tick
      *  marks.
      *
-     *  @return {@code true} if the thumbs will snap to the tick marks,
-     *      otherwise {@code false}.
+     *  @return {@true} if the thumbs will snap to the tick marks,
+     *      otherwise {@false}.
      *
      *  @see #snapToTicksProperty()
      */
@@ -936,7 +936,7 @@ public final class RangeSlider extends FoundationFXControl
      *  <p>{@summary Returns a reference to the property that holds the
      *  {@link StringConverter}
      *  that is used to format the tick mark labels.}</p>
-     *  <p>If {@code null}, a default will be used.</p>
+     *  <p>If {@null}, a default will be used.</p>
      *
      *  @return The property reference.
      */
@@ -948,10 +948,10 @@ public final class RangeSlider extends FoundationFXControl
     /**
      *  <p>{@summary Returns a reference to the property that indicates a
      *  change to the low value of this {@code RangeSlider}.}</p>
-     *  <p>When the property is set to {@code true}, it indicates that the
+     *  <p>When the property is set to {@true}, it indicates that the
      *  current low value of this {@code RangeSlider} is changing. It provides
      *  notification that the low value is changing. Once the low value is
-     *  computed, the property is set back to {@code false}.</p>
+     *  computed, the property is set back to {@false}.</p>
      *
      *  @return The property reference.
      */
@@ -1039,8 +1039,8 @@ public final class RangeSlider extends FoundationFXControl
     /**
      *  Call this when high value is changing.
      *
-     *  @param  flag    {@code true} if the high value is currently changing,
-     *      {@code false} otherwise.
+     *  @param  flag    {@true} if the high value is currently changing,
+     *      {@false} otherwise.
      */
     public final void setHighValueChanging( final boolean flag ) { m_HighValueChangingProperty.set( flag ); }
 
@@ -1089,7 +1089,7 @@ public final class RangeSlider extends FoundationFXControl
     /**
      *  Call this when the low value is changing.
      *
-     *  @param  flag {@code true} if the low value is changing, {@code false}
+     *  @param  flag {@true} if the low value is changing, {@false}
      *      otherwise.
      */
     public final void setLowValueChanging( final boolean flag ) { m_LowValueChangingProperty.set( flag ); }
@@ -1141,8 +1141,8 @@ public final class RangeSlider extends FoundationFXControl
      *  Sets the flag that controls whether the thumbs will snap to the tick
      *  marks.
      *
-     *  @param  flag    {@code true} if the thumbs snaps to the tick marks,
-     *      {@code false} if not.
+     *  @param  flag    {@true} if the thumbs snaps to the tick marks,
+     *      {@false} if not.
      *
      *  @see #snapToTicksProperty()
      */
@@ -1151,15 +1151,15 @@ public final class RangeSlider extends FoundationFXControl
     /**
      *  Sets whether labels of tick marks should be shown or not.
      *
-     *  @param  flag    {@code true} if the tick mark labels should be shown,
-     *      {@code false} if not.
+     *  @param  flag    {@true} if the tick mark labels should be shown,
+     *      {@false} if not.
      */
     public final void setShowTickLabels( final boolean flag ) { m_ShowTickLabelsProperty.set( flag ); }
 
     /**
      *  Sets whether tick marks should be shown or not.
      *
-     *  @param  flag    {@code true} if the tick marks are shown, {@code false}
+     *  @param  flag    {@true} if the tick marks are shown, {@false}
      *      if not.
      */
     public final void setShowTickMarks( final boolean flag ) { m_ShowTickMarksProperty.set( flag ); }
@@ -1171,7 +1171,7 @@ public final class RangeSlider extends FoundationFXControl
      *  {@link Skin}
      *  implementation will only show labels if
      *  {@link #showTickMarksProperty() showTickMarks}
-     *  is also {@code true}.</p>
+     *  is also {@true}.</p>
      *
      *  @return The property reference.
      */

@@ -38,13 +38,13 @@ import javafx.stage.Stage;
  *
  *  @param  <A> The class of the JavaFX application.
  *
- *  @version $Id: FXUserDataBean.java 1110 2024-03-04 15:26:06Z tquadrat $
+ *  @version $Id: FXUserDataBean.java 1258 2026-06-04 18:33:06Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.1.0
  */
 @SuppressWarnings( "AbstractClassWithoutAbstractMethods" )
-@ClassVersion( sourceVersion = "$Id: FXUserDataBean.java 1110 2024-03-04 15:26:06Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: FXUserDataBean.java 1258 2026-06-04 18:33:06Z tquadrat $" )
 @API( status = INTERNAL, since = "0.1.0" )
 public abstract sealed class FXUserDataBean<A extends Application>
     permits SceneUserData
@@ -135,8 +135,8 @@ public abstract sealed class FXUserDataBean<A extends Application>
      *  Checks whether a property with the given name exists.
      *
      *  @param  name    The name of the property.
-     *  @return {@code true} if there is a property with the given name (that
-     *      can still be {@code null}), {@code false} otherwise.
+     *  @return {@true} if there is a property with the given name (that
+     *      can still be {@null}), {@false} otherwise.
      */
     public final boolean hasProperty( final String name ) { return m_Properties.containsKey( requireNotEmptyArgument( name, "name" ) ); }
 
@@ -160,7 +160,7 @@ public abstract sealed class FXUserDataBean<A extends Application>
      *
      *  @param  name    The name of the property.
      *  @param  value   The new value of the property; this can be
-     *      {@code null}.
+     *      {@null}.
      */
     public final void setProperty( final String name, final Object value )
     {

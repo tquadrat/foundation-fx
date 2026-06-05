@@ -67,12 +67,12 @@ import javafx.scene.control.Skin;
  *      vertical scrollbar does not work properly for smaller values.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: ErrorDisplay.java 1112 2024-03-10 14:16:51Z tquadrat $
+ *  @version $Id: ErrorDisplay.java 1258 2026-06-04 18:33:06Z tquadrat $
  *  @since 0.4.3
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: ErrorDisplay.java 1112 2024-03-10 14:16:51Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: ErrorDisplay.java 1258 2026-06-04 18:33:06Z tquadrat $" )
 @API( status = STABLE, since = "0.4.3" )
 public final class ErrorDisplay extends FoundationFXControl
 {
@@ -87,12 +87,12 @@ public final class ErrorDisplay extends FoundationFXControl
      *  error message will be added or removed from the error display.</p>
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
-     *  @version $Id: ErrorDisplay.java 1112 2024-03-10 14:16:51Z tquadrat $
+     *  @version $Id: ErrorDisplay.java 1258 2026-06-04 18:33:06Z tquadrat $
      *  @since 0.4.3
      *
      *  @UMLGraph.link
      */
-    @ClassVersion( sourceVersion = "$Id: ErrorDisplay.java 1112 2024-03-10 14:16:51Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: ErrorDisplay.java 1258 2026-06-04 18:33:06Z tquadrat $" )
     @API( status = INTERNAL, since = "0.4.3" )
     private final class MessageTrigger
     {
@@ -121,7 +121,7 @@ public final class ErrorDisplay extends FoundationFXControl
          *  <p>{@summary Creates a new instance of {@code MessageTrigger}.}</p>
          *  <p>The message will be displayed when the given instance of
          *  {@link BooleanBinding}
-         *  evaluates to {@code true}.</p>
+         *  evaluates to {@true}.</p>
          *
          *  @param  id  The message id.
          *  @param  messageSupplier The supplier for the message text.
@@ -259,7 +259,7 @@ public final class ErrorDisplay extends FoundationFXControl
      *  <p>The message provided by the given supplier will be displayed when
      *  the given instance of
      *  {@link BooleanBinding}
-     *  evaluates to {@code true}.</p>
+     *  evaluates to {@true}.</p>
      *  <p>Use this to control the visibility of a particular message based on
      *  the status of the given binding.</p>
      *
@@ -305,7 +305,7 @@ public final class ErrorDisplay extends FoundationFXControl
     }   //  createDefaultSkin()
 
     /**
-     *  Returns the reference to a boolean property that is {@code true} if
+     *  Returns the reference to a boolean property that is {@true} if
      *  currently no messages are displayed.
      *
      *  @return The property reference.
@@ -322,7 +322,7 @@ public final class ErrorDisplay extends FoundationFXControl
     /**
      *  Checks whether there are any messages to display.
      *
-     *  @return {@code true} if there are no messages to show, {@code false}
+     *  @return {@true} if there are no messages to show, {@false}
      *      otherwise.
      */
     public final boolean isEmpty() { return m_Messages.isEmpty(); }

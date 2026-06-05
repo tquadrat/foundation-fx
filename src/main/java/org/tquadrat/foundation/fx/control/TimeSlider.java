@@ -73,13 +73,13 @@ import javafx.scene.text.Font;
  *  is configured in a special way.</p>
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: TimeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $
+ *  @version $Id: TimeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( {"ClassWithTooManyMethods", "ClassWithTooManyConstructors", "ClassWithTooManyFields"} )
-@ClassVersion( sourceVersion = "$Id: TimeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: TimeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $" )
 @API( status = STABLE, since = "0.4.6" )
 public final class TimeSlider extends FoundationFXControl
 {
@@ -91,10 +91,10 @@ public final class TimeSlider extends FoundationFXControl
      *  {@link TimeSlider}.
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
-     *  @version $Id: TimeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $
+     *  @version $Id: TimeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $
      *  @since 0.4.6
      */
-    @ClassVersion( sourceVersion = "$Id: TimeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: TimeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $" )
     @API( status = STABLE, since = "0.4.6" )
     public static enum Granularity
     {
@@ -177,12 +177,12 @@ public final class TimeSlider extends FoundationFXControl
      *  {@link Granularity}.
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
-     *  @version $Id: TimeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $
+     *  @version $Id: TimeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $
      *  @since 0.4.6
      *
      *  @UMLGraph.link
      */
-    @ClassVersion( sourceVersion = "$Id: TimeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: TimeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $" )
     @API( status = INTERNAL, since = "0.4.6" )
     private static final class GranularityConverter extends StyleConverter<String,Granularity>
     {
@@ -230,12 +230,12 @@ public final class TimeSlider extends FoundationFXControl
      *  {@link TimeSlider}.
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
-     *  @version $Id: TimeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $
+     *  @version $Id: TimeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $
      *  @since 0.4.6
      */
     @SuppressWarnings( {"ProtectedInnerClass", "InnerClassTooDeeplyNested", "AnonymousInnerClass"} )
     @UtilityClass
-    @ClassVersion( sourceVersion = "$Id: TimeSlider.java 1121 2024-03-16 16:51:23Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: TimeSlider.java 1258 2026-06-04 18:33:06Z tquadrat $" )
     @API( status = STABLE, since = "0.4.6" )
     protected static final class StyleableProperties
     {
@@ -328,7 +328,7 @@ public final class TimeSlider extends FoundationFXControl
         \*------------*/
     /**
      *  <p>{@summary The property for the day for that the times should be set.}
-     *  The value for this property may not be {@code null}.</p>
+     *  The value for this property may not be {@null}.</p>
      */
     @SuppressWarnings( "AnonymousInnerClass" )
     private final ObjectProperty<LocalDate> m_DayProperty = new SimpleObjectProperty<>( this, "day", LocalDate.now() )
@@ -755,8 +755,8 @@ public final class TimeSlider extends FoundationFXControl
      *  Returns the flag that controls whether the thumbs will snap to the tick
      *  marks.
      *
-     *  @return {@code true} if the thumbs will snap to the tick marks,
-     *      otherwise {@code false}.
+     *  @return {@true} if the thumbs will snap to the tick marks,
+     *      otherwise {@false}.
      *
      *  @see #snapToTicksProperty()
      */
@@ -907,8 +907,8 @@ public final class TimeSlider extends FoundationFXControl
      *  Sets the flag that controls whether the thumbs will snap to the tick
      *  marks.
      *
-     *  @param  flag    {@code true} if the thumbs snaps to the tick marks,
-     *      {@code false} if not.
+     *  @param  flag    {@true} if the thumbs snaps to the tick marks,
+     *      {@false} if not.
      *
      *  @see #snapToTicksProperty()
      */

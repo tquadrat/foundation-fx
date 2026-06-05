@@ -80,12 +80,12 @@
 <span class="source-line-no">067</span><span id="line-67"> *      vertical scrollbar does not work properly for smaller values.</span>
 <span class="source-line-no">068</span><span id="line-68"> *</span>
 <span class="source-line-no">069</span><span id="line-69"> *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org</span>
-<span class="source-line-no">070</span><span id="line-70"> *  @version $Id: ErrorDisplay.java 1112 2024-03-10 14:16:51Z tquadrat $</span>
+<span class="source-line-no">070</span><span id="line-70"> *  @version $Id: ErrorDisplay.java 1258 2026-06-04 18:33:06Z tquadrat $</span>
 <span class="source-line-no">071</span><span id="line-71"> *  @since 0.4.3</span>
 <span class="source-line-no">072</span><span id="line-72"> *</span>
 <span class="source-line-no">073</span><span id="line-73"> *  @UMLGraph.link</span>
 <span class="source-line-no">074</span><span id="line-74"> */</span>
-<span class="source-line-no">075</span><span id="line-75">@ClassVersion( sourceVersion = "$Id: ErrorDisplay.java 1112 2024-03-10 14:16:51Z tquadrat $" )</span>
+<span class="source-line-no">075</span><span id="line-75">@ClassVersion( sourceVersion = "$Id: ErrorDisplay.java 1258 2026-06-04 18:33:06Z tquadrat $" )</span>
 <span class="source-line-no">076</span><span id="line-76">@API( status = STABLE, since = "0.4.3" )</span>
 <span class="source-line-no">077</span><span id="line-77">public final class ErrorDisplay extends FoundationFXControl</span>
 <span class="source-line-no">078</span><span id="line-78">{</span>
@@ -100,12 +100,12 @@
 <span class="source-line-no">087</span><span id="line-87">     *  error message will be added or removed from the error display.&lt;/p&gt;</span>
 <span class="source-line-no">088</span><span id="line-88">     *</span>
 <span class="source-line-no">089</span><span id="line-89">     *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org</span>
-<span class="source-line-no">090</span><span id="line-90">     *  @version $Id: ErrorDisplay.java 1112 2024-03-10 14:16:51Z tquadrat $</span>
+<span class="source-line-no">090</span><span id="line-90">     *  @version $Id: ErrorDisplay.java 1258 2026-06-04 18:33:06Z tquadrat $</span>
 <span class="source-line-no">091</span><span id="line-91">     *  @since 0.4.3</span>
 <span class="source-line-no">092</span><span id="line-92">     *</span>
 <span class="source-line-no">093</span><span id="line-93">     *  @UMLGraph.link</span>
 <span class="source-line-no">094</span><span id="line-94">     */</span>
-<span class="source-line-no">095</span><span id="line-95">    @ClassVersion( sourceVersion = "$Id: ErrorDisplay.java 1112 2024-03-10 14:16:51Z tquadrat $" )</span>
+<span class="source-line-no">095</span><span id="line-95">    @ClassVersion( sourceVersion = "$Id: ErrorDisplay.java 1258 2026-06-04 18:33:06Z tquadrat $" )</span>
 <span class="source-line-no">096</span><span id="line-96">    @API( status = INTERNAL, since = "0.4.3" )</span>
 <span class="source-line-no">097</span><span id="line-97">    private final class MessageTrigger</span>
 <span class="source-line-no">098</span><span id="line-98">    {</span>
@@ -134,7 +134,7 @@
 <span class="source-line-no">121</span><span id="line-121">         *  &lt;p&gt;{@summary Creates a new instance of {@code MessageTrigger}.}&lt;/p&gt;</span>
 <span class="source-line-no">122</span><span id="line-122">         *  &lt;p&gt;The message will be displayed when the given instance of</span>
 <span class="source-line-no">123</span><span id="line-123">         *  {@link BooleanBinding}</span>
-<span class="source-line-no">124</span><span id="line-124">         *  evaluates to {@code true}.&lt;/p&gt;</span>
+<span class="source-line-no">124</span><span id="line-124">         *  evaluates to {@true}.&lt;/p&gt;</span>
 <span class="source-line-no">125</span><span id="line-125">         *</span>
 <span class="source-line-no">126</span><span id="line-126">         *  @param  id  The message id.</span>
 <span class="source-line-no">127</span><span id="line-127">         *  @param  messageSupplier The supplier for the message text.</span>
@@ -272,7 +272,7 @@
 <span class="source-line-no">259</span><span id="line-259">     *  &lt;p&gt;The message provided by the given supplier will be displayed when</span>
 <span class="source-line-no">260</span><span id="line-260">     *  the given instance of</span>
 <span class="source-line-no">261</span><span id="line-261">     *  {@link BooleanBinding}</span>
-<span class="source-line-no">262</span><span id="line-262">     *  evaluates to {@code true}.&lt;/p&gt;</span>
+<span class="source-line-no">262</span><span id="line-262">     *  evaluates to {@true}.&lt;/p&gt;</span>
 <span class="source-line-no">263</span><span id="line-263">     *  &lt;p&gt;Use this to control the visibility of a particular message based on</span>
 <span class="source-line-no">264</span><span id="line-264">     *  the status of the given binding.&lt;/p&gt;</span>
 <span class="source-line-no">265</span><span id="line-265">     *</span>
@@ -318,7 +318,7 @@
 <span class="source-line-no">305</span><span id="line-305">    }   //  createDefaultSkin()</span>
 <span class="source-line-no">306</span><span id="line-306"></span>
 <span class="source-line-no">307</span><span id="line-307">    /**</span>
-<span class="source-line-no">308</span><span id="line-308">     *  Returns the reference to a boolean property that is {@code true} if</span>
+<span class="source-line-no">308</span><span id="line-308">     *  Returns the reference to a boolean property that is {@true} if</span>
 <span class="source-line-no">309</span><span id="line-309">     *  currently no messages are displayed.</span>
 <span class="source-line-no">310</span><span id="line-310">     *</span>
 <span class="source-line-no">311</span><span id="line-311">     *  @return The property reference.</span>
@@ -335,7 +335,7 @@
 <span class="source-line-no">322</span><span id="line-322">    /**</span>
 <span class="source-line-no">323</span><span id="line-323">     *  Checks whether there are any messages to display.</span>
 <span class="source-line-no">324</span><span id="line-324">     *</span>
-<span class="source-line-no">325</span><span id="line-325">     *  @return {@code true} if there are no messages to show, {@code false}</span>
+<span class="source-line-no">325</span><span id="line-325">     *  @return {@true} if there are no messages to show, {@false}</span>
 <span class="source-line-no">326</span><span id="line-326">     *      otherwise.</span>
 <span class="source-line-no">327</span><span id="line-327">     */</span>
 <span class="source-line-no">328</span><span id="line-328">    public final boolean isEmpty() { return m_Messages.isEmpty(); }</span>

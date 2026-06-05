@@ -42,13 +42,13 @@ import javafx.util.Callback;
  *  {@link Alert}.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: AlertBuilder.java 1151 2025-10-01 21:32:15Z tquadrat $
+ *  @version $Id: AlertBuilder.java 1258 2026-06-04 18:33:06Z tquadrat $
  *  @since 0.4.1
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "ClassWithTooManyMethods" )
-@ClassVersion( sourceVersion = "$Id: AlertBuilder.java 1151 2025-10-01 21:32:15Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: AlertBuilder.java 1258 2026-06-04 18:33:06Z tquadrat $" )
 @API( status = STABLE, since = "0.4.1" )
 public class AlertBuilder
 {
@@ -159,11 +159,11 @@ public class AlertBuilder
      *  {@link IllegalStateException}
      *  when
      *  {@link #m_IsBuilt}
-     *  is {@code true}.
+     *  is {@true}.
      *
      *  @throws IllegalStateException
      *      {@link #m_IsBuilt}
-     *      is {@code true}.
+     *      is {@true}.
      */
     private final void checkIsBuilt() throws IllegalStateException
     {
@@ -175,8 +175,8 @@ public class AlertBuilder
      *  {@link Alert#showAndWait() showAndWait()}
      *  on it and returns the result.
      *
-     *  @return {@code true} if the alert was terminated with the
-     *      {@linkplain ButtonType#OK Ok button}, {@code false} in any other
+     *  @return {@true} if the alert was terminated with the
+     *      {@linkplain ButtonType#OK Ok button}, {@false} in any other
      *      case.
      *  @throws IllegalStateException   The method
      *      {@link #build()}
@@ -201,7 +201,7 @@ public class AlertBuilder
      *  <p>This operation can be called repeatedly; each consecutive call will
      *  overwrite the value set by the previous one.</p>
      *
-     *  @param  s   The content text; can be {@code null}.
+     *  @param  s   The content text; can be {@null}.
      *  @return The builder reference.
      *  @throws IllegalStateException   The method
      *      {@link #build()}
@@ -225,7 +225,7 @@ public class AlertBuilder
      *  <p>This operation can be called repeatedly; each consecutive call will
      *  overwrite the value set by the previous one.</p>
      *
-     *  @param  dialogPane   The dialog pane; can be {@code null}.
+     *  @param  dialogPane   The dialog pane; can be {@null}.
      *  @return The builder reference.
      *  @throws IllegalStateException   The method
      *      {@link #build()}
@@ -271,7 +271,7 @@ public class AlertBuilder
      *  <p>This operation can be called repeatedly; each consecutive call will
      *  overwrite the value set by the previous one.</p>
      *
-     *  @param  node    The graphics; can be {@code null}.
+     *  @param  node    The graphics; can be {@null}.
      *  @return The builder reference.
      *  @throws IllegalStateException   The method
      *      {@link #build()}
@@ -293,7 +293,7 @@ public class AlertBuilder
      *  <p>This operation can be called repeatedly; each consecutive call will
      *  overwrite the value set by the previous one.</p>
      *
-     *  @param  s   The text for the header; can be {@code null}.
+     *  @param  s   The text for the header; can be {@null}.
      *  @return The builder reference.
      *  @throws IllegalStateException   The method
      *      {@link #build()}
@@ -520,7 +520,7 @@ public class AlertBuilder
      *  <p>This operation can be called repeatedly; each consecutive call will
      *  overwrite the value set by the previous one.</p>
      *
-     *  @param  flag    {@code true} for a resizeable window, _false for a
+     *  @param  flag    {@true} for a resizeable window, _false for a
      *      window with fixed sizes.
      *  @return The builder reference.
      *  @throws IllegalStateException   The method
@@ -545,7 +545,7 @@ public class AlertBuilder
      *  <p>Setting a result converter may have an impact on the behaviour of
      *  {@link #execute()}.</p>
      *
-     *  @param  callback    The result converter; can be {@code null}.
+     *  @param  callback    The result converter; can be {@null}.
      *  @return The builder reference.
      *  @throws IllegalStateException   The method
      *      {@link #build()}
@@ -589,7 +589,7 @@ public class AlertBuilder
      *  <p>This operation can be called repeatedly; each consecutive call will
      *  overwrite the value set by the previous one.</p>
      *
-     *  @param  s   The window title; can be {@code null}.
+     *  @param  s   The window title; can be {@null}.
      *  @return The builder reference.
      *  @throws IllegalStateException   The method
      *      {@link #build()}

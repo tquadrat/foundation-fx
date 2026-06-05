@@ -56,13 +56,13 @@ import javafx.util.Callback;
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
- *  @version $Id: RangeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $
+ *  @version $Id: RangeSliderSkin.java 1258 2026-06-04 18:33:06Z tquadrat $
  *  @since 0.4.6
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( {"ClassWithTooManyFields", "ClassWithTooManyMethods", "OverlyComplexClass"} )
-@ClassVersion( sourceVersion = "$Id: RangeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: RangeSliderSkin.java 1258 2026-06-04 18:33:06Z tquadrat $" )
 @API( status = STABLE, since = "0.4.6" )
 public class RangeSliderSkin extends SkinBase<RangeSlider>
 {
@@ -74,13 +74,13 @@ public class RangeSliderSkin extends SkinBase<RangeSlider>
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
      *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
-     *  @version $Id: RangeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $
+     *  @version $Id: RangeSliderSkin.java 1258 2026-06-04 18:33:06Z tquadrat $
      *  @since 0.4.6
      *
      *  @UMLGraph.link
      */
     @SuppressWarnings( "ProtectedInnerClass" )
-    @ClassVersion( sourceVersion = "$Id: RangeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: RangeSliderSkin.java 1258 2026-06-04 18:33:06Z tquadrat $" )
     @API( status = INTERNAL, since = "0.4.6" )
     protected static enum FocusedChild
     {
@@ -120,12 +120,12 @@ public class RangeSliderSkin extends SkinBase<RangeSlider>
      *
      *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
      *  @inspired  {@href https://controlsfx.github.io/ ControlsFX Project}
-     *  @version $Id: RangeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $
+     *  @version $Id: RangeSliderSkin.java 1258 2026-06-04 18:33:06Z tquadrat $
      *  @since 0.4.6
      *
      *  @UMLGraph.link
      */
-    @ClassVersion( sourceVersion = "$Id: RangeSliderSkin.java 1121 2024-03-16 16:51:23Z tquadrat $" )
+    @ClassVersion( sourceVersion = "$Id: RangeSliderSkin.java 1258 2026-06-04 18:33:06Z tquadrat $" )
     @API( status = INTERNAL, since = "0.4.6" )
     private static final class ThumbPane extends StackPane
     {
@@ -143,8 +143,8 @@ public class RangeSliderSkin extends SkinBase<RangeSlider>
         /**
          *  Sets the focus.
          *
-         *  @param  flag    {@code true} if this instance has the focus,
-         *      {@code false} if not.
+         *  @param  flag    {@true} if this instance has the focus,
+         *      {@false} if not.
          */
         public final void setFocus( final boolean flag ) { setFocused( flag ); }
     }
@@ -699,7 +699,7 @@ public class RangeSliderSkin extends SkinBase<RangeSlider>
      *  <p>{@summary Prepares the dragging of the high thumb.}</p>
      *  <p>When the high thumb is released,
      *  {@link RangeSlider#highValueChangingProperty()}
-     *  is set to {@code false}.</p>
+     *  is set to {@false}.</p>
      *
      *  @param  ignoredMouseEvent   The mouse event.
      *  @param  ignoredPosition The new position.
@@ -912,9 +912,9 @@ public class RangeSliderSkin extends SkinBase<RangeSlider>
      *  is
      *  {@linkplain Orientation#HORIZONTAL horizontal}.
      *
-     *  @return {@code true} if the orientation is
+     *  @return {@true} if the orientation is
      *      {@link Orientation#HORIZONTAL},
-     *      {@code false} when it is
+     *      {@false} when it is
      *      {@link Orientation#VERTICAL}.
      */
     private final boolean isHorizontal() { return isNull( m_Orientation ) || m_Orientation == HORIZONTAL; }
@@ -1057,7 +1057,7 @@ public class RangeSliderSkin extends SkinBase<RangeSlider>
      *  <p>{@summary Prepares the dragging of the low thumb.}</p>
      *  <p>When the low thumb is released,
      *  {@link RangeSlider#lowValueChangingProperty()}
-     *  is set to {@code false}.</p>
+     *  is set to {@false}.</p>
      *
      *  @param  ignoredMouseEvent   The mouse event.
      *  @param  ignoredPosition The new position.
@@ -1250,10 +1250,10 @@ public class RangeSliderSkin extends SkinBase<RangeSlider>
      *  new visibility and to add the necessary objects. After this method
      *  returns, we must be sure to add the high thumb and the range bar.</p>
      *
-     *  @param  ticksVisible    {@code true} if the tick marks are visible,
-     *      {@code false} if not.
-     *  @param  labelsVisible   {@code true} if the tick labels are visible,
-     *      {@code false} if not.
+     *  @param  ticksVisible    {@true} if the tick marks are visible,
+     *      {@false} if not.
+     *  @param  labelsVisible   {@true} if the tick labels are visible,
+     *      {@false} if not.
      */
     private void setShowTickMarks( final boolean ticksVisible, final boolean labelsVisible)
     {

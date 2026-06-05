@@ -17,21 +17,21 @@
 
 package org.tquadrat.foundation.fx.util;
 
-import javafx.util.StringConverter;
-import org.apiguardian.api.API;
-import org.tquadrat.foundation.annotation.ClassVersion;
-import org.tquadrat.foundation.fx.control.ErrorDisplay;
-import org.tquadrat.foundation.lang.GenericStringConverter;
-import org.tquadrat.foundation.lang.Stringer;
+import static org.apiguardian.api.API.Status.STABLE;
+import static org.tquadrat.foundation.lang.Objects.isNull;
+import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
+import static org.tquadrat.foundation.lang.Objects.requireNotBlankArgument;
 
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
-import static org.apiguardian.api.API.Status.STABLE;
-import static org.tquadrat.foundation.lang.Objects.isNull;
-import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
-import static org.tquadrat.foundation.lang.Objects.requireNotBlankArgument;
+import org.apiguardian.api.API;
+import org.tquadrat.foundation.annotation.ClassVersion;
+import org.tquadrat.foundation.fx.control.ErrorDisplay;
+import org.tquadrat.foundation.lang.GenericStringConverter;
+import org.tquadrat.foundation.lang.Stringer;
+import javafx.util.StringConverter;
 
 /**
  *  <p>{@summary An implementation of
@@ -66,20 +66,20 @@ import static org.tquadrat.foundation.lang.Objects.requireNotBlankArgument;
  *  {@code fromString()} conversion fails.</p>
  *
  *  @note The method {@code fromString()} of a JavaFX {@code StringConverter}
- *      may always return {@code null}, for each and every argument, but this
+ *      may always return {@null}, for each and every argument, but this
  *      is not allowed for an implementation of the method with the same name
  *      for a <i>Foundation</i> {@code StringConverter}.
  *
  *  @param <T>  The target type for the conversion.
  *
- *  @version $Id: FXStringConverter.java 1164 2026-03-20 17:38:18Z tquadrat $
+ *  @version $Id: FXStringConverter.java 1258 2026-06-04 18:33:06Z tquadrat $
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
  *  @UMLGraph.link
  *  @since 0.4.3
  *
  *  @see GenericStringConverter
  */
-@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 1164 2026-03-20 17:38:18Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: FXStringConverter.java 1258 2026-06-04 18:33:06Z tquadrat $" )
 @API( status = STABLE, since = "0.4.3" )
 public final class FXStringConverter<T> extends StringConverter<T> implements org.tquadrat.foundation.lang.StringConverter<T>
 {
@@ -211,7 +211,7 @@ public final class FXStringConverter<T> extends StringConverter<T> implements or
      *  instance of {@link StringConverter javafx.util.StringConverter}.}</p>
      *  <p>Keep in mind that the implementation of the method
      *  {@link StringConverter#fromString(String) javafx.util.StringConverter.fromString()}
-     *  may return {@code null} for all input arguments, but that this
+     *  may return {@null} for all input arguments, but that this
      *  behaviour is not valid for an implementation of the method
      *  {@link org.tquadrat.foundation.lang.StringConverter#fromString(CharSequence) org.tquadrat.foundation.lang.StringConverter.fromString()}.</p>
      *
