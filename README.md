@@ -10,4 +10,4 @@ Some extensions and utilities for JavaFX.
     </dependency>
     ```
 ---  
-Last updated: 2026-11-21T16:52:44.064672866+01:00[Europe/Berlin]
+Last updated: 2026-11-22T12:02:52.469159083+01:00[Europe/Berlin]
