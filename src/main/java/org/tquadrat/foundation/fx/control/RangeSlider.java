@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- *  Copyright © 2002-2025 by Thomas Thrien.
+ *  Copyright © 2002-2026 by Thomas Thrien.
  *  All Rights Reserved.
  * ============================================================================
  *  Licensed to the public under the agreements of the GNU Lesser General Public
@@ -335,17 +335,16 @@ public final class RangeSlider extends FoundationFXControl
         };
 
         /**
-         *  The CSS attributes for
-         *  {@link RangeSlider}.
+         *  <p>{@summary The CSS attributes for
+         *  {@link RangeSlider}.}</p>
          */
-        @SuppressWarnings( "StaticCollection" )
         public static final List<CssMetaData<? extends Styleable, ?>> STYLEABLES = List.of( BLOCK_INCREMENT, MAJOR_TICK_UNIT, MINOR_TICK_COUNT, ORIENTATION, SHOW_TICK_LABELS, SHOW_TICK_MARKS, SNAP_TO_TICKS );
 
             /*--------------*\
         ====** Constructors **=================================================
             \*--------------*/
         /**
-         *  No instance allowed for this class!
+         *  <p>{@summary {@noInstance}}</p>
          */
         private StyleableProperties() { throw new PrivateConstructorForStaticClassCalledError( StyleableProperties.class ); }
     }
@@ -1103,7 +1102,7 @@ public final class RangeSlider extends FoundationFXControl
      */
     public final void setMajorTickUnit( final double tickUnit )
     {
-        m_MajorTickUnitProperty.set( requireValidDoubleArgument( tickUnit, "tickUnit", value -> value > 0.0, _ -> "MajorTickUnit cannot be less than or equal to 0." ) );
+        m_MajorTickUnitProperty.set( requireValidDoubleArgument( tickUnit, "tickUnit", value -> value > 0.0, (_,_) -> "MajorTickUnit cannot be less than or equal to 0." ) );
     }   //  setMajorTickUnit()
 
     /**
